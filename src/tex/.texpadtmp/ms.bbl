@@ -1942,6 +1942,130 @@
       \verb http://dx.doi.org/10.1126/science.aat8603
       \endverb
     \endentry
+    \entry{Zhou2025}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=1f7ebca9d953b68f790a08b5d9ea4360}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Wenhao},
+           giveni={W\bibinitperiod}}}%
+        {{hash=82ff77e1b46c390f9992f18c2a022dd7}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Faqiang},
+           giveni={F\bibinitperiod}}}%
+        {{hash=34d448899769c04cec124cb68f2bb014}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Hao},
+           giveni={H\bibinitperiod}}}%
+        {{hash=f70aed47ae93ae7280ee44c3888316b8}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Rong},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{6400932beb748c2947d92c9e149e795b}
+      \strng{fullhash}{9825e320d75d94f95df7627b115c7bde}
+      \strng{fullhashraw}{9825e320d75d94f95df7627b115c7bde}
+      \strng{bibnamehash}{9825e320d75d94f95df7627b115c7bde}
+      \strng{authorbibnamehash}{9825e320d75d94f95df7627b115c7bde}
+      \strng{authornamehash}{6400932beb748c2947d92c9e149e795b}
+      \strng{authorfullhash}{9825e320d75d94f95df7627b115c7bde}
+      \strng{authorfullhashraw}{9825e320d75d94f95df7627b115c7bde}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2041-1723}
+      \field{journaltitle}{Nature Communications}
+      \field{month}{7}
+      \field{number}{1}
+      \field{title}{Mitigating data bias and ensuring reliable evaluation of AI models with shortcut hull learning}
+      \field{volume}{16}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.1038/s41467-025-60801-6
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1038/s41467-025-60801-6
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/s41467-025-60801-6
+      \endverb
+    \endentry
+    \entry{Jones2024}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=3a8927b2088651c48a8dfec8162a1835}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Charles},
+           giveni={C\bibinitperiod}}}%
+        {{hash=961f2a986bf796caa5d79a253f83801b}{%
+           family={Castro},
+           familyi={C\bibinitperiod},
+           given={Daniel\bibnamedelima C.},
+           giveni={D\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=56636efc510de0b875906bd0a76c04c8}{%
+           family={De\bibnamedelima Sousa\bibnamedelima Ribeiro},
+           familyi={D\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={Fabio},
+           giveni={F\bibinitperiod}}}%
+        {{hash=522a1f3bd149ca0406188abfb424c46a}{%
+           family={Oktay},
+           familyi={O\bibinitperiod},
+           given={Ozan},
+           giveni={O\bibinitperiod}}}%
+        {{hash=470c89cba4808f07b8a403f89308d0a4}{%
+           family={McCradden},
+           familyi={M\bibinitperiod},
+           given={Melissa},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5bc19448e90c8f3e88e5fbd50f12ac15}{%
+           family={Glocker},
+           familyi={G\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{6a3d702a6219a8be25cf9d5507a1e9c0}
+      \strng{fullhash}{9815fc31f72f0a71e8f75c06ae215020}
+      \strng{fullhashraw}{9815fc31f72f0a71e8f75c06ae215020}
+      \strng{bibnamehash}{6a3d702a6219a8be25cf9d5507a1e9c0}
+      \strng{authorbibnamehash}{6a3d702a6219a8be25cf9d5507a1e9c0}
+      \strng{authornamehash}{6a3d702a6219a8be25cf9d5507a1e9c0}
+      \strng{authorfullhash}{9815fc31f72f0a71e8f75c06ae215020}
+      \strng{authorfullhashraw}{9815fc31f72f0a71e8f75c06ae215020}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2522-5839}
+      \field{journaltitle}{Nature Machine Intelligence}
+      \field{month}{2}
+      \field{number}{2}
+      \field{title}{A causal perspective on dataset bias in machine learning for medical imaging}
+      \field{volume}{6}
+      \field{year}{2024}
+      \field{pages}{138\bibrangedash 146}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1038/s42256-024-00797-8
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1038/s42256-024-00797-8
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/s42256-024-00797-8
+      \endverb
+    \endentry
     \entry{Ramos2025}{article}{}{}
       \name{author}{3}{}{%
         {{hash=6c1accfcccf9ce3a2bad10fbb050385d}{%
@@ -2143,6 +2267,128 @@
       \field{title}{Reinventing discovery}
       \field{year}{2020}
     \endentry
+    \entry{Jia2019}{article}{}{}
+      \name{author}{11}{}{%
+        {{hash=e2c4c7877539eb619f55741a1c676d13}{%
+           family={Jia},
+           familyi={J\bibinitperiod},
+           given={Xiwen},
+           giveni={X\bibinitperiod}}}%
+        {{hash=a5ff302e8d4e2ee49584f58b08ff9006}{%
+           family={Lynch},
+           familyi={L\bibinitperiod},
+           given={Allyson},
+           giveni={A\bibinitperiod}}}%
+        {{hash=258cfce0fcfb4501405637985ff543f6}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Yuheng},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=a7f356915c0fc639b5b10871150a1b35}{%
+           family={Danielson},
+           familyi={D\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e687dce5fc824d0bca0f968c04194af5}{%
+           family={Lang’at},
+           familyi={L\bibinitperiod},
+           given={Immaculate},
+           giveni={I\bibinitperiod}}}%
+        {{hash=cfc3acd7d7761afa45ef6f23a84f2768}{%
+           family={Milder},
+           familyi={M\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4486ad872556e7a0ce9c073e3fb7e91d}{%
+           family={Ruby},
+           familyi={R\bibinitperiod},
+           given={Aaron\bibnamedelima E.},
+           giveni={A\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=c8cf19241225247d6d07dbf8a516b8ed}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Hao},
+           giveni={H\bibinitperiod}}}%
+        {{hash=b2b40e7a0fdfbdbcf9af2da7c8e59417}{%
+           family={Friedler},
+           familyi={F\bibinitperiod},
+           given={Sorelle\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=a7d3e951118bdbed2e6df2b3abd4451c}{%
+           family={Norquist},
+           familyi={N\bibinitperiod},
+           given={Alexander\bibnamedelima J.},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=f46d09f7ed0756706b27e295024bb475}{%
+           family={Schrier},
+           familyi={S\bibinitperiod},
+           given={Joshua},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{23332dc9dc837b387a3065d11b96ec9c}
+      \strng{fullhash}{eb830c7370a47eb7a298c607f651731a}
+      \strng{fullhashraw}{eb830c7370a47eb7a298c607f651731a}
+      \strng{bibnamehash}{23332dc9dc837b387a3065d11b96ec9c}
+      \strng{authorbibnamehash}{23332dc9dc837b387a3065d11b96ec9c}
+      \strng{authornamehash}{23332dc9dc837b387a3065d11b96ec9c}
+      \strng{authorfullhash}{eb830c7370a47eb7a298c607f651731a}
+      \strng{authorfullhashraw}{eb830c7370a47eb7a298c607f651731a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1476-4687}
+      \field{journaltitle}{Nature}
+      \field{month}{9}
+      \field{number}{7773}
+      \field{title}{Anthropogenic biases in chemical reaction data hinder exploratory inorganic synthesis}
+      \field{volume}{573}
+      \field{year}{2019}
+      \field{pages}{251\bibrangedash 255}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1038/s41586-019-1540-5
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1038/s41586-019-1540-5
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/s41586-019-1540-5
+      \endverb
+    \endentry
+    \entry{goldman2024statistical}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=039940acf8d84e06258f5299ac9565c2}{%
+           family={Goldman},
+           familyi={G\bibinitperiod},
+           given={Josh},
+           giveni={J\bibinitperiod}}}%
+        {{hash=4338050813ceeb7ce9eac8dab8749985}{%
+           family={Tsotsos},
+           familyi={T\bibinitperiod},
+           given={John\bibnamedelima K.},
+           giveni={J\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{85e71e45ec2ee03ae97aaecf51060fb9}
+      \strng{fullhash}{85e71e45ec2ee03ae97aaecf51060fb9}
+      \strng{fullhashraw}{85e71e45ec2ee03ae97aaecf51060fb9}
+      \strng{bibnamehash}{85e71e45ec2ee03ae97aaecf51060fb9}
+      \strng{authorbibnamehash}{85e71e45ec2ee03ae97aaecf51060fb9}
+      \strng{authornamehash}{85e71e45ec2ee03ae97aaecf51060fb9}
+      \strng{authorfullhash}{85e71e45ec2ee03ae97aaecf51060fb9}
+      \strng{authorfullhashraw}{85e71e45ec2ee03ae97aaecf51060fb9}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv: 2408.11160}
+      \field{title}{Statistical Challenges with Dataset Construction: Why You Will Never Have Enough Images}
+      \field{year}{2024}
+    \endentry
     \entry{Alampara2025}{article}{}{}
       \name{author}{3}{}{%
         {{hash=de3453b91258a38cd61d290bcac13cdf}{%
@@ -2331,8 +2577,8 @@
       \strng{authornamehash}{bc8843040c7a85337f7ee18b9e014738}
       \strng{authorfullhash}{092955e53b412ce869d0f2b539afc166}
       \strng{authorfullhashraw}{092955e53b412ce869d0f2b539afc166}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2635-098X}
@@ -2428,8 +2674,8 @@
       \strng{authorfullhash}{2f7061a0bf7073a782bd6d9608987d8a}
       \strng{authorfullhashraw}{2f7061a0bf7073a782bd6d9608987d8a}
       \field{extraname}{1}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2058-9689}
@@ -2476,8 +2722,8 @@
       \strng{authornamehash}{582f7c3fd8efdb4a0c86cfe5df880dab}
       \strng{authorfullhash}{6582fa68ef9cc799f6c5dac90033bd15}
       \strng{authorfullhashraw}{6582fa68ef9cc799f6c5dac90033bd15}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv: 2406.00873}
@@ -2518,8 +2764,8 @@
       \strng{authornamehash}{ca7ae617713e0c2fee11965dfdeb097b}
       \strng{authorfullhash}{a90165496649da326adba887e74affa6}
       \strng{authorfullhashraw}{a90165496649da326adba887e74affa6}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2374-7951}
@@ -2565,8 +2811,8 @@
       \strng{authornamehash}{ecde7e5ed107c9d2f22d679ce57deee7}
       \strng{authorfullhash}{ecde7e5ed107c9d2f22d679ce57deee7}
       \strng{authorfullhashraw}{ecde7e5ed107c9d2f22d679ce57deee7}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{npj Computational Materials}
@@ -2576,6 +2822,137 @@
       \field{year}{2025}
       \field{pages}{312}
       \range{pages}{1}
+    \endentry
+    \entry{Moult2005}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=d4d78b8e1a54d12acb4295bb06065365}{%
+           family={Moult},
+           familyi={M\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{d4d78b8e1a54d12acb4295bb06065365}
+      \strng{fullhash}{d4d78b8e1a54d12acb4295bb06065365}
+      \strng{fullhashraw}{d4d78b8e1a54d12acb4295bb06065365}
+      \strng{bibnamehash}{d4d78b8e1a54d12acb4295bb06065365}
+      \strng{authorbibnamehash}{d4d78b8e1a54d12acb4295bb06065365}
+      \strng{authornamehash}{d4d78b8e1a54d12acb4295bb06065365}
+      \strng{authorfullhash}{d4d78b8e1a54d12acb4295bb06065365}
+      \strng{authorfullhashraw}{d4d78b8e1a54d12acb4295bb06065365}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0959-440X}
+      \field{journaltitle}{Current Opinion in Structural Biology}
+      \field{month}{6}
+      \field{number}{3}
+      \field{title}{A decade of CASP: progress, bottlenecks and prognosis in protein structure prediction}
+      \field{volume}{15}
+      \field{year}{2005}
+      \field{pages}{285\bibrangedash 289}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1016/j.sbi.2005.05.011
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1016/j.sbi.2005.05.011
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1016/j.sbi.2005.05.011
+      \endverb
+    \endentry
+    \entry{Tetko2024}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=c352624b4978fab7d1398673d0c37ce6}{%
+           family={Tetko},
+           familyi={T\bibinitperiod},
+           given={Igor\bibnamedelima V.},
+           giveni={I\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Chemical Society (ACS)}%
+      }
+      \strng{namehash}{c352624b4978fab7d1398673d0c37ce6}
+      \strng{fullhash}{c352624b4978fab7d1398673d0c37ce6}
+      \strng{fullhashraw}{c352624b4978fab7d1398673d0c37ce6}
+      \strng{bibnamehash}{c352624b4978fab7d1398673d0c37ce6}
+      \strng{authorbibnamehash}{c352624b4978fab7d1398673d0c37ce6}
+      \strng{authornamehash}{c352624b4978fab7d1398673d0c37ce6}
+      \strng{authorfullhash}{c352624b4978fab7d1398673d0c37ce6}
+      \strng{authorfullhashraw}{c352624b4978fab7d1398673d0c37ce6}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1520-5010}
+      \field{journaltitle}{Chemical Research in Toxicology}
+      \field{month}{5}
+      \field{number}{6}
+      \field{title}{Tox24 Challenge}
+      \field{volume}{37}
+      \field{year}{2024}
+      \field{pages}{825\bibrangedash 826}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1021/acs.chemrestox.4c00192
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1021/acs.chemrestox.4c00192
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1021/acs.chemrestox.4c00192
+      \endverb
+    \endentry
+    \entry{Llinas2019}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=0724ae5c95199e5c281a22dfbbbc2043}{%
+           family={Llinas},
+           familyi={L\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod}}}%
+        {{hash=cb20dcdf997f810b3aad92826ecdcd82}{%
+           family={Avdeef},
+           familyi={A\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Chemical Society (ACS)}%
+      }
+      \strng{namehash}{c69511aa3ec266d429d58d8efa5b3a5b}
+      \strng{fullhash}{c69511aa3ec266d429d58d8efa5b3a5b}
+      \strng{fullhashraw}{c69511aa3ec266d429d58d8efa5b3a5b}
+      \strng{bibnamehash}{c69511aa3ec266d429d58d8efa5b3a5b}
+      \strng{authorbibnamehash}{c69511aa3ec266d429d58d8efa5b3a5b}
+      \strng{authornamehash}{c69511aa3ec266d429d58d8efa5b3a5b}
+      \strng{authorfullhash}{c69511aa3ec266d429d58d8efa5b3a5b}
+      \strng{authorfullhashraw}{c69511aa3ec266d429d58d8efa5b3a5b}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1549-960X}
+      \field{journaltitle}{Journal of Chemical Information and Modeling}
+      \field{month}{5}
+      \field{number}{6}
+      \field{title}{Solubility Challenge Revisited after Ten Years, with Multilab Shake-Flask Data, Using Tight (SD ∼ 0.17 log) and Loose (SD ∼ 0.62 log) Test Sets}
+      \field{volume}{59}
+      \field{year}{2019}
+      \field{pages}{3036\bibrangedash 3040}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1021/acs.jcim.9b00345
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1021/acs.jcim.9b00345
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1021/acs.jcim.9b00345
+      \endverb
     \endentry
     \entry{lightgbm}{manual}{}{}
       \name{author}{13}{}{%
@@ -2962,8 +3339,8 @@
       \strng{authorfullhash}{3b7f575a2345885e9b99f27385c63239}
       \strng{authorfullhashraw}{3b7f575a2345885e9b99f27385c63239}
       \field{extraname}{2}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Physical Review B}
@@ -3038,8 +3415,8 @@
       \strng{authornamehash}{f66dc6868f60190249744e7f893e363d}
       \strng{authorfullhash}{5737267798e11d26bfcc82ba62b610e8}
       \strng{authorfullhashraw}{5737267798e11d26bfcc82ba62b610e8}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Computational Materials Science}

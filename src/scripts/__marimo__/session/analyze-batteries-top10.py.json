@@ -1,0 +1,146 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.19.7"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "21175ac173d9876411e610f2c2fe6635",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Pre-compiling numba functions for DABEST...\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "\rCompiling numba functions:   0%|                      | 0/11 [00:00<?, ?it/s]\rCompiling numba functions:   9%|\u2588\u258e            | 1/11 [00:00<00:06,  1.64it/s]\rCompiling numba functions:  36%|\u2588\u2588\u2588\u2588\u2588         | 4/11 [00:00<00:01,  6.74it/s]\rCompiling numba functions: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 11/11 [00:00<00:00, 13.64it/s]\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Numba compilation complete!\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "e2e6077a9d9076de71da1592dd8c2a98",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "797b8ba6ae8ce2cec1babd1504705490",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Top 10% battery capacity threshold: 1062.0\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "/var/folders/gk/s1v9_48163q2rxpc1x2gq21m0000gn/T/marimo_51823/__marimo__cell_vblA_.py:8: SettingWithCopyWarning: \nA value is trying to be set on a copy of a slice from a DataFrame.\nTry using .loc[row_indexer,col_indexer] = value instead\n\nSee the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n  df_with_capacity[\"is_top10_capacity\"] = (df_with_capacity[\"Value\"] >= capacity_threshold).astype(int)\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Class distribution:\n  Not top 10% (0): 33499 samples (90.0%)\n  Top 10% (1): 3723 samples (10.0%)\nDataset shape: (37222, 320)\nNumber of features: 273\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "57d518ae7393a4ec85ff12c266208ee2",
+      "outputs": [],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "  Requested n_authors: 500, Available unique authors: 32880\n  Using n_authors: 500\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "67e08c4ed1092d542b3ea97d8bac738d",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "76285266df1e1fc282150d7d11b2aab2",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "a269d537c2b189ba25ae456b94d4790d",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "ad471ada9ac55637bb0beaa59ec8160e",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "9b4d3b4c7c0b965b12867f798e6e714c",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "3c5420038c08ef36f121c3b545155db3",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "7acb14e921948c312dee7c19afff18e1",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "caa5f853860094228b7a36fc289b753a",
+      "outputs": [],
+      "console": []
+    }
+  ]
+}

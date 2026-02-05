@@ -123,16 +123,17 @@ Thermally activated delayed fluorescence (TADF) is one mechanism to improve the 
 
 As a feature set for the \enquote{Conventional} and \enquote{Clever Hans} models, I use a broad set of molecular descriptors and fingerprints. Both \enquote{Conventional} and \enquote{Clever Hans} models aim to predict the maximum emission wavelength. 
 
+
 \section{Discussion}
 
 Machine learning has transformed materials discovery,\autocite{Moosavi2020, Saal2020, Gubernatis2018} but the findings here highlight a critical gap: we often fail to rigorously test alternative hypotheses for why our models perform well. 
 The scientific method demands that we actively seek to falsify our hypotheses,\autocite{Platt1964, popper2005logic, Chamberlin1965} yet in machine learning, we tend to focus on optimizing performance rather than exploring competing explanations.
 
 The Clever Hans effect represents just one class of alternative hypotheses we should systematically explore. 
-When we claim that models \enquote{learn meaningful chemistry,} we must test whether simpler explanations --- such as author identity or temporal trends --- could account for the observed performance.\autocite{Chuang2018} 
+When we claim that models \enquote{learn meaningful chemistry,} we must test whether simpler explanations --- such as shortcuts via author identity or publication date --- could account for the observed performance.\autocite{Chuang2018} 
 This requires a shift from asking \enquote{does this model work?} to \enquote{why does this model work, and what are all the ways it could be wrong?}
 
-The space of potential confounders is vast and often non-obvious. Beyond meta-information, models might exploit dataset construction artifacts, measurement biases, or subtle correlations we have not considered. 
+The space of potential confounders is vast and often non-obvious. Beyond the shortcuts via meta-information investigated in this work, models might exploit dataset construction artifacts, measurement biases, or many other spurious effects.\autocite{Zhou2025, Jones2024} 
 Systematically exploring these alternatives is computationally intensive but crucial for scientific rigor.
 
 LLM-based agents might offer a promising approach to automate this exploration.\autocite{Ramos2025, alampara2025general} 
@@ -145,10 +146,10 @@ Another angle is to reconsider how we generate, curate, and share materials data
 The field needs coordinated infrastructure that prioritizes diversity and robustness over convenience. \autocite{Krishnan2025}
 Convenience and short-term reward are often too easy and compelling to optimize for due to collective action problems trapping an ecosystem in a suboptimal state, where every actor knows that changes would be needed, but no one wants to make the first move.\autocite{Nielsen2020-rr} 
 
-The most obvious issue is data generation itself. Most automated screening approaches optimize specific objectives using limited building blocks, which creates exactly the kind of proxy signals that models learn to exploit. 
-What we need are organizations that can generate diverse data at scale---potentially focused on the lowest cost per reproducible data point rather than pushing particular research agendas.
+Most automated screening approaches optimize specific objectives using limited building blocks, which creates exactly the kind of proxy signals that models learn to exploit. And also human researchers are biased in how they explore chemical space.\autocite{Jia2019}
+Organizations that can generate diverse data at scale---potentially focused on the lowest cost per reproducible data point rather than pushing particular research agendas---might help to address this problem. 
 
-Perhaps most importantly, we need to change how we evaluate models. 
+But it is important to keep in mind that in some circumstances, we will never be able to acquire \enquote{enough} data. Thus, we also need renewed focus on how we evaluate models.\autocite{goldman2024statistical} 
 Instead of asking whether models work, we should ask why they work and systematically explore alternative explanations. 
 This means actively trying to disprove our own --- but also others' --- claims about model performance.
 To enable others to do so, access to data and code is obviously a prerequisite. But one could also envision that some of these tests might require new experiments --- which could be facilitated using infrastructure as a service or incentivized using \enquote{bug bounties} for research papers, models, or datasets. We need to accept that receiving feedback --- even if it is pointing out a mistake in our own work --- is a gift.
@@ -156,19 +157,29 @@ To enable others to do so, access to data and code is obviously a prerequisite. 
 \section{Conclusions}
 
 Model evaluation has always been challenging in materials science.\autocite{Alampara2025} 
-We have developed increasingly sophisticated techniques to address this: time-based splitting,\autocite{sheridan2013time, Landrum2023} scaffold splits, leave-one-cluster-out cross-validation,\autocite{Durdy2022, Meredig2018} cluster-based splits,\autocite{guo2024scaffold} and property-based splits.\autocite{Jablonka2023, kunchapu2025polymetrix} Each technique revealed new ways that models could fail to generalize, forcing us to be more rigorous in our evaluation practices.
+We have developed increasingly sophisticated techniques to address this: time-based splitting,\autocite{sheridan2013time, Landrum2023} scaffold splits, leave-one-cluster-out cross-validation,\autocite{Durdy2022, Meredig2018} cluster-based splits,\autocite{guo2024scaffold} and property-based splits.\autocite{Jablonka2023, kunchapu2025polymetrix} 
+In some domains, even challenges have been organized.\autocite{Moult2005, Tetko2024, Llinas2019}
+Each technique revealed new ways that models could fail to generalize, forcing us to be more rigorous in our evaluation practices.
 
-This work highlights yet another layer of complexity. Models can achieve impressive performance not by learning meaningful chemistry, but by exploiting subtle biases in how our datasets are constructed. Across five different materials domains, I find that proxy signals based on publication meta-information consistently provide substantial predictive power.
+This work highlights yet another layer of complexity. 
+Models can achieve impressive performance not by learning meaningful chemistry, but by exploiting subtle biases in how our datasets are constructed. Across five different materials domains, I find that proxy signals---such as shortcut learning via publication meta-information---can provide substantial predictive power.
 
-The simplest explanation for good model performance is often shortcut learning, not meaningful chemistry. This is an uncomfortable truth that challenges fundamental assumptions about what our models learn. The space of potential confounders extends far beyond what current evaluation techniques can catch.
+The simplest explanation for good model performance might often be shortcut learning, not meaningful understanding of chemistry. 
+This is an uncomfortable truth, but the space of potential confounders extends far beyond what current evaluation techniques can catch.
 
-Like the original Clever Hans, our models may be performing impressive feats---but for all the wrong reasons. They excel not because they understand chemistry, but because they have learned to read the subtle cues we inadvertently embedded in our data. The question is no longer whether our models can achieve good performance, but whether we can trust what that performance actually means.
+Like the original Clever Hans, our models may be performing impressive feats---but for all the wrong reasons. 
+They excel not because they understand chemistry, but because they have learned to read the subtle clues inadvertently embedded in our data. 
+Thus, we should not only ask whether our models can achieve good performance, but also whether we can trust what that performance actually means.
 
-This is not necessarily a condemnation of all shortcut learning. Models that exploit proxy signals can still provide statistically reliable predictions and practical value---as long as the underlying patterns remain stable. The critical issue is transparency about what we are doing and why.
+This is not necessarily a condemnation of all shortcut learning. 
+Models that exploit proxy signals can still provide statistically reliable predictions and practical value---as long as the underlying patterns remain stable and as long as we only care about the average performance. 
+The critical issue is transparency about what we are doing and why.
 
-If our goal is scientific understanding and robust generalization to genuinely new materials, we must systematically explore alternative explanations and build models that resist spurious correlations. If our goal is simply a predictive tool that works well on average, we can accept some brittleness---but we should communicate openly that the model may fail in unpredictable ways when the hidden assumptions break down.
+If our goal is scientific understanding and robust generalization to genuinely new materials, we must systematically explore alternative explanations and build models that resist spurious correlations. 
+If our goal is simply a predictive tool that works well on average, we can accept some brittleness---but we should communicate openly that the model may fail in unpredictable ways when the hidden assumptions break down.
 
-In the end, the Clever Hans problem forces us to confront a choice about scientific machine learning: Do we want tools that advance chemical understanding, or are we content with sophisticated pattern matchers that reflect our own biases? Both approaches have merit, but honesty about which path we are taking will help to unlock real acceleration using machine learning. 
+In the end, the Clever Hans problem forces us to confront a choice about scientific machine learning: Do we want tools that advance chemical understanding, or are we content with sophisticated pattern matchers that reflect various biases and artifacts? 
+Both approaches can have merit, but honesty about which path we are taking will help to unlock real acceleration using machine learning. 
 
 \section{Methods}
 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.2)  5 FEB 2026 11:43
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.2)  5 FEB 2026 12:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1544,61 +1544,77 @@ Overfull \hbox (0.45238pt too wide) in paragraph at lines 124--125
  []
 
 
+Overfull \hbox (6.66956pt too wide) in paragraph at lines 136--138
+\TU/LinBiolinum(0)/m/n/10.95 shortcuts via meta-information investigated in this work, models might exploit dataset
+ []
+
+
 
 [5]
+Overfull \hbox (3.59628pt too wide) in paragraph at lines 159--163
+\TU/LinBiolinum(0)/m/n/10.95 property-based splits.$[]$ In some domains, even challenges have been organized.$[]$
+ []
+
+
 
 [6]
 
 [7]
-Overfull \hbox (3.93567pt too wide) in paragraph at lines 220--221
+Overfull \hbox (3.93567pt too wide) in paragraph at lines 231--232
 []\TU/LinBiolinum(0)/b/n/10.95 Fingerprints\TU/LinBiolinum(0)/m/n/10.95 : 2048-bit circular fingerprints with radius 2, capturing local chem-
  []
 
 
 
 [8]
-Overfull \hbox (23.42854pt too wide) in paragraph at lines 256--257
+
+[9]
+Overfull \hbox (23.42854pt too wide) in paragraph at lines 267--268
 \TU/LinBiolinum(0)/m/n/10.95 NFDI consortium FAIRmat - Deutsche Forschungsgemeinschaft (DFG) - Project 460197019. 
  []
 
-
-
-[9]
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/sc' will be
-(Font)              scaled to size 10.95pt on input line 261.
+(Font)              scaled to size 10.95pt on input line 272.
 
 
 [10]
 
 [11]
-Overfull \hbox (36.67694pt too wide) in paragraph at lines 262--262
+Overfull \hbox (36.67694pt too wide) in paragraph at lines 273--273
 \TU/LinBiolinum(0)/m/it/10.95 view Materials \TU/LinBiolinum(0)/b/n/10.95 2. \TU/LinBiolinum(0)/m/sc/10.95 issn\TU/LinBiolinum(0)/m/n/10.95 : 2475-9953. []$[][][][] [] [] [] [][] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][][][][][][][] []
  []
 
 
 
 [12]
-Overfull \hbox (5.6384pt too wide) in paragraph at lines 262--262
+Overfull \hbox (1.33595pt too wide) in paragraph at lines 273--273
+\TU/LinBiolinum(0)/m/n/10.95 Why You Will Never Have Enough Images. \TU/LinBiolinum(0)/m/it/10.95 arXiv preprint arXiv: 2408.11160 \TU/LinBiolinum(0)/m/n/10.95 (2024). 
+ []
+
+
+Overfull \hbox (5.6384pt too wide) in paragraph at lines 273--273
 []\TU/LinBiolinum(0)/m/n/10.95 Alampara, N., Schilling-Wilhelmi, M. & Jablonka, K. M. Lessons from the trenches
  []
 
 
-Overfull \hbox (0.54478pt too wide) in paragraph at lines 262--262
+Overfull \hbox (0.54478pt too wide) in paragraph at lines 273--273
 \TU/LinBiolinum(0)/m/n/10.95 for validating machine learning approaches. \TU/LinBiolinum(0)/m/it/10.95 Journal of Cheminformatics \TU/LinBiolinum(0)/b/n/10.95 15. \TU/LinBiolinum(0)/m/sc/10.95 issn\TU/LinBiolinum(0)/m/n/10.95 :
- []
-
-
-Overfull \hbox (4.98674pt too wide) in paragraph at lines 262--262
-[]\TU/LinBiolinum(0)/m/n/10.95 Landrum, G. RDKit: Open-Source Cheminformatics Software. []$[][][][][] [] [] [] [][][][][][] []
  []
 
 
 
 [13]
+Overfull \hbox (4.98674pt too wide) in paragraph at lines 273--273
+[]\TU/LinBiolinum(0)/m/n/10.95 Landrum, G. RDKit: Open-Source Cheminformatics Software. []$[][][][][] [] [] [] [][][][][][] []
+ []
+
+
 
 [14]
 
-[15] (/Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/.texpadtmp/ms.aux)
+[15]
+
+[16] (/Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/.texpadtmp/ms.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1610,12 +1626,12 @@ Package logreq Info: Writing requests to 'ms.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49236 strings out of 473832
- 1058459 string characters out of 5729481
- 1957755 words of memory out of 5000000
- 71653 multiletter control sequences out of 15000+600000
+ 49257 strings out of 473832
+ 1059416 string characters out of 5729481
+ 1957162 words of memory out of 5000000
+ 71674 multiletter control sequences out of 15000+600000
  565564 words of font info for 89 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  96i,6n,111p,1494b,5615s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/.texpadtmp/ms.pdf (15 pages).
+Output written on /Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/.texpadtmp/ms.pdf (16 pages).
