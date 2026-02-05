@@ -1,0 +1,3055 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{hardtrecht2022patterns}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=e771760b6d0d33f8b4dfd907d8d57ac2}{%
+           family={Hardt},
+           familyi={H\bibinitperiod},
+           given={Moritz},
+           giveni={M\bibinitperiod}}}%
+        {{hash=3503059e1c0c778913607c87d8c5173a}{%
+           family={Recht},
+           familyi={R\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{1c50b004bca8b02a3b4272fcc63011e8}
+      \strng{fullhash}{1c50b004bca8b02a3b4272fcc63011e8}
+      \strng{fullhashraw}{1c50b004bca8b02a3b4272fcc63011e8}
+      \strng{bibnamehash}{1c50b004bca8b02a3b4272fcc63011e8}
+      \strng{authorbibnamehash}{1c50b004bca8b02a3b4272fcc63011e8}
+      \strng{authornamehash}{1c50b004bca8b02a3b4272fcc63011e8}
+      \strng{authorfullhash}{1c50b004bca8b02a3b4272fcc63011e8}
+      \strng{authorfullhashraw}{1c50b004bca8b02a3b4272fcc63011e8}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Patterns, predictions, and actions: Foundations of machine learning}
+      \field{year}{2022}
+    \endentry
+    \entry{Lones2024}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=5b55e90a4595654fadc047e5bed78075}{%
+           family={Lones},
+           familyi={L\bibinitperiod},
+           given={Michael\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{5b55e90a4595654fadc047e5bed78075}
+      \strng{fullhash}{5b55e90a4595654fadc047e5bed78075}
+      \strng{fullhashraw}{5b55e90a4595654fadc047e5bed78075}
+      \strng{bibnamehash}{5b55e90a4595654fadc047e5bed78075}
+      \strng{authorbibnamehash}{5b55e90a4595654fadc047e5bed78075}
+      \strng{authornamehash}{5b55e90a4595654fadc047e5bed78075}
+      \strng{authorfullhash}{5b55e90a4595654fadc047e5bed78075}
+      \strng{authorfullhashraw}{5b55e90a4595654fadc047e5bed78075}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2666-3899}
+      \field{journaltitle}{Patterns}
+      \field{month}{10}
+      \field{number}{10}
+      \field{title}{Avoiding common machine learning pitfalls}
+      \field{volume}{5}
+      \field{year}{2024}
+      \field{pages}{101046}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.patter.2024.101046
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1016/j.patter.2024.101046
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1016/j.patter.2024.101046
+      \endverb
+    \endentry
+    \entry{Lapuschkin2019}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=ae7623274e86daf16f369161c4ae78f7}{%
+           family={Lapuschkin},
+           familyi={L\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=5bb76a7a7d299f38cb689b3f425ea815}{%
+           family={Wäldchen},
+           familyi={W\bibinitperiod},
+           given={Stephan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d122a2a87d21da4007f460564975e967}{%
+           family={Binder},
+           familyi={B\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e0889b25b37f68a2d73747dc5dfcb8a0}{%
+           family={Montavon},
+           familyi={M\bibinitperiod},
+           given={Grégoire},
+           giveni={G\bibinitperiod}}}%
+        {{hash=7f49b6382ab4ca917a2aa2249f875f79}{%
+           family={Samek},
+           familyi={S\bibinitperiod},
+           given={Wojciech},
+           giveni={W\bibinitperiod}}}%
+        {{hash=9f1b6144a45b1967e989e74552e37ada}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={Klaus-Robert},
+           giveni={K\bibinithyphendelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{089850e3e5926a72ae1d3b193ecf050d}
+      \strng{fullhash}{c910d3402c8ad9fabf1f7245692abfa0}
+      \strng{fullhashraw}{c910d3402c8ad9fabf1f7245692abfa0}
+      \strng{bibnamehash}{089850e3e5926a72ae1d3b193ecf050d}
+      \strng{authorbibnamehash}{089850e3e5926a72ae1d3b193ecf050d}
+      \strng{authornamehash}{089850e3e5926a72ae1d3b193ecf050d}
+      \strng{authorfullhash}{c910d3402c8ad9fabf1f7245692abfa0}
+      \strng{authorfullhashraw}{c910d3402c8ad9fabf1f7245692abfa0}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2041-1723}
+      \field{journaltitle}{Nature Communications}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{Unmasking Clever Hans predictors and assessing what machines really learn}
+      \field{volume}{10}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.1038/s41467-019-08987-4
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1038/s41467-019-08987-4
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/s41467-019-08987-4
+      \endverb
+    \endentry
+    \entry{Brown2023}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=ef6b4a472711f590f9de2d1b926537b5}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=b75d4ef161920752a23f4003aee5de11}{%
+           family={Tomasev},
+           familyi={T\bibinitperiod},
+           given={Nenad},
+           giveni={N\bibinitperiod}}}%
+        {{hash=c4ca02aaeec3eb994d30b7f515efd423}{%
+           family={Freyberg},
+           familyi={F\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8e34231ba9b9318aa75b42a62d10fba4}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yuan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=45aacfb5c7248e226c7bc1188c1e4e00}{%
+           family={Karthikesalingam},
+           familyi={K\bibinitperiod},
+           given={Alan},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d2c303de7b2a13942d2d61af7d36c41f}{%
+           family={Schrouff},
+           familyi={S\bibinitperiod},
+           given={Jessica},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{553bfccd9162d504e73c8abfffe8ae05}
+      \strng{fullhash}{ec01d0176a967cc4a246abc6f1d468fe}
+      \strng{fullhashraw}{ec01d0176a967cc4a246abc6f1d468fe}
+      \strng{bibnamehash}{553bfccd9162d504e73c8abfffe8ae05}
+      \strng{authorbibnamehash}{553bfccd9162d504e73c8abfffe8ae05}
+      \strng{authornamehash}{553bfccd9162d504e73c8abfffe8ae05}
+      \strng{authorfullhash}{ec01d0176a967cc4a246abc6f1d468fe}
+      \strng{authorfullhashraw}{ec01d0176a967cc4a246abc6f1d468fe}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2041-1723}
+      \field{journaltitle}{Nature Communications}
+      \field{month}{7}
+      \field{number}{1}
+      \field{title}{Detecting shortcut learning for fair medical AI using shortcut testing}
+      \field{volume}{14}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1038/s41467-023-39902-7
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1038/s41467-023-39902-7
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/s41467-023-39902-7
+      \endverb
+    \endentry
+    \entry{Howard2021}{article}{}{}
+      \name{author}{13}{}{%
+        {{hash=032bcc7e84e415190208c81523211d27}{%
+           family={Howard},
+           familyi={H\bibinitperiod},
+           given={Frederick\bibnamedelima M.},
+           giveni={F\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=093519e98cf27da9706c7a08c4394592}{%
+           family={Dolezal},
+           familyi={D\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod}}}%
+        {{hash=0bd21a6501fa605669da4d8ab7aba88a}{%
+           family={Kochanny},
+           familyi={K\bibinitperiod},
+           given={Sara},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c3f450845ca732f81ed285bafd430669}{%
+           family={Schulte},
+           familyi={S\bibinitperiod},
+           given={Jefree},
+           giveni={J\bibinitperiod}}}%
+        {{hash=187895a39a72b98beb6f08deaaeabf31}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Heather},
+           giveni={H\bibinitperiod}}}%
+        {{hash=b131b40719dd756604d82d31e7cf6b6d}{%
+           family={Heij},
+           familyi={H\bibinitperiod},
+           given={Lara},
+           giveni={L\bibinitperiod}}}%
+        {{hash=2a98511efca7a2e68ffb4477a02ffd31}{%
+           family={Huo},
+           familyi={H\bibinitperiod},
+           given={Dezheng},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ac9efe6a3036c6b0a99e09a1cdb82d20}{%
+           family={Nanda},
+           familyi={N\bibinitperiod},
+           given={Rita},
+           giveni={R\bibinitperiod}}}%
+        {{hash=1ff5467887b9e82184e2f96ade49c75c}{%
+           family={Olopade},
+           familyi={O\bibinitperiod},
+           given={Olufunmilayo\bibnamedelima I.},
+           giveni={O\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=4ecab09aa5c82c458c763c698ec04241}{%
+           family={Kather},
+           familyi={K\bibinitperiod},
+           given={Jakob\bibnamedelima N.},
+           giveni={J\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=c481f1505ccfbdffe7377c4aec4dfde3}{%
+           family={Cipriani},
+           familyi={C\bibinitperiod},
+           given={Nicole},
+           giveni={N\bibinitperiod}}}%
+        {{hash=773ba5f81c5467131232d090f2f0d906}{%
+           family={Grossman},
+           familyi={G\bibinitperiod},
+           given={Robert\bibnamedelima L.},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=6d94583190e1198ce8faff9b575588b9}{%
+           family={Pearson},
+           familyi={P\bibinitperiod},
+           given={Alexander\bibnamedelima T.},
+           giveni={A\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{2656528c05f6e65768407ec80fd8b33a}
+      \strng{fullhash}{1640c70e100cac121b39e6e771cf1d68}
+      \strng{fullhashraw}{1640c70e100cac121b39e6e771cf1d68}
+      \strng{bibnamehash}{2656528c05f6e65768407ec80fd8b33a}
+      \strng{authorbibnamehash}{2656528c05f6e65768407ec80fd8b33a}
+      \strng{authornamehash}{2656528c05f6e65768407ec80fd8b33a}
+      \strng{authorfullhash}{1640c70e100cac121b39e6e771cf1d68}
+      \strng{authorfullhashraw}{1640c70e100cac121b39e6e771cf1d68}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2041-1723}
+      \field{journaltitle}{Nature Communications}
+      \field{month}{7}
+      \field{number}{1}
+      \field{title}{The impact of site-specific digital histology signatures on deep learning model accuracy and bias}
+      \field{volume}{12}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.1038/s41467-021-24698-1
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1038/s41467-021-24698-1
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/s41467-021-24698-1
+      \endverb
+    \endentry
+    \entry{pooch2019trust}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=7d80983c4d8d7da11890ab821b596df8}{%
+           family={Pooch},
+           familyi={P\bibinitperiod},
+           given={Eduardo\bibnamedelimb H.\bibnamedelimi P.},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=dad16350231105a6215054de0c0f5282}{%
+           family={Ballester},
+           familyi={B\bibinitperiod},
+           given={Pedro\bibnamedelima L.},
+           giveni={P\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=4d19b360500f1582c2d4da27e38ff678}{%
+           family={Barros},
+           familyi={B\bibinitperiod},
+           given={Rodrigo\bibnamedelima C.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{49d080601034e04736a66fb86f45b3a9}
+      \strng{fullhash}{6f77bf05c91860ad67468d078794b761}
+      \strng{fullhashraw}{6f77bf05c91860ad67468d078794b761}
+      \strng{bibnamehash}{6f77bf05c91860ad67468d078794b761}
+      \strng{authorbibnamehash}{6f77bf05c91860ad67468d078794b761}
+      \strng{authornamehash}{49d080601034e04736a66fb86f45b3a9}
+      \strng{authorfullhash}{6f77bf05c91860ad67468d078794b761}
+      \strng{authorfullhashraw}{6f77bf05c91860ad67468d078794b761}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv: 1909.01940}
+      \field{title}{Can we trust deep learning models diagnosis? The impact of domain shift in chest radiograph classification}
+      \field{year}{2019}
+    \endentry
+    \entry{xiao2020noise}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=e8602e6e904a947e9a5a52b59c77bc93}{%
+           family={Xiao},
+           familyi={X\bibinitperiod},
+           given={Kai\bibnamedelima Y.},
+           giveni={K\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=52a9eb75d8ed34150ce01eb9e4c43027}{%
+           family={Engstrom},
+           familyi={E\bibinitperiod},
+           given={Logan},
+           giveni={L\bibinitperiod}}}%
+        {{hash=924b414be21dcfc4f4f9f08196520746}{%
+           family={Ilyas},
+           familyi={I\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=aef608ba57830483b69aac89d9ceff85}{%
+           family={Ma̧dry},
+           familyi={M\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{3240a4a25eccd21c79ecb63487a4639a}
+      \strng{fullhash}{460824d02a253ef847d41611d7156b08}
+      \strng{fullhashraw}{460824d02a253ef847d41611d7156b08}
+      \strng{bibnamehash}{460824d02a253ef847d41611d7156b08}
+      \strng{authorbibnamehash}{460824d02a253ef847d41611d7156b08}
+      \strng{authornamehash}{3240a4a25eccd21c79ecb63487a4639a}
+      \strng{authorfullhash}{460824d02a253ef847d41611d7156b08}
+      \strng{authorfullhashraw}{460824d02a253ef847d41611d7156b08}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Conference on Learning Representations}
+      \field{title}{Noise or Signal: The Role of Image Backgrounds in Object Recognition}
+      \field{year}{2020}
+    \endentry
+    \entry{leash}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=05c98039527313a5b3b3ea0026003871}{%
+           family={Blevins},
+           familyi={B\bibinitperiod},
+           given={Andrew\bibnamedelima D.},
+           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=7d167bd848caea7bd0be703715fb20f3}{%
+           family={Quigley},
+           familyi={Q\bibinitperiod},
+           given={Ian\bibnamedelima K.},
+           giveni={I\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{07857c471a167caf924236feb37c06cd}
+      \strng{fullhash}{07857c471a167caf924236feb37c06cd}
+      \strng{fullhashraw}{07857c471a167caf924236feb37c06cd}
+      \strng{bibnamehash}{07857c471a167caf924236feb37c06cd}
+      \strng{authorbibnamehash}{07857c471a167caf924236feb37c06cd}
+      \strng{authornamehash}{07857c471a167caf924236feb37c06cd}
+      \strng{authorfullhash}{07857c471a167caf924236feb37c06cd}
+      \strng{authorfullhashraw}{07857c471a167caf924236feb37c06cd}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Clever Hans in Chemistry: Chemist Style Signals Confound Activity Prediction on Public Benchmarks}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://github.com/Leash-Labs/chemist-style-leaderboard/blob/trunk/clever_hans.pdf
+      \endverb
+      \verb{url}
+      \verb https://github.com/Leash-Labs/chemist-style-leaderboard/blob/trunk/clever_hans.pdf
+      \endverb
+    \endentry
+    \entry{shabih2026autonomous}{article}{}{}
+      \name{author}{19}{}{%
+        {{hash=adcffd733307b2ad8d79f00beafcf99a}{%
+           family={Shabih},
+           familyi={S\bibinitperiod},
+           given={Sherjeel},
+           giveni={S\bibinitperiod}}}%
+        {{hash=2bb53fa8a05e1fb5a94bfe94e4415e7a}{%
+           family={Näsström},
+           familyi={N\bibinitperiod},
+           given={Hampus},
+           giveni={H\bibinitperiod}}}%
+        {{hash=acd48328370419ab450557dbf4b2a300}{%
+           family={Patil},
+           familyi={P\bibinitperiod},
+           given={Sharat},
+           giveni={S\bibinitperiod}}}%
+        {{hash=107cf4df03df42fb3ec2a44d5187deb8}{%
+           family={Askin},
+           familyi={A\bibinitperiod},
+           given={Asmin},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a664e7a7194deaef34a2b5789a3e3140}{%
+           family={Dodd-Clements},
+           familyi={D\bibinithyphendelim C\bibinitperiod},
+           given={Keely},
+           giveni={K\bibinitperiod}}}%
+        {{hash=53c87c93c008136a5f28860120a0f743}{%
+           family={Rossato},
+           familyi={R\bibinitperiod},
+           given={Jessica\bibnamedelimb Helisa\bibnamedelima Hautrive},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=d46cb0eb87c1c143546f58685faf5a27}{%
+           family={Lemos},
+           familyi={L\bibinitperiod},
+           given={Hugo\bibnamedelima Gajardoni},
+           giveni={H\bibinitperiod\bibinitdelim G\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=22f9bfc97313edac1ba999e47d352273}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yuxin},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=b2cdad57ce57e2a496996cfb7eea0b83}{%
+           family={Mathies},
+           familyi={M\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+        {{hash=e826e383715b1bbf07c41a62342cd25e}{%
+           family={Maticiuc},
+           familyi={M\bibinitperiod},
+           given={Natalia},
+           giveni={N\bibinitperiod}}}%
+        {{hash=ba73e6c66c0c5f3cdc1fdb1d318ed1d6}{%
+           family={Meitzner},
+           familyi={M\bibinitperiod},
+           given={Rico},
+           giveni={R\bibinitperiod}}}%
+        {{hash=0cd3bd74fa98aa99f18c118169cb1663}{%
+           family={Nandayapa},
+           familyi={N\bibinitperiod},
+           given={Edgar},
+           giveni={E\bibinitperiod}}}%
+        {{hash=0ff0e9d216e86c7a7a6dcd22f0f5a0df}{%
+           family={López},
+           familyi={L\bibinitperiod},
+           given={Juan\bibnamedelimb José\bibnamedelima Patiño},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=17a73f9b8bf947fced3c30a123231c69}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yaru},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=d5925c6a024125ce774598751d4606aa}{%
+           family={Himanen},
+           familyi={H\bibinitperiod},
+           given={Lauri},
+           giveni={L\bibinitperiod}}}%
+        {{hash=772c1ae6d8f469fc92e42a0979ac9394}{%
+           family={Unger},
+           familyi={U\bibinitperiod},
+           given={Eva},
+           giveni={E\bibinitperiod}}}%
+        {{hash=9251a34a1a3ccbcdeae998b1c3e522be}{%
+           family={Jacobsson},
+           familyi={J\bibinitperiod},
+           given={T.\bibnamedelimi Jesper},
+           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=679e5f36dc66a07b2c9c91c297a2f8b8}{%
+           family={Márquez},
+           familyi={M\bibinitperiod},
+           given={José\bibnamedelima A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=efa82304dfc32b15d6117f5310e4f80e}{%
+           family={Jablonka},
+           familyi={J\bibinitperiod},
+           given={Kevin\bibnamedelima Maik},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{a02ab60d3e47c67ce84c5f70d32f369c}
+      \strng{fullhash}{228819c8efd8a524995bd58af0b246fb}
+      \strng{fullhashraw}{228819c8efd8a524995bd58af0b246fb}
+      \strng{bibnamehash}{a02ab60d3e47c67ce84c5f70d32f369c}
+      \strng{authorbibnamehash}{a02ab60d3e47c67ce84c5f70d32f369c}
+      \strng{authornamehash}{a02ab60d3e47c67ce84c5f70d32f369c}
+      \strng{authorfullhash}{228819c8efd8a524995bd58af0b246fb}
+      \strng{authorfullhashraw}{228819c8efd8a524995bd58af0b246fb}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv: 2601.17807}
+      \field{title}{An autonomous living database for perovskite photovoltaics}
+      \field{year}{2026}
+    \endentry
+    \entry{Kalmutzki2018}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=d655e0e32d12ed8201fb5aa8e541c4de}{%
+           family={Kalmutzki},
+           familyi={K\bibinitperiod},
+           given={Markus\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=b81ce41dd8dd3cf653203dd2b8a84e21}{%
+           family={Hanikel},
+           familyi={H\bibinitperiod},
+           given={Nikita},
+           giveni={N\bibinitperiod}}}%
+        {{hash=790e93c58aa5059b6b6a2e77d305b905}{%
+           family={Yaghi},
+           familyi={Y\bibinitperiod},
+           given={Omar\bibnamedelima M.},
+           giveni={O\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science (AAAS)}%
+      }
+      \strng{namehash}{2eef326328e1ba4211a3237b73ba1aa7}
+      \strng{fullhash}{7d56c0be7361287251501b69670bb8d5}
+      \strng{fullhashraw}{7d56c0be7361287251501b69670bb8d5}
+      \strng{bibnamehash}{7d56c0be7361287251501b69670bb8d5}
+      \strng{authorbibnamehash}{7d56c0be7361287251501b69670bb8d5}
+      \strng{authornamehash}{2eef326328e1ba4211a3237b73ba1aa7}
+      \strng{authorfullhash}{7d56c0be7361287251501b69670bb8d5}
+      \strng{authorfullhashraw}{7d56c0be7361287251501b69670bb8d5}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2375-2548}
+      \field{journaltitle}{Science Advances}
+      \field{month}{10}
+      \field{number}{10}
+      \field{title}{Secondary building units as the turning point in the development of the reticular chemistry of MOFs}
+      \field{volume}{4}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.1126/sciadv.aat9180
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1126/sciadv.aat9180
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1126/sciadv.aat9180
+      \endverb
+    \endentry
+    \entry{Nandy2022}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=e03e874b97a8d5bd9e36cdcb59bb2c0c}{%
+           family={Nandy},
+           familyi={N\bibinitperiod},
+           given={Aditya},
+           giveni={A\bibinitperiod}}}%
+        {{hash=daa33f9f9833613d380d5a8c6f644a9e}{%
+           family={Terrones},
+           familyi={T\bibinitperiod},
+           given={Gianmarco},
+           giveni={G\bibinitperiod}}}%
+        {{hash=c0d4820c8d859d1c535b973a6552b275}{%
+           family={Arunachalam},
+           familyi={A\bibinitperiod},
+           given={Naveen},
+           giveni={N\bibinitperiod}}}%
+        {{hash=a84e5f1014fa1842f98f3f21584b8e4e}{%
+           family={Duan},
+           familyi={D\bibinitperiod},
+           given={Chenru},
+           giveni={C\bibinitperiod}}}%
+        {{hash=b0843f0d60cfc9214e1d049cef6aafd5}{%
+           family={Kastner},
+           familyi={K\bibinitperiod},
+           given={David\bibnamedelima W.},
+           giveni={D\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=2652445723a7e56bfab8ea9cc0e64d8f}{%
+           family={Kulik},
+           familyi={K\bibinitperiod},
+           given={Heather\bibnamedelima J.},
+           giveni={H\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{1c5fc446ffd5f871279cb772be862d12}
+      \strng{fullhash}{e7f33bafcbc815fe801de8d86b09159a}
+      \strng{fullhashraw}{e7f33bafcbc815fe801de8d86b09159a}
+      \strng{bibnamehash}{1c5fc446ffd5f871279cb772be862d12}
+      \strng{authorbibnamehash}{1c5fc446ffd5f871279cb772be862d12}
+      \strng{authornamehash}{1c5fc446ffd5f871279cb772be862d12}
+      \strng{authorfullhash}{e7f33bafcbc815fe801de8d86b09159a}
+      \strng{authorfullhashraw}{e7f33bafcbc815fe801de8d86b09159a}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2052-4463}
+      \field{journaltitle}{Scientific Data}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{MOFSimplify, machine learning models with extracted stability data of three thousand metal–organic frameworks}
+      \field{volume}{9}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.1038/s41597-022-01181-0
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1038/s41597-022-01181-0
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/s41597-022-01181-0
+      \endverb
+    \endentry
+    \entry{Nandy2021}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=e03e874b97a8d5bd9e36cdcb59bb2c0c}{%
+           family={Nandy},
+           familyi={N\bibinitperiod},
+           given={Aditya},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a84e5f1014fa1842f98f3f21584b8e4e}{%
+           family={Duan},
+           familyi={D\bibinitperiod},
+           given={Chenru},
+           giveni={C\bibinitperiod}}}%
+        {{hash=2652445723a7e56bfab8ea9cc0e64d8f}{%
+           family={Kulik},
+           familyi={K\bibinitperiod},
+           given={Heather\bibnamedelima J.},
+           giveni={H\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Chemical Society (ACS)}%
+      }
+      \strng{namehash}{1c5fc446ffd5f871279cb772be862d12}
+      \strng{fullhash}{bdaa41d55e3effe811e9c3bb9295ebd0}
+      \strng{fullhashraw}{bdaa41d55e3effe811e9c3bb9295ebd0}
+      \strng{bibnamehash}{bdaa41d55e3effe811e9c3bb9295ebd0}
+      \strng{authorbibnamehash}{bdaa41d55e3effe811e9c3bb9295ebd0}
+      \strng{authornamehash}{1c5fc446ffd5f871279cb772be862d12}
+      \strng{authorfullhash}{bdaa41d55e3effe811e9c3bb9295ebd0}
+      \strng{authorfullhashraw}{bdaa41d55e3effe811e9c3bb9295ebd0}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1520-5126}
+      \field{journaltitle}{Journal of the American Chemical Society}
+      \field{month}{10}
+      \field{number}{42}
+      \field{title}{Using Machine Learning and Data Mining to Leverage Community Knowledge for the Engineering of Stable Metal–Organic Frameworks}
+      \field{volume}{143}
+      \field{year}{2021}
+      \field{pages}{17535\bibrangedash 17547}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1021/jacs.1c07217
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1021/jacs.1c07217
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1021/jacs.1c07217
+      \endverb
+    \endentry
+    \entry{CorreaBaena2017}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=83a5628484a5aeb2236fc30805a46fcc}{%
+           family={Correa-Baena},
+           familyi={C\bibinithyphendelim B\bibinitperiod},
+           given={Juan-Pablo},
+           giveni={J\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=e5976d699832de3b8e0bade58210aabb}{%
+           family={Saliba},
+           familyi={S\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=0479ae22b55bf7d8b9d4cff7f2637136}{%
+           family={Buonassisi},
+           familyi={B\bibinitperiod},
+           given={Tonio},
+           giveni={T\bibinitperiod}}}%
+        {{hash=a7791322d0d4e56fe468c952b588bde7}{%
+           family={Grätzel},
+           familyi={G\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ff8598260b4f5ee890bd2bc879f1299b}{%
+           family={Abate},
+           familyi={A\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod}}}%
+        {{hash=df57c04d2c9f56914f56971b828822b5}{%
+           family={Tress},
+           familyi={T\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod}}}%
+        {{hash=15d9a9c87140b5abccd0c7713533d1ae}{%
+           family={Hagfeldt},
+           familyi={H\bibinitperiod},
+           given={Anders},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science (AAAS)}%
+      }
+      \strng{namehash}{93e0b5aa5a12876b03aec9c791434c75}
+      \strng{fullhash}{b08df151e56dddaa3e2e87bb0d2c0dbc}
+      \strng{fullhashraw}{b08df151e56dddaa3e2e87bb0d2c0dbc}
+      \strng{bibnamehash}{93e0b5aa5a12876b03aec9c791434c75}
+      \strng{authorbibnamehash}{93e0b5aa5a12876b03aec9c791434c75}
+      \strng{authornamehash}{93e0b5aa5a12876b03aec9c791434c75}
+      \strng{authorfullhash}{b08df151e56dddaa3e2e87bb0d2c0dbc}
+      \strng{authorfullhashraw}{b08df151e56dddaa3e2e87bb0d2c0dbc}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1095-9203}
+      \field{journaltitle}{Science}
+      \field{month}{11}
+      \field{number}{6364}
+      \field{title}{Promises and challenges of perovskite solar cells}
+      \field{volume}{358}
+      \field{year}{2017}
+      \field{pages}{739\bibrangedash 744}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1126/science.aam6323
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1126/science.aam6323
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1126/science.aam6323
+      \endverb
+    \endentry
+    \entry{Jacobsson2021}{article}{}{}
+      \name{author}{94}{}{%
+        {{hash=9251a34a1a3ccbcdeae998b1c3e522be}{%
+           family={Jacobsson},
+           familyi={J\bibinitperiod},
+           given={T.\bibnamedelimi Jesper},
+           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=7436aa74097536b9408c63c7dc2088da}{%
+           family={Hultqvist},
+           familyi={H\bibinitperiod},
+           given={Adam},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9e38cef36e36a71998f2535258c2e9b8}{%
+           family={García-Fernández},
+           familyi={G\bibinithyphendelim F\bibinitperiod},
+           given={Alberto},
+           giveni={A\bibinitperiod}}}%
+        {{hash=df17b68bcff2422a1a93890d05057558}{%
+           family={Anand},
+           familyi={A\bibinitperiod},
+           given={Aman},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1251b52aeda227bc5ed55711765448ed}{%
+           family={Al-Ashouri},
+           familyi={A\bibinithyphendelim A\bibinitperiod},
+           given={Amran},
+           giveni={A\bibinitperiod}}}%
+        {{hash=15d9a9c87140b5abccd0c7713533d1ae}{%
+           family={Hagfeldt},
+           familyi={H\bibinitperiod},
+           given={Anders},
+           giveni={A\bibinitperiod}}}%
+        {{hash=17cbdfd23ea3b6b28aacfed0ced29bb9}{%
+           family={Crovetto},
+           familyi={C\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ff8598260b4f5ee890bd2bc879f1299b}{%
+           family={Abate},
+           familyi={A\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d19a5f1d304cd25a0f460b79117117f9}{%
+           family={Ricciardulli},
+           familyi={R\bibinitperiod},
+           given={Antonio\bibnamedelima Gaetano},
+           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=c2f445a33581d5f2cc91ac3bfdcd923b}{%
+           family={Vijayan},
+           familyi={V\bibinitperiod},
+           given={Anuja},
+           giveni={A\bibinitperiod}}}%
+        {{hash=5146db8e8fa0b4415c44749090d95fd0}{%
+           family={Kulkarni},
+           familyi={K\bibinitperiod},
+           given={Ashish},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2d56d90b5225dfedb48ad91bd002929c}{%
+           family={Anderson},
+           familyi={A\bibinitperiod},
+           given={Assaf\bibnamedelima Y.},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=b5fc558bf2e92131a59f4036092963d9}{%
+           family={Darwich},
+           familyi={D\bibinitperiod},
+           given={Barbara\bibnamedelima Primera},
+           giveni={B\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=a08b7fb5d1b72daf87fcad0af1b11046}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Bowen},
+           giveni={B\bibinitperiod}}}%
+        {{hash=028a89d90788100d9bf87345ab051c39}{%
+           family={Coles},
+           familyi={C\bibinitperiod},
+           given={Brendan\bibnamedelima L.},
+           giveni={B\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=95306ae755f6f544d1a12112e37318d3}{%
+           family={Perini},
+           familyi={P\bibinitperiod},
+           given={Carlo\bibnamedelimb A.\bibnamedelimi R.},
+           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=ef4c1025a6df6f9dfa5033d717e127f7}{%
+           family={Rehermann},
+           familyi={R\bibinitperiod},
+           given={Carolin},
+           giveni={C\bibinitperiod}}}%
+        {{hash=e40facd69643a196689636684c5d9d60}{%
+           family={Ramirez},
+           familyi={R\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=46c620c5542daeb6fbae781022a8c763}{%
+           family={Fairen-Jimenez},
+           familyi={F\bibinithyphendelim J\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=bf601b5ba6d19b848c88b62adeedb824}{%
+           family={Di\bibnamedelima Girolamo},
+           familyi={D\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={Diego},
+           giveni={D\bibinitperiod}}}%
+        {{hash=1f8048546600df08959ddad4aad521f9}{%
+           family={Jia},
+           familyi={J\bibinitperiod},
+           given={Donglin},
+           giveni={D\bibinitperiod}}}%
+        {{hash=149a1790da5dac2f5e90c2d6d70dbbf6}{%
+           family={Avila},
+           familyi={A\bibinitperiod},
+           given={Elena},
+           giveni={E\bibinitperiod}}}%
+        {{hash=f0c2a75a1e5c8f0c48760b0c2cd54c90}{%
+           family={Juarez-Perez},
+           familyi={J\bibinithyphendelim P\bibinitperiod},
+           given={Emilio\bibnamedelima J.},
+           giveni={E\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=c35299497a9c85bc317b1d1d9e437dc2}{%
+           family={Baumann},
+           familyi={B\bibinitperiod},
+           given={Fanny},
+           giveni={F\bibinitperiod}}}%
+        {{hash=b2cdad57ce57e2a496996cfb7eea0b83}{%
+           family={Mathies},
+           familyi={M\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+        {{hash=52ddc0d397711fa18ef22b6ad36707df}{%
+           family={González},
+           familyi={G\bibinitperiod},
+           given={G.\bibnamedelimi S.\bibnamedelimi Anaya},
+           giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=2d5cca7f046f8463ae59a11293f68554}{%
+           family={Boschloo},
+           familyi={B\bibinitperiod},
+           given={Gerrit},
+           giveni={G\bibinitperiod}}}%
+        {{hash=b619dce228c74ab24ea61724a9d9df56}{%
+           family={Nasti},
+           familyi={N\bibinitperiod},
+           given={Giuseppe},
+           giveni={G\bibinitperiod}}}%
+        {{hash=a06516c6d3f7f33f1fc0f01b127be6e2}{%
+           family={Paramasivam},
+           familyi={P\bibinitperiod},
+           given={Gopinath},
+           giveni={G\bibinitperiod}}}%
+        {{hash=0a4e341b37b2821b860a75903d3f54d1}{%
+           family={Martínez-Denegri},
+           familyi={M\bibinithyphendelim D\bibinitperiod},
+           given={Guillermo},
+           giveni={G\bibinitperiod}}}%
+        {{hash=2bb53fa8a05e1fb5a94bfe94e4415e7a}{%
+           family={Näsström},
+           familyi={N\bibinitperiod},
+           given={Hampus},
+           giveni={H\bibinitperiod}}}%
+        {{hash=3d87788b104a896b281910303af3ba8d}{%
+           family={Michaels},
+           familyi={M\bibinitperiod},
+           given={Hannes},
+           giveni={H\bibinitperiod}}}%
+        {{hash=a126a595b8e40d7bb933f6c07cf9a16d}{%
+           family={Köbler},
+           familyi={K\bibinitperiod},
+           given={Hans},
+           giveni={H\bibinitperiod}}}%
+        {{hash=32cdecf5b1a19aa36ab641b9d9a3cc04}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Hua},
+           giveni={H\bibinitperiod}}}%
+        {{hash=afaacb512c8a6f6270e14d3d2eb4dc2a}{%
+           family={Benesperi},
+           familyi={B\bibinitperiod},
+           given={Iacopo},
+           giveni={I\bibinitperiod}}}%
+        {{hash=82ae46a2dc6fa1bc9156462f903a18e8}{%
+           family={Dar},
+           familyi={D\bibinitperiod},
+           given={M.\bibnamedelimi Ibrahim},
+           giveni={M\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=b2deed8ca0a52944b7f26adee9d2b0c9}{%
+           family={Bayrak\bibnamedelima Pehlivan},
+           familyi={B\bibinitperiod\bibinitdelim P\bibinitperiod},
+           given={Ilknur},
+           giveni={I\bibinitperiod}}}%
+        {{hash=91a8f17e0bccab31e65c45922c53cd01}{%
+           family={Gould},
+           familyi={G\bibinitperiod},
+           given={Isaac\bibnamedelima E.},
+           giveni={I\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=51bae22464feac899de56e9a799a0dad}{%
+           family={Vagott},
+           familyi={V\bibinitperiod},
+           given={Jacob\bibnamedelima N.},
+           giveni={J\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=e9080382da8292c8485affc2eece3f6b}{%
+           family={Dagar},
+           familyi={D\bibinitperiod},
+           given={Janardan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=5847609c35e253b2d07d93687244519d}{%
+           family={Kettle},
+           familyi={K\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod}}}%
+        {{hash=4656453b716273b4ea07ab731e9b6dd5}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Jie},
+           giveni={J\bibinitperiod}}}%
+        {{hash=c28202b578c4845dca8f2d05f5c26322}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Jinzhao},
+           giveni={J\bibinitperiod}}}%
+        {{hash=96294a2c0a5a02237e5774b4fde6f73d}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Joel\bibnamedelima A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=b6c5cc8fdda92d54eeb047672a22c1d3}{%
+           family={Pascual},
+           familyi={P\bibinitperiod},
+           given={Jorge},
+           giveni={J\bibinitperiod}}}%
+        {{hash=965320d137488219560f5aa1bf4d4f77}{%
+           family={Jerónimo-Rendón},
+           familyi={J\bibinithyphendelim R\bibinitperiod},
+           given={Jose\bibnamedelima J.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=35f76246f94a106d6462d33b9f86ff48}{%
+           family={Montoya},
+           familyi={M\bibinitperiod},
+           given={Juan\bibnamedelima Felipe},
+           giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=83a5628484a5aeb2236fc30805a46fcc}{%
+           family={Correa-Baena},
+           familyi={C\bibinithyphendelim B\bibinitperiod},
+           given={Juan-Pablo},
+           giveni={J\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=ec1dc24348e928b16d6eb056c8a2b7d0}{%
+           family={Qiu},
+           familyi={Q\bibinitperiod},
+           given={Junming},
+           giveni={J\bibinitperiod}}}%
+        {{hash=04c845a437fc7cfecc8fd19688f53feb}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Junxin},
+           giveni={J\bibinitperiod}}}%
+        {{hash=19caa80947f179f23c5bc28fc9576fc9}{%
+           family={Sveinbjörnsson},
+           familyi={S\bibinitperiod},
+           given={Kári},
+           giveni={K\bibinitperiod}}}%
+        {{hash=eacd6d446e67d94a1c2493f7a75d326e}{%
+           family={Hirselandt},
+           familyi={H\bibinitperiod},
+           given={Katrin},
+           giveni={K\bibinitperiod}}}%
+        {{hash=0d158b9d79c85d574e21066eed60109f}{%
+           family={Dey},
+           familyi={D\bibinitperiod},
+           given={Krishanu},
+           giveni={K\bibinitperiod}}}%
+        {{hash=f666e1d8f44c426c41cec9ec385031ca}{%
+           family={Frohna},
+           familyi={F\bibinitperiod},
+           given={Kyle},
+           giveni={K\bibinitperiod}}}%
+        {{hash=10b44d8860a93b10d74689f09c609cac}{%
+           family={Mathies},
+           familyi={M\bibinitperiod},
+           given={Lena},
+           giveni={L\bibinitperiod}}}%
+        {{hash=dac362c6c43dc0e32280648ca0e88e03}{%
+           family={Castriotta},
+           familyi={C\bibinitperiod},
+           given={Luigi\bibnamedelima A.},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=5b4878671773e915400ce2651052d169}{%
+           family={Aldamasy},
+           familyi={A\bibinitperiod},
+           given={Mahmoud.\bibnamedelimi H.},
+           giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=be5a41d59424d16d664c104195b5b9d0}{%
+           family={Vasquez-Montoya},
+           familyi={V\bibinithyphendelim M\bibinitperiod},
+           given={Manuel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=977daec67c46343e4d3e4793948c5922}{%
+           family={Ruiz-Preciado},
+           familyi={R\bibinithyphendelim P\bibinitperiod},
+           given={Marco\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=803999ac8b03f89fad1083a9dd44d041}{%
+           family={Flatken},
+           familyi={F\bibinitperiod},
+           given={Marion\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=733e9ae7bf4681b663468a5b95747291}{%
+           family={Khenkin},
+           familyi={K\bibinitperiod},
+           given={Mark\bibnamedelima V.},
+           giveni={M\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=7f35606f975e7e4cebe645fb4806ff68}{%
+           family={Grischek},
+           familyi={G\bibinitperiod},
+           given={Max},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a8131759a77a666f773bbb43b3e87538}{%
+           family={Kedia},
+           familyi={K\bibinitperiod},
+           given={Mayank},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e5976d699832de3b8e0bade58210aabb}{%
+           family={Saliba},
+           familyi={S\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=85fa911f88bd855b318fd6536fcaeec1}{%
+           family={Anaya},
+           familyi={A\bibinitperiod},
+           given={Miguel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=6ca6b2a2b49e18b679ce37cc1f74c802}{%
+           family={Veldhoen},
+           familyi={V\bibinitperiod},
+           given={Misha},
+           giveni={M\bibinitperiod}}}%
+        {{hash=1a8b930fe82f2db69deddf78d27fced1}{%
+           family={Arora},
+           familyi={A\bibinitperiod},
+           given={Neha},
+           giveni={N\bibinitperiod}}}%
+        {{hash=3ad907031fa51f89a3231517fea9ceb2}{%
+           family={Shargaieva},
+           familyi={S\bibinitperiod},
+           given={Oleksandra},
+           giveni={O\bibinitperiod}}}%
+        {{hash=ced373c2a0396550378c108e1e98fdba}{%
+           family={Maus},
+           familyi={M\bibinitperiod},
+           given={Oliver},
+           giveni={O\bibinitperiod}}}%
+        {{hash=b756a2df33e07faec879385286c826ee}{%
+           family={Game},
+           familyi={G\bibinitperiod},
+           given={Onkar\bibnamedelima S.},
+           giveni={O\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=512e571ad4934a54e39944f9135c83b7}{%
+           family={Yudilevich},
+           familyi={Y\bibinitperiod},
+           given={Ori},
+           giveni={O\bibinitperiod}}}%
+        {{hash=ce488831c2001619666b6ace485554e3}{%
+           family={Fassl},
+           familyi={F\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=48d5efa95a6ccffe0ad9a222ef6eaa23}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Qisen},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=fef78e4361b12bc7c0400be463d80f80}{%
+           family={Betancur},
+           familyi={B\bibinitperiod},
+           given={Rafael},
+           giveni={R\bibinitperiod}}}%
+        {{hash=f69feb1e7e855d3fde1a3ccf4ac14902}{%
+           family={Munir},
+           familyi={M\bibinitperiod},
+           given={Rahim},
+           giveni={R\bibinitperiod}}}%
+        {{hash=8ea4bf79723fd40623af11c3d3208d69}{%
+           family={Patidar},
+           familyi={P\bibinitperiod},
+           given={Rahul},
+           giveni={R\bibinitperiod}}}%
+        {{hash=cd2e60f7fec0bfb08a3ebc8ca5892787}{%
+           family={Stranks},
+           familyi={S\bibinitperiod},
+           given={Samuel\bibnamedelima D.},
+           giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=2faf0a7ccc10f5252c4ea51d39f197ef}{%
+           family={Alam},
+           familyi={A\bibinitperiod},
+           given={Shahidul},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b1c7edccf94f8dd02bf51403aa515668}{%
+           family={Kar},
+           familyi={K\bibinitperiod},
+           given={Shaoni},
+           giveni={S\bibinitperiod}}}%
+        {{hash=218c746e9fa022e8c7e6683b234ab6ce}{%
+           family={Unold},
+           familyi={U\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=7738dc36397dfce8ab0bdd77dcdce264}{%
+           family={Abzieher},
+           familyi={A\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+        {{hash=2a07e9795dc1d11e57d42e46b3358dfc}{%
+           family={Edvinsson},
+           familyi={E\bibinitperiod},
+           given={Tomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=50025dbc24f21648392be90ddfc12434}{%
+           family={David},
+           familyi={D\bibinitperiod},
+           given={Tudur\bibnamedelima Wyn},
+           giveni={T\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=404a747ddefb13b25e3d8b5b96d1de70}{%
+           family={Paetzold},
+           familyi={P\bibinitperiod},
+           given={Ulrich\bibnamedelima W.},
+           giveni={U\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=4eb5a8af26320e42d948c801cab95c99}{%
+           family={Zia},
+           familyi={Z\bibinitperiod},
+           given={Waqas},
+           giveni={W\bibinitperiod}}}%
+        {{hash=069a3debf15550fb53829fcc41ec606f}{%
+           family={Fu},
+           familyi={F\bibinitperiod},
+           given={Weifei},
+           giveni={W\bibinitperiod}}}%
+        {{hash=3ccc31fe84bf5dd1ae9bc2be8fd3e0f0}{%
+           family={Zuo},
+           familyi={Z\bibinitperiod},
+           given={Weiwei},
+           giveni={W\bibinitperiod}}}%
+        {{hash=3e9c9247dcae4e15a536bf978bd04944}{%
+           family={Schröder},
+           familyi={S\bibinitperiod},
+           given={Vincent\bibnamedelimb R.\bibnamedelimi F.},
+           giveni={V\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=df57c04d2c9f56914f56971b828822b5}{%
+           family={Tress},
+           familyi={T\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod}}}%
+        {{hash=37eadf83e83869e293ec04022cf4895f}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Xiaoliang},
+           giveni={X\bibinitperiod}}}%
+        {{hash=633e2ea664c0a5406ea68729020956a3}{%
+           family={Chiang},
+           familyi={C\bibinitperiod},
+           given={Yu-Hsien},
+           giveni={Y\bibinithyphendelim H\bibinitperiod}}}%
+        {{hash=6981128017b032b1c8df23641dea80af}{%
+           family={Iqbal},
+           familyi={I\bibinitperiod},
+           given={Zafar},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=16f8005dc07a90f2bf13ea3936806a31}{%
+           family={Xie},
+           familyi={X\bibinitperiod},
+           given={Zhiqiang},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=772c1ae6d8f469fc92e42a0979ac9394}{%
+           family={Unger},
+           familyi={U\bibinitperiod},
+           given={Eva},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{b1f35db301904a840eaa4696e6c79fea}
+      \strng{fullhash}{5b04f86fb6bf4bd65a80bf96d795f468}
+      \strng{fullhashraw}{5b04f86fb6bf4bd65a80bf96d795f468}
+      \strng{bibnamehash}{b1f35db301904a840eaa4696e6c79fea}
+      \strng{authorbibnamehash}{b1f35db301904a840eaa4696e6c79fea}
+      \strng{authornamehash}{b1f35db301904a840eaa4696e6c79fea}
+      \strng{authorfullhash}{5b04f86fb6bf4bd65a80bf96d795f468}
+      \strng{authorfullhashraw}{5b04f86fb6bf4bd65a80bf96d795f468}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2058-7546}
+      \field{journaltitle}{Nature Energy}
+      \field{month}{12}
+      \field{number}{1}
+      \field{title}{An open-access database and analysis tool for perovskite solar cells based on the FAIR data principles}
+      \field{volume}{7}
+      \field{year}{2021}
+      \field{pages}{107\bibrangedash 115}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1038/s41560-021-00941-3
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1038/s41560-021-00941-3
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/s41560-021-00941-3
+      \endverb
+    \endentry
+    \entry{SchillingWilhelmi2025}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=98fd96298a25ffdcfbfcd11e62d2b48a}{%
+           family={Schilling-Wilhelmi},
+           familyi={S\bibinithyphendelim W\bibinitperiod},
+           given={Mara},
+           giveni={M\bibinitperiod}}}%
+        {{hash=146f12e39ddf4806398b7e86980a4acd}{%
+           family={Ríos-García},
+           familyi={R\bibinithyphendelim G\bibinitperiod},
+           given={Martiño},
+           giveni={M\bibinitperiod}}}%
+        {{hash=adcffd733307b2ad8d79f00beafcf99a}{%
+           family={Shabih},
+           familyi={S\bibinitperiod},
+           given={Sherjeel},
+           giveni={S\bibinitperiod}}}%
+        {{hash=43eb9fd01ea9e9ad207ffff049044253}{%
+           family={Gil},
+           familyi={G\bibinitperiod},
+           given={María\bibnamedelima Victoria},
+           giveni={M\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=9396b57b9a73c200687b45022cc36330}{%
+           family={Miret},
+           familyi={M\bibinitperiod},
+           given={Santiago},
+           giveni={S\bibinitperiod}}}%
+        {{hash=8d9b1ec686c47e68c0c52b3f0763efe1}{%
+           family={Koch},
+           familyi={K\bibinitperiod},
+           given={Christoph\bibnamedelima T.},
+           giveni={C\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=679e5f36dc66a07b2c9c91c297a2f8b8}{%
+           family={Márquez},
+           familyi={M\bibinitperiod},
+           given={José\bibnamedelima A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=efa82304dfc32b15d6117f5310e4f80e}{%
+           family={Jablonka},
+           familyi={J\bibinitperiod},
+           given={Kevin\bibnamedelima Maik},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Royal Society of Chemistry (RSC)}%
+      }
+      \strng{namehash}{61ae4f441ca5d8a85ab160dc7d75ccd9}
+      \strng{fullhash}{5e29f5c30c2d9863b872a99e0d691309}
+      \strng{fullhashraw}{5e29f5c30c2d9863b872a99e0d691309}
+      \strng{bibnamehash}{61ae4f441ca5d8a85ab160dc7d75ccd9}
+      \strng{authorbibnamehash}{61ae4f441ca5d8a85ab160dc7d75ccd9}
+      \strng{authornamehash}{61ae4f441ca5d8a85ab160dc7d75ccd9}
+      \strng{authorfullhash}{5e29f5c30c2d9863b872a99e0d691309}
+      \strng{authorfullhashraw}{5e29f5c30c2d9863b872a99e0d691309}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1460-4744}
+      \field{journaltitle}{Chemical Society Reviews}
+      \field{number}{3}
+      \field{title}{From text to insight: large language models for chemical data extraction}
+      \field{volume}{54}
+      \field{year}{2025}
+      \field{pages}{1125\bibrangedash 1150}
+      \range{pages}{26}
+      \verb{doi}
+      \verb 10.1039/d4cs00913d
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1039/D4CS00913D
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1039/D4CS00913D
+      \endverb
+    \endentry
+    \entry{Huang2020}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=dc3f192d7bd46814884ab8c5b6da983b}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Shu},
+           giveni={S\bibinitperiod}}}%
+        {{hash=9e0080d515213d2205a66cf0bf75a302}{%
+           family={Cole},
+           familyi={C\bibinitperiod},
+           given={Jacqueline\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{a4c72dcbe7f56007f734db92ad459779}
+      \strng{fullhash}{a4c72dcbe7f56007f734db92ad459779}
+      \strng{fullhashraw}{a4c72dcbe7f56007f734db92ad459779}
+      \strng{bibnamehash}{a4c72dcbe7f56007f734db92ad459779}
+      \strng{authorbibnamehash}{a4c72dcbe7f56007f734db92ad459779}
+      \strng{authornamehash}{a4c72dcbe7f56007f734db92ad459779}
+      \strng{authorfullhash}{a4c72dcbe7f56007f734db92ad459779}
+      \strng{authorfullhashraw}{a4c72dcbe7f56007f734db92ad459779}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2052-4463}
+      \field{journaltitle}{Scientific Data}
+      \field{month}{8}
+      \field{number}{1}
+      \field{title}{A database of battery materials auto-generated using ChemDataExtractor}
+      \field{volume}{7}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.1038/s41597-020-00602-2
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1038/s41597-020-00602-2
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/s41597-020-00602-2
+      \endverb
+    \endentry
+    \entry{Liu2018}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=632c959a848f9002dae3a115ce439a88}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yuchao},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=81e1e48a525d9b546406275d5d32f36e}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Chensen},
+           giveni={C\bibinitperiod}}}%
+        {{hash=2db6630a72d889c73fb97a39b8718cb3}{%
+           family={Ren},
+           familyi={R\bibinitperiod},
+           given={Zhongjie},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=8c7520efe8dccb3f6c6f954e23642347}{%
+           family={Yan},
+           familyi={Y\bibinitperiod},
+           given={Shouke},
+           giveni={S\bibinitperiod}}}%
+        {{hash=e1ea82610b39b6953d507e2c86f63975}{%
+           family={Bryce},
+           familyi={B\bibinitperiod},
+           given={Martin\bibnamedelima R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{0f943fd31c779623e4ac3c2fed54ebf4}
+      \strng{fullhash}{94a2d3ab67393a0005ae35e32d3c21ac}
+      \strng{fullhashraw}{94a2d3ab67393a0005ae35e32d3c21ac}
+      \strng{bibnamehash}{94a2d3ab67393a0005ae35e32d3c21ac}
+      \strng{authorbibnamehash}{94a2d3ab67393a0005ae35e32d3c21ac}
+      \strng{authornamehash}{0f943fd31c779623e4ac3c2fed54ebf4}
+      \strng{authorfullhash}{94a2d3ab67393a0005ae35e32d3c21ac}
+      \strng{authorfullhashraw}{94a2d3ab67393a0005ae35e32d3c21ac}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2058-8437}
+      \field{journaltitle}{Nature Reviews Materials}
+      \field{month}{4}
+      \field{number}{4}
+      \field{title}{All-organic thermally activated delayed fluorescence materials for organic light-emitting diodes}
+      \field{volume}{3}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.1038/natrevmats.2018.20
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1038/natrevmats.2018.20
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/natrevmats.2018.20
+      \endverb
+    \endentry
+    \entry{Huang2024}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=d7d131b8315ffb6390558ddd6f019a51}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Dingyun},
+           giveni={D\bibinitperiod}}}%
+        {{hash=9e0080d515213d2205a66cf0bf75a302}{%
+           family={Cole},
+           familyi={C\bibinitperiod},
+           given={Jacqueline\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{8ed838876d165e14a7106304f17cd9b2}
+      \strng{fullhash}{8ed838876d165e14a7106304f17cd9b2}
+      \strng{fullhashraw}{8ed838876d165e14a7106304f17cd9b2}
+      \strng{bibnamehash}{8ed838876d165e14a7106304f17cd9b2}
+      \strng{authorbibnamehash}{8ed838876d165e14a7106304f17cd9b2}
+      \strng{authornamehash}{8ed838876d165e14a7106304f17cd9b2}
+      \strng{authorfullhash}{8ed838876d165e14a7106304f17cd9b2}
+      \strng{authorfullhashraw}{8ed838876d165e14a7106304f17cd9b2}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2052-4463}
+      \field{journaltitle}{Scientific Data}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{A database of thermally activated delayed fluorescent molecules auto-generated from scientific literature with ChemDataExtractor}
+      \field{volume}{11}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1038/s41597-023-02897-3
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1038/s41597-023-02897-3
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/s41597-023-02897-3
+      \endverb
+    \endentry
+    \entry{Swain2016}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=ce7a571db8abd13b4c633f03bab0f252}{%
+           family={Swain},
+           familyi={S\bibinitperiod},
+           given={Matthew\bibnamedelima C.},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=9e0080d515213d2205a66cf0bf75a302}{%
+           family={Cole},
+           familyi={C\bibinitperiod},
+           given={Jacqueline\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Chemical Society (ACS)}%
+      }
+      \strng{namehash}{152e5d649f0e2140cddfec0203f44cd1}
+      \strng{fullhash}{152e5d649f0e2140cddfec0203f44cd1}
+      \strng{fullhashraw}{152e5d649f0e2140cddfec0203f44cd1}
+      \strng{bibnamehash}{152e5d649f0e2140cddfec0203f44cd1}
+      \strng{authorbibnamehash}{152e5d649f0e2140cddfec0203f44cd1}
+      \strng{authornamehash}{152e5d649f0e2140cddfec0203f44cd1}
+      \strng{authorfullhash}{152e5d649f0e2140cddfec0203f44cd1}
+      \strng{authorfullhashraw}{152e5d649f0e2140cddfec0203f44cd1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1549-960X}
+      \field{journaltitle}{Journal of Chemical Information and Modeling}
+      \field{month}{10}
+      \field{number}{10}
+      \field{title}{ChemDataExtractor: A Toolkit for Automated Extraction of Chemical Information from the Scientific Literature}
+      \field{volume}{56}
+      \field{year}{2016}
+      \field{pages}{1894\bibrangedash 1904}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1021/acs.jcim.6b00207
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1021/acs.jcim.6b00207
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1021/acs.jcim.6b00207
+      \endverb
+    \endentry
+    \entry{Mavrai2021}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=ab8335de2924bed6c6b3aab8f82d57b3}{%
+           family={Mavračić},
+           familyi={M\bibinitperiod},
+           given={Juraj},
+           giveni={J\bibinitperiod}}}%
+        {{hash=4a9cce126d96b7b256dc0786904a368d}{%
+           family={Court},
+           familyi={C\bibinitperiod},
+           given={Callum\bibnamedelima J.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=2544f3dec8f31aab9e176f9ab023ff57}{%
+           family={Isazawa},
+           familyi={I\bibinitperiod},
+           given={Taketomo},
+           giveni={T\bibinitperiod}}}%
+        {{hash=e06c15ef9cfc5d3e80f806da0d68ae18}{%
+           family={Elliott},
+           familyi={E\bibinitperiod},
+           given={Stephen\bibnamedelima R.},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=9e0080d515213d2205a66cf0bf75a302}{%
+           family={Cole},
+           familyi={C\bibinitperiod},
+           given={Jacqueline\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Chemical Society (ACS)}%
+      }
+      \strng{namehash}{4be866e7e3ef85b110e9ad161bbee11e}
+      \strng{fullhash}{e790e35ad89c12e11f6cc1566697e060}
+      \strng{fullhashraw}{e790e35ad89c12e11f6cc1566697e060}
+      \strng{bibnamehash}{e790e35ad89c12e11f6cc1566697e060}
+      \strng{authorbibnamehash}{e790e35ad89c12e11f6cc1566697e060}
+      \strng{authornamehash}{4be866e7e3ef85b110e9ad161bbee11e}
+      \strng{authorfullhash}{e790e35ad89c12e11f6cc1566697e060}
+      \strng{authorfullhashraw}{e790e35ad89c12e11f6cc1566697e060}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1549-960X}
+      \field{journaltitle}{Journal of Chemical Information and Modeling}
+      \field{month}{9}
+      \field{number}{9}
+      \field{title}{ChemDataExtractor 2.0: Autopopulated Ontologies for Materials Science}
+      \field{volume}{61}
+      \field{year}{2021}
+      \field{pages}{4280\bibrangedash 4289}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1021/acs.jcim.1c00446
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1021/acs.jcim.1c00446
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1021/acs.jcim.1c00446
+      \endverb
+    \endentry
+    \entry{Moosavi2020}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=523a9e357e845423333b6adad53e8cbf}{%
+           family={Moosavi},
+           familyi={M\bibinitperiod},
+           given={Seyed\bibnamedelima Mohamad},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=efa82304dfc32b15d6117f5310e4f80e}{%
+           family={Jablonka},
+           familyi={J\bibinitperiod},
+           given={Kevin\bibnamedelima Maik},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=cf1b6974a4d7bd013e533aea5fcda164}{%
+           family={Smit},
+           familyi={S\bibinitperiod},
+           given={Berend},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Chemical Society (ACS)}%
+      }
+      \strng{namehash}{0df44a13e57750e2263d4db361fc9df7}
+      \strng{fullhash}{ffb5266e8317b7496286417f9e052108}
+      \strng{fullhashraw}{ffb5266e8317b7496286417f9e052108}
+      \strng{bibnamehash}{ffb5266e8317b7496286417f9e052108}
+      \strng{authorbibnamehash}{ffb5266e8317b7496286417f9e052108}
+      \strng{authornamehash}{0df44a13e57750e2263d4db361fc9df7}
+      \strng{authorfullhash}{ffb5266e8317b7496286417f9e052108}
+      \strng{authorfullhashraw}{ffb5266e8317b7496286417f9e052108}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1520-5126}
+      \field{journaltitle}{Journal of the American Chemical Society}
+      \field{month}{11}
+      \field{number}{48}
+      \field{title}{The Role of Machine Learning in the Understanding and Design of Materials}
+      \field{volume}{142}
+      \field{year}{2020}
+      \field{pages}{20273\bibrangedash 20287}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1021/jacs.0c09105
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1021/jacs.0c09105
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1021/jacs.0c09105
+      \endverb
+    \endentry
+    \entry{Saal2020}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=abd835127b167f07daff2f678d64ae71}{%
+           family={Saal},
+           familyi={S\bibinitperiod},
+           given={James\bibnamedelima E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=e050fe9c8d129401cf8adabdf09f19f1}{%
+           family={Oliynyk},
+           familyi={O\bibinitperiod},
+           given={Anton\bibnamedelima O.},
+           giveni={A\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=1326a17db07f422b8b23ed69f01a3fc6}{%
+           family={Meredig},
+           familyi={M\bibinitperiod},
+           given={Bryce},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Annual Reviews}%
+      }
+      \strng{namehash}{42774380e1e7493a8b6b091cd299b78e}
+      \strng{fullhash}{6f903557b9881a10cf30cd3c04f869b3}
+      \strng{fullhashraw}{6f903557b9881a10cf30cd3c04f869b3}
+      \strng{bibnamehash}{6f903557b9881a10cf30cd3c04f869b3}
+      \strng{authorbibnamehash}{6f903557b9881a10cf30cd3c04f869b3}
+      \strng{authornamehash}{42774380e1e7493a8b6b091cd299b78e}
+      \strng{authorfullhash}{6f903557b9881a10cf30cd3c04f869b3}
+      \strng{authorfullhashraw}{6f903557b9881a10cf30cd3c04f869b3}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1545-4118}
+      \field{journaltitle}{Annual Review of Materials Research}
+      \field{month}{7}
+      \field{number}{1}
+      \field{title}{Machine Learning in Materials Discovery: Confirmed Predictions and Their Underlying Approaches}
+      \field{volume}{50}
+      \field{year}{2020}
+      \field{pages}{49\bibrangedash 69}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1146/annurev-matsci-090319-010954
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1146/annurev-matsci-090319-010954
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1146/annurev-matsci-090319-010954
+      \endverb
+    \endentry
+    \entry{Gubernatis2018}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=cf0553246bc2f0a43c94e177789f031b}{%
+           family={Gubernatis},
+           familyi={G\bibinitperiod},
+           given={J.\bibnamedelimi E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=f5ba54863edc156432ae0aea62a79ff8}{%
+           family={Lookman},
+           familyi={L\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society (APS)}%
+      }
+      \strng{namehash}{89951746f367a6963dc06900ce29a14f}
+      \strng{fullhash}{89951746f367a6963dc06900ce29a14f}
+      \strng{fullhashraw}{89951746f367a6963dc06900ce29a14f}
+      \strng{bibnamehash}{89951746f367a6963dc06900ce29a14f}
+      \strng{authorbibnamehash}{89951746f367a6963dc06900ce29a14f}
+      \strng{authornamehash}{89951746f367a6963dc06900ce29a14f}
+      \strng{authorfullhash}{89951746f367a6963dc06900ce29a14f}
+      \strng{authorfullhashraw}{89951746f367a6963dc06900ce29a14f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2475-9953}
+      \field{journaltitle}{Physical Review Materials}
+      \field{month}{12}
+      \field{number}{12}
+      \field{title}{Machine learning in materials design and discovery: Examples from the present and suggestions for the future}
+      \field{volume}{2}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.1103/physrevmaterials.2.120301
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1103/PhysRevMaterials.2.120301
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1103/PhysRevMaterials.2.120301
+      \endverb
+    \endentry
+    \entry{Platt1964}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=1d98df66601c236fe1a1977e22568a28}{%
+           family={Platt},
+           familyi={P\bibinitperiod},
+           given={John\bibnamedelima R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science (AAAS)}%
+      }
+      \strng{namehash}{1d98df66601c236fe1a1977e22568a28}
+      \strng{fullhash}{1d98df66601c236fe1a1977e22568a28}
+      \strng{fullhashraw}{1d98df66601c236fe1a1977e22568a28}
+      \strng{bibnamehash}{1d98df66601c236fe1a1977e22568a28}
+      \strng{authorbibnamehash}{1d98df66601c236fe1a1977e22568a28}
+      \strng{authornamehash}{1d98df66601c236fe1a1977e22568a28}
+      \strng{authorfullhash}{1d98df66601c236fe1a1977e22568a28}
+      \strng{authorfullhashraw}{1d98df66601c236fe1a1977e22568a28}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1095-9203}
+      \field{journaltitle}{Science}
+      \field{month}{10}
+      \field{number}{3642}
+      \field{title}{Strong Inference: Certain systematic methods of scientific thinking may produce much more rapid progress than others.}
+      \field{volume}{146}
+      \field{year}{1964}
+      \field{pages}{347\bibrangedash 353}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1126/science.146.3642.347
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1126/science.146.3642.347
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1126/science.146.3642.347
+      \endverb
+    \endentry
+    \entry{popper2005logic}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=cc598e8e33bbe50dcbcbba1ad62d756b}{%
+           family={Popper},
+           familyi={P\bibinitperiod},
+           given={Karl},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Routledge}%
+      }
+      \strng{namehash}{cc598e8e33bbe50dcbcbba1ad62d756b}
+      \strng{fullhash}{cc598e8e33bbe50dcbcbba1ad62d756b}
+      \strng{fullhashraw}{cc598e8e33bbe50dcbcbba1ad62d756b}
+      \strng{bibnamehash}{cc598e8e33bbe50dcbcbba1ad62d756b}
+      \strng{authorbibnamehash}{cc598e8e33bbe50dcbcbba1ad62d756b}
+      \strng{authornamehash}{cc598e8e33bbe50dcbcbba1ad62d756b}
+      \strng{authorfullhash}{cc598e8e33bbe50dcbcbba1ad62d756b}
+      \strng{authorfullhashraw}{cc598e8e33bbe50dcbcbba1ad62d756b}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The logic of scientific discovery}
+      \field{year}{2005}
+    \endentry
+    \entry{Chamberlin1965}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=ac7bb73230195f591739e12d5c06d9f9}{%
+           family={Chamberlin},
+           familyi={C\bibinitperiod},
+           given={T.\bibnamedelimi C.},
+           giveni={T\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science (AAAS)}%
+      }
+      \strng{namehash}{ac7bb73230195f591739e12d5c06d9f9}
+      \strng{fullhash}{ac7bb73230195f591739e12d5c06d9f9}
+      \strng{fullhashraw}{ac7bb73230195f591739e12d5c06d9f9}
+      \strng{bibnamehash}{ac7bb73230195f591739e12d5c06d9f9}
+      \strng{authorbibnamehash}{ac7bb73230195f591739e12d5c06d9f9}
+      \strng{authornamehash}{ac7bb73230195f591739e12d5c06d9f9}
+      \strng{authorfullhash}{ac7bb73230195f591739e12d5c06d9f9}
+      \strng{authorfullhashraw}{ac7bb73230195f591739e12d5c06d9f9}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1095-9203}
+      \field{journaltitle}{Science}
+      \field{month}{5}
+      \field{number}{3671}
+      \field{title}{The Method of Multiple Working Hypotheses: With this method the dangers of parental affection for a favorite theory can be circumvented.}
+      \field{volume}{148}
+      \field{year}{1965}
+      \field{pages}{754\bibrangedash 759}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1126/science.148.3671.754
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1126/science.148.3671.754
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1126/science.148.3671.754
+      \endverb
+    \endentry
+    \entry{Chuang2018}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=629b6644189dfd7b4ce6a3551f1fce4e}{%
+           family={Chuang},
+           familyi={C\bibinitperiod},
+           given={Kangway\bibnamedelima V.},
+           giveni={K\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=5d7ec5ce564525b630e637014f2aca22}{%
+           family={Keiser},
+           familyi={K\bibinitperiod},
+           given={Michael\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science (AAAS)}%
+      }
+      \strng{namehash}{ab637ca9cb95afb745eb37fac4caa9d1}
+      \strng{fullhash}{ab637ca9cb95afb745eb37fac4caa9d1}
+      \strng{fullhashraw}{ab637ca9cb95afb745eb37fac4caa9d1}
+      \strng{bibnamehash}{ab637ca9cb95afb745eb37fac4caa9d1}
+      \strng{authorbibnamehash}{ab637ca9cb95afb745eb37fac4caa9d1}
+      \strng{authornamehash}{ab637ca9cb95afb745eb37fac4caa9d1}
+      \strng{authorfullhash}{ab637ca9cb95afb745eb37fac4caa9d1}
+      \strng{authorfullhashraw}{ab637ca9cb95afb745eb37fac4caa9d1}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1095-9203}
+      \field{journaltitle}{Science}
+      \field{month}{11}
+      \field{number}{6416}
+      \field{title}{Comment on “Predicting reaction performance in C–N cross-coupling using machine learning”}
+      \field{volume}{362}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.1126/science.aat8603
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1126/science.aat8603
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1126/science.aat8603
+      \endverb
+    \endentry
+    \entry{Ramos2025}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=6c1accfcccf9ce3a2bad10fbb050385d}{%
+           family={Ramos},
+           familyi={R\bibinitperiod},
+           given={Mayk\bibnamedelima Caldas},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=02c4381e3c39c63149d0cf5654248da6}{%
+           family={Collison},
+           familyi={C\bibinitperiod},
+           given={Christopher\bibnamedelima J.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=6006fb154d6c363fff154f5988218a40}{%
+           family={White},
+           familyi={W\bibinitperiod},
+           given={Andrew\bibnamedelima D.},
+           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Royal Society of Chemistry (RSC)}%
+      }
+      \strng{namehash}{257cac239e711bcdecb14536fd8e8986}
+      \strng{fullhash}{8acf58c02e2b10b32e2ccb06179a4150}
+      \strng{fullhashraw}{8acf58c02e2b10b32e2ccb06179a4150}
+      \strng{bibnamehash}{8acf58c02e2b10b32e2ccb06179a4150}
+      \strng{authorbibnamehash}{8acf58c02e2b10b32e2ccb06179a4150}
+      \strng{authornamehash}{257cac239e711bcdecb14536fd8e8986}
+      \strng{authorfullhash}{8acf58c02e2b10b32e2ccb06179a4150}
+      \strng{authorfullhashraw}{8acf58c02e2b10b32e2ccb06179a4150}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2041-6539}
+      \field{journaltitle}{Chemical Science}
+      \field{number}{6}
+      \field{title}{A review of large language models and autonomous agents in chemistry}
+      \field{volume}{16}
+      \field{year}{2025}
+      \field{pages}{2514\bibrangedash 2572}
+      \range{pages}{59}
+      \verb{doi}
+      \verb 10.1039/d4sc03921a
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1039/D4SC03921A
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1039/D4SC03921A
+      \endverb
+    \endentry
+    \entry{alampara2025general}{article}{}{}
+      \name{author}{9}{}{%
+        {{hash=de3453b91258a38cd61d290bcac13cdf}{%
+           family={Alampara},
+           familyi={A\bibinitperiod},
+           given={Nawaf},
+           giveni={N\bibinitperiod}}}%
+        {{hash=fff8e6c56ed079360777337a6263dd91}{%
+           family={Aneesh},
+           familyi={A\bibinitperiod},
+           given={Anagha},
+           giveni={A\bibinitperiod}}}%
+        {{hash=146f12e39ddf4806398b7e86980a4acd}{%
+           family={Ríos-García},
+           familyi={R\bibinithyphendelim G\bibinitperiod},
+           given={Martiño},
+           giveni={M\bibinitperiod}}}%
+        {{hash=4598eaf56d66472e5f073f63c29b0843}{%
+           family={Mirza},
+           familyi={M\bibinitperiod},
+           given={Adrian},
+           giveni={A\bibinitperiod}}}%
+        {{hash=98fd96298a25ffdcfbfcd11e62d2b48a}{%
+           family={Schilling-Wilhelmi},
+           familyi={S\bibinithyphendelim W\bibinitperiod},
+           given={Mara},
+           giveni={M\bibinitperiod}}}%
+        {{hash=af9c12d7e846df71fcc9038ce576fa2f}{%
+           family={Asghar\bibnamedelima Aghajani},
+           familyi={A\bibinitperiod\bibinitdelim A\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+        {{hash=565cf04fc5ab805baa00c35e849d43b6}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Meiling},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9d0b4b6fdb24bb4e0fbe128590cb49e9}{%
+           family={Prastalo},
+           familyi={P\bibinitperiod},
+           given={Gordan},
+           giveni={G\bibinitperiod}}}%
+        {{hash=43e5c0f9b16420b649c2afa7b0e966e2}{%
+           family={Maik\bibnamedelima Jablonka},
+           familyi={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           given={Kevin},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{92b1f786e693f169fd0fa3bd9b24ea9a}
+      \strng{fullhash}{57dc52455dc38a14ef1cc43155a6b067}
+      \strng{fullhashraw}{57dc52455dc38a14ef1cc43155a6b067}
+      \strng{bibnamehash}{92b1f786e693f169fd0fa3bd9b24ea9a}
+      \strng{authorbibnamehash}{92b1f786e693f169fd0fa3bd9b24ea9a}
+      \strng{authornamehash}{92b1f786e693f169fd0fa3bd9b24ea9a}
+      \strng{authorfullhash}{57dc52455dc38a14ef1cc43155a6b067}
+      \strng{authorfullhashraw}{57dc52455dc38a14ef1cc43155a6b067}
+      \field{extraname}{1}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv e-prints}
+      \field{title}{General purpose models for the chemical sciences}
+      \field{year}{2025}
+      \field{pages}{arXiv\bibrangedash 2507}
+      \range{pages}{-1}
+    \endentry
+    \entry{Krishnan2025}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=7e4e889ef6cddc12ee682336d21f13b5}{%
+           family={Krishnan},
+           familyi={K\bibinitperiod},
+           given={N.\bibnamedelimi M.\bibnamedelimi Anoop},
+           giveni={N\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=efa82304dfc32b15d6117f5310e4f80e}{%
+           family={Jablonka},
+           familyi={J\bibinitperiod},
+           given={Kevin\bibnamedelima Maik},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{818ac25e92730243bb4594d6eeef9729}
+      \strng{fullhash}{818ac25e92730243bb4594d6eeef9729}
+      \strng{fullhashraw}{818ac25e92730243bb4594d6eeef9729}
+      \strng{bibnamehash}{818ac25e92730243bb4594d6eeef9729}
+      \strng{authorbibnamehash}{818ac25e92730243bb4594d6eeef9729}
+      \strng{authornamehash}{818ac25e92730243bb4594d6eeef9729}
+      \strng{authorfullhash}{818ac25e92730243bb4594d6eeef9729}
+      \strng{authorfullhashraw}{818ac25e92730243bb4594d6eeef9729}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2397-3358}
+      \field{journaltitle}{Nature Reviews Chemistry}
+      \field{month}{8}
+      \field{number}{9}
+      \field{title}{Real AI advances require collaboration}
+      \field{volume}{9}
+      \field{year}{2025}
+      \field{pages}{573\bibrangedash 574}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1038/s41570-025-00750-2
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1038/s41570-025-00750-2
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/s41570-025-00750-2
+      \endverb
+    \endentry
+    \entry{Nielsen2020-rr}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=3b32fb3a134f406f7b5107358d27befe}{%
+           family={Nielsen},
+           familyi={N\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Princeton, NJ}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{fullhash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{fullhashraw}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{bibnamehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authorbibnamehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authornamehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authorfullhash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authorfullhashraw}{3b32fb3a134f406f7b5107358d27befe}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{month}{4}
+      \field{series}{Princeton Science Library}
+      \field{title}{Reinventing discovery}
+      \field{year}{2020}
+    \endentry
+    \entry{Alampara2025}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=de3453b91258a38cd61d290bcac13cdf}{%
+           family={Alampara},
+           familyi={A\bibinitperiod},
+           given={Nawaf},
+           giveni={N\bibinitperiod}}}%
+        {{hash=98fd96298a25ffdcfbfcd11e62d2b48a}{%
+           family={Schilling-Wilhelmi},
+           familyi={S\bibinithyphendelim W\bibinitperiod},
+           given={Mara},
+           giveni={M\bibinitperiod}}}%
+        {{hash=efa82304dfc32b15d6117f5310e4f80e}{%
+           family={Jablonka},
+           familyi={J\bibinitperiod},
+           given={Kevin\bibnamedelima Maik},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{92b1f786e693f169fd0fa3bd9b24ea9a}
+      \strng{fullhash}{71c74be82fc853f542283a709533d04e}
+      \strng{fullhashraw}{71c74be82fc853f542283a709533d04e}
+      \strng{bibnamehash}{71c74be82fc853f542283a709533d04e}
+      \strng{authorbibnamehash}{71c74be82fc853f542283a709533d04e}
+      \strng{authornamehash}{92b1f786e693f169fd0fa3bd9b24ea9a}
+      \strng{authorfullhash}{71c74be82fc853f542283a709533d04e}
+      \strng{authorfullhashraw}{71c74be82fc853f542283a709533d04e}
+      \field{extraname}{2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0927-0256}
+      \field{journaltitle}{Computational Materials Science}
+      \field{month}{9}
+      \field{title}{Lessons from the trenches on evaluating machine learning systems in materials science}
+      \field{volume}{259}
+      \field{year}{2025}
+      \field{pages}{114041}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.commatsci.2025.114041
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1016/j.commatsci.2025.114041
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1016/j.commatsci.2025.114041
+      \endverb
+    \endentry
+    \entry{sheridan2013time}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=b9a03260418b49ef5add1f943e818ce9}{%
+           family={Sheridan},
+           familyi={S\bibinitperiod},
+           given={Robert\bibnamedelima P},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACS Publications}%
+      }
+      \strng{namehash}{b9a03260418b49ef5add1f943e818ce9}
+      \strng{fullhash}{b9a03260418b49ef5add1f943e818ce9}
+      \strng{fullhashraw}{b9a03260418b49ef5add1f943e818ce9}
+      \strng{bibnamehash}{b9a03260418b49ef5add1f943e818ce9}
+      \strng{authorbibnamehash}{b9a03260418b49ef5add1f943e818ce9}
+      \strng{authornamehash}{b9a03260418b49ef5add1f943e818ce9}
+      \strng{authorfullhash}{b9a03260418b49ef5add1f943e818ce9}
+      \strng{authorfullhashraw}{b9a03260418b49ef5add1f943e818ce9}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of chemical information and modeling}
+      \field{number}{4}
+      \field{title}{Time-split cross-validation as a method for estimating the goodness of prospective prediction.}
+      \field{volume}{53}
+      \field{year}{2013}
+      \field{pages}{783\bibrangedash 790}
+      \range{pages}{8}
+    \endentry
+    \entry{Landrum2023}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=4158f47f05ae248999d0de711efbd401}{%
+           family={Landrum},
+           familyi={L\bibinitperiod},
+           given={Gregory\bibnamedelima A.},
+           giveni={G\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=9395006e358a2c83c172d13a75845242}{%
+           family={Beckers},
+           familyi={B\bibinitperiod},
+           given={Maximilian},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5d8b8786f39d9ba1ce613e40919a1cb2}{%
+           family={Lanini},
+           familyi={L\bibinitperiod},
+           given={Jessica},
+           giveni={J\bibinitperiod}}}%
+        {{hash=746ee380907265fcafde378ec85dcd51}{%
+           family={Schneider},
+           familyi={S\bibinitperiod},
+           given={Nadine},
+           giveni={N\bibinitperiod}}}%
+        {{hash=2dc5d9dcd2efeecc7340718cce5c2fa3}{%
+           family={Stiefl},
+           familyi={S\bibinitperiod},
+           given={Nikolaus},
+           giveni={N\bibinitperiod}}}%
+        {{hash=86bec1eec53febd80c9e0970b3492cc0}{%
+           family={Riniker},
+           familyi={R\bibinitperiod},
+           given={Sereina},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{63a085f44c85911ddc0dc0dacf57e82f}
+      \strng{fullhash}{fe64087bdeeabf165f9af8544a829571}
+      \strng{fullhashraw}{fe64087bdeeabf165f9af8544a829571}
+      \strng{bibnamehash}{63a085f44c85911ddc0dc0dacf57e82f}
+      \strng{authorbibnamehash}{63a085f44c85911ddc0dc0dacf57e82f}
+      \strng{authornamehash}{63a085f44c85911ddc0dc0dacf57e82f}
+      \strng{authorfullhash}{fe64087bdeeabf165f9af8544a829571}
+      \strng{authorfullhashraw}{fe64087bdeeabf165f9af8544a829571}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1758-2946}
+      \field{journaltitle}{Journal of Cheminformatics}
+      \field{month}{12}
+      \field{number}{1}
+      \field{title}{SIMPD: an algorithm for generating simulated time splits for validating machine learning approaches}
+      \field{volume}{15}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1186/s13321-023-00787-9
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1186/s13321-023-00787-9
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1186/s13321-023-00787-9
+      \endverb
+    \endentry
+    \entry{Durdy2022}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=4bce918f1042d175155d9a0fb304c732}{%
+           family={Durdy},
+           familyi={D\bibinitperiod},
+           given={Samantha},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ed8c5553e0154a95bb298c03cc4448a7}{%
+           family={Gaultois},
+           familyi={G\bibinitperiod},
+           given={Michael\bibnamedelima W.},
+           giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=5c0977f5434d3134c9fa07e8069ffd5e}{%
+           family={Gusev},
+           familyi={G\bibinitperiod},
+           given={Vladimir\bibnamedelima V.},
+           giveni={V\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=bfb6644de15e6c0fc08c8274af7c4530}{%
+           family={Bollegala},
+           familyi={B\bibinitperiod},
+           given={Danushka},
+           giveni={D\bibinitperiod}}}%
+        {{hash=fce1be95ba1a5cc36975d6f17e2f0d2d}{%
+           family={Rosseinsky},
+           familyi={R\bibinitperiod},
+           given={Matthew\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Royal Society of Chemistry (RSC)}%
+      }
+      \strng{namehash}{bc8843040c7a85337f7ee18b9e014738}
+      \strng{fullhash}{092955e53b412ce869d0f2b539afc166}
+      \strng{fullhashraw}{092955e53b412ce869d0f2b539afc166}
+      \strng{bibnamehash}{092955e53b412ce869d0f2b539afc166}
+      \strng{authorbibnamehash}{092955e53b412ce869d0f2b539afc166}
+      \strng{authornamehash}{bc8843040c7a85337f7ee18b9e014738}
+      \strng{authorfullhash}{092955e53b412ce869d0f2b539afc166}
+      \strng{authorfullhashraw}{092955e53b412ce869d0f2b539afc166}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2635-098X}
+      \field{journaltitle}{Digital Discovery}
+      \field{number}{6}
+      \field{title}{Random projections and kernelised leave one cluster out cross validation: universal baselines and evaluation tools for supervised machine learning of material properties}
+      \field{volume}{1}
+      \field{year}{2022}
+      \field{pages}{763\bibrangedash 778}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1039/d2dd00039c
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1039/D2DD00039C
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1039/D2DD00039C
+      \endverb
+    \endentry
+    \entry{Meredig2018}{article}{}{}
+      \name{author}{12}{}{%
+        {{hash=1326a17db07f422b8b23ed69f01a3fc6}{%
+           family={Meredig},
+           familyi={M\bibinitperiod},
+           given={Bryce},
+           giveni={B\bibinitperiod}}}%
+        {{hash=15fd244abdefe8988a24ef0f05761ed9}{%
+           family={Antono},
+           familyi={A\bibinitperiod},
+           given={Erin},
+           giveni={E\bibinitperiod}}}%
+        {{hash=0993b82f08e2b3fcf893617280d9d0b4}{%
+           family={Church},
+           familyi={C\bibinitperiod},
+           given={Carena},
+           giveni={C\bibinitperiod}}}%
+        {{hash=59f5c6dae0a462b348a33126f9d4e108}{%
+           family={Hutchinson},
+           familyi={H\bibinitperiod},
+           given={Maxwell},
+           giveni={M\bibinitperiod}}}%
+        {{hash=95f43c56f651de4352f5a07379198b07}{%
+           family={Ling},
+           familyi={L\bibinitperiod},
+           given={Julia},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b11d865b715c16ea802b0e784db9f21a}{%
+           family={Paradiso},
+           familyi={P\bibinitperiod},
+           given={Sean},
+           giveni={S\bibinitperiod}}}%
+        {{hash=9b3e57daccbdfbd9465e35f5e752a607}{%
+           family={Blaiszik},
+           familyi={B\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+        {{hash=ef1fd4a400dec702b5baeeac0f942be7}{%
+           family={Foster},
+           familyi={F\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+        {{hash=42fe7c4f3f85e9aa204ae21634114076}{%
+           family={Gibbons},
+           familyi={G\bibinitperiod},
+           given={Brenna},
+           giveni={B\bibinitperiod}}}%
+        {{hash=405658f4f45c09fd0e7f0983b593c35c}{%
+           family={Hattrick-Simpers},
+           familyi={H\bibinithyphendelim S\bibinitperiod},
+           given={Jason},
+           giveni={J\bibinitperiod}}}%
+        {{hash=d57ae9709f33502671a5e0f457329aee}{%
+           family={Mehta},
+           familyi={M\bibinitperiod},
+           given={Apurva},
+           giveni={A\bibinitperiod}}}%
+        {{hash=bb6ebe91f1eda97f094619be5df0a652}{%
+           family={Ward},
+           familyi={W\bibinitperiod},
+           given={Logan},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Royal Society of Chemistry (RSC)}%
+      }
+      \strng{namehash}{983e9a025e007294a3f4942f418aa6b4}
+      \strng{fullhash}{2f7061a0bf7073a782bd6d9608987d8a}
+      \strng{fullhashraw}{2f7061a0bf7073a782bd6d9608987d8a}
+      \strng{bibnamehash}{983e9a025e007294a3f4942f418aa6b4}
+      \strng{authorbibnamehash}{983e9a025e007294a3f4942f418aa6b4}
+      \strng{authornamehash}{983e9a025e007294a3f4942f418aa6b4}
+      \strng{authorfullhash}{2f7061a0bf7073a782bd6d9608987d8a}
+      \strng{authorfullhashraw}{2f7061a0bf7073a782bd6d9608987d8a}
+      \field{extraname}{1}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2058-9689}
+      \field{journaltitle}{Molecular Systems Design \& Engineering}
+      \field{number}{5}
+      \field{title}{Can machine learning identify the next high-temperature superconductor? Examining extrapolation performance for materials discovery}
+      \field{volume}{3}
+      \field{year}{2018}
+      \field{pages}{819\bibrangedash 825}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1039/c8me00012c
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1039/C8ME00012C
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1039/C8ME00012C
+      \endverb
+    \endentry
+    \entry{guo2024scaffold}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=24dd75226b543deb001b1aab033331c7}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Qianrong},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=2736688f11aee446e692acdf56ab1d82}{%
+           family={Hernandez-Hernandez},
+           familyi={H\bibinithyphendelim H\bibinitperiod},
+           given={Saiveth},
+           giveni={S\bibinitperiod}}}%
+        {{hash=4732b53aa62a75e7bf9021affcad3b7d}{%
+           family={Ballester},
+           familyi={B\bibinitperiod},
+           given={Pedro\bibnamedelima J},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{582f7c3fd8efdb4a0c86cfe5df880dab}
+      \strng{fullhash}{6582fa68ef9cc799f6c5dac90033bd15}
+      \strng{fullhashraw}{6582fa68ef9cc799f6c5dac90033bd15}
+      \strng{bibnamehash}{6582fa68ef9cc799f6c5dac90033bd15}
+      \strng{authorbibnamehash}{6582fa68ef9cc799f6c5dac90033bd15}
+      \strng{authornamehash}{582f7c3fd8efdb4a0c86cfe5df880dab}
+      \strng{authorfullhash}{6582fa68ef9cc799f6c5dac90033bd15}
+      \strng{authorfullhashraw}{6582fa68ef9cc799f6c5dac90033bd15}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv: 2406.00873}
+      \field{title}{Scaffold Splits Overestimate Virtual Screening Performance}
+      \field{year}{2024}
+    \endentry
+    \entry{Jablonka2023}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=efa82304dfc32b15d6117f5310e4f80e}{%
+           family={Jablonka},
+           familyi={J\bibinitperiod},
+           given={Kevin\bibnamedelima Maik},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=69c3537eb2a9ba06f77a10a17fc23774}{%
+           family={Rosen},
+           familyi={R\bibinitperiod},
+           given={Andrew\bibnamedelima S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=2c28a9dbe8b0ff3fbe8419f91c494380}{%
+           family={Krishnapriyan},
+           familyi={K\bibinitperiod},
+           given={Aditi\bibnamedelima S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=cf1b6974a4d7bd013e533aea5fcda164}{%
+           family={Smit},
+           familyi={S\bibinitperiod},
+           given={Berend},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Chemical Society (ACS)}%
+      }
+      \strng{namehash}{ca7ae617713e0c2fee11965dfdeb097b}
+      \strng{fullhash}{a90165496649da326adba887e74affa6}
+      \strng{fullhashraw}{a90165496649da326adba887e74affa6}
+      \strng{bibnamehash}{a90165496649da326adba887e74affa6}
+      \strng{authorbibnamehash}{a90165496649da326adba887e74affa6}
+      \strng{authornamehash}{ca7ae617713e0c2fee11965dfdeb097b}
+      \strng{authorfullhash}{a90165496649da326adba887e74affa6}
+      \strng{authorfullhashraw}{a90165496649da326adba887e74affa6}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2374-7951}
+      \field{journaltitle}{ACS Central Science}
+      \field{month}{3}
+      \field{number}{4}
+      \field{title}{An Ecosystem for Digital Reticular Chemistry}
+      \field{volume}{9}
+      \field{year}{2023}
+      \field{pages}{563\bibrangedash 581}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1021/acscentsci.2c01177
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1021/acscentsci.2c01177
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1021/acscentsci.2c01177
+      \endverb
+    \endentry
+    \entry{kunchapu2025polymetrix}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=dc033416fed0137b69f5ae428096c9f5}{%
+           family={Kunchapu},
+           familyi={K\bibinitperiod},
+           given={Sreekanth},
+           giveni={S\bibinitperiod}}}%
+        {{hash=efa82304dfc32b15d6117f5310e4f80e}{%
+           family={Jablonka},
+           familyi={J\bibinitperiod},
+           given={Kevin\bibnamedelima Maik},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group UK London}%
+      }
+      \strng{namehash}{ecde7e5ed107c9d2f22d679ce57deee7}
+      \strng{fullhash}{ecde7e5ed107c9d2f22d679ce57deee7}
+      \strng{fullhashraw}{ecde7e5ed107c9d2f22d679ce57deee7}
+      \strng{bibnamehash}{ecde7e5ed107c9d2f22d679ce57deee7}
+      \strng{authorbibnamehash}{ecde7e5ed107c9d2f22d679ce57deee7}
+      \strng{authornamehash}{ecde7e5ed107c9d2f22d679ce57deee7}
+      \strng{authorfullhash}{ecde7e5ed107c9d2f22d679ce57deee7}
+      \strng{authorfullhashraw}{ecde7e5ed107c9d2f22d679ce57deee7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{npj Computational Materials}
+      \field{number}{1}
+      \field{title}{PolyMetriX: an ecosystem for digital polymer chemistry}
+      \field{volume}{11}
+      \field{year}{2025}
+      \field{pages}{312}
+      \range{pages}{1}
+    \endentry
+    \entry{lightgbm}{manual}{}{}
+      \name{author}{13}{}{%
+        {{hash=fde273fb64fa36bb639bca9167ba7f3c}{%
+           family={Shi},
+           familyi={S\bibinitperiod},
+           given={Yu},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=dadd87e1dad07728ce408894042b277e}{%
+           family={Ke},
+           familyi={K\bibinitperiod},
+           given={Guolin},
+           giveni={G\bibinitperiod}}}%
+        {{hash=3738b34fcf205495ddcd686947131cf6}{%
+           family={Soukhavong},
+           familyi={S\bibinitperiod},
+           given={Damien},
+           giveni={D\bibinitperiod}}}%
+        {{hash=1442c45506c1316abe4eb9ffc24b1f91}{%
+           family={Lamb},
+           familyi={L\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod}}}%
+        {{hash=359e0be87f96079a68d0ebf5355da232}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Qi},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=d1cb1c25fa372c0b0885de8a27dc0222}{%
+           family={Finley},
+           familyi={F\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=b5857cb363d37a3b1ff2c28da6586fc9}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Taifeng},
+           giveni={T\bibinitperiod}}}%
+        {{hash=06debc36f6b61a405e8f0da1c7ccd6ca}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod}}}%
+        {{hash=a70fde7196864f8be0248eba2f7f29c8}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Weidong},
+           giveni={W\bibinitperiod}}}%
+        {{hash=162ccfc475d9d2bc1177357e4913f290}{%
+           family={Ye},
+           familyi={Y\bibinitperiod},
+           given={Qiwei},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=716b89cbb7332599ebb33cc58a52f648}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Tie-Yan},
+           giveni={T\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=a41258e3c7614da70db27191c84a6509}{%
+           family={Titov},
+           familyi={T\bibinitperiod},
+           given={Nikita},
+           giveni={N\bibinitperiod}}}%
+        {{hash=bc89c6bf152a291c07dd80a14c7cf619}{%
+           family={Cortes},
+           familyi={C\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{9a9b55a3df757cee4bccde6d266780f4}
+      \strng{fullhash}{c95903269eb6e340d21f6e1d15ecec67}
+      \strng{fullhashraw}{c95903269eb6e340d21f6e1d15ecec67}
+      \strng{bibnamehash}{9a9b55a3df757cee4bccde6d266780f4}
+      \strng{authorbibnamehash}{9a9b55a3df757cee4bccde6d266780f4}
+      \strng{authornamehash}{9a9b55a3df757cee4bccde6d266780f4}
+      \strng{authorfullhash}{c95903269eb6e340d21f6e1d15ecec67}
+      \strng{authorfullhashraw}{c95903269eb6e340d21f6e1d15ecec67}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{R package version 4.6.0}
+      \field{title}{lightgbm: Light Gradient Boosting Machine}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://github.com/Microsoft/LightGBM
+      \endverb
+      \verb{url}
+      \verb https://github.com/Microsoft/LightGBM
+      \endverb
+    \endentry
+    \entry{Weininger1988}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=8396687b96e64d23dac029daee2916d2}{%
+           family={Weininger},
+           familyi={W\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Chemical Society (ACS)}%
+      }
+      \strng{namehash}{8396687b96e64d23dac029daee2916d2}
+      \strng{fullhash}{8396687b96e64d23dac029daee2916d2}
+      \strng{fullhashraw}{8396687b96e64d23dac029daee2916d2}
+      \strng{bibnamehash}{8396687b96e64d23dac029daee2916d2}
+      \strng{authorbibnamehash}{8396687b96e64d23dac029daee2916d2}
+      \strng{authornamehash}{8396687b96e64d23dac029daee2916d2}
+      \strng{authorfullhash}{8396687b96e64d23dac029daee2916d2}
+      \strng{authorfullhashraw}{8396687b96e64d23dac029daee2916d2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1520-5142}
+      \field{journaltitle}{Journal of Chemical Information and Computer Sciences}
+      \field{month}{2}
+      \field{number}{1}
+      \field{title}{SMILES, a chemical language and information system. 1. Introduction to methodology and encoding rules}
+      \field{volume}{28}
+      \field{year}{1988}
+      \field{pages}{31\bibrangedash 36}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1021/ci00057a005
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1021/ci00057a005
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1021/ci00057a005
+      \endverb
+    \endentry
+    \entry{rdkit}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=e601a7c55532ce4224a97a4252dbd0c1}{%
+           family={Landrum},
+           familyi={L\bibinitperiod},
+           given={Greg},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{e601a7c55532ce4224a97a4252dbd0c1}
+      \strng{fullhash}{e601a7c55532ce4224a97a4252dbd0c1}
+      \strng{fullhashraw}{e601a7c55532ce4224a97a4252dbd0c1}
+      \strng{bibnamehash}{e601a7c55532ce4224a97a4252dbd0c1}
+      \strng{authorbibnamehash}{e601a7c55532ce4224a97a4252dbd0c1}
+      \strng{authornamehash}{e601a7c55532ce4224a97a4252dbd0c1}
+      \strng{authorfullhash}{e601a7c55532ce4224a97a4252dbd0c1}
+      \strng{authorfullhashraw}{e601a7c55532ce4224a97a4252dbd0c1}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{RDKit: Open-Source Cheminformatics Software}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://github.com/rdkit/rdkit/
+      \endverb
+      \verb{url}
+      \verb https://github.com/rdkit/rdkit/
+      \endverb
+    \endentry
+    \entry{matminer}{article}{}{}
+      \name{author}{16}{}{%
+        {{hash=bb6ebe91f1eda97f094619be5df0a652}{%
+           family={Ward},
+           familyi={W\bibinitperiod},
+           given={Logan},
+           giveni={L\bibinitperiod}}}%
+        {{hash=10e1d167245f95a2f35642c73f9b9b2d}{%
+           family={Dunn},
+           familyi={D\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=b3c9212d427afffa973ada25c2f19119}{%
+           family={Faghaninia},
+           familyi={F\bibinitperiod},
+           given={Alireza},
+           giveni={A\bibinitperiod}}}%
+        {{hash=726b9ec8661ca6e97cf25e9e21f4cce8}{%
+           family={Zimmermann},
+           familyi={Z\bibinitperiod},
+           given={Nils\bibnamedelima E.R.},
+           giveni={N\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=298be6293a20b2119133a202d20ca700}{%
+           family={Bajaj},
+           familyi={B\bibinitperiod},
+           given={Saurabh},
+           giveni={S\bibinitperiod}}}%
+        {{hash=2ff53b99cb226c6384ebd0abb3e330b1}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Qi},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=3db3937b8ea5e6e1e27c2443f2563e95}{%
+           family={Montoya},
+           familyi={M\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ea345e8f41d049bbff4d25282ae847a1}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Jiming},
+           giveni={J\bibinitperiod}}}%
+        {{hash=21241c7958e471c3f491c593a51aa7a3}{%
+           family={Bystrom},
+           familyi={B\bibinitperiod},
+           given={Kyle},
+           giveni={K\bibinitperiod}}}%
+        {{hash=af08d2aeecb43eea2d73de520887302e}{%
+           family={Dylla},
+           familyi={D\bibinitperiod},
+           given={Maxwell},
+           giveni={M\bibinitperiod}}}%
+        {{hash=3344ec9c6c7bd8534c9e55fd7b261be2}{%
+           family={Chard},
+           familyi={C\bibinitperiod},
+           given={Kyle},
+           giveni={K\bibinitperiod}}}%
+        {{hash=aa49f25897d7c45ea435138829ce6756}{%
+           family={Asta},
+           familyi={A\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d823a736a8705c23b18ef2b370c1426b}{%
+           family={Persson},
+           familyi={P\bibinitperiod},
+           given={Kristin\bibnamedelima A.},
+           giveni={K\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=15adebbab8733817b9397a2bd8eab956}{%
+           family={Snyder},
+           familyi={S\bibinitperiod},
+           given={G.\bibnamedelimi Jeffrey},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=ef1fd4a400dec702b5baeeac0f942be7}{%
+           family={Foster},
+           familyi={F\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+        {{hash=1a7df34f95bdb077e13b78311841ed67}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={Anubhav},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{02c83cb204201fdf6b9c19eefc1cdb96}
+      \strng{fullhash}{bb07bb5c4cda4b59d44f0d40f67feeb9}
+      \strng{fullhashraw}{bb07bb5c4cda4b59d44f0d40f67feeb9}
+      \strng{bibnamehash}{02c83cb204201fdf6b9c19eefc1cdb96}
+      \strng{authorbibnamehash}{02c83cb204201fdf6b9c19eefc1cdb96}
+      \strng{authornamehash}{02c83cb204201fdf6b9c19eefc1cdb96}
+      \strng{authorfullhash}{bb07bb5c4cda4b59d44f0d40f67feeb9}
+      \strng{authorfullhashraw}{bb07bb5c4cda4b59d44f0d40f67feeb9}
+      \field{extraname}{1}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0927-0256}
+      \field{journaltitle}{Computational Materials Science}
+      \field{month}{9}
+      \field{title}{Matminer: An open source toolkit for materials data mining}
+      \field{volume}{152}
+      \field{year}{2018}
+      \field{pages}{60\bibrangedash 69}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/j.commatsci.2018.05.018
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1016/j.commatsci.2018.05.018
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1016/j.commatsci.2018.05.018
+      \endverb
+    \endentry
+    \entry{ward2016general}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=bb6ebe91f1eda97f094619be5df0a652}{%
+           family={Ward},
+           familyi={W\bibinitperiod},
+           given={Logan},
+           giveni={L\bibinitperiod}}}%
+        {{hash=95e759d1bfa384ef5adce6f4c3715a27}{%
+           family={Agrawal},
+           familyi={A\bibinitperiod},
+           given={Ankit},
+           giveni={A\bibinitperiod}}}%
+        {{hash=36bf959c7a5031b6587c488089b7ace4}{%
+           family={Choudhary},
+           familyi={C\bibinitperiod},
+           given={Alok},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f265fbe9864b5ba1d8065ddfd9c6226f}{%
+           family={Wolverton},
+           familyi={W\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{02c83cb204201fdf6b9c19eefc1cdb96}
+      \strng{fullhash}{dd9dbb6f50a93e67610fb9cf053ff7e0}
+      \strng{fullhashraw}{dd9dbb6f50a93e67610fb9cf053ff7e0}
+      \strng{bibnamehash}{dd9dbb6f50a93e67610fb9cf053ff7e0}
+      \strng{authorbibnamehash}{dd9dbb6f50a93e67610fb9cf053ff7e0}
+      \strng{authornamehash}{02c83cb204201fdf6b9c19eefc1cdb96}
+      \strng{authorfullhash}{dd9dbb6f50a93e67610fb9cf053ff7e0}
+      \strng{authorfullhashraw}{dd9dbb6f50a93e67610fb9cf053ff7e0}
+      \field{extraname}{2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{npj Computational Materials}
+      \field{number}{1}
+      \field{title}{A general-purpose machine learning framework for predicting properties of inorganic materials}
+      \field{volume}{2}
+      \field{year}{2016}
+      \field{pages}{1\bibrangedash 7}
+      \range{pages}{7}
+    \endentry
+    \entry{meredig2014combinatorial}{article}{}{}
+      \name{author}{9}{}{%
+        {{hash=1326a17db07f422b8b23ed69f01a3fc6}{%
+           family={Meredig},
+           familyi={M\bibinitperiod},
+           given={Bryce},
+           giveni={B\bibinitperiod}}}%
+        {{hash=95e759d1bfa384ef5adce6f4c3715a27}{%
+           family={Agrawal},
+           familyi={A\bibinitperiod},
+           given={Ankit},
+           giveni={A\bibinitperiod}}}%
+        {{hash=aed9a511bd4e7d4a672d37554c5bbee3}{%
+           family={Kirklin},
+           familyi={K\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod}}}%
+        {{hash=abd835127b167f07daff2f678d64ae71}{%
+           family={Saal},
+           familyi={S\bibinitperiod},
+           given={James\bibnamedelima E},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=a0d9113cc7701b8a4313438b2580e3cb}{%
+           family={Doak},
+           familyi={D\bibinitperiod},
+           given={Jeff\bibnamedelima W},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=4051c81e9230b0d4819cbd235a1daeb8}{%
+           family={Thompson},
+           familyi={T\bibinitperiod},
+           given={Alan},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0c1e14bba030505a64fc66c0d187dccd}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Kunpeng},
+           giveni={K\bibinitperiod}}}%
+        {{hash=36bf959c7a5031b6587c488089b7ace4}{%
+           family={Choudhary},
+           familyi={C\bibinitperiod},
+           given={Alok},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f265fbe9864b5ba1d8065ddfd9c6226f}{%
+           family={Wolverton},
+           familyi={W\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {APS}%
+      }
+      \strng{namehash}{983e9a025e007294a3f4942f418aa6b4}
+      \strng{fullhash}{3b7f575a2345885e9b99f27385c63239}
+      \strng{fullhashraw}{3b7f575a2345885e9b99f27385c63239}
+      \strng{bibnamehash}{983e9a025e007294a3f4942f418aa6b4}
+      \strng{authorbibnamehash}{983e9a025e007294a3f4942f418aa6b4}
+      \strng{authornamehash}{983e9a025e007294a3f4942f418aa6b4}
+      \strng{authorfullhash}{3b7f575a2345885e9b99f27385c63239}
+      \strng{authorfullhashraw}{3b7f575a2345885e9b99f27385c63239}
+      \field{extraname}{2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physical Review B}
+      \field{number}{9}
+      \field{title}{Combinatorial screening for new materials in unconstrained composition space with machine learning}
+      \field{volume}{89}
+      \field{year}{2014}
+      \field{pages}{094104}
+      \range{pages}{1}
+    \endentry
+    \entry{pymatgen}{article}{}{}
+      \name{author}{10}{}{%
+        {{hash=ec35ac10384a057f3608216b62bde711}{%
+           family={Ong},
+           familyi={O\bibinitperiod},
+           given={Shyue\bibnamedelima Ping},
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=7a4053b9fa91834fbc95a799bd91dfd4}{%
+           family={Richards},
+           familyi={R\bibinitperiod},
+           given={William\bibnamedelima Davidson},
+           giveni={W\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=1a7df34f95bdb077e13b78311841ed67}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={Anubhav},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9492618befda84af2f30c9f7d944783a}{%
+           family={Hautier},
+           familyi={H\bibinitperiod},
+           given={Geoffroy},
+           giveni={G\bibinitperiod}}}%
+        {{hash=52e397e809f0fce5b0dff649b10ee860}{%
+           family={Kocher},
+           familyi={K\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2fe72fe0e3063bf47737d661d057bfbb}{%
+           family={Cholia},
+           familyi={C\bibinitperiod},
+           given={Shreyas},
+           giveni={S\bibinitperiod}}}%
+        {{hash=33a335e9d1139fd3b19e94f7d27752bf}{%
+           family={Gunter},
+           familyi={G\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod}}}%
+        {{hash=dd43c0422edb8c528351548886b8ab11}{%
+           family={Chevrier},
+           familyi={C\bibinitperiod},
+           given={Vincent\bibnamedelima L},
+           giveni={V\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=d823a736a8705c23b18ef2b370c1426b}{%
+           family={Persson},
+           familyi={P\bibinitperiod},
+           given={Kristin\bibnamedelima A},
+           giveni={K\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=1119594242bcd7037a1f252b0626e411}{%
+           family={Ceder},
+           familyi={C\bibinitperiod},
+           given={Gerbrand},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{f66dc6868f60190249744e7f893e363d}
+      \strng{fullhash}{5737267798e11d26bfcc82ba62b610e8}
+      \strng{fullhashraw}{5737267798e11d26bfcc82ba62b610e8}
+      \strng{bibnamehash}{f66dc6868f60190249744e7f893e363d}
+      \strng{authorbibnamehash}{f66dc6868f60190249744e7f893e363d}
+      \strng{authornamehash}{f66dc6868f60190249744e7f893e363d}
+      \strng{authorfullhash}{5737267798e11d26bfcc82ba62b610e8}
+      \strng{authorfullhashraw}{5737267798e11d26bfcc82ba62b610e8}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computational Materials Science}
+      \field{title}{Python Materials Genomics (pymatgen): A robust, open-source python library for materials analysis}
+      \field{volume}{68}
+      \field{year}{2013}
+      \field{pages}{314\bibrangedash 319}
+      \range{pages}{6}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

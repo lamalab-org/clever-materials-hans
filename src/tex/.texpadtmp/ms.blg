@@ -1,0 +1,17 @@
+[0] Config.pm:308> INFO - This is Biber 2.20
+[0] Config.pm:311> INFO - Logfile is '/Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/.texpadtmp/ms.blg'
+[61] biber-darwin:340> INFO - === Thu Feb  5, 2026, 11:43:09
+[80] Biber.pm:420> INFO - Reading '/Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/.texpadtmp/ms.bcf'
+[143] Biber.pm:994> INFO - Found 46 citekeys in bib section 0
+[158] Biber.pm:4463> INFO - Processing section 0
+[167] Biber.pm:4654> INFO - Looking for bibtex file '/Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/references.bib' for section 0
+[175] bibtex.pm:1713> INFO - LaTeX decoding ...
+[230] bibtex.pm:1519> INFO - Found BibTeX data source '/Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/references.bib'
+[941] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[941] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[941] Biber.pm:4283> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
+[941] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[981] bbl.pm:676> INFO - Writing '/Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/.texpadtmp/ms.bbl' with encoding 'UTF-8'
+[1007] bbl.pm:779> INFO - Output to /Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/.texpadtmp/ms.bbl
+[1007] Biber.pm:131> WARN - Duplicate entry key: 'Moosavi2020' in file '/Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/references.bib', skipping ...
+[1008] Biber.pm:133> INFO - WARNINGS: 1

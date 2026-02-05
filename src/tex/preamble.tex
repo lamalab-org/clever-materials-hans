@@ -1,0 +1,107 @@
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{xltabular}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\hypersetup{breaklinks=true,hidelinks}
+\usepackage[backend=biber,style=nature]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage{csquotes}
+\usepackage{cleveref}
+\usepackage{siunitx}
+\usepackage{geometry}
+\usepackage{multirow}
+\geometry{left=4.2cm, right=4.2cm}
+
+\usepackage[dvipsnames]{xcolor}
+\definecolor{tumblue}{rgb}{0,0.396078431372549,0.741176470588235}
+
+\usepackage{xspace}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{authblk}
+\usepackage{mhchem}
+
+
+\usepackage{marvosym}
+
+\usepackage{sectsty}
+
+%\usepackage[sort&compress,numbers,super]{natbib}
+
+\sectionfont{\color{tumblue}\selectfont\sffamily}
+\subsectionfont{\color{tumblue}\selectfont\sffamily}
+\subsubsectionfont{\color{tumblue}\selectfont\sffamily}
+\paragraphfont{\selectfont\sffamily}
+\subparagraphfont{\color{gray}\selectfont\sffamily}
+
+
+\renewcommand*{\Authfont}{\sf}
+\renewcommand*{\Affilfont}{\sf}
+
+
+\definecolor{halfgray}{gray}{0.55}
+\renewcommand\labelitemi{\color{halfgray}$\bullet$}
+%\usepackage{kpfonts}
+
+
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+
+% if the \fonts folder exists, use fontspec to change fonts
+\IfFileExists{./fonts/Heliotrope-Bold.otf}{
+    \usepackage{fontspec}
+    \setmainfont{Heliotrope}[Extension = .otf, UprightFont = *-Regular, ItalicFont = *-Italic, BoldFont=*-Bold, Path = ./fonts/]
+}{
+    \usepackage{biolinum}
+    \renewcommand{\familydefault}{\sfdefault}
+}
+
+\makeatletter
+\renewbibmacro*{textcite}{%
+  \iffieldequals{namehash}{\cbx@lasthash}
+    {\usebibmacro{cite:comp}}
+    {\usebibmacro{cite:dump}%
+     \ifbool{cbx:parens}
+       {\bibclosebracket\global\boolfalse{cbx:parens}}
+       {}%
+     \iffirstcitekey
+       {}
+       {\textcitedelim}%
+     \usebibmacro{cite:init}%
+     \ifnameundef{labelname}
+       {\printfield[citetitle]{labeltitle}}
+       {\printnames{labelname}}%
+     \addspace
+     \ifnumequal{\value{citecount}}{1}
+       {\usebibmacro{prenote}}
+       {}%
+     \mkbibsuperscript{\usebibmacro{cite:comp}}%
+     \stepcounter{textcitecount}%
+     \savefield{namehash}{\cbx@lasthash}}}
+\makeatother
+
+
+\usepackage{lipsum}
+\usepackage[labelfont=bf]{caption}
+
+\renewcommand{\Affilfont}{\scriptsize}
+ \renewcommand{\Authfont}{\normalsize}
+
+ \usepackage{microtype}
+
+
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+\errorcontextlines=10
+
