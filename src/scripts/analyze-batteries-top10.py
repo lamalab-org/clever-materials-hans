@@ -51,26 +51,34 @@ def _(paths, pd):
 @app.cell
 def _(df, np):
     df_with_capacity = df.dropna(subset=["authors_full_list", "Value"])
-    
+
     # Calculate the 90th percentile (top 10%) threshold for battery capacity
     capacity_threshold = np.percentile(df_with_capacity["Value"], 90)
     print(f"Top 10% battery capacity threshold: {capacity_threshold:.1f}")
-    
+
     # Create binary classification target
-    df_with_capacity["is_top10_capacity"] = (df_with_capacity["Value"] >= capacity_threshold).astype(int)
-    
+    df_with_capacity["is_top10_capacity"] = (
+        df_with_capacity["Value"] >= capacity_threshold
+    ).astype(int)
+
     # Show class distribution
     class_counts = df_with_capacity["is_top10_capacity"].value_counts()
     print(f"Class distribution:")
-    print(f"  Not top 10% (0): {class_counts[0]} samples ({class_counts[0]/len(df_with_capacity)*100:.1f}%)")
-    print(f"  Top 10% (1): {class_counts[1]} samples ({class_counts[1]/len(df_with_capacity)*100:.1f}%)")
+    print(
+        f"  Not top 10% (0): {class_counts[0]} samples ({class_counts[0] / len(df_with_capacity) * 100:.1f}%)"
+    )
+    print(
+        f"  Top 10% (1): {class_counts[1]} samples ({class_counts[1] / len(df_with_capacity) * 100:.1f}%)"
+    )
 
     df_final = df_with_capacity
     print(f"Dataset shape: {df_final.shape}")
-    print(f"Number of features: {len([f for f in df_final.columns if f.startswith('feat_')])}")
+    print(
+        f"Number of features: {len([f for f in df_final.columns if f.startswith('feat_')])}"
+    )
 
     target_column = "is_top10_capacity"
-    return df_final, target_column, capacity_threshold
+    return capacity_threshold, df_final, target_column
 
 
 @app.cell
@@ -90,7 +98,7 @@ def _(df_final, run_single_analysis, target_column):
 @app.cell
 def _(METRIC_LABELS, paths, plot_performance_comparison, results_default):
     battery_top10_labels = METRIC_LABELS.copy()
-    
+
     fig_performance = plot_performance_comparison(
         results_default,
         target_type="classification",
@@ -99,7 +107,7 @@ def _(METRIC_LABELS, paths, plot_performance_comparison, results_default):
         title_suffix="Battery Top 10% Capacity Dataset",
     )
     fig_performance.show()
-    return fig_performance, battery_top10_labels
+    return battery_top10_labels, fig_performance
 
 
 @app.cell
@@ -135,7 +143,12 @@ def _(paths, plot_meta_performance, results_default):
 
 
 @app.cell
-def _(battery_top10_labels, paths, plot_parameter_sweep_results, sweep_results):
+def _(
+    battery_top10_labels,
+    paths,
+    plot_parameter_sweep_results,
+    sweep_results,
+):
     fig_sweep = plot_parameter_sweep_results(
         sweep_results,
         metric="f1",
@@ -148,9 +161,18 @@ def _(battery_top10_labels, paths, plot_parameter_sweep_results, sweep_results):
 
 
 @app.cell
-def _(battery_top10_labels, create_main_figure_panel, paths, results_default):
+def _(battery_top10_labels, create_main_figure_panel, paths, sweep_results):
+    from plotting_utils import find_best_parameter_setting
+
+    best_setting = find_best_parameter_setting(
+        sweep_results,
+        target_type="classification",
+        selection_criteria="smallest_gap",
+        similarity_metric="f1",
+    )
+
     fig_main = create_main_figure_panel(
-        results_default,
+        best_setting["best_result"],
         target_type="classification",
         dataset_name="Battery Top 10% Capacity",
         metric_labels=battery_top10_labels,
@@ -175,13 +197,26 @@ def _(export_key_metrics, paths, results_default):
 def _(capacity_threshold, df_final):
     # Show some statistics about the top 10% threshold
     print(f"Battery capacity threshold for top 10%: {capacity_threshold:.1f}")
-    print(f"Range of top 10% capacity values: {df_final[df_final['is_top10_capacity']==1]['Value'].min():.1f} - {df_final[df_final['is_top10_capacity']==1]['Value'].max():.1f}")
-    print(f"Range of bottom 90% capacity values: {df_final[df_final['is_top10_capacity']==0]['Value'].min():.1f} - {df_final[df_final['is_top10_capacity']==0]['Value'].max():.1f}")
-    
+    print(
+        f"Range of top 10% capacity values: {df_final[df_final['is_top10_capacity'] == 1]['Value'].min():.1f} - {df_final[df_final['is_top10_capacity'] == 1]['Value'].max():.1f}"
+    )
+    print(
+        f"Range of bottom 90% capacity values: {df_final[df_final['is_top10_capacity'] == 0]['Value'].min():.1f} - {df_final[df_final['is_top10_capacity'] == 0]['Value'].max():.1f}"
+    )
+
     # Show some interesting statistics
     print(f"\nMean battery capacity:")
-    print(f"  Top 10%: {df_final[df_final['is_top10_capacity']==1]['Value'].mean():.1f}")
-    print(f"  Bottom 90%: {df_final[df_final['is_top10_capacity']==0]['Value'].mean():.1f}")
+    print(
+        f"  Top 10%: {df_final[df_final['is_top10_capacity'] == 1]['Value'].mean():.1f}"
+    )
+    print(
+        f"  Bottom 90%: {df_final[df_final['is_top10_capacity'] == 0]['Value'].mean():.1f}"
+    )
+    return
+
+
+@app.cell
+def _():
     return
 
 

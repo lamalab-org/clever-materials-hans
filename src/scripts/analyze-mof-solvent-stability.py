@@ -137,26 +137,46 @@ def _(mof_solvent_labels, paths, plot_parameter_sweep_results, sweep_results):
 
 
 @app.cell
-def _(create_main_figure_panel, mof_solvent_labels, paths, results_default):
+def _(create_main_figure_panel, mof_solvent_labels, paths, sweep_results):
+    from plotting_utils import find_best_parameter_setting
+
+    best_setting = find_best_parameter_setting(
+        sweep_results,
+        target_type="classification",
+        selection_criteria="smallest_gap",
+        similarity_metric="accuracy",
+    )
+
     fig_main = create_main_figure_panel(
-        results_default,
+        best_setting["best_result"],
         target_type="classification",
         dataset_name="MOF Solvent Stability",
         metric_labels=mof_solvent_labels,
         save_path=paths.figures / "mof_solvent_main_panel.pdf",
+        selection_metric="accuracy",
     )
     fig_main
-    return
+    return (best_setting,)
 
 
 @app.cell
-def _(export_key_metrics, paths, results_default):
+def _(best_setting, export_key_metrics, paths):
     export_key_metrics(
-        results_default,
+        best_setting["best_result"],
         dataset_name="mof_solvent",
         output_dir=paths.output,
         target_type="classification",
     )
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
     return
 
 

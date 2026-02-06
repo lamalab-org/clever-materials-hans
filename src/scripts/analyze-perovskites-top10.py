@@ -60,13 +60,19 @@ def _(df, np):
     print(f"Top 10% PCE threshold: {pce_threshold:.2f}%")
 
     # Create binary classification target
-    df_with_pce["is_top10_pce"] = (df_with_pce["data.jv.default_PCE"] >= pce_threshold).astype(int)
+    df_with_pce["is_top10_pce"] = (
+        df_with_pce["data.jv.default_PCE"] >= pce_threshold
+    ).astype(int)
 
     # Show class distribution
     class_counts = df_with_pce["is_top10_pce"].value_counts()
     print(f"Class distribution:")
-    print(f"  Not top 10% (0): {class_counts[0]} samples ({class_counts[0]/len(df_with_pce)*100:.1f}%)")
-    print(f"  Top 10% (1): {class_counts[1]} samples ({class_counts[1]/len(df_with_pce)*100:.1f}%)")
+    print(
+        f"  Not top 10% (0): {class_counts[0]} samples ({class_counts[0] / len(df_with_pce) * 100:.1f}%)"
+    )
+    print(
+        f"  Top 10% (1): {class_counts[1]} samples ({class_counts[1] / len(df_with_pce) * 100:.1f}%)"
+    )
 
     df_final = df_with_pce
     print(f"Dataset shape: {df_final.shape}")
@@ -156,27 +162,32 @@ def _(
 
 
 @app.cell
-def _(
-    create_main_figure_panel,
-    paths,
-    perovskite_top10_labels,
-    results_default,
-):
+def _(create_main_figure_panel, paths, perovskite_top10_labels, sweep_results):
+    from plotting_utils import find_best_parameter_setting
+
+    best_setting = find_best_parameter_setting(
+        sweep_results,
+        target_type="classification",
+        selection_criteria="smallest_gap",
+        similarity_metric="accuracy",
+    )
+
     fig_main = create_main_figure_panel(
-        results_default,
+        best_setting["best_result"],
         target_type="classification",
         dataset_name="Perovskite Top 10% PCE",
         metric_labels=perovskite_top10_labels,
         save_path=paths.figures / "perovskite_top10_main_panel.pdf",
+        selection_metric='accuracy'
     )
     fig_main
-    return
+    return (best_setting,)
 
 
 @app.cell
-def _(export_key_metrics, paths, results_default):
+def _(best_setting, export_key_metrics, paths):
     export_key_metrics(
-        results_default,
+        best_setting["best_result"],
         dataset_name="perovskite_top10",
         output_dir=paths.output,
         target_type="classification",
@@ -188,8 +199,22 @@ def _(export_key_metrics, paths, results_default):
 def _(df_final, pce_threshold):
     # Show some statistics about the top 10% threshold
     print(f"PCE threshold for top 10%: {pce_threshold:.2f}%")
-    print(f"Range of top 10% PCE values: {df_final[df_final['is_top10_pce']==1]['data.jv.default_PCE'].min():.2f}% - {df_final[df_final['is_top10_pce']==1]['data.jv.default_PCE'].max():.2f}%")
-    print(f"Range of bottom 90% PCE values: {df_final[df_final['is_top10_pce']==0]['data.jv.default_PCE'].min():.2f}% - {df_final[df_final['is_top10_pce']==0]['data.jv.default_PCE'].max():.2f}%")
+    print(
+        f"Range of top 10% PCE values: {df_final[df_final['is_top10_pce'] == 1]['data.jv.default_PCE'].min():.2f}% - {df_final[df_final['is_top10_pce'] == 1]['data.jv.default_PCE'].max():.2f}%"
+    )
+    print(
+        f"Range of bottom 90% PCE values: {df_final[df_final['is_top10_pce'] == 0]['data.jv.default_PCE'].min():.2f}% - {df_final[df_final['is_top10_pce'] == 0]['data.jv.default_PCE'].max():.2f}%"
+    )
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
     return
 
 

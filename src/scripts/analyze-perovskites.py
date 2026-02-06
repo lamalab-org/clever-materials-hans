@@ -137,13 +137,23 @@ def _(paths, perovskite_labels, plot_parameter_sweep_results, sweep_results):
 
 
 @app.cell
-def _(create_main_figure_panel, paths, perovskite_labels, results_default):
+def _(create_main_figure_panel, paths, perovskite_labels, sweep_results):
+    from plotting_utils import find_best_parameter_setting
+    
+    best_setting = find_best_parameter_setting(
+        sweep_results,
+        target_type="regression",
+        selection_criteria="best_overall",
+        similarity_metric="mae"
+    )
+    
     fig_main = create_main_figure_panel(
-        results_default,
+        best_setting["best_result"],
         target_type="regression",
         dataset_name="Perovskite",
         metric_labels=perovskite_labels,
         save_path=paths.figures / "perovskite_main_panel.pdf",
+        selection_metric="mae",
     )
     fig_main
     return
@@ -157,6 +167,11 @@ def _(export_key_metrics, paths, results_default):
         output_dir=paths.output,
         target_type="regression",
     )
+    return
+
+
+@app.cell
+def _():
     return
 
 

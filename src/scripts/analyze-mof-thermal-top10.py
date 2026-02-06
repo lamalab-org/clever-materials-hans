@@ -152,7 +152,7 @@ def _(
 ):
     fig_sweep = plot_parameter_sweep_results(
         sweep_results,
-        metric="f1",
+        metric="accuracy",
         metric_labels=mof_thermal_top10_labels,
         save_path=paths.figures / "mof_thermal_top10_parameter_sweep.pdf",
         title_suffix="MOF Top 10% Thermal Stability Dataset",
@@ -166,23 +166,33 @@ def _(
     create_main_figure_panel,
     mof_thermal_top10_labels,
     paths,
-    results_default,
+    sweep_results,
 ):
+    from plotting_utils import find_best_parameter_setting
+
+    best_setting = find_best_parameter_setting(
+        sweep_results,
+        target_type="classification",
+        selection_criteria="smallest_gap",
+        similarity_metric="accuracy",
+    )
+
     fig_main = create_main_figure_panel(
-        results_default,
+        best_setting["best_result"],
         target_type="classification",
         dataset_name="MOF Top 10% Thermal Stability",
         metric_labels=mof_thermal_top10_labels,
         save_path=paths.figures / "mof_thermal_top10_main_panel.pdf",
+        selection_metric='accuracy'
     )
     fig_main
-    return
+    return (best_setting,)
 
 
 @app.cell
-def _(export_key_metrics, paths, results_default):
+def _(best_setting, export_key_metrics, paths):
     export_key_metrics(
-        results_default,
+        best_setting["best_result"],
         dataset_name="mof_thermal_top10",
         output_dir=paths.output,
         target_type="classification",

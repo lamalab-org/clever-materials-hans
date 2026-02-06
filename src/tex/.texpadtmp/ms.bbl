@@ -158,6 +158,79 @@
       \verb http://dx.doi.org/10.1038/s41467-019-08987-4
       \endverb
     \endentry
+    \entry{pooch2019trust}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=7d80983c4d8d7da11890ab821b596df8}{%
+           family={Pooch},
+           familyi={P\bibinitperiod},
+           given={Eduardo\bibnamedelimb H.\bibnamedelimi P.},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=dad16350231105a6215054de0c0f5282}{%
+           family={Ballester},
+           familyi={B\bibinitperiod},
+           given={Pedro\bibnamedelima L.},
+           giveni={P\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=4d19b360500f1582c2d4da27e38ff678}{%
+           family={Barros},
+           familyi={B\bibinitperiod},
+           given={Rodrigo\bibnamedelima C.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{49d080601034e04736a66fb86f45b3a9}
+      \strng{fullhash}{6f77bf05c91860ad67468d078794b761}
+      \strng{fullhashraw}{6f77bf05c91860ad67468d078794b761}
+      \strng{bibnamehash}{6f77bf05c91860ad67468d078794b761}
+      \strng{authorbibnamehash}{6f77bf05c91860ad67468d078794b761}
+      \strng{authornamehash}{49d080601034e04736a66fb86f45b3a9}
+      \strng{authorfullhash}{6f77bf05c91860ad67468d078794b761}
+      \strng{authorfullhashraw}{6f77bf05c91860ad67468d078794b761}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv: 1909.01940}
+      \field{title}{Can we trust deep learning models diagnosis? The impact of domain shift in chest radiograph classification}
+      \field{year}{2019}
+    \endentry
+    \entry{xiao2020noise}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=e8602e6e904a947e9a5a52b59c77bc93}{%
+           family={Xiao},
+           familyi={X\bibinitperiod},
+           given={Kai\bibnamedelima Y.},
+           giveni={K\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=52a9eb75d8ed34150ce01eb9e4c43027}{%
+           family={Engstrom},
+           familyi={E\bibinitperiod},
+           given={Logan},
+           giveni={L\bibinitperiod}}}%
+        {{hash=924b414be21dcfc4f4f9f08196520746}{%
+           family={Ilyas},
+           familyi={I\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=aef608ba57830483b69aac89d9ceff85}{%
+           family={Ma̧dry},
+           familyi={M\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{3240a4a25eccd21c79ecb63487a4639a}
+      \strng{fullhash}{460824d02a253ef847d41611d7156b08}
+      \strng{fullhashraw}{460824d02a253ef847d41611d7156b08}
+      \strng{bibnamehash}{460824d02a253ef847d41611d7156b08}
+      \strng{authorbibnamehash}{460824d02a253ef847d41611d7156b08}
+      \strng{authornamehash}{3240a4a25eccd21c79ecb63487a4639a}
+      \strng{authorfullhash}{460824d02a253ef847d41611d7156b08}
+      \strng{authorfullhashraw}{460824d02a253ef847d41611d7156b08}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Conference on Learning Representations}
+      \field{title}{Noise or Signal: The Role of Image Backgrounds in Object Recognition}
+      \field{year}{2020}
+    \endentry
     \entry{Brown2023}{article}{}{}
       \name{author}{6}{}{%
         {{hash=ef6b4a472711f590f9de2d1b926537b5}{%
@@ -203,8 +276,8 @@
       \strng{authornamehash}{553bfccd9162d504e73c8abfffe8ae05}
       \strng{authorfullhash}{ec01d0176a967cc4a246abc6f1d468fe}
       \strng{authorfullhashraw}{ec01d0176a967cc4a246abc6f1d468fe}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2041-1723}
@@ -304,8 +377,8 @@
       \strng{authornamehash}{2656528c05f6e65768407ec80fd8b33a}
       \strng{authorfullhash}{1640c70e100cac121b39e6e771cf1d68}
       \strng{authorfullhashraw}{1640c70e100cac121b39e6e771cf1d68}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2041-1723}
@@ -324,79 +397,6 @@
       \verb{url}
       \verb http://dx.doi.org/10.1038/s41467-021-24698-1
       \endverb
-    \endentry
-    \entry{pooch2019trust}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=7d80983c4d8d7da11890ab821b596df8}{%
-           family={Pooch},
-           familyi={P\bibinitperiod},
-           given={Eduardo\bibnamedelimb H.\bibnamedelimi P.},
-           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
-        {{hash=dad16350231105a6215054de0c0f5282}{%
-           family={Ballester},
-           familyi={B\bibinitperiod},
-           given={Pedro\bibnamedelima L.},
-           giveni={P\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-        {{hash=4d19b360500f1582c2d4da27e38ff678}{%
-           family={Barros},
-           familyi={B\bibinitperiod},
-           given={Rodrigo\bibnamedelima C.},
-           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-      }
-      \strng{namehash}{49d080601034e04736a66fb86f45b3a9}
-      \strng{fullhash}{6f77bf05c91860ad67468d078794b761}
-      \strng{fullhashraw}{6f77bf05c91860ad67468d078794b761}
-      \strng{bibnamehash}{6f77bf05c91860ad67468d078794b761}
-      \strng{authorbibnamehash}{6f77bf05c91860ad67468d078794b761}
-      \strng{authornamehash}{49d080601034e04736a66fb86f45b3a9}
-      \strng{authorfullhash}{6f77bf05c91860ad67468d078794b761}
-      \strng{authorfullhashraw}{6f77bf05c91860ad67468d078794b761}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv preprint arXiv: 1909.01940}
-      \field{title}{Can we trust deep learning models diagnosis? The impact of domain shift in chest radiograph classification}
-      \field{year}{2019}
-    \endentry
-    \entry{xiao2020noise}{article}{}{}
-      \name{author}{4}{}{%
-        {{hash=e8602e6e904a947e9a5a52b59c77bc93}{%
-           family={Xiao},
-           familyi={X\bibinitperiod},
-           given={Kai\bibnamedelima Y.},
-           giveni={K\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
-        {{hash=52a9eb75d8ed34150ce01eb9e4c43027}{%
-           family={Engstrom},
-           familyi={E\bibinitperiod},
-           given={Logan},
-           giveni={L\bibinitperiod}}}%
-        {{hash=924b414be21dcfc4f4f9f08196520746}{%
-           family={Ilyas},
-           familyi={I\bibinitperiod},
-           given={Andrew},
-           giveni={A\bibinitperiod}}}%
-        {{hash=aef608ba57830483b69aac89d9ceff85}{%
-           family={Ma̧dry},
-           familyi={M\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{3240a4a25eccd21c79ecb63487a4639a}
-      \strng{fullhash}{460824d02a253ef847d41611d7156b08}
-      \strng{fullhashraw}{460824d02a253ef847d41611d7156b08}
-      \strng{bibnamehash}{460824d02a253ef847d41611d7156b08}
-      \strng{authorbibnamehash}{460824d02a253ef847d41611d7156b08}
-      \strng{authornamehash}{3240a4a25eccd21c79ecb63487a4639a}
-      \strng{authorfullhash}{460824d02a253ef847d41611d7156b08}
-      \strng{authorfullhashraw}{460824d02a253ef847d41611d7156b08}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{International Conference on Learning Representations}
-      \field{title}{Noise or Signal: The Role of Image Backgrounds in Object Recognition}
-      \field{year}{2020}
     \endentry
     \entry{leash}{article}{}{}
       \name{author}{2}{}{%
@@ -1352,8 +1352,8 @@
       \strng{authornamehash}{61ae4f441ca5d8a85ab160dc7d75ccd9}
       \strng{authorfullhash}{5e29f5c30c2d9863b872a99e0d691309}
       \strng{authorfullhashraw}{5e29f5c30c2d9863b872a99e0d691309}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1460-4744}
@@ -1806,8 +1806,8 @@
       \strng{authornamehash}{1d98df66601c236fe1a1977e22568a28}
       \strng{authorfullhash}{1d98df66601c236fe1a1977e22568a28}
       \strng{authorfullhashraw}{1d98df66601c236fe1a1977e22568a28}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1095-9203}
@@ -1848,8 +1848,8 @@
       \strng{authornamehash}{cc598e8e33bbe50dcbcbba1ad62d756b}
       \strng{authorfullhash}{cc598e8e33bbe50dcbcbba1ad62d756b}
       \strng{authorfullhashraw}{cc598e8e33bbe50dcbcbba1ad62d756b}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{The logic of scientific discovery}
@@ -1874,8 +1874,8 @@
       \strng{authornamehash}{ac7bb73230195f591739e12d5c06d9f9}
       \strng{authorfullhash}{ac7bb73230195f591739e12d5c06d9f9}
       \strng{authorfullhashraw}{ac7bb73230195f591739e12d5c06d9f9}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1095-9203}
@@ -1921,8 +1921,8 @@
       \strng{authornamehash}{ab637ca9cb95afb745eb37fac4caa9d1}
       \strng{authorfullhash}{ab637ca9cb95afb745eb37fac4caa9d1}
       \strng{authorfullhashraw}{ab637ca9cb95afb745eb37fac4caa9d1}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1095-9203}
@@ -1977,8 +1977,8 @@
       \strng{authornamehash}{6400932beb748c2947d92c9e149e795b}
       \strng{authorfullhash}{9825e320d75d94f95df7627b115c7bde}
       \strng{authorfullhashraw}{9825e320d75d94f95df7627b115c7bde}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2041-1723}
@@ -2043,8 +2043,8 @@
       \strng{authornamehash}{6a3d702a6219a8be25cf9d5507a1e9c0}
       \strng{authorfullhash}{9815fc31f72f0a71e8f75c06ae215020}
       \strng{authorfullhashraw}{9815fc31f72f0a71e8f75c06ae215020}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2522-5839}
@@ -2577,8 +2577,8 @@
       \strng{authornamehash}{bc8843040c7a85337f7ee18b9e014738}
       \strng{authorfullhash}{092955e53b412ce869d0f2b539afc166}
       \strng{authorfullhashraw}{092955e53b412ce869d0f2b539afc166}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2635-098X}
@@ -2674,8 +2674,8 @@
       \strng{authorfullhash}{2f7061a0bf7073a782bd6d9608987d8a}
       \strng{authorfullhashraw}{2f7061a0bf7073a782bd6d9608987d8a}
       \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2058-9689}
@@ -2722,8 +2722,8 @@
       \strng{authornamehash}{582f7c3fd8efdb4a0c86cfe5df880dab}
       \strng{authorfullhash}{6582fa68ef9cc799f6c5dac90033bd15}
       \strng{authorfullhashraw}{6582fa68ef9cc799f6c5dac90033bd15}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv: 2406.00873}
@@ -2764,8 +2764,8 @@
       \strng{authornamehash}{ca7ae617713e0c2fee11965dfdeb097b}
       \strng{authorfullhash}{a90165496649da326adba887e74affa6}
       \strng{authorfullhashraw}{a90165496649da326adba887e74affa6}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2374-7951}
@@ -2811,8 +2811,8 @@
       \strng{authornamehash}{ecde7e5ed107c9d2f22d679ce57deee7}
       \strng{authorfullhash}{ecde7e5ed107c9d2f22d679ce57deee7}
       \strng{authorfullhashraw}{ecde7e5ed107c9d2f22d679ce57deee7}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{npj Computational Materials}
@@ -3339,8 +3339,8 @@
       \strng{authorfullhash}{3b7f575a2345885e9b99f27385c63239}
       \strng{authorfullhashraw}{3b7f575a2345885e9b99f27385c63239}
       \field{extraname}{2}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Physical Review B}

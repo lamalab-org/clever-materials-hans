@@ -610,13 +610,20 @@ def create_main_figure_panel(results: Dict[str, Any],
                            target_type: str = 'regression',
                            dataset_name: str = "",
                            metric_labels: Optional[Dict[str, str]] = None,
-                           save_path: Optional[Path] = None) -> plt.Figure:
+                           save_path: Optional[Path] = None,
+                           selection_criteria: str = 'best_overall',
+                           selection_metric: str = None) -> plt.Figure:
     """
     Create main figure panel for paper.
     
     This creates a publication-ready figure with compact layout:
     - Top row (compact): Author, Journal, Year prediction vs baselines
     - Bottom row (prominent): Main performance comparison
+    
+    Args:
+        selection_criteria: 'best_overall' (best direct performance) or 
+                           'smallest_gap' (smallest difference between models)
+        selection_metric: Metric to use for selection (if None, uses primary metric)
     """
     labels = metric_labels if metric_labels else METRIC_LABELS
     
@@ -644,10 +651,8 @@ def create_main_figure_panel(results: Dict[str, Any],
     # Bottom row: Main performance comparison (larger, spans full width)
     ax_perf = fig.add_subplot(gs[1, :])
     
-    if target_type == 'regression':
-        main_metric = 'mae'
-    else:
-        main_metric = 'f1'
+    # Use the provided selection_metric instead of hardcoded defaults
+    main_metric = selection_metric
     
     metric_label = labels.get(main_metric, main_metric)
     
