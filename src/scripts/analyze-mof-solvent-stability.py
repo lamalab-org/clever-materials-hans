@@ -14,6 +14,7 @@ def _():
     from utils import (
         run_parameter_sweep_analysis,
         run_single_analysis,
+        run_meta_comparison_analysis,
         export_showyourwork_metric,
     )
     from plotting_utils import (
@@ -21,6 +22,7 @@ def _():
         plot_meta_performance,
         plot_parameter_sweep_results,
         create_main_figure_panel,
+        create_main_figure_panel_with_meta_comparison,
         export_key_metrics,
         METRIC_LABELS,
     )
@@ -30,12 +32,14 @@ def _():
     return (
         METRIC_LABELS,
         create_main_figure_panel,
+        create_main_figure_panel_with_meta_comparison,
         export_key_metrics,
         paths,
         pd,
         plot_meta_performance,
         plot_parameter_sweep_results,
         plot_performance_comparison,
+        run_meta_comparison_analysis,
         run_parameter_sweep_analysis,
         run_single_analysis,
     )
@@ -157,6 +161,52 @@ def _(create_main_figure_panel, mof_solvent_labels, paths, sweep_results):
     )
     fig_main
     return (best_setting,)
+
+
+@app.cell
+def _(df_final, run_meta_comparison_analysis, target_column):
+    # Run meta comparison analysis for four-column main panel
+    meta_comparison = run_meta_comparison_analysis(
+        df_final,
+        target_column,
+        target_type="classification",
+        n_authors=50,
+        use_year=True,
+        use_journal=True,
+        n_folds=10,
+    )
+
+    # Quick comparison summary
+    pred_acc = meta_comparison["predicted_meta"]["indirect"]["accuracy"]["mean"]
+    actual_acc = meta_comparison["actual_meta"]["indirect"]["accuracy"]["mean"]
+    direct_acc = meta_comparison["predicted_meta"]["direct"]["accuracy"]["mean"]
+
+    print(f"MOF Solvent Meta-information comparison:")
+    print(f"Direct (Conventional): {direct_acc:.3f} Accuracy")
+    print(f"Predicted meta: {pred_acc:.3f} Accuracy")
+    print(f"Actual meta: {actual_acc:.3f} Accuracy")
+    print(f"Performance gap: {abs(pred_acc - actual_acc):.3f} Accuracy")
+    return (meta_comparison,)
+
+
+@app.cell
+def _(
+    create_main_figure_panel_with_meta_comparison,
+    meta_comparison,
+    mof_solvent_labels,
+    paths,
+):
+    # Create four-column main panel with actual meta results
+    fig_main_four_col = create_main_figure_panel_with_meta_comparison(
+        meta_comparison,
+        target_type="classification",
+        dataset_name="MOF Solvent Stability",
+        metric_labels=mof_solvent_labels,
+        save_path=paths.figures / "mof_solvent_main_panel_four_columns.pdf",
+        selection_metric="accuracy",
+    )
+    fig_main_four_col
+    return
 
 
 @app.cell

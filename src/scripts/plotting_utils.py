@@ -22,7 +22,8 @@ lama_aesthetics.get_style("main")
 # Define consistent color scheme
 COLORS = {
     'direct': '#1f77b4',      # Blue - conventional ML
-    'indirect': '#ff7f0e',    # Orange - Clever Hans  
+    'indirect': '#ff7f0e',    # Orange - Clever Hans (predicted meta)
+    'indirect_actual': '#d62728',  # Red - Clever Hans (actual meta) 
     'dummy': '#2ca02c',       # Green - baseline
     'author': '#ff7f0e',      # Orange - author prediction (consistent with Clever Hans)
     'journal': '#ff7f0e',     # Orange - journal prediction (consistent with Clever Hans)
@@ -32,6 +33,7 @@ COLORS = {
 
 LABELS = {
     'direct': 'Conventional',
+    'indirect_actual': 'Clever Hans (Actual Meta)',
     'indirect': 'Clever Hans', 
     'dummy': 'Dummy',
     'meta': 'Meta prediction',
@@ -631,7 +633,8 @@ def create_main_figure_panel(results: Dict[str, Any],
                            metric_labels: Optional[Dict[str, str]] = None,
                            save_path: Optional[Path] = None,
                            selection_criteria: str = 'best_overall',
-                           selection_metric: str = None) -> plt.Figure:
+                           selection_metric: str = None,
+                           actual_meta_results: Optional[Dict[str, Any]] = None) -> plt.Figure:
     """
     Create main figure panel for paper.
     
@@ -643,6 +646,7 @@ def create_main_figure_panel(results: Dict[str, Any],
         selection_criteria: 'best_overall' (best direct performance) or 
                            'smallest_gap' (smallest difference between models)
         selection_metric: Metric to use for selection (if None, uses primary metric)
+        actual_meta_results: Optional results from actual meta-information analysis
     """
     labels = metric_labels if metric_labels else METRIC_LABELS
     
@@ -675,17 +679,32 @@ def create_main_figure_panel(results: Dict[str, Any],
     
     metric_label = labels.get(main_metric, main_metric)
     
-    methods = ['direct', 'indirect', 'dummy']
+    # Build methods list - include actual meta if provided
+    methods = ['direct']
+    if actual_meta_results and 'indirect' in actual_meta_results:
+        methods.append('indirect_actual')  # Actual meta first
+    methods.extend(['indirect', 'dummy'])  # Then predicted meta and dummy
+    
     perf_values = []
     perf_errors = []
     
     for method in methods:
-        if method in results and main_metric in results[method]:
-            perf_values.append(results[method][main_metric]['mean'])
-            perf_errors.append(results[method][main_metric]['std'])
+        if method == 'indirect_actual' and actual_meta_results:
+            # Use actual meta results
+            if 'indirect' in actual_meta_results and main_metric in actual_meta_results['indirect']:
+                perf_values.append(actual_meta_results['indirect'][main_metric]['mean'])
+                perf_errors.append(actual_meta_results['indirect'][main_metric]['std'])
+            else:
+                perf_values.append(np.nan)
+                perf_errors.append(0)
         else:
-            perf_values.append(np.nan)
-            perf_errors.append(0)
+            # Use regular results (predicted meta)
+            if method in results and main_metric in results[method]:
+                perf_values.append(results[method][main_metric]['mean'])
+                perf_errors.append(results[method][main_metric]['std'])
+            else:
+                perf_values.append(np.nan)
+                perf_errors.append(0)
     
     valid_idx = ~np.isnan(perf_values)
     if np.any(valid_idx):
@@ -699,10 +718,19 @@ def create_main_figure_panel(results: Dict[str, Any],
         
         # Plot individual fold values as scatter points
         for i, method in enumerate(valid_methods):
-            if method in results and main_metric in results[method] and 'values' in results[method][main_metric]:
-                fold_values = results[method][main_metric]['values']
-                x_jitter = x_positions[i] + np.random.normal(0, 0.05, len(fold_values))
-                ax_perf.scatter(x_jitter, fold_values, color=colors[i], alpha=0.6, s=15)
+            if method == 'indirect_actual' and actual_meta_results:
+                # Use actual meta results for individual points
+                if ('indirect' in actual_meta_results and main_metric in actual_meta_results['indirect'] 
+                    and 'values' in actual_meta_results['indirect'][main_metric]):
+                    fold_values = actual_meta_results['indirect'][main_metric]['values']
+                    x_jitter = x_positions[i] + np.random.normal(0, 0.05, len(fold_values))
+                    ax_perf.scatter(x_jitter, fold_values, color=colors[i], alpha=0.6, s=15)
+            else:
+                # Use regular results for individual points
+                if method in results and main_metric in results[method] and 'values' in results[method][main_metric]:
+                    fold_values = results[method][main_metric]['values']
+                    x_jitter = x_positions[i] + np.random.normal(0, 0.05, len(fold_values))
+                    ax_perf.scatter(x_jitter, fold_values, color=colors[i], alpha=0.6, s=15)
         
         # Plot means as larger points
         ax_perf.scatter(x_positions, valid_values, color=colors, s=40, alpha=1.0,
@@ -836,6 +864,159 @@ def export_key_metrics(results: Dict[str, Any],
                 # Mean difference  
                 mean_diff = np.mean(indirect_values) - np.mean(direct_values)
                 export_showyourwork_metric(mean_diff, f"{dataset_name}_mean_difference_{metric}", output_dir, decimal_places=3)
+
+
+def plot_meta_comparison(comparison_results: Dict[str, Any],
+                        target_type: str = 'regression',
+                        dataset_name: str = "",
+                        metric_labels: Optional[Dict[str, str]] = None,
+                        save_path: Optional[Path] = None) -> plt.Figure:
+    """
+    Create comparison plot showing predicted vs actual meta-information results.
+    
+    Args:
+        comparison_results: Results from run_meta_comparison_analysis()
+        target_type: 'regression' or 'classification'  
+        dataset_name: Name for title
+        metric_labels: Optional metric label mapping
+        save_path: Optional path to save figure
+        
+    Returns:
+        matplotlib Figure object
+    """
+    predicted_results = comparison_results['predicted_meta']
+    actual_results = comparison_results['actual_meta']
+    
+    # Create figure with 4 subplots: meta prediction + property prediction comparison
+    fig, ((ax_author, ax_journal), (ax_year, ax_property)) = plt.subplots(2, 2, figsize=(TWO_COL_WIDTH, 1.5 * ONE_COL_HEIGHT))
+    
+    # Get primary metric for property prediction
+    primary_metric = 'mae' if target_type == 'regression' else 'accuracy'
+    
+    # Get metric labels
+    labels = metric_labels if metric_labels else METRIC_LABELS
+    
+    # Meta prediction plots (panels a, b, c)
+    _plot_meta_prediction_panel(ax_author, predicted_results, 'author', 'accuracy', labels, 
+                              title_suffix='Author Prediction', compact=True)
+    _plot_meta_prediction_panel(ax_journal, predicted_results, 'journal', 'accuracy', labels,
+                              title_suffix='Journal Prediction', compact=True) 
+    _plot_meta_prediction_panel(ax_year, predicted_results, 'year', 'mae', labels,
+                              title_suffix='Year Prediction', is_regression=True, compact=True)
+    
+    # Property prediction comparison (panel d)
+    methods = ['direct', 'dummy']
+    colors = [COLORS['direct'], COLORS['dummy']]
+    labels = [LABELS['direct'], LABELS['dummy']]
+    
+    # Add both predicted and actual meta results
+    if 'indirect' in predicted_results:
+        methods.append('indirect')
+        colors.append(COLORS['indirect'])
+        labels.append('Clever Hans (Predicted Meta)')
+        
+    if 'indirect' in actual_results:
+        methods.append('indirect_actual')
+        colors.append(COLORS['indirect_actual'])
+        labels.append('Clever Hans (Actual Meta)')
+    
+    # Plot property prediction results
+    positions = np.arange(len(methods))
+    means = []
+    stds = []
+    
+    for method in methods:
+        if method == 'indirect_actual':
+            # Use actual meta results for this method
+            result_source = actual_results
+            method_name = 'indirect'
+        else:
+            # Use predicted meta results
+            result_source = predicted_results
+            method_name = method
+            
+        if method_name in result_source and primary_metric in result_source[method_name]:
+            if isinstance(result_source[method_name][primary_metric], dict):
+                mean_val = result_source[method_name][primary_metric]['mean']
+                std_val = result_source[method_name][primary_metric]['std']
+            else:
+                mean_val = result_source[method_name][primary_metric]
+                std_val = 0
+            means.append(mean_val)
+            stds.append(std_val)
+        else:
+            means.append(np.nan)
+            stds.append(0)
+    
+    # Create bar plot with error bars
+    bars = ax_property.bar(positions, means, yerr=stds, color=colors, alpha=0.7, capsize=5)
+    
+    # Add individual data points if available
+    for i, method in enumerate(methods):
+        if method == 'indirect_actual':
+            result_source = actual_results
+            method_name = 'indirect'
+        else:
+            result_source = predicted_results
+            method_name = method
+            
+        if (method_name in result_source and primary_metric in result_source[method_name] and
+            isinstance(result_source[method_name][primary_metric], dict) and
+            'values' in result_source[method_name][primary_metric]):
+            values = result_source[method_name][primary_metric]['values']
+            jitter = np.random.normal(0, 0.05, len(values))
+            ax_property.scatter(i + jitter, values, color='black', alpha=0.6, s=8, zorder=5)
+    
+    # Formatting
+    ax_property.set_xticks(positions)
+    ax_property.set_xticklabels(labels, rotation=30, ha='right', fontsize=8)
+    
+    metric_label = metric_labels.get(primary_metric, primary_metric.upper()) if metric_labels else primary_metric.upper()
+    ax_property.set_ylabel(metric_label)
+    
+    # Add baseline reference if applicable
+    if not np.isnan(means[1]):  # dummy baseline
+        range_frame(ax_property, np.array([0]), np.array([means[1]]))
+    
+    plt.tight_layout()
+    
+    if save_path:
+        fig.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"Meta comparison figure saved to {save_path}")
+    
+    return fig
+
+
+def create_main_figure_panel_with_meta_comparison(comparison_results: Dict[str, Any],
+                                                 target_type: str = 'regression',
+                                                 dataset_name: str = "",
+                                                 metric_labels: Optional[Dict[str, str]] = None,
+                                                 save_path: Optional[Path] = None,
+                                                 selection_criteria: str = 'best_overall',
+                                                 selection_metric: str = None) -> plt.Figure:
+    """
+    Convenience function to create main figure panel from meta comparison results.
+    
+    Args:
+        comparison_results: Results from run_meta_comparison_analysis()
+        Other args: Same as create_main_figure_panel()
+        
+    Returns:
+        matplotlib Figure object
+    """
+    predicted_results = comparison_results['predicted_meta']
+    actual_results = comparison_results['actual_meta']
+    
+    return create_main_figure_panel(
+        results=predicted_results,
+        target_type=target_type,
+        dataset_name=dataset_name,
+        metric_labels=metric_labels,
+        save_path=save_path,
+        selection_criteria=selection_criteria,
+        selection_metric=selection_metric,
+        actual_meta_results=actual_results
+    )
 
 
 def find_best_parameter_setting(sweep_results: List[Dict], 

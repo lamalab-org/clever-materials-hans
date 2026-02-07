@@ -165,7 +165,7 @@ def _run_single_parameter_combination(params_data: Tuple) -> Dict[str, Any]:
     """
     Helper function to run analysis for a single parameter combination (for parallelization).
     """
-    df, target_column, target_type, n_authors, use_year, use_journal, n_folds, random_state, dataset_name, model_type = params_data
+    df, target_column, target_type, n_authors, use_year, use_journal, n_folds, random_state, dataset_name, model_type, use_actual_meta = params_data
     
     result = run_single_analysis(
         df, target_column, target_type, 
@@ -175,7 +175,8 @@ def _run_single_parameter_combination(params_data: Tuple) -> Dict[str, Any]:
         n_folds=n_folds,
         random_state=random_state,
         n_jobs=1,  # Use sequential for individual parameter combinations
-        model_type=model_type
+        model_type=model_type,
+        use_actual_meta=use_actual_meta
     )
     
     result['parameters'] = {
@@ -198,7 +199,8 @@ def run_parameter_sweep_analysis(df: pd.DataFrame,
                                 n_folds: int = 10,
                                 random_state: int = 42,
                                 n_jobs: int = -1,
-                                model_type: str = 'lgb') -> List[Dict]:
+                                model_type: str = 'lgb',
+                                use_actual_meta: bool = False) -> List[Dict]:
     """
     Run parameter sweep analysis with different hyperparameter combinations.
     
@@ -218,7 +220,7 @@ def run_parameter_sweep_analysis(df: pd.DataFrame,
             for use_journal in use_journal_options:
                 params_data_list.append((
                     df, target_column, target_type, n_authors, use_year, 
-                    use_journal, n_folds, random_state, dataset_name, model_type
+                    use_journal, n_folds, random_state, dataset_name, model_type, use_actual_meta
                 ))
     
     # Run parameter combinations in parallel or sequentially
@@ -243,6 +245,61 @@ def run_parameter_sweep_analysis(df: pd.DataFrame,
             results = [future.result() for future in tqdm(futures, desc="Parameter combinations")]
     
     return results
+
+
+def run_meta_comparison_analysis(df: pd.DataFrame,
+                               target_column: str,
+                               target_type: str,
+                               n_authors: int = 50,
+                               use_year: bool = True,
+                               use_journal: bool = True,
+                               n_folds: int = 10,
+                               random_state: int = 42,
+                               n_jobs: int = -1,
+                               model_type: str = 'lgb') -> Dict[str, Any]:
+    """
+    Run both predicted and actual meta-information analyses for comparison.
+    
+    Returns:
+        Dict containing both 'predicted_meta' and 'actual_meta' results
+    """
+    print("Running analysis with predicted meta-information...")
+    predicted_results = run_single_analysis(
+        df, target_column, target_type,
+        n_authors=n_authors,
+        use_year=use_year,
+        use_journal=use_journal,
+        n_folds=n_folds,
+        random_state=random_state,
+        n_jobs=n_jobs,
+        model_type=model_type,
+        use_actual_meta=False
+    )
+    
+    print("Running analysis with actual meta-information...")
+    actual_results = run_single_analysis(
+        df, target_column, target_type,
+        n_authors=n_authors,
+        use_year=use_year,
+        use_journal=use_journal,
+        n_folds=n_folds,
+        random_state=random_state,
+        n_jobs=n_jobs,
+        model_type=model_type,
+        use_actual_meta=True
+    )
+    
+    return {
+        'predicted_meta': predicted_results,
+        'actual_meta': actual_results,
+        'parameters': {
+            'n_authors': n_authors,
+            'use_year': use_year,
+            'use_journal': use_journal,
+            'n_folds': n_folds,
+            'model_type': model_type
+        }
+    }
 
 
 def get_optimized_model(model_type: str, task: str, random_state: int = 42):
@@ -284,7 +341,7 @@ def _run_single_fold(fold_data: Tuple) -> Dict[str, Any]:
     """
     Helper function to run analysis for a single CV fold (for parallelization).
     """
-    train_idx, test_idx, df_clean, features, meta_targets, target_column, target_type, use_year, random_state, model_type = fold_data
+    train_idx, test_idx, df_clean, features, meta_targets, target_column, target_type, use_year, random_state, model_type, use_actual_meta = fold_data
     
     train_df = df_clean.iloc[train_idx]
     test_df = df_clean.iloc[test_idx]
@@ -401,14 +458,35 @@ def _run_single_fold(fold_data: Tuple) -> Dict[str, Any]:
     # 4. Indirect prediction (Clever Hans)
     model_indirect = get_optimized_model(model_type, target_type, random_state)
     
-    # Preprocess indirect features if using boosting models
-    if model_type in ['xgb', 'lgb']:
-        indirect_features_clean, indirect_features_test_clean = preprocess_features_for_boosting(
-            indirect_features, indirect_features_test, model_type
-        )
+    # Choose between predicted or actual meta-information
+    if use_actual_meta:
+        # Use actual meta-information (upper bound analysis)
+        actual_meta_features_train = train_df[meta_targets].values.astype(float)
+        actual_meta_features_test = test_df[meta_targets].values.astype(float)
+        
+        # Add year if requested
+        if use_year and 'publication_year' in df_clean.columns:
+            actual_meta_features_train = np.column_stack([actual_meta_features_train, train_df['publication_year'].values])
+            actual_meta_features_test = np.column_stack([actual_meta_features_test, test_df['publication_year'].values])
+        
+        # Preprocess actual meta features if using boosting models
+        if model_type in ['xgb', 'lgb']:
+            indirect_features_clean, indirect_features_test_clean = preprocess_features_for_boosting(
+                actual_meta_features_train, actual_meta_features_test, model_type
+            )
+        else:
+            indirect_features_clean = actual_meta_features_train
+            indirect_features_test_clean = actual_meta_features_test
     else:
-        indirect_features_clean = indirect_features
-        indirect_features_test_clean = indirect_features_test
+        # Use predicted meta-information (standard analysis)
+        # Preprocess indirect features if using boosting models
+        if model_type in ['xgb', 'lgb']:
+            indirect_features_clean, indirect_features_test_clean = preprocess_features_for_boosting(
+                indirect_features, indirect_features_test, model_type
+            )
+        else:
+            indirect_features_clean = indirect_features
+            indirect_features_test_clean = indirect_features_test
     
     model_indirect.fit(indirect_features_clean, train_df[target_column])
     indirect_pred = model_indirect.predict(indirect_features_test_clean)
@@ -453,12 +531,15 @@ def run_single_analysis(df: pd.DataFrame,
                        n_folds: int = 10,
                        random_state: int = 42,
                        n_jobs: int = -1,
-                       model_type: str = 'lgb') -> Dict[str, Any]:
+                       model_type: str = 'lgb',
+                       use_actual_meta: bool = False) -> Dict[str, Any]:
     """
     Run a single Clever Hans analysis with specified parameters.
     
     Args:
         n_jobs: Number of parallel jobs (-1 for all cores, 1 for sequential)
+        use_actual_meta: If True, use actual meta-information instead of predicted meta-information 
+                        for the indirect model (upper bound analysis)
     """
     
     # Get material features
@@ -504,7 +585,7 @@ def run_single_analysis(df: pd.DataFrame,
     for train_idx, test_idx in kfold.split(df_clean):
         fold_data_list.append((
             train_idx, test_idx, df_clean, features, meta_targets, 
-            target_column, target_type, use_year, random_state, model_type
+            target_column, target_type, use_year, random_state, model_type, use_actual_meta
         ))
     
     # Run folds in parallel or sequentially

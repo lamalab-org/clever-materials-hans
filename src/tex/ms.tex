@@ -5,18 +5,50 @@
 \usepackage{orcidlink}
 \usepackage{showyourwork}
 
-\title{\textsf{Clever Materials: When Machine Learning Models Fool Themselves}}
+\title{\textsf{Clever Materials: When Models Identify Good Materials for the Wrong Reasons}}
 
 \input{authors.tex}
+
+
+\let\oldabstract\abstract
+\let\oldendabstract\endabstract
+\makeatletter
+\renewenvironment{abstract}
+{\renewenvironment{quotation}%
+               {\list{}{\addtolength{\leftmargin}{-3em} % change this value to add or remove length to the the default
+                        \listparindent 1.5em%
+                        \itemindent    \listparindent%
+                        \rightmargin   \leftmargin%
+                        \parsep        \z@ \@plus\p@}%
+                \item\relax}%
+               {\endlist}%
+\oldabstract}
+{\oldendabstract}
+\makeatother
 
 \begin{document}
 
 \maketitle
+\vspace*{-3em}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.5\textwidth]{../static/toc.png}
+	%\caption{\textbf{Table of Contents Entry.} \enquote{Clever Hans} predicting material properties.}
+\end{figure}
 
 \begin{abstract}
 Machine learning promises to accelerate materials discovery by uncovering complex structure-property relationships---but what if our models succeed for the wrong reasons? 
-Here, I show that across five materials domains—metal-organic frameworks, perovskite solar cells, batteries, and organic electronics—models achieve competitive performance by exploiting bibliographic metadata rather than learning meaningful chemistry. This is the materials science equivalent of the 'Clever Hans' effect: the horse that appeared to calculate but merely read its trainer's cues. Models trained on chemical descriptors predict publication metadata (authors, journals, years) with surprising accuracy, and models using only this predicted metadata often match the performance of conventional structure-property approaches. In predicting the top 10\% most thermally stable metal-organic frameworks, metadata shortcuts prove indistinguishable from descriptor-based models under certain metrics. We have optimized performance without testing why our models work. The path forward requires rigorous evaluation frameworks that falsify competing hypotheses, diverse datasets designed to resist spurious correlations, and honesty about whether we seek chemical understanding or statistical utility. Both have value—but only systematic hypothesis testing, asking not just whether models work but why, elevates pattern matching to science.
+Here, I show that across five materials domains—metal-organic frameworks, perovskite solar cells, batteries, and organic electronics—models achieve competitive performance by exploiting bibliographic metadata rather than learning meaningful chemistry. This is the materials science equivalent of the \enquote{Clever Hans} effect: the horse that appeared to calculate but merely read its trainer's cues. 
+Models trained on chemical descriptors predict publication metadata (authors, journals, years) with surprising accuracy, and models using only this predicted metadata sometimes match the performance of conventional structure-property approaches. In predicting the top 10\% most thermally stable metal-organic frameworks, metadata shortcuts prove indistinguishable from descriptor-based models under certain metrics. 
+
+These findings expose a systematic failure to test competing hypotheses about model performance.
+If our goal is scientific understanding, the path forward requires rigorous evaluation frameworks that falsify competing hypotheses, diverse datasets designed to resist spurious correlations, and honesty about whether we seek chemical understanding or statistical utility. 
+Both have value---but only systematic hypothesis testing, asking not just whether models work but why, elevates pattern matching to science.
 \end{abstract}
+
+
+
+
 
 \section{Introduction}
 
@@ -25,13 +57,15 @@ The promise lies in its capacity to uncover structure-property relationships too
 The peril emerges when models excel by exploiting spurious patterns that collapse under new conditions.\autocite{Lones2024}
 
 This phenomenon---impressive demonstration performance masking fundamental brittleness---represents a classic failure mode in pattern recognition, epitomized by the horse \enquote{Clever Hans}.\autocite{Lapuschkin2019} 
-Clever Hans appeared to perform arithmetic calculations, fooling audiences and experts alike, until careful investigation revealed he was simply reading unconscious cues from his questioners. 
+Clever Hans appeared to perform arithmetic calculations, fooling audiences until careful investigation revealed he was simply reading cues from his questioners. 
 
-Modern machine learning exhibits analogous vulnerabilities. Computer vision models exploit spurious correlations---skin color in medical diagnosis,\autocite{pooch2019trust} background textures in animal classification\autocites{xiao2020noise}---achieving high accuracy through irrelevant shortcuts.\autocite{Brown2023, Howard2021} 
+Modern machine learning exhibits analogous vulnerabilities. 
+Computer vision models exploit spurious correlations---skin color in medical diagnosis,\autocite{pooch2019trust} background textures in animal classification\autocites{xiao2020noise}---achieving high accuracy through irrelevant shortcuts.\autocite{Brown2023, Howard2021} 
 Recent reports from Leash Biosciences suggest similar risks in chemical property prediction: models achieve surprising accuracy at predicting compound provenance, potentially using authorship as a proxy for bioactivity rather than learning meaningful chemistry.\autocite{leash} 
 
-Materials science offers abundant opportunities for such proxy learning (\Cref{fig:clever_hans}). Research groups develop specialized expertise---some focus on solar cell stability optimization, others on MOF synthesis strategies. Laboratory names often appear in framework designations (UiO-66, MIL-101), creating direct author-material associations. 
-Fields evolve through paradigm shifts---self-assembled monolayers transforming perovskite cells, post-synthetic modifications revolutionizing MOF properties\autocite{shabih2026autonomous}---embedding temporal signatures that models might exploit rather than learning fundamental chemistry.
+Materials science offers abundant opportunities for such proxy learning (\Cref{fig:clever_hans}). 
+Research groups develop specialized expertise---some focus on solar cell stability optimization, others on MOF synthesis strategies. Laboratory names often appear in framework designations (UiO-66, MIL-101), creating direct author-material associations. 
+Fields evolve through paradigm shifts\autocite{kuhn1997structure} and with publication bias---embedding temporal signatures that models might exploit rather than learning fundamental chemistry.
 
 \begin{figure}[htb]
 	\centering 
@@ -41,21 +75,39 @@ Fields evolve through paradigm shifts---self-assembled monolayers transforming p
 \end{figure}
 
 
-This work systematically investigates whether commonly used materials datasets are vulnerable to such proxy learning. I augment established property prediction datasets with bibliographic metadata---author names, publication years, journal venues---then test whether models can predict this information from chemical descriptors alone.
-The results are sobering: models predict metadata with surprising accuracy, and models using only these predicted \enquote{bibliographic fingerprints} often match the performance of conventional structure-property approaches. 
+This work systematically investigates whether commonly used materials datasets are vulnerable to such proxy learning. 
+I test a simple hypothesis: can models predict material properties using only bibliographic metadata---author names, publication years, journal venues---rather than chemical descriptors? 
+The answer is often yes. 
+Models predict bibliographic metadata from chemical descriptors with surprising accuracy, and models using only these predicted \enquote{bibliographic fingerprints} frequently match the performance of conventional structure-property approaches. 
 
-These findings expose how easily we can be misled about what our models actually learn. More importantly, they point toward concrete strategies for building more robust datasets and developing validation frameworks that actively test competing hypotheses about model performance. 
+These findings reveal how easily we can be misled about what our models actually learn. 
+More critically, they expose a systematic gap in how we validate machine learning in materials science: we optimize performance without testing competing hypotheses about \emph{why} models work. 
   
 
 
 \section{Results}
 
-I systematically assessed Clever Hans vulnerabilities across five materials domains: metal-organic frameworks, perovskite solar cells, battery materials, and organic electronics. Each case study tests whether models can achieve competitive property prediction performance using only bibliographic proxy signals rather than chemical understanding.
-Because proxy signal detectability depends critically on prediction task formulation and evaluation metrics, I analyze both regression and classification variants where appropriate, with additional results detailed in the appendix. 
+I systematically assessed Clever Hans shortcut learning across five materials domains: metal-organic frameworks (thermal and solvent stability), perovskite solar cells (power conversion efficiency), battery materials (capacity), and organic electronics (TADF maximum emission wavelength). 
+For each domain, I test whether models achieve competitive property prediction using bibliographic proxy signals rather than chemical understanding.
 
-\subsection{MOF Thermal Stability}
+The experimental design is simple: 
+(1) Train models to predict bibliographic metadata (authors, journals, publication years) from chemical descriptors alone,
+(2) Train separate models to predict material properties from this predicted metadata,
+(3) compare performance to conventional descriptor-based property prediction and naive baselines, 
+(4) train models on the actual bibliographic metadata to predict materials properties.
 
-Thermal stability represents a critical constraint for MOF applications across gas storage, catalysis, and separation processes.\autocite{Kalmutzki2018} \textcite{Nandy2022} systematically extracted decomposition temperatures from thermogravimetric analyses reported in the literature, creating opportunities to model thermal stability as either a continuous property (regression) or a discrete performance class (classification).\autocite{Nandy2021}
+
+If proxy models match conventional performance, this indicates the dataset contains exploitable bibliographic signals.
+Critically, using \emph{predicted} metadata likely \emph{underestimates} the true Clever Hans effect, as prediction errors reduce proxy model performance.
+
+
+
+\subsection{Strong and Medium Clever Hans Effects}
+
+\subsubsection{MOF Thermal Stability}
+
+Thermal stability represents a critical constraint for MOF applications across gas storage, catalysis, and separation processes.\autocite{Kalmutzki2018} 
+\textcite{Nandy2022} systematically extracted decomposition temperatures from thermogravimetric analyses reported in the literature, creating opportunities to model thermal stability as either a continuous property (regression) or a discrete stability class (classification).\autocite{Nandy2021}
 
 \Cref{fig:mof_thermal_stability} demonstrates measurable proxy learning: structural descriptors predict bibliographic information significantly above baseline, enabling top-10\% thermal stability classification with an accuracy of \input{output/mof_thermal_top10_indirect_accuracy.txt}, approaching that of conventional structure-property models (\input{output/mof_thermal_top10_direct_accuracy.txt}).
 However, \Cref{fig:mof_thermal_stability_metric_impact} shows that the measured effect size depends on the metric one uses to compare models.
@@ -63,7 +115,7 @@ However, \Cref{fig:mof_thermal_stability_metric_impact} shows that the measured 
 \begin{figure}[htb]
 	\centering 
 	\includegraphics[width=\textwidth]{figures/mof_thermal_top10_main_panel.pdf}
-	\caption{\textbf{For the classification task of membership in the top-10\% of thermally stable MOFs, one can be fooled (by Clever Hans effects).} The model can predict the bibliographic information with high accuracy. \textbf{a} The model predicts the authors of the associated paper with high accuracy, much better than a random baseline. \textbf{b} This also holds for predicting in which journal the entry was published or the year in which the paper was published (\textbf{c}). Using the predicted bibliographic information, a model can also predict with high accuracy if the MOF belongs to the top-10\% thermally stable ones. However, the effect is smaller --- or not even there --- if analyzed under a different metric or for a regression setting. The dummy baseline for classification is a stratified random sampling (using the empirical probabilities from the training dataset) and the mean prediction for the regression case.}
+	\caption{\textbf{For the classification task of membership in the top-10\% of thermally stable MOFs, one can be fooled (by Clever Hans effects).} The model can predict the bibliographic information with high accuracy. \textbf{a} The model predicts the authors of the associated paper with high accuracy, much better than a random baseline. \textbf{b} This also holds for predicting in which journal the entry was published or the year in which the paper was published (\textbf{c}). Using the predicted bibliographic information, a model can predict with high accuracy if the MOF belongs to the top-10\% thermally stable ones. However, the effect is smaller --- or not even there --- if analyzed under a different metric or for a regression setting (see \Cref{sec:appx-mof-thermal-stability}). The dummy baseline for classification is a stratified random sampling (using the empirical probabilities from the training dataset) and the mean prediction for the regression case.}
 	\label{fig:mof_thermal_stability}	
 	\script{analyze-mof-thermal-top10.py}	
 \end{figure}
@@ -73,12 +125,14 @@ However, \Cref{fig:mof_thermal_stability_metric_impact} shows that the measured 
 
 \subsection{MOF Solvent Stability}
 
-Solvent removal stability poses an equally critical challenge for MOF deployment. Many frameworks collapse when synthesis solvents are removed during activation, limiting their practical utility. Using the same text-mined dataset and descriptors,\autocite{Nandy2022} I tested whether proxy signals could predict solvent stability outcomes.
+Solvent removal stability poses an equally critical challenge for MOF deployment. 
+Many frameworks collapse when synthesis solvents are removed during activation, limiting their practical utility. 
+Using the same text-mined dataset and descriptors,\autocite{Nandy2022} I tested whether proxy signals could predict solvent stability outcomes.
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=\textwidth]{figures/mof_solvent_main_panel.pdf} 
-	\caption{\textbf{Measuring performance using accuracy, \enquote{Clever Hans} models can achieve a surprisingly good performance in predicting solvent removal stability of MOFs.} \textbf{a} MOF descriptors can be used to predict author information better than a random baseline, but not with very high information. \textbf{b} The journal in which a given MOF stability result has been published can also be predicted with non-trivial accuracy. \textbf{c} The publication year can be predicted with a mean average error of two years. \textbf{d} A model trained on predicted bibliographic information can achieve non-trivial accuracy in correctly predicting the solvent stability of MOFs. \Cref{fig:mof_solvent_removal_stability_metric_impact} shows the performance measured with other metrics.}
+	\includegraphics[width=\textwidth]{figures/mof_solvent_main_panel_four_columns.pdf} 
+	\caption{\textbf{Measuring performance using accuracy, \enquote{Clever Hans} models can achieve a surprisingly good performance in predicting solvent removal stability of MOFs.} \textbf{a} MOF descriptors can be used to predict author information better than a random baseline, but not with very high information. \textbf{b} The journal in which a given MOF stability result has been published can also be predicted with non-trivial accuracy. \textbf{c} The publication year can be predicted with a mean average error of two years. \textbf{d} A model trained on predicted bibliographic information (actual bibliometric and predicted one) can achieve non-trivial accuracy in correctly predicting the solvent stability of MOFs. \Cref{fig:mof_solvent_removal_stability_metric_impact} shows the performance measured with other metrics.}
 	\label{fig:mof_solvent_stability}
 	\script{analyze-mof-solvent-stability.py}
 \end{figure}
@@ -102,41 +156,50 @@ It was mined by \textcite{Jacobsson2021} in a manual approach and by \textcite{s
 	\script{analyze-perovskites-top10.py}
 \end{figure}
 
-\Cref{fig:perovskite_pce_classification} demonstrates that perovskite composition descriptors predict bibliographic information with measurable accuracy. The model achieves a micro-averaged $F_1$-score of \input{output/perovskite_top10_author_f1_micro.txt} for the 10 most prolific authors, indicating detectable authorship signatures in the chemical data. Similar performance occurs for journal and publication year prediction.
+\Cref{fig:perovskite_pce_classification} demonstrates that perovskite composition descriptors predict bibliographic information with meaningful accuracy. 
+The model achieves a micro-averaged $F_1$-score of \input{output/perovskite_top10_author_f1_micro.txt} for the 10 most prolific authors, indicating detectable authorship signatures in the chemical data. 
+Similar performance occurs for journal and publication year prediction.
 
 The proxy model achieves classification accuracy of \input{output/perovskite_top10_indirect_accuracy.txt}, comparable to direct composition-property models (\input{output/perovskite_top10_direct_accuracy.txt}) for identifying top-10\% efficient devices. This suggests potential reliance on author expertise patterns or temporal trends rather than composition-efficiency relationships. 
 
 
+\subsection{Weak Clever Hans Effects}
 
-\subsection{Battery Capacity}
+
+\subsubsection{Battery Capacity}
 
 For sustainability, energy does not only need to be converted. For this, batteries are important. \textcite{Huang2020} text-mined battery materials alongside performance metrics. 
 
 \begin{figure}[htb]
 	\centering 
 	\includegraphics[width=\textwidth]{figures/battery_main_panel.pdf}
-	\caption{\textbf{\enquote{Clever Hans} models do not achieve a good performance in predicting battery capacity.} \textbf{a} Composition descriptors can be used to determine which of the 500 most prolific authors reported this material with a $F_1$ score of \protect\input{output/battery_top10_author_f1_micro.txt}. \textbf{b} The journal in which a material has been reported can be predicted with a similar performance. \textbf{c} The publication year can be predicted better than with the mean baseline. \textbf{d} \enquote{Clever Hans} models are not distinguishable from mean predictions for the prediction of the capacity of battery materials.}
+	\caption{\textbf{\enquote{Clever Hans} models do not achieve a good performance in predicting battery capacity.} \textbf{a} Composition descriptors can be used to determine which of the 500 most prolific authors reported this material with a $F_1$ score of \protect\input{output/battery_top10_author_f1_micro.txt}. \textbf{b} The journal in which a material has been reported can be predicted with a similar performance. \textbf{c} The publication year can be predicted better than with the mean baseline. \textbf{d} \enquote{Clever Hans} models are not distinguishable from mean predictions (\enquote{Dummy}) for the prediction of the capacity of battery materials.}
 	\label{fig:battery_capacity}
 	\script{analyze-batteries-top10.py}
 \end{figure}
 
 \Cref{fig:battery_capacity} shows that battery composition descriptors exhibit limited proxy learning capability. Author prediction achieves an $F_1$-score of \input{output/battery_top10_author_f1_micro.txt}, while publication year prediction performs moderately above baseline. The resulting proxy model does not perform better than simply always predicting the mean. 
 
+This null result is scientifically valuable as it demonstrates that Clever Hans effects are not inevitable artifacts of machine learning, but rather depend on dataset construction and domain characteristics. 
+
+
 \subsection{TADF Emitter Properties}
 
-Thermally activated delayed fluorescence (TADF) is one mechanism to improve the efficiency of organic light-emitting diodes (OLED)s.\autocite{Liu2018} The maximum emission wavelength is one important performance metric that is optimized for these materials. \textcite{Huang2024} text-mined using ChemDataExtractor.\autocite{Swain2016, Mavrai2021}
+Thermally activated delayed fluorescence (TADF) is one mechanism to improve the efficiency of organic light-emitting diodes (OLED)s.\autocite{Liu2018} 
+The maximum emission wavelength is one important performance metric that is optimized for these materials. \textcite{Huang2024} text-mined using ChemDataExtractor.\autocite{Swain2016, Mavrai2021}
 
 Molecular descriptors and fingerprints serve as features for both conventional and proxy models predicting maximum emission wavelength. 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{figures/tadf_main_panel.pdf}
-	\caption{\textbf{\enquote{Clever Hans} models perform worse than \enquote{conventional} models but better than simple baselines in predicting the maximum emission wavelengths of TADF molecules.} \textbf{a} Using composition descriptors, the model can predict the the authors of the paper describing a material with an accuracy of \protect\input{output/tadf_best_meta_accuracy.txt}  among the 1000 most profilic authors. \textbf{b} The model achieves an even higher performance in predicting in which of the ten most common journals a given entry has been published. \textbf{c} The publication year, too, can be predicted with a high performance just based on composition descriptors. \textbf{d} Using predicted bibliometric information, the authors achieve a mean absolute error between the \enquote{Conventional} and naïve baseline models.}
+	\includegraphics[width=\textwidth]{figures/tadf_main_panel_meta_comparison.pdf}
+	\caption{\textbf{\enquote{Clever Hans} models perform worse than \enquote{conventional} models but better than simple baselines in predicting the maximum emission wavelengths of TADF molecules.} \textbf{a} Using composition descriptors, the model can predict the the authors of the paper describing a material with an accuracy of \protect\input{output/tadf_best_meta_accuracy.txt}  among the 1000 most profilic authors. \textbf{b} The model achieves an even higher performance in predicting in which of the ten most common journals a given entry has been published. \textbf{c} The publication year, too, can be predicted with a high performance just based on composition descriptors. \textbf{d} Using predicted bibliometric information, the authors achieve a mean absolute error between the \enquote{Conventional} and naïve baseline models. The performance using actual bibliometric information is not much different from using the correct one.}
 	\label{fig:tadf_main}
 	\script{analyze-tadf.py}
 \end{figure}
 
-\Cref{fig:tadf_main} demonstrates that TADF molecular descriptors enable moderate bibliographic prediction. The proxy model achieves an MAE for maximum emission wavelength prediction between conventional and baseline approaches, indicating limited but detectable Clever Hans effects.
+\Cref{fig:tadf_main} demonstrates that TADF molecular descriptors enable moderate bibliographic prediction. 
+The proxy model achieves a mean average error for maximum emission wavelength prediction between conventional and baseline approaches, indicating limited but detectable Clever Hans effects.
 
 \subsection{Overall Effects}
 
@@ -165,8 +228,10 @@ Another angle is to reconsider how we generate, curate, and share materials data
 The field needs coordinated infrastructure that prioritizes diversity and robustness over convenience. \autocite{Krishnan2025}
 Convenience and short-term reward are often too easy and compelling to optimize for due to collective action problems trapping an ecosystem in a suboptimal state, where every actor knows that changes would be needed, but no one wants to make the first move.\autocite{Nielsen2020-rr} 
 
-Most automated screening approaches optimize specific objectives using limited building blocks, which creates exactly the kind of proxy signals that models learn to exploit. And also human researchers are biased in how they explore chemical space.\autocite{Jia2019}
+Most automated screening approaches optimize specific objectives using limited building blocks, which creates exactly the kind of proxy signals that models learn to exploit. And also human researchers are biased in how they explore chemical space.\autocite{Jia2019} In addition,  publication bias favors positive results, creating temporal performance trends.\autocite{Jablonka2022}
 Organizations that can generate diverse data at scale---potentially focused on the lowest cost per reproducible data point rather than pushing particular research agendas---might help to address this problem. 
+Other options could be explicit quantification of author/group/temporal distributions, correlation analyses between metadata and properties as \enquote{dataset nutrition labels}, or adversarial dataset construction by deliberately designing datasets to resist spurious correlations.
+
 
 But it is important to keep in mind that in some circumstances, we will never be able to acquire \enquote{enough} data. Thus, we also need renewed focus on how we evaluate models.\autocite{goldman2024statistical} 
 Instead of asking whether models work, we should ask why they work and systematically explore alternative explanations. 
@@ -181,11 +246,12 @@ In some domains, even challenges have been organized.\autocite{Moult2005, Tetko2
 Each technique revealed new ways that models could fail to generalize, forcing us to be more rigorous in our evaluation practices.
 
 This work highlights yet another layer of complexity. 
-Models can achieve impressive performance not by learning meaningful chemistry, but by exploiting subtle biases in how our datasets are constructed. Across five different materials domains, I find that proxy signals---such as shortcut learning via publication meta-information---can provide substantial predictive power.
+Models can achieve impressive performance not by learning meaningful chemistry, but by exploiting subtle biases in how our datasets are constructed. Across five different materials domains, I find that proxy signals---such as shortcut learning via publication meta-information---can provide substantial predictive power. 
 
-However, intellectual honesty demands acknowledging the heterogeneity of these effects. The Clever Hans phenomenon does not manifest uniformly across all metrics or datasets---in some cases, proxy models performed worse than random baselines on certain metrics while showing improvements on others. This variability suggests that the presence and magnitude of these effects depend on complex interactions between dataset construction, target properties, and evaluation approaches.
+Intellectual honesty demands acknowledging the heterogeneity of these effects. The Clever Hans phenomenon does not manifest uniformly across all metrics or datasets---in some cases, proxy models performed worse than random baselines on certain metrics while showing improvements on others. 
+This variability suggests that the presence and magnitude of these effects are not inevitable, but depend on dataset construction and domain characteristics.
 
-Nevertheless, the ability to predict bibliometric information---author identity, publication venue, and temporal patterns---with surprising accuracy across multiple domains reveals that datasets contain hidden signals we likely do not want influencing our models. Particularly telling are cases like TADF energy gap prediction and MOF solvent stability classification, where Clever Hans models achieved meaningfully better performance than baselines even in well-balanced datasets, suggesting these effects extend beyond simple artifacts of class imbalance.
+Nevertheless, the ability to predict bibliometric information---author identity, publication venue, and temporal patterns---with surprising accuracy across multiple domains reveals that datasets contain hidden signals we likely do not want influencing our models. 
 
 Importantly, these results were obtained with minimal effort toward optimizing the proxy models, suggesting that more sophisticated exploitation of these signals could yield even stronger effects. While the magnitudes observed here may be smaller than those reported in other domains,\autocite{Geirhos2020, McCoy2019} they remain sufficient to warrant serious consideration of alternative hypotheses for model performance.
 
@@ -193,20 +259,25 @@ The simplest explanation for good model performance might often be shortcut lear
 This is an uncomfortable truth, but the space of potential confounders extends far beyond what current evaluation techniques can catch.
 
 Like the original Clever Hans, our models may be performing impressive feats---but for all the wrong reasons. 
-They excel not because they understand chemistry, but because they have learned to read the subtle clues inadvertently embedded in our data. 
+They may excel not because they understand chemistry, but because they have learned to read the subtle clues inadvertently embedded in our data. 
 Thus, we should not only ask whether our models can achieve good performance, but also whether we can trust what that performance actually means.
 
 This is not necessarily a condemnation of all shortcut learning. 
 Models that exploit proxy signals can still provide statistically reliable predictions and practical value---as long as the underlying patterns remain stable and as long as we only care about the average performance. 
 The critical issue is transparency about what we are doing and why.
 
-If our goal is scientific understanding and robust generalization to genuinely new materials, we must systematically explore alternative explanations and build models that resist spurious correlations. 
-If our goal is simply a predictive tool that works well on average, we can accept some brittleness---but we should communicate openly that the model may fail in unpredictable ways when the hidden assumptions break down.
+If our goal is chemical insight and robust generalization to genuinely new materials, we must systematically test competing hypotheses, build models that resist spurious correlations, and validate across group/temporal/institutional boundaries.
+This requires more rigorous evaluation, more diverse datasets, and intellectual honesty about when we do not know why models work.
 
-In the end, the Clever Hans problem forces us to confront a choice about scientific machine learning: Do we want tools that advance chemical understanding, or are we content with sophisticated pattern matchers that reflect various biases and artifacts? 
-Both approaches can have merit, but honesty about which path we are taking will help to unlock real acceleration using machine learning.
+If our goal is a predictive tool that works well on average within the training distribution, we can accept some brittleness.
+But we must communicate openly that the model may fail unpredictably when hidden assumptions break down---when new groups emerge, when synthesis paradigms shift, when the field explores new chemical spaces.
 
-Indeed, self-deception in models---learning proxy signals rather than intended mechanisms---is not always detrimental. If the underlying correlations remain stable and our goal is practical prediction rather than mechanistic insight, such models can provide substantial value. The key is transparency about what we are optimizing for and the limitations this imposes on model interpretability and generalizability. Acknowledging these trade-offs allows us to make informed decisions about when proxy signals are acceptable and when deeper understanding is essential. 
+Both approaches have merit. 
+Confusion about which path we are taking---claiming chemical understanding while building statistical predictors---undermines both.
+
+%The simplest explanation for model success is often not chemical insight, but shortcut learning.
+%This is an uncomfortable truth.
+%But acknowledging it is the first step toward building models we can trust.
 
 \section{Methods}
 
@@ -313,7 +384,8 @@ In this section, I show performance for metadata and property prediction in more
 
 \subsection{MOF Solvent Removal Stability}
 \Cref{fig:mof_solvent_removal_stability_metric_impact} shows the performance for MOF solvent removal stability classification measured with different metrics. 
-\Cref{fig:mof_solvent_parameter_sweep} shows the performance of \enquote{Clever Hans} models as a function of the type of bibliometric information information that is used as model input. 
+\Cref{fig:mof_solvent_parameter_sweep} shows the performance of proxy models as a function of the type of bibliometric information used as model input.
+\Cref{fig:mof_solvent_meta_performance} demonstrates the meta-prediction accuracy for bibliographic information. 
 
 \begin{figure}[htb]
 	\includegraphics[width=\textwidth]{figures/mof_solvent_performance_comparison.pdf}
@@ -325,14 +397,15 @@ In this section, I show performance for metadata and property prediction in more
 \begin{figure}[htb]
 	\includegraphics[width=\textwidth]{figures/mof_solvent_parameter_sweep.pdf}
 	\label{fig:mof_solvent_parameter_sweep}
-	\caption{\textbf{Performance of \enquote{Clever Hans} models as a function of the type of predicted bibliometric information used in their feature set.}}
+	\caption{\textbf{Parameter sweep for MOF solvent stability.} Performance of proxy models as a function of the type and number of predicted bibliometric features.}
 	\script{analyze-mof-solvent-stability.py}	
 \end{figure}
 
 
+
 \clearpage
 
-\subsection{MOF Thermal Stability}
+\subsection{MOF Thermal Stability} \label{sec:appx-mof-thermal-stability}
 
 \Cref{fig:mof_thermal_stability_metric_impact} shows that the measured difference in performance between models depends on the chosen metric.
 \Cref{fig:mof_thermal_parameter_sweep} demonstrates how Clever Hans performance varies with the type and number of bibliometric features included.
@@ -352,18 +425,14 @@ In this section, I show performance for metadata and property prediction in more
 	\script{analyze-mof-thermal-top10.py}
 \end{figure}
 
-\begin{figure}[htb]
-	\includegraphics[width=\textwidth]{figures/mof_thermal_top10_meta_performance.pdf}
-	\caption{\textbf{Meta-prediction performance for MOF thermal stability dataset.} Accuracy of predicting bibliographic information from structural descriptors.}
-	\label{fig:mof_thermal_meta_performance}
-	\script{analyze-mof-thermal-top10.py}
-\end{figure}
+
 
 \clearpage
 
-\subsection{Perovskite Regression}
-\Cref{fig:perovskite_main_regression} shows the \enquote{Clever Hans} behavior in the regression case. 
-\Cref{fig:perovskite_parameter_sweep_regression} shows the predictive performance as a function of the number of bibliometric features. 
+\subsection{Perovskite Solar Cells: Regression Analysis}
+\Cref{fig:perovskite_main_regression} shows the Clever Hans behavior for continuous PCE prediction (regression task). 
+\Cref{fig:perovskite_parameter_sweep_regression} shows how performance varies with the number and type of bibliometric features.
+\Cref{fig:perovskite_performance_comparison_regression} compares performance across different regression metrics. 
 
 \begin{figure}[htb]
 	\centering
@@ -379,6 +448,87 @@ In this section, I show performance for metadata and property prediction in more
 	\caption{\textbf{Impact of the number of bibliometric features on the performance of \enquote{Clever Hans} models in predicting PCE.}}
 	\label{fig:perovskite_parameter_sweep_regression}
 	\script{analyze-perovskites.py}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/perovskite_performance_comparison.pdf}
+	\caption{\textbf{Perovskite PCE prediction performance across metrics.} Comparison of conventional and proxy models using different regression evaluation metrics.}
+	\label{fig:perovskite_performance_comparison_regression}
+	\script{analyze-perovskites.py}
+\end{figure}
+
+\clearpage
+
+\subsection{Perovskite Solar Cells: Classification Analysis}
+The classification analysis focuses on identifying top-performing devices rather than predicting exact efficiency values.
+\Cref{fig:perovskite_top10_performance_comparison} shows metric-dependent effects in the classification setting.
+\Cref{fig:perovskite_top10_parameter_sweep} demonstrates how classification performance varies with bibliometric feature selection.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/perovskite_top10_performance_comparison.pdf}
+	\caption{\textbf{Perovskite top-10\% classification performance across metrics.} Different evaluation metrics reveal varying degrees of Clever Hans effects.}
+	\label{fig:perovskite_top10_performance_comparison}
+	\script{analyze-perovskites-top10.py}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/perovskite_top10_parameter_sweep.pdf}
+	\caption{\textbf{Parameter sweep for perovskite top-10\% classification.} Performance sensitivity to author count thresholds and temporal/journal features.}
+	\label{fig:perovskite_top10_parameter_sweep}
+	\script{analyze-perovskites-top10.py}
+\end{figure}
+
+
+
+\clearpage
+
+\subsection{Battery Materials}
+Battery capacity prediction shows limited Clever Hans effects across both regression and classification formulations.
+\Cref{fig:battery_performance_comparison} demonstrates performance across different regression metrics.
+\Cref{fig:battery_parameter_sweep} shows the impact of bibliometric feature configuration.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/battery_performance_comparison.pdf}
+	\caption{\textbf{Battery capacity prediction performance across metrics.} Limited proxy learning capability compared to other materials domains.}
+	\label{fig:battery_performance_comparison}
+	\script{analyze-batteries-top10.py}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/battery_parameter_sweep.pdf}
+	\caption{\textbf{Parameter sweep for battery capacity prediction.} Proxy model performance remains near baseline across different bibliometric configurations.}
+	\label{fig:battery_parameter_sweep}
+	\script{analyze-batteries-top10.py}
+\end{figure}
+
+
+
+\clearpage
+
+\subsection{TADF Emitters}
+TADF wavelength prediction shows intermediate Clever Hans effects, with proxy models performing between conventional and baseline approaches.
+\Cref{fig:tadf_performance_comparison} compares performance across regression metrics.
+\Cref{fig:tadf_parameter_sweep} demonstrates sensitivity to bibliometric feature selection.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/tadf_performance_comparison.pdf}
+	\caption{\textbf{TADF wavelength prediction performance across metrics.} Moderate proxy learning effects between conventional and baseline performance.}
+	\label{fig:tadf_performance_comparison}
+	\script{analyze-tadf.py}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/tadf_parameter_sweep.pdf}
+	\caption{\textbf{Parameter sweep for TADF wavelength prediction.} Performance variation with different bibliometric feature configurations.}
+	\label{fig:tadf_parameter_sweep}
+	\script{analyze-tadf.py}
 \end{figure}
 
 

@@ -14,6 +14,7 @@ def _():
     from utils import (
         run_parameter_sweep_analysis,
         run_single_analysis,
+        run_meta_comparison_analysis,
         export_showyourwork_metric,
     )
     from plotting_utils import (
@@ -21,6 +22,7 @@ def _():
         plot_meta_performance,
         plot_parameter_sweep_results,
         create_main_figure_panel,
+        create_main_figure_panel_with_meta_comparison,
         export_key_metrics,
         METRIC_LABELS,
     )
@@ -30,6 +32,7 @@ def _():
     return (
         METRIC_LABELS,
         create_main_figure_panel,
+        create_main_figure_panel_with_meta_comparison,
         export_key_metrics,
         np,
         paths,
@@ -37,6 +40,7 @@ def _():
         plot_meta_performance,
         plot_parameter_sweep_results,
         plot_performance_comparison,
+        run_meta_comparison_analysis,
         run_parameter_sweep_analysis,
         run_single_analysis,
     )
@@ -179,6 +183,52 @@ def _(battery_top10_labels, create_main_figure_panel, paths, sweep_results):
         save_path=paths.figures / "battery_top10_main_panel.pdf",
     )
     fig_main
+    return
+
+
+@app.cell
+def _(df_final, run_meta_comparison_analysis, target_column):
+    # Run meta comparison analysis for four-column main panel
+    meta_comparison = run_meta_comparison_analysis(
+        df_final,
+        target_column,
+        target_type="classification",
+        n_authors=500,
+        use_year=True,
+        use_journal=True,
+        n_folds=10,
+    )
+
+    # Quick comparison summary
+    pred_f1 = meta_comparison["predicted_meta"]["indirect"]["f1"]["mean"]
+    actual_f1 = meta_comparison["actual_meta"]["indirect"]["f1"]["mean"]
+    direct_f1 = meta_comparison["predicted_meta"]["direct"]["f1"]["mean"]
+
+    print(f"Battery Meta-information comparison:")
+    print(f"Direct (Conventional): {direct_f1:.3f} F1")
+    print(f"Predicted meta: {pred_f1:.3f} F1")
+    print(f"Actual meta: {actual_f1:.3f} F1")
+    print(f"Performance gap: {abs(pred_f1 - actual_f1):.3f} F1")
+    return (meta_comparison,)
+
+
+@app.cell
+def _(
+    battery_top10_labels,
+    create_main_figure_panel_with_meta_comparison,
+    meta_comparison,
+    paths,
+):
+    # Create four-column main panel with actual meta results
+    fig_main_four_col = create_main_figure_panel_with_meta_comparison(
+        meta_comparison,
+        target_type="classification",
+        dataset_name="Battery Top 10% Capacity",
+        metric_labels=battery_top10_labels,
+        save_path=paths.figures / "battery_top10_main_panel_four_columns.pdf",
+        selection_metric="f1",
+    )
+    fig_main_four_col
     return
 
 

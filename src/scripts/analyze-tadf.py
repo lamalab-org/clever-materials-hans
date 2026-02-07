@@ -14,6 +14,7 @@ def _():
     from utils import (
         run_parameter_sweep_analysis,
         run_single_analysis,
+        run_meta_comparison_analysis,
         export_showyourwork_metric,
     )
     from plotting_utils import (
@@ -22,6 +23,7 @@ def _():
         plot_parameter_sweep_results,
         create_dabest_plot,
         create_main_figure_panel,
+        create_main_figure_panel_with_meta_comparison,
         export_key_metrics,
         METRIC_LABELS,
     )
@@ -31,6 +33,7 @@ def _():
     return (
         METRIC_LABELS,
         create_main_figure_panel,
+        create_main_figure_panel_with_meta_comparison,
         export_key_metrics,
         np,
         paths,
@@ -38,6 +41,7 @@ def _():
         plot_meta_performance,
         plot_parameter_sweep_results,
         plot_performance_comparison,
+        run_meta_comparison_analysis,
         run_parameter_sweep_analysis,
         run_single_analysis,
     )
@@ -160,7 +164,7 @@ def _(create_main_figure_panel, paths, sweep_results, tadf_labels):
         sweep_results,
         target_type="regression",
         selection_criteria="smallest_gap",
-        similarity_metric="mae"
+        similarity_metric="mae",
     )
 
     fig_main = create_main_figure_panel(
@@ -172,6 +176,48 @@ def _(create_main_figure_panel, paths, sweep_results, tadf_labels):
     )
     fig_main
     return (best_setting,)
+
+
+@app.cell
+def _(df_final, run_meta_comparison_analysis, target_column):
+    # Run meta comparison analysis for four-column main panel
+    meta_comparison = run_meta_comparison_analysis(
+        df_final,
+        target_column,
+        target_type="regression",
+        n_authors=1000,
+        use_year=True,
+        use_journal=True,
+        n_folds=10,
+    )
+    
+    # Quick comparison summary
+    pred_mae = meta_comparison['predicted_meta']['indirect']['mae']['mean']
+    actual_mae = meta_comparison['actual_meta']['indirect']['mae']['mean']
+    direct_mae = meta_comparison['predicted_meta']['direct']['mae']['mean']
+    
+    print(f"TADF Meta-information comparison:")
+    print(f"Direct (Conventional): {direct_mae:.2f} MAE")
+    print(f"Predicted meta: {pred_mae:.2f} MAE") 
+    print(f"Actual meta: {actual_mae:.2f} MAE")
+    print(f"Performance gap: {abs(pred_mae - actual_mae):.2f} MAE")
+    
+    return meta_comparison,
+
+
+@app.cell
+def _(create_main_figure_panel_with_meta_comparison, meta_comparison, paths, tadf_labels):
+    # Create four-column main panel with actual meta results
+    fig_main_four_col = create_main_figure_panel_with_meta_comparison(
+        meta_comparison,
+        target_type="regression",
+        dataset_name="TADF",
+        metric_labels=tadf_labels,
+        save_path=paths.figures / "tadf_main_panel_four_columns.pdf",
+        selection_metric="mae"
+    )
+    fig_main_four_col
+    return (fig_main_four_col,)
 
 
 @app.cell
