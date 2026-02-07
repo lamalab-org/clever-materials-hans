@@ -68,7 +68,7 @@ def _(df_final, run_single_analysis, target_column):
         target_type="regression",
         n_authors=50,
         use_year=True,
-        use_journal=False,
+        use_journal=True,
         n_folds=10,
     )
     return (results_default,)
@@ -105,7 +105,7 @@ def _(df_final, run_parameter_sweep_analysis, target_column):
         dataset_name="MOF_Thermal",
         author_counts=[10, 50, 100, 1000],
         use_year_options=[True, False],
-        use_journal_options=[False],
+        use_journal_options=[False, True],
         n_folds=5,
     )
     return (sweep_results,)
@@ -138,14 +138,14 @@ def _(mof_thermal_labels, paths, plot_parameter_sweep_results, sweep_results):
 @app.cell
 def _(create_main_figure_panel, mof_thermal_labels, paths, sweep_results):
     from plotting_utils import find_best_parameter_setting
-    
+
     best_setting = find_best_parameter_setting(
         sweep_results,
         target_type="regression",
-        selection_criteria="best_overall",
-        similarity_metric="mae"
+        selection_criteria="smallest_gap",
+        similarity_metric="mae",
     )
-    
+
     fig_main = create_main_figure_panel(
         best_setting["best_result"],
         target_type="regression",
@@ -155,17 +155,27 @@ def _(create_main_figure_panel, mof_thermal_labels, paths, sweep_results):
         selection_metric="mae",
     )
     fig_main
-    return
+    return (best_setting,)
 
 
 @app.cell
-def _(export_key_metrics, paths, results_default):
+def _(best_setting, export_key_metrics, paths):
     export_key_metrics(
-        results_default,
+        best_setting["best_result"],
         dataset_name="mof_thermal",
         output_dir=paths.output,
         target_type="regression",
     )
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
     return
 
 

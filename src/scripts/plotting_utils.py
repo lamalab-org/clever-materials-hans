@@ -514,6 +514,20 @@ def _plot_meta_prediction_panel(ax, results: Dict[str, Any], meta_type: str,
         pred_mean = results[meta_type][metric]['mean']
         pred_std = results[meta_type][metric]['std']
         
+        # Check for NaN values and handle gracefully
+        if pd.isna(pred_mean) or pd.isna(pred_std):
+            fontsize_msg = 8 if compact else 10
+            fontsize_title = 8 if compact else 9
+            ax.text(0.5, 0.5, f'No {meta_type} data\n(insufficient diversity)', 
+                   ha='center', va='center', transform=ax.transAxes, fontsize=fontsize_msg)
+            ax.set_xticks([])
+            ax.set_yticks([])
+            ax.set_title(title_suffix, fontsize=fontsize_title)
+            if panel_label:
+                ax.text(-0.15, 1.1, panel_label, transform=ax.transAxes, 
+                       fontsize=fontsize_title+3, fontweight='bold', ha='center')
+            return
+        
         # Get number of target classes for display
         n_targets = results.get('dataset_info', {}).get(f'n_{meta_type}_targets', 'Unknown')
         
@@ -523,7 +537,11 @@ def _plot_meta_prediction_panel(ax, results: Dict[str, Any], meta_type: str,
                 baseline_mean = results['dummy'][metric]['mean']
                 baseline_std = results['dummy'][metric]['std']
             else:
-                baseline_mean = pred_mean * 1.5  # Conservative baseline
+                # Conservative baseline - handle NaN case
+                if pd.isna(pred_mean):
+                    baseline_mean = 10.0  # Default baseline for year prediction (years)
+                else:
+                    baseline_mean = pred_mean * 1.5
                 baseline_std = 0
             
             # Show absolute performance
@@ -588,8 +606,9 @@ def _plot_meta_prediction_panel(ax, results: Dict[str, Any], meta_type: str,
             ax.text(-0.15, 1.1, panel_label, transform=ax.transAxes, 
                    fontsize=fontsize_title+3, fontweight='bold', ha='center')
         
-        # Apply range frame
-        range_frame(ax, np.array(x_pos), np.array(means))
+        # Apply range frame (check for valid values first)
+        if not np.any(np.isnan(means)) and not np.any(np.isinf(means)):
+            range_frame(ax, np.array(x_pos), np.array(means))
         
         # Add value labels
         for j, (bar, label) in enumerate(zip(bars, value_labels)):
@@ -718,9 +737,17 @@ def create_main_figure_panel(results: Dict[str, Any],
 def export_key_metrics(results: Dict[str, Any], 
                       dataset_name: str,
                       output_dir: Path,
-                      target_type: str = 'regression') -> None:
+                      target_type: str = 'regression',
+                      selected_metrics: Optional[List[str]] = None) -> None:
     """
-    Export key metrics for showyourwork integration.
+    Export metrics for showyourwork integration.
+    
+    Args:
+        results: Results dictionary from analysis
+        dataset_name: Name for output files
+        output_dir: Directory to save metrics
+        target_type: 'regression' or 'classification'  
+        selected_metrics: Optional list of specific metrics to export (if None, exports all)
     """
     from utils import export_showyourwork_metric
     
@@ -731,48 +758,84 @@ def export_key_metrics(results: Dict[str, Any],
         export_showyourwork_metric(info['n_features'], f"{dataset_name}_n_features", output_dir)
         export_showyourwork_metric(info['n_meta_targets'], f"{dataset_name}_n_meta_features", output_dir)
     
-    # Main performance metrics
-    if target_type == 'regression':
-        main_metric = 'mae'
-    else:
-        main_metric = 'f1'
-    
+    # Export all available performance metrics for each method
     for method in ['direct', 'indirect', 'dummy']:
-        if method in results and main_metric in results[method]:
-            export_showyourwork_metric(
-                results[method][main_metric]['mean'], 
-                f"{dataset_name}_{method}_{main_metric}", 
-                output_dir, 
-                decimal_places=3
-            )
+        if method in results:
+            for metric_name, metric_data in results[method].items():
+                if isinstance(metric_data, dict) and 'mean' in metric_data:
+                    # Only export if not filtered or in selected list
+                    if selected_metrics is None or metric_name in selected_metrics:
+                        export_showyourwork_metric(
+                            metric_data['mean'], 
+                            f"{dataset_name}_{method}_{metric_name}", 
+                            output_dir, 
+                            decimal_places=3
+                        )
     
-    # Meta prediction performance
+    # Export meta prediction metrics for individual tasks (matching what's plotted)
+    for meta_type in ['author', 'journal', 'year']:
+        if meta_type in results:
+            for metric_name, metric_data in results[meta_type].items():
+                if isinstance(metric_data, dict) and 'mean' in metric_data:
+                    # Only export if not filtered or in selected list
+                    if selected_metrics is None or metric_name in selected_metrics:
+                        export_showyourwork_metric(
+                            metric_data['mean'],
+                            f"{dataset_name}_{meta_type}_{metric_name}",
+                            output_dir,
+                            decimal_places=3
+                        )
+    
+    # Also export combined meta metrics if available (for backward compatibility)
     if 'meta' in results:
-        for metric in ['accuracy', 'f1_micro', 'f1_macro']:
-            if metric in results['meta']:
-                export_showyourwork_metric(
-                    results['meta'][metric]['mean'],
-                    f"{dataset_name}_meta_{metric}",
-                    output_dir,
-                    decimal_places=3
-                )
+        for metric_name, metric_data in results['meta'].items():
+            if isinstance(metric_data, dict) and 'mean' in metric_data:
+                # Only export if not filtered or in selected list
+                if selected_metrics is None or metric_name in selected_metrics:
+                    export_showyourwork_metric(
+                        metric_data['mean'],
+                        f"{dataset_name}_meta_combined_{metric_name}",
+                        output_dir,
+                        decimal_places=3
+                    )
     
-    # Effect size calculation
-    if ('direct' in results and 'indirect' in results and 
-        main_metric in results['direct'] and main_metric in results['indirect']):
+    # Effect size calculations for primary metrics
+    primary_metric = 'mae' if target_type == 'regression' else 'f1'
+    
+    if ('direct' in results and 'indirect' in results):
+        # Calculate effect sizes for all available metrics if not filtered
+        metrics_to_calculate = []
+        if selected_metrics is None:
+            # Get common metrics between direct and indirect
+            if 'direct' in results and 'indirect' in results:
+                direct_metrics = set(results['direct'].keys())
+                indirect_metrics = set(results['indirect'].keys())
+                metrics_to_calculate = list(direct_metrics & indirect_metrics)
+        else:
+            metrics_to_calculate = [m for m in selected_metrics if 
+                                  m in results.get('direct', {}) and m in results.get('indirect', {})]
         
-        direct_values = results['direct'][main_metric]['values']
-        indirect_values = results['indirect'][main_metric]['values']
+        # Default to primary metric if no metrics specified or available
+        if not metrics_to_calculate and primary_metric in results.get('direct', {}) and primary_metric in results.get('indirect', {}):
+            metrics_to_calculate = [primary_metric]
         
-        # Cohen's d
-        pooled_std = np.sqrt((np.var(direct_values) + np.var(indirect_values)) / 2)
-        if pooled_std > 0:
-            effect_size = (np.mean(indirect_values) - np.mean(direct_values)) / pooled_std
-            export_showyourwork_metric(effect_size, f"{dataset_name}_effect_size_cohens_d", output_dir, decimal_places=3)
-        
-        # Mean difference  
-        mean_diff = np.mean(indirect_values) - np.mean(direct_values)
-        export_showyourwork_metric(mean_diff, f"{dataset_name}_mean_difference_{main_metric}", output_dir, decimal_places=3)
+        for metric in metrics_to_calculate:
+            if (metric in results['direct'] and metric in results['indirect'] and
+                isinstance(results['direct'][metric], dict) and 'values' in results['direct'][metric] and
+                isinstance(results['indirect'][metric], dict) and 'values' in results['indirect'][metric]):
+                
+                direct_values = results['direct'][metric]['values']
+                indirect_values = results['indirect'][metric]['values']
+                
+                # Cohen's d
+                pooled_std = np.sqrt((np.var(direct_values) + np.var(indirect_values)) / 2)
+                if pooled_std > 0:
+                    effect_size = (np.mean(indirect_values) - np.mean(direct_values)) / pooled_std
+                    export_showyourwork_metric(effect_size, f"{dataset_name}_effect_size_cohens_d_{metric}", output_dir, decimal_places=3)
+                
+                # Mean difference  
+                mean_diff = np.mean(indirect_values) - np.mean(direct_values)
+                export_showyourwork_metric(mean_diff, f"{dataset_name}_mean_difference_{metric}", output_dir, decimal_places=3)
 
 
 def find_best_parameter_setting(sweep_results: List[Dict], 

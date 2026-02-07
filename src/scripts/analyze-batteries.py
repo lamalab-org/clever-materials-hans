@@ -138,14 +138,14 @@ def _(battery_labels, paths, plot_parameter_sweep_results, sweep_results):
 @app.cell
 def _(battery_labels, create_main_figure_panel, paths, sweep_results):
     from plotting_utils import find_best_parameter_setting
-    
+
     best_setting = find_best_parameter_setting(
         sweep_results,
         target_type="regression",
         selection_criteria="best_overall",
-        similarity_metric="mae"
+        similarity_metric="mae",
     )
-    
+
     fig_main = create_main_figure_panel(
         best_setting["best_result"],
         target_type="regression",

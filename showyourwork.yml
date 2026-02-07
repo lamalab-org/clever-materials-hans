@@ -25,16 +25,106 @@ dag:
 
 # Externally-hosted datasets, e.g. on Zenodo
 datasets:
-  # 10.5281/zenodo.6468327:
-  #   contents:
-  #     TOI640b.json: src/data/TOI640b.json
+  # Local preprocessed datasets that analysis scripts depend on
+  src/tex/output/battery_preprocessed.parquet:
+    script: src/scripts/preprocess-batteries.py
+    
+  src/tex/output/perovskite_processed.parquet:
+    script: src/scripts/preprocess-perovskites.py
+    
+  src/tex/output/tadf_processed.parquet:
+    script: src/scripts/preprocess-tadf.py
+    
+  src/tex/output/mof_thermal_stability.parquet:
+    script: src/scripts/preprocess-mof.py
+    
+  src/tex/output/mof_solvent_stability.parquet:
+    script: src/scripts/preprocess-mof.py
 
 # Custom file dependencies
 dependencies:
-  # src/scripts/my_script.py:
-  #   - src/data/dataset_for_my_script.dat
-  # src/tex/ms.tex:
-  #   - src/tex/stylesheet.tex
+  # Preprocessing scripts depend on raw data
+  src/scripts/preprocess-batteries.py:
+    - src/data/battery_merged.csv
+    - src/scripts/utils.py
+    - src/scripts/paths.py
+    
+  src/scripts/preprocess-perovskites.py:
+    - src/data/perovskite_solar_cell_database.parquet
+    - src/scripts/utils.py
+    - src/scripts/paths.py
+    
+  src/scripts/preprocess-tadf.py:
+    - src/data/tadf.csv
+    - src/scripts/utils.py
+    - src/scripts/paths.py
+    
+  src/scripts/preprocess-mof.py:
+    - src/data/thermal_stability.json
+    - src/data/solvent_removal_stability.json
+    - src/scripts/utils.py
+    - src/scripts/paths.py
+  
+  # Analysis scripts depend on preprocessed data and utility modules
+  src/scripts/analyze-tadf.py:
+    - src/tex/output/tadf_processed.parquet
+    - src/scripts/utils.py
+    - src/scripts/plotting_utils.py
+    - src/scripts/paths.py
+    
+  src/scripts/analyze-perovskites.py:
+    - src/tex/output/perovskite_processed.parquet
+    - src/scripts/utils.py
+    - src/scripts/plotting_utils.py
+    - src/scripts/paths.py
+    
+  src/scripts/analyze-perovskites-top10.py:
+    - src/tex/output/perovskite_processed.parquet
+    - src/scripts/utils.py
+    - src/scripts/plotting_utils.py
+    - src/scripts/paths.py
+    
+  src/scripts/analyze-perovskites-jsc.py:
+    - src/tex/output/perovskite_processed.parquet
+    - src/scripts/utils.py
+    - src/scripts/plotting_utils.py
+    - src/scripts/paths.py
+    
+  src/scripts/analyze-perovskites-voc.py:
+    - src/tex/output/perovskite_processed.parquet
+    - src/scripts/utils.py
+    - src/scripts/plotting_utils.py
+    - src/scripts/paths.py
+    
+  src/scripts/analyze-batteries.py:
+    - src/tex/output/battery_preprocessed.parquet
+    - src/scripts/utils.py
+    - src/scripts/plotting_utils.py
+    - src/scripts/paths.py
+    
+  src/scripts/analyze-batteries-top10.py:
+    - src/tex/output/battery_preprocessed.parquet
+    - src/scripts/utils.py
+    - src/scripts/plotting_utils.py
+    - src/scripts/paths.py
+    
+  src/scripts/analyze-mof-thermal-stability.py:
+    - src/tex/output/mof_thermal_stability.parquet
+    - src/scripts/utils.py
+    - src/scripts/plotting_utils.py
+    - src/scripts/paths.py
+    
+  src/scripts/analyze-mof-thermal-top10.py:
+    - src/tex/output/mof_thermal_stability.parquet
+    - src/scripts/utils.py
+    - src/scripts/plotting_utils.py
+    - src/scripts/paths.py
+    
+  src/scripts/analyze-mof-solvent-stability.py:
+    - src/tex/output/mof_solvent_stability.parquet
+    - src/scripts/utils.py
+    - src/scripts/plotting_utils.py
+    - src/scripts/paths.py
 
 # Name of the `.tex` manuscript and corresponding `.pdf` article
 ms_name: ms
