@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.2)  7 FEB 2026 19:42
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.2)  8 FEB 2026 11:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1544,51 +1544,55 @@ LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/it' will be
 [2]
 
 [3]
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 106.
+
+(./output/mof_thermal_top10_indirect_accuracy.txt) (./output/mof_thermal_top10_direct_accuracy.txt)
+File: figures/mof_thermal_top10_main_panel_four_columns.pdf Graphic file (type pdf)
+<use figures/mof_thermal_top10_main_panel_four_columns.pdf>
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 105.
- (./output/mof_thermal_top10_indirect_accuracy.txt) (./output/mof_thermal_top10_direct_accuracy.txt)
-File: figures/mof_thermal_top10_main_panel.pdf Graphic file (type pdf)
-<use figures/mof_thermal_top10_main_panel.pdf>
+(Font)              scaled to size 12.0pt on input line 125.
 File: figures/mof_solvent_main_panel_four_columns.pdf Graphic file (type pdf)
 <use figures/mof_solvent_main_panel_four_columns.pdf>
  (./output/mof_solvent_indirect_accuracy.txt)
 File: figures/perovskite_top10_main_panel.pdf Graphic file (type pdf)
 <use figures/perovskite_top10_main_panel.pdf>
  (./output/perovskite_top10_author_f1_micro.txt) (./output/perovskite_top10_author_f1_micro.txt) (./output/perovskite_top10_author_f1_micro.txt)
-Overfull \hbox (1.59483pt too wide) in paragraph at lines 159--162
+Overfull \hbox (1.59483pt too wide) in paragraph at lines 158--161
 \TU/LinBiolinum(0)/m/n/10.95 graphic information with meaningful accuracy. The model achieves a micro-averaged
  []
 
 
 
 [4] (./output/perovskite_top10_indirect_accuracy.txt) (./output/perovskite_top10_direct_accuracy.txt)
-File: figures/battery_main_panel.pdf Graphic file (type pdf)
-<use figures/battery_main_panel.pdf>
- (./output/battery_top10_author_f1_micro.txt) (./output/battery_top10_author_f1_micro.txt) (./output/battery_top10_author_f1_micro.txt)
-
-[5]
 File: figures/tadf_main_panel_meta_comparison.pdf Graphic file (type pdf)
 <use figures/tadf_main_panel_meta_comparison.pdf>
  (./output/tadf_best_meta_accuracy.txt) (./output/tadf_best_meta_accuracy.txt)
 
+[5]
+File: figures/battery_main_panel.pdf Graphic file (type pdf)
+<use figures/battery_main_panel.pdf>
+ (./output/battery_top10_author_f1_micro.txt) (./output/battery_top10_author_f1_micro.txt) (./output/battery_top10_author_f1_micro.txt)
+
 [6]
 
 [7]
-Overfull \hbox (6.66956pt too wide) in paragraph at lines 218--220
+
+[8]
+Overfull \hbox (6.66956pt too wide) in paragraph at lines 219--221
 \TU/LinBiolinum(0)/m/n/10.95 shortcuts via meta-information investigated in this work, models might exploit dataset
  []
 
 
 
-[8]
-
 [9]
-Overfull \hbox (3.59628pt too wide) in paragraph at lines 243--247
+Overfull \hbox (3.59628pt too wide) in paragraph at lines 244--248
 \TU/LinBiolinum(0)/m/n/10.95 property-based splits.$[]$ In some domains, even challenges have been organized.$[]$
  []
 
 
-Overfull \hbox (2.71487pt too wide) in paragraph at lines 254--255
+Overfull \hbox (2.71487pt too wide) in paragraph at lines 255--256
 []\TU/LinBiolinum(0)/m/n/10.95 Nevertheless, the ability to predict bibliometric information—author identity, pub-
  []
 
@@ -1596,21 +1600,21 @@ Overfull \hbox (2.71487pt too wide) in paragraph at lines 254--255
 
 [10]
 
-LaTeX Warning: Citation 'McCoy2019' on page 11 undefined on input line 256.
+LaTeX Warning: Citation 'McCoy2019' on page 11 undefined on input line 257.
 
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
-(Font)              scaled to size 8.0pt on input line 256.
+(Font)              scaled to size 8.0pt on input line 257.
 
-Overfull \hbox (5.6811pt too wide) in paragraph at lines 275--277
+Overfull \hbox (5.6811pt too wide) in paragraph at lines 276--278
 []\TU/LinBiolinum(0)/m/n/10.95 Both approaches have merit. Confusion about which path we are taking—claiming
  []
 
 
 
-[11]
+[11] (./output/battery_dataset_size.txt) (./output/battery_n_features.txt)
 
-[12] (./output/battery_dataset_size.txt) (./output/battery_n_features.txt) (./output/perovskite_dataset_size.txt) (./output/perovskite_n_features.txt) (./output/mof_thermal_dataset_size.txt) (./output/mof_thermal_n_features.txt) (./output/mof_solvent_dataset_size.txt) (./output/mof_solvent_n_features.txt) (./output/tadf_best_dataset_size.txt) (./output/tadf_n_features.txt)
-Overfull \hbox (3.93567pt too wide) in paragraph at lines 333--334
+[12] (./output/perovskite_dataset_size.txt) (./output/perovskite_n_features.txt) (./output/mof_thermal_dataset_size.txt) (./output/mof_thermal_n_features.txt) (./output/mof_solvent_dataset_size.txt) (./output/mof_solvent_n_features.txt) (./output/tadf_best_dataset_size.txt) (./output/tadf_n_features.txt)
+Overfull \hbox (3.93567pt too wide) in paragraph at lines 331--332
 []\TU/LinBiolinum(0)/b/n/10.95 Fingerprints\TU/LinBiolinum(0)/m/n/10.95 : 2048-bit circular fingerprints with radius 2, capturing local chem-
  []
 
@@ -1620,39 +1624,39 @@ Overfull \hbox (3.93567pt too wide) in paragraph at lines 333--334
 
 [14]
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/sc' will be
-(Font)              scaled to size 10.95pt on input line 374.
+(Font)              scaled to size 10.95pt on input line 372.
 
 
 [15]
 
 [16]
-Overfull \hbox (36.67694pt too wide) in paragraph at lines 375--375
+Overfull \hbox (36.67694pt too wide) in paragraph at lines 373--373
 \TU/LinBiolinum(0)/m/it/10.95 view Materials \TU/LinBiolinum(0)/b/n/10.95 2. \TU/LinBiolinum(0)/m/sc/10.95 issn\TU/LinBiolinum(0)/m/n/10.95 : 2475-9953. []$[][][][] [] [] [] [][] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][][][][][][][] []
  []
 
 
 
 [17]
-Overfull \hbox (1.33595pt too wide) in paragraph at lines 375--375
+
+[18]
+Overfull \hbox (1.33595pt too wide) in paragraph at lines 373--373
 \TU/LinBiolinum(0)/m/n/10.95 Why You Will Never Have Enough Images. \TU/LinBiolinum(0)/m/it/10.95 arXiv preprint arXiv: 2408.11160 \TU/LinBiolinum(0)/m/n/10.95 (2024). 
  []
 
 
-Overfull \hbox (5.6384pt too wide) in paragraph at lines 375--375
+Overfull \hbox (5.6384pt too wide) in paragraph at lines 373--373
 []\TU/LinBiolinum(0)/m/n/10.95 Alampara, N., Schilling-Wilhelmi, M. & Jablonka, K. M. Lessons from the trenches
  []
 
 
-Overfull \hbox (0.54478pt too wide) in paragraph at lines 375--375
+Overfull \hbox (0.54478pt too wide) in paragraph at lines 373--373
 \TU/LinBiolinum(0)/m/n/10.95 for validating machine learning approaches. \TU/LinBiolinum(0)/m/it/10.95 Journal of Cheminformatics \TU/LinBiolinum(0)/b/n/10.95 15. \TU/LinBiolinum(0)/m/sc/10.95 issn\TU/LinBiolinum(0)/m/n/10.95 :
  []
 
 
 
-[18]
-
 [19]
-Overfull \hbox (4.98674pt too wide) in paragraph at lines 375--375
+Overfull \hbox (4.98674pt too wide) in paragraph at lines 373--373
 []\TU/LinBiolinum(0)/m/n/10.95 Landrum, G. RDKit: Open-Source Cheminformatics Software. []$[][][][][] [] [] [] [][][][][][] []
  []
 
@@ -1660,7 +1664,7 @@ Overfull \hbox (4.98674pt too wide) in paragraph at lines 375--375
 
 [20]
 
-LaTeX Warning: Reference `fig:mof_solvent_meta_performance' on page 1 undefined on input line 388.
+LaTeX Warning: Reference `fig:mof_solvent_meta_performance' on page 1 undefined on input line 386.
 
 File: figures/mof_solvent_performance_comparison.pdf Graphic file (type pdf)
 <use figures/mof_solvent_performance_comparison.pdf>
@@ -1672,7 +1676,7 @@ File: figures/mof_solvent_parameter_sweep.pdf Graphic file (type pdf)
 
 [22]
 
-LaTeX Warning: Reference `fig:mof_thermal_meta_performance' on page 1 undefined on input line 412.
+LaTeX Warning: Reference `fig:mof_thermal_meta_performance' on page 1 undefined on input line 410.
 
 File: figures/mof_thermal_top10_performance_comparison.pdf Graphic file (type pdf)
 <use figures/mof_thermal_top10_performance_comparison.pdf>
@@ -1734,18 +1738,18 @@ L3 programming layer <2025-01-18>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `ms.out' has not changed.
-(rerunfilecheck)             Checksum: 11008E5893EC7803ECDA819241389BA7;6150.
+(rerunfilecheck)             Checksum: 79D59854126B99E541D33784D0611D0E;5700.
 Package logreq Info: Writing requests to 'ms.run.xml'.
 \openout1 = `ms.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49597 strings out of 473832
- 1073797 string characters out of 5729481
- 1967423 words of memory out of 5000000
- 71929 multiletter control sequences out of 15000+600000
+ 49608 strings out of 473832
+ 1074564 string characters out of 5729481
+ 1965265 words of memory out of 5000000
+ 71940 multiletter control sequences out of 15000+600000
  565572 words of font info for 90 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 96i,6n,111p,1494b,5614s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 96i,6n,111p,1494b,5615s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on /Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/.texpadtmp/ms.pdf (29 pages).

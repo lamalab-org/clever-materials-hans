@@ -2397,13 +2397,13 @@
     <bcf:citekey order="17" intorder="1">shabih2026autonomous</bcf:citekey>
     <bcf:citekey order="18" intorder="1">shabih2026autonomous</bcf:citekey>
     <bcf:citekey order="19" intorder="1">SchillingWilhelmi2025</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">Huang2020</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">Huang2020</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">Liu2018</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">Huang2024</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">Huang2024</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">Swain2016</bcf:citekey>
-    <bcf:citekey order="25" intorder="2">Mavrai2021</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">Liu2018</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">Huang2024</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">Huang2024</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">Swain2016</bcf:citekey>
+    <bcf:citekey order="23" intorder="2">Mavrai2021</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">Huang2020</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">Huang2020</bcf:citekey>
     <bcf:citekey order="26" intorder="1">Moosavi2020</bcf:citekey>
     <bcf:citekey order="26" intorder="2">Saal2020</bcf:citekey>
     <bcf:citekey order="26" intorder="3">Gubernatis2018</bcf:citekey>
@@ -2415,6 +2415,10 @@
     <bcf:citekey order="29" intorder="2">Jones2024</bcf:citekey>
     <bcf:citekey order="30" intorder="1">Ramos2025</bcf:citekey>
     <bcf:citekey order="30" intorder="2">alampara2025general</bcf:citekey>
+    <bcf:citekey order="30" intorder="3">narayanan2024aviary0</bcf:citekey>
+    <bcf:citekey order="30" intorder="4">ghareeb2025robin0</bcf:citekey>
+    <bcf:citekey order="30" intorder="5">mitchener2025kosmos0</bcf:citekey>
+    <bcf:citekey order="30" intorder="6">ghafarollahi2025sciagents</bcf:citekey>
     <bcf:citekey order="31" intorder="1">Krishnan2025</bcf:citekey>
     <bcf:citekey order="32" intorder="1">Nielsen2020-rr</bcf:citekey>
     <bcf:citekey order="33" intorder="1">Jia2019</bcf:citekey>
