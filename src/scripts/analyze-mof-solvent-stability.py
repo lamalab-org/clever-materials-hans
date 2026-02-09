@@ -15,6 +15,8 @@ def _():
         run_parameter_sweep_analysis,
         run_single_analysis,
         run_meta_comparison_analysis,
+        run_leave_one_author_group_out_cv,
+        calculate_effect_sizes_cv_comparison,
         export_showyourwork_metric,
     )
     from plotting_utils import (
@@ -207,6 +209,83 @@ def _(
     )
     fig_main_four_col
     return
+
+
+@app.cell
+def _(df_final, run_leave_one_author_group_out_cv, target_column):
+    # Run Leave-One-Author-Group-Out CV to audit for Clever Hans effects
+    # This ensures author groups are not shared between train/test
+    logo_cv_results = run_leave_one_author_group_out_cv(
+        df_final,
+        target_column,
+        target_type="classification",
+        n_top_authors=10,  # Use top 10 authors for MOF solvent stability
+        model_type="lgb",
+        random_state=42,
+        include_indirect=True,  # Include indirect (proxy) model
+        n_authors=50,
+        use_year=True,
+        use_journal=True
+    )
+
+    # Print summary of Leave-One-Author-Group-Out CV
+    direct_acc = logo_cv_results["aggregated_results"]["direct_accuracy"]["mean"]
+    dummy_acc = logo_cv_results["aggregated_results"]["dummy_accuracy"]["mean"]
+    
+    print(f"\n=== Leave-One-Author-Group-Out Cross-Validation Results ===")
+    print(f"Direct Model Accuracy: {direct_acc:.3f} ± {logo_cv_results['aggregated_results']['direct_accuracy']['std']:.3f}")
+    print(f"Dummy Accuracy: {dummy_acc:.3f} ± {logo_cv_results['aggregated_results']['dummy_accuracy']['std']:.3f}")
+    print(f"Direct vs Dummy Gap: {direct_acc - dummy_acc:.3f} Accuracy")
+    
+    if 'indirect_accuracy' in logo_cv_results['aggregated_results']:
+        indirect_acc = logo_cv_results["aggregated_results"]["indirect_accuracy"]["mean"]
+        print(f"Indirect Model Accuracy: {indirect_acc:.3f} ± {logo_cv_results['aggregated_results']['indirect_accuracy']['std']:.3f}")
+        print(f"Indirect vs Dummy Gap: {indirect_acc - dummy_acc:.3f} Accuracy")
+    
+    print(f"Number of Author Groups: {logo_cv_results['n_folds']}")
+    return logo_cv_results,
+
+
+@app.cell
+def _(calculate_effect_sizes_cv_comparison, logo_cv_results, results_default):
+    # Calculate effect sizes comparing conventional CV vs Leave-One-Author-Group-Out CV
+    effect_comparison = calculate_effect_sizes_cv_comparison(
+        results_default,
+        logo_cv_results,
+        metric_name='accuracy'
+    )
+    
+    print(f"\n=== Effect Size Analysis: Conventional CV vs Leave-One-Author-Group-Out CV ===")
+    
+    # Print S ratios (key metric for author shortcuts)
+    if 's_ratios' in effect_comparison and effect_comparison['s_ratios']:
+        s_ratios = effect_comparison['s_ratios']
+        print(f"\nS Ratios (proxy - dummy) / (direct - dummy):")
+        if 'conventional_S' in s_ratios:
+            print(f"  Conventional CV S: {s_ratios['conventional_S']:.3f}")
+        if 'logo_S' in s_ratios:
+            print(f"  Leave-One-Author-Out S: {s_ratios['logo_S']:.3f}")
+        if 'S_change' in s_ratios:
+            print(f"  S Change: {s_ratios['S_change']:.3f} ({s_ratios['S_change_pct']:.1f}%)")
+            
+        # Interpretation
+        if 'conventional_S' in s_ratios and 'logo_S' in s_ratios:
+            if s_ratios['conventional_S'] > 0.7 and s_ratios['logo_S'] < 0.3:
+                print(f"  → STRONG author shortcut detected!")
+            elif s_ratios['conventional_S'] > 0.5 and s_ratios['logo_S'] < 0.5:
+                print(f"  → Moderate author shortcut detected")
+            else:
+                print(f"  → Weak or no author shortcut")
+    
+    # Print performance gaps
+    if 'performance_gaps' in effect_comparison:
+        gaps = effect_comparison['performance_gaps']
+        print(f"\nPerformance Gaps:")
+        print(f"  Conventional Direct vs Dummy: {gaps['conventional_direct_vs_dummy']:.3f}")
+        print(f"  LOAO Direct vs Dummy: {gaps['logo_direct_vs_dummy']:.3f}")
+        print(f"  Gap Reduction: {gaps['gap_reduction']:.3f} ({gaps['gap_reduction_pct']:.1f}%)")
+        
+    return effect_comparison,
 
 
 @app.cell

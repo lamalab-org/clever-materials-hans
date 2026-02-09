@@ -65,7 +65,13 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "  Requested n_authors: 500, Available unique authors: 2228\n  Using n_authors: 500\n",
+          "text": "  Requested n_authors: 500, Available unique authors: 2228\n  Using n_authors: 500\n  Dataset size: 2089, Features: 2265, Meta targets: 510\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "\rCV folds:   0%|                                                                 | 0/10 [00:00<?, ?it/s]",
           "mimetype": "text/plain"
         }
       ]

@@ -457,9 +457,15 @@ def calculate_effect_sizes_cv_comparison(conventional_results: Dict[str, Any],
         'gap_reduction_pct': ((conv_gap_direct - logo_gap_direct) / conv_gap_direct * 100) if conv_gap_direct != 0 else 0.0
     }
     
+    # Calculate S ratios: S = (proxy - dummy) / (direct - dummy)
+    s_ratios = {}
+    
     if conv_indirect:
         conv_gap_indirect = np.mean(conv_indirect) - np.mean(conv_dummy)
         performance_gaps['conventional_indirect_vs_dummy'] = conv_gap_indirect
+        
+        # S ratio for conventional CV
+        s_ratios['conventional_S'] = conv_gap_indirect / conv_gap_direct if conv_gap_direct != 0 else np.nan
         
         if f'indirect_{metric_name}' in logo_cv_results['aggregated_results']:
             logo_indirect = logo_cv_results['aggregated_results'][f'indirect_{metric_name}']['values']
@@ -467,11 +473,19 @@ def calculate_effect_sizes_cv_comparison(conventional_results: Dict[str, Any],
             performance_gaps['logo_indirect_vs_dummy'] = logo_gap_indirect
             performance_gaps['indirect_gap_reduction'] = conv_gap_indirect - logo_gap_indirect
             performance_gaps['indirect_gap_reduction_pct'] = ((conv_gap_indirect - logo_gap_indirect) / conv_gap_indirect * 100) if conv_gap_indirect != 0 else 0.0
+            
+            # S ratio for LOAO CV
+            s_ratios['logo_S'] = logo_gap_indirect / logo_gap_direct if logo_gap_direct != 0 else np.nan
+            
+            # S ratio change (should go from ~1 to ~0 if strong author shortcut)
+            s_ratios['S_change'] = s_ratios['conventional_S'] - s_ratios['logo_S'] if not np.isnan(s_ratios['conventional_S']) and not np.isnan(s_ratios['logo_S']) else np.nan
+            s_ratios['S_change_pct'] = (s_ratios['S_change'] / s_ratios['conventional_S'] * 100) if (s_ratios['conventional_S'] != 0 and not np.isnan(s_ratios['conventional_S'])) else np.nan
     
     return {
         'metric': metric_name,
         'effect_sizes': effect_sizes,
         'performance_gaps': performance_gaps,
+        's_ratios': s_ratios,
         'summary_stats': {
             'conventional_direct': {'mean': np.mean(conv_direct), 'std': np.std(conv_direct)},
             'logo_direct': {'mean': np.mean(logo_direct), 'std': np.std(logo_direct)},
