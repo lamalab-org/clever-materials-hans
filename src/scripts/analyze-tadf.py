@@ -15,6 +15,7 @@ def _():
         run_parameter_sweep_analysis,
         run_single_analysis,
         run_meta_comparison_analysis,
+        run_leave_one_author_group_out_cv,
         export_showyourwork_metric,
     )
     from plotting_utils import (
@@ -41,6 +42,7 @@ def _():
         plot_meta_performance,
         plot_parameter_sweep_results,
         plot_performance_comparison,
+        run_leave_one_author_group_out_cv,
         run_meta_comparison_analysis,
         run_parameter_sweep_analysis,
         run_single_analysis,
@@ -190,23 +192,27 @@ def _(df_final, run_meta_comparison_analysis, target_column):
         use_journal=True,
         n_folds=10,
     )
-    
+
     # Quick comparison summary
-    pred_mae = meta_comparison['predicted_meta']['indirect']['mae']['mean']
-    actual_mae = meta_comparison['actual_meta']['indirect']['mae']['mean']
-    direct_mae = meta_comparison['predicted_meta']['direct']['mae']['mean']
-    
+    pred_mae = meta_comparison["predicted_meta"]["indirect"]["mae"]["mean"]
+    actual_mae = meta_comparison["actual_meta"]["indirect"]["mae"]["mean"]
+    direct_mae = meta_comparison["predicted_meta"]["direct"]["mae"]["mean"]
+
     print(f"TADF Meta-information comparison:")
     print(f"Direct (Conventional): {direct_mae:.2f} MAE")
-    print(f"Predicted meta: {pred_mae:.2f} MAE") 
+    print(f"Predicted meta: {pred_mae:.2f} MAE")
     print(f"Actual meta: {actual_mae:.2f} MAE")
     print(f"Performance gap: {abs(pred_mae - actual_mae):.2f} MAE")
-    
-    return meta_comparison,
+    return (meta_comparison,)
 
 
 @app.cell
-def _(create_main_figure_panel_with_meta_comparison, meta_comparison, paths, tadf_labels):
+def _(
+    create_main_figure_panel_with_meta_comparison,
+    meta_comparison,
+    paths,
+    tadf_labels,
+):
     # Create four-column main panel with actual meta results
     fig_main_four_col = create_main_figure_panel_with_meta_comparison(
         meta_comparison,
@@ -214,10 +220,38 @@ def _(create_main_figure_panel_with_meta_comparison, meta_comparison, paths, tad
         dataset_name="TADF",
         metric_labels=tadf_labels,
         save_path=paths.figures / "tadf_main_panel_four_columns.pdf",
-        selection_metric="mae"
+        selection_metric="mae",
     )
     fig_main_four_col
-    return (fig_main_four_col,)
+    return
+
+
+@app.cell
+def _(df_final, run_leave_one_author_group_out_cv, target_column):
+    # Run Leave-One-Author-Group-Out CV to audit for Clever Hans effects
+    # This ensures author groups are not shared between train/test
+    logo_cv_results = run_leave_one_author_group_out_cv(
+        df_final,
+        target_column,
+        target_type="regression",
+        n_top_authors=5,  # Use top 10 authors for TADF dataset
+        model_type="lgb",
+        random_state=42,
+    )
+
+    # Print summary of Leave-One-Author-Group-Out CV
+    model_mae = logo_cv_results["aggregated_results"]["model_mae"]["mean"]
+    dummy_mae = logo_cv_results["aggregated_results"]["dummy_mae"]["mean"]
+    print(f"\n=== Leave-One-Author-Group-Out Cross-Validation Results ===")
+    print(
+        f"Model MAE: {model_mae:.3f} ± {logo_cv_results['aggregated_results']['model_mae']['std']:.3f}"
+    )
+    print(
+        f"Dummy MAE: {dummy_mae:.3f} ± {logo_cv_results['aggregated_results']['dummy_mae']['std']:.3f}"
+    )
+    print(f"Performance Gap: {model_mae - dummy_mae:.3f} MAE")
+    print(f"Number of Author Groups: {logo_cv_results['n_folds']}")
+    return
 
 
 @app.cell
@@ -239,6 +273,16 @@ def _(best_setting, export_key_metrics, paths):
         output_dir=paths.output,
         target_type="regression",
     )
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
     return
 
 

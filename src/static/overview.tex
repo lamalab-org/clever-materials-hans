@@ -1,0 +1,166 @@
+% ../static/overview.tex
+% Elegant, Nature-leaning overview (clean buses, more vertical space, tidy callout)
+
+\begingroup
+\sffamily
+
+\begin{tikzpicture}[font=\scriptsize, line cap=round, line join=round, >=latex]
+
+% ---- numeric layout (no calc library)
+\pgfmathsetmacro{\Bx}{8.20}
+\pgfmathsetmacro{\midX}{4.10}
+\pgfmathsetmacro{\xAuthor}{\Bx-2.35}
+\pgfmathsetmacro{\xJournal}{\Bx}
+\pgfmathsetmacro{\xYear}{\Bx+2.35}
+
+% ---- y layout (more vertical space)
+\pgfmathsetmacro{\yTitle}{1.05}
+\pgfmathsetmacro{\yChem}{-0.30}
+\pgfmathsetmacro{\yBusTop}{-1.95}
+\pgfmathsetmacro{\yMeta}{-3.55}
+\pgfmathsetmacro{\yBusBot}{-5.25}
+\pgfmathsetmacro{\yProp}{-6.85}
+\pgfmathsetmacro{\yFoot}{-8.05}
+
+% ---- left-aligned titles (anchor to panel left edges)
+\pgfmathsetmacro{\xTitleA}{-1.70}
+\pgfmathsetmacro{\xTitleB}{\Bx-1.70}
+
+% ---- callout (compact, centered in the gap)
+\pgfmathsetmacro{\yCall}{-3.85}
+
+% ---- restrained accent colors
+\colorlet{chemcolor}{teal!70!black}
+\colorlet{metacolor}{violet!62!black}
+
+% ---- titles
+\node[font=\small\bfseries, anchor=west] at (\xTitleA,\yTitle) {A. Intended workflow};
+\node[font=\small\bfseries, anchor=west] at (\xTitleB,\yTitle) {B. Spurious shortcut};
+
+% =======================
+% Panel A
+% =======================
+\node[
+  draw=black, line width=0.6pt, rounded corners=2pt,
+  minimum width=3.05cm, minimum height=1.90cm,
+  inner sep=7pt, align=center, fill=white
+] (chemA) at (0,\yChem) {%
+  \includegraphics[width=0.88cm]{../static/crystal.png}\\[-2pt]
+  \textbf{Chemical}\\[-2pt]
+  \textbf{descriptors}
+};
+
+\node[
+  draw=black, line width=0.6pt, rounded corners=2pt,
+  minimum width=3.05cm, minimum height=1.90cm,
+  inner sep=7pt, align=center, fill=black!1
+] (propA) at (0,\yProp) {%
+  \includegraphics[width=0.88cm]{../static/target.png}\\[-2pt]
+  \textbf{Accurate property}\\[-2pt]
+  \textbf{prediction}\\[-1pt]
+  (90\%)
+};
+
+\draw[->, draw=chemcolor, line width=0.9pt]
+  (chemA.south) -- (propA.north)
+  node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize, text=chemcolor] {Model};
+
+\node[font=\scriptsize\itshape, text=black!70] at (0,\yFoot-0.1) {Learns chemistry-relevant mapping};
+
+% =======================
+% Panel B
+% =======================
+\node[
+  draw=black, line width=0.6pt, rounded corners=2pt,
+  minimum width=3.05cm, minimum height=1.90cm,
+  inner sep=7pt, align=center, fill=white
+] (chemB) at (\Bx,\yChem) {%
+  \includegraphics[width=0.88cm]{../static/crystal.png}\\[-2pt]
+  \textbf{Chemical}\\[-2pt]
+  \textbf{descriptors}
+};
+
+\node[
+  draw=metacolor!85!black, line width=0.6pt, rounded corners=2pt,
+  minimum width=1.95cm, minimum height=1.30cm,
+  inner sep=6pt, align=center, fill=metacolor!3
+] (author) at (\xAuthor,\yMeta) {%
+  \includegraphics[width=0.46cm]{../static/chemists.png}\\[-2pt]
+  \textbf{Author}\\[-2pt]
+  0.76
+};
+
+\node[
+  draw=metacolor!85!black, line width=0.6pt, rounded corners=2pt,
+  minimum width=1.95cm, minimum height=1.30cm,
+  inner sep=6pt, align=center, fill=metacolor!3
+] (journal) at (\xJournal,\yMeta) {%
+  \includegraphics[width=0.46cm]{../static/journal.png}\\[-2pt]
+  \textbf{Journal}\\[-2pt]
+  0.82
+};
+
+\node[
+  draw=metacolor!85!black, line width=0.6pt, rounded corners=2pt,
+  minimum width=1.95cm, minimum height=1.30cm,
+  inner sep=6pt, align=center, fill=metacolor!3
+] (year) at (\xYear,\yMeta) {%
+  \includegraphics[width=0.46cm]{../static/calendar.png}\\[-2pt]
+  \textbf{Year}\\[-2pt]
+  1.00
+};
+
+\node[
+  draw=black, line width=0.6pt, rounded corners=2pt,
+  minimum width=3.05cm, minimum height=1.90cm,
+  inner sep=7pt, align=center, fill=black!1
+] (propB) at (\Bx,\yProp) {%
+  \includegraphics[width=0.88cm]{../static/target.png}\\[-2pt]
+  \textbf{Accurate property}\\[-2pt]
+  \textbf{prediction}\\[-1pt]
+  (90\%)
+};
+
+% ---- buses (plain lines), arrows only on vertical drops
+\coordinate (busTopL) at (\xAuthor,\yBusTop);
+\coordinate (busTopR) at (\xYear,\yBusTop);
+\coordinate (busBotL) at (\xAuthor,\yBusBot);
+\coordinate (busBotR) at (\xYear,\yBusBot);
+
+% junction dots ON buses
+\node[draw=metacolor, fill=metacolor!14, circle, inner sep=1.15pt] (kTop) at (\Bx,\yBusTop) {};
+\node[draw=metacolor, fill=metacolor!14, circle, inner sep=1.15pt] (kBot) at (\Bx,\yBusBot) {};
+
+% draw bus lines in two segments so dot reads as a junction
+\draw[draw=metacolor, line width=0.8pt] (busTopL) -- (kTop);
+\draw[draw=metacolor, line width=0.8pt] (kTop) -- (busTopR);
+
+\draw[draw=metacolor, line width=0.8pt] (busBotL) -- (kBot);
+\draw[draw=metacolor, line width=0.8pt] (kBot) -- (busBotR);
+
+% descriptor -> top junction
+\draw[->, draw=metacolor, line width=0.8pt] (chemB.south) -- (kTop);
+
+% top bus -> metadata (vertical drops)
+\draw[->, draw=metacolor, line width=0.8pt] (busTopL) -- (author.north);
+\draw[->, draw=metacolor, line width=0.8pt] (\xJournal,\yBusTop) -- (journal.north);
+\draw[->, draw=metacolor, line width=0.8pt] (busTopR) -- (year.north);
+
+% metadata -> bottom bus (vertical drops)
+\draw[->, draw=metacolor, line width=0.8pt] (author.south) -- (busBotL);
+\draw[->, draw=metacolor, line width=0.8pt] (journal.south) -- (\xJournal,\yBusBot);
+\draw[->, draw=metacolor, line width=0.8pt] (year.south) -- (busBotR);
+
+% bottom junction -> prediction
+\draw[->, draw=metacolor, line width=0.8pt] (kBot) -- (propB.north);
+
+\node[font=\scriptsize\itshape, text=black!70] at (\Bx,\yFoot-0.1) {Learns dataset artefacts};
+
+% =======================
+% Approx callout (compact stack, no overlap)
+% =======================
+\node[font=\Large\bfseries, text=black!60, align=center] at (\midX-0.8,\yCall) {$\approx$};
+\node[font=\scriptsize\bfseries, text=black!60, align=center] at (\midX-0.8,\yCall-0.40) {same accuracy};
+
+\end{tikzpicture}
+\endgroup

@@ -145,6 +145,248 @@ def calculate_classification_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> 
     }
 
 
+def run_leave_one_author_group_out_cv(df: pd.DataFrame,
+                                    target_column: str,
+                                    target_type: str,
+                                    n_top_authors: int = 10,
+                                    model_type: str = 'lgb',
+                                    random_state: int = 42,
+                                    include_indirect: bool = False,
+                                    n_authors: int = 50,
+                                    use_year: bool = True,
+                                    use_journal: bool = True) -> Dict[str, Any]:
+    """
+    Run Leave-One-Author-Group-Out cross-validation to audit Clever Hans effects.
+    
+    This provides a more robust test by explicitly ensuring author groups are not 
+    shared between training and testing, preventing the model from exploiting 
+    author-specific patterns.
+    
+    Args:
+        df: DataFrame with features and targets
+        target_column: Name of target column
+        target_type: 'regression' or 'classification'
+        n_top_authors: Number of top authors to use for group-out CV
+        model_type: Model type ('lgb', 'xgb', 'sklearn')
+        random_state: Random seed
+        include_indirect: If True, also run indirect (meta-information) models
+        n_authors: Number of authors for meta-information encoding
+        use_year: Whether to include year as meta-information
+        use_journal: Whether to include journal as meta-information
+        
+    Returns:
+        Dict containing CV results and author group analysis
+    """
+    
+    # Get material features
+    features = [f for f in df.columns if f.startswith("feat_")]
+    
+    # Prepare data with authors
+    df_with_authors = df.dropna(subset=["authors_full_list"])
+    all_authors = ""
+    for author_string in df_with_authors["authors_full_list"]:
+        all_authors += str(author_string) + "; "
+    
+    all_authors_list = [f.strip() for f in all_authors.split(";") if len(f.strip()) > 3]
+    all_authors_count = Counter(all_authors_list)
+    
+    # Get top N authors
+    top_authors = [author for author, _ in all_authors_count.most_common(n_top_authors)]
+    print(f"Using top {len(top_authors)} authors for group-out CV")
+    
+    # Create author group mapping
+    def get_primary_author_group(author_list_str):
+        """Get the first top author found in the author list, or 'other' if none."""
+        if pd.isna(author_list_str):
+            return 'other'
+        authors = [a.strip() for a in str(author_list_str).split(';')]
+        for author in authors:
+            if author in top_authors:
+                return author
+        return 'other'
+    
+    df_clean = df_with_authors.dropna(subset=features + [target_column]).copy()
+    df_clean['author_group'] = df_clean['authors_full_list'].apply(get_primary_author_group)
+    
+    # Count samples per author group
+    author_group_counts = df_clean['author_group'].value_counts()
+    print(f"Author group distribution:")
+    for group, count in author_group_counts.head(10).items():
+        print(f"  {group}: {count} samples")
+    
+    # Filter to groups with enough samples for meaningful CV
+    min_samples = 5
+    viable_groups = author_group_counts[author_group_counts >= min_samples].index.tolist()
+    viable_groups = [g for g in viable_groups if g != 'other']  # Exclude 'other' from CV groups
+    
+    print(f"Using {len(viable_groups)} author groups with ≥{min_samples} samples each")
+    
+    # Perform Leave-One-Author-Group-Out CV
+    results_by_fold = []
+    
+    for i, held_out_group in enumerate(viable_groups):
+        print(f"\nFold {i+1}/{len(viable_groups)}: Holding out group '{held_out_group}'")
+        
+        # Split data
+        train_mask = df_clean['author_group'] != held_out_group
+        test_mask = df_clean['author_group'] == held_out_group
+        
+        train_df = df_clean[train_mask]
+        test_df = df_clean[test_mask]
+        
+        print(f"  Train: {len(train_df)} samples, Test: {len(test_df)} samples")
+        
+        # Prepare features
+        X_train = train_df[features].values
+        X_test = test_df[features].values
+        y_train = train_df[target_column].values
+        y_test = test_df[target_column].values
+        
+        if model_type in ['xgb', 'lgb']:
+            X_train, X_test = preprocess_features_for_boosting(X_train, X_test, model_type)
+        
+        # Train and evaluate models
+        fold_result = {
+            'fold': i,
+            'held_out_group': held_out_group,
+            'n_train': len(train_df),
+            'n_test': len(test_df),
+            'y_test': y_test,
+        }
+        
+        # Direct model (features only)
+        model_direct = get_optimized_model(model_type, target_type, random_state)
+        if target_type == 'regression':
+            dummy = DummyRegressor(strategy='mean')
+        else:
+            dummy = DummyClassifier(strategy='stratified', random_state=random_state)
+        
+        model_direct.fit(X_train, y_train)
+        dummy.fit(X_train, y_train)
+        
+        y_pred_direct = model_direct.predict(X_test)
+        y_dummy = dummy.predict(X_test)
+        
+        if target_type == 'regression':
+            fold_result['direct_metrics'] = calculate_regression_metrics(y_test, y_pred_direct)
+            fold_result['dummy_metrics'] = calculate_regression_metrics(y_test, y_dummy)
+        else:
+            fold_result['direct_metrics'] = calculate_classification_metrics(y_test, y_pred_direct)
+            fold_result['dummy_metrics'] = calculate_classification_metrics(y_test, y_dummy)
+        
+        fold_result['y_pred_direct'] = y_pred_direct
+        fold_result['y_dummy'] = y_dummy
+        
+        # Indirect model (if requested)
+        if include_indirect:
+            # Get meta targets for author/journal encoding
+            meta_targets = []
+            if 'authors_full_list' in train_df.columns:
+                # Create author encoding
+                author_encoded = _encode_authors_to_top_k(train_df['authors_full_list'], n_authors, random_state)
+                meta_targets.extend([f'author_{i}' for i in range(author_encoded.shape[1])])
+                
+            if use_year and 'year' in train_df.columns:
+                # Year is already numeric, just copy
+                train_df['year_numeric'] = pd.to_numeric(train_df['year'], errors='coerce').fillna(train_df['year'].median())
+                test_df['year_numeric'] = pd.to_numeric(test_df['year'], errors='coerce').fillna(train_df['year_numeric'].mean())
+                meta_targets.append('year_numeric')
+                
+            if use_journal and 'journal' in train_df.columns:
+                # Create journal encoding
+                journal_encoded = _encode_journal_to_top_k(train_df['journal'], n_authors, random_state)
+                meta_targets.extend([f'journal_{i}' for i in range(journal_encoded.shape[1])])
+            
+            if meta_targets:
+                # Build meta features for training and test
+                X_train_meta = X_train.copy()
+                X_test_meta = X_test.copy()
+                
+                if 'authors_full_list' in train_df.columns:
+                    author_encoded_train = _encode_authors_to_top_k(train_df['authors_full_list'], n_authors, random_state)
+                    author_encoded_test = _encode_authors_to_top_k(test_df['authors_full_list'], n_authors, random_state)
+                    X_train_meta = np.concatenate([X_train_meta, author_encoded_train], axis=1)
+                    X_test_meta = np.concatenate([X_test_meta, author_encoded_test], axis=1)
+                
+                if use_year and 'year' in train_df.columns:
+                    year_train = train_df['year_numeric'].values.reshape(-1, 1)
+                    year_test = test_df['year_numeric'].values.reshape(-1, 1)
+                    X_train_meta = np.concatenate([X_train_meta, year_train], axis=1)
+                    X_test_meta = np.concatenate([X_test_meta, year_test], axis=1)
+                
+                if use_journal and 'journal' in train_df.columns:
+                    journal_encoded_train = _encode_journal_to_top_k(train_df['journal'], n_authors, random_state)
+                    journal_encoded_test = _encode_journal_to_top_k(test_df['journal'], n_authors, random_state)
+                    X_train_meta = np.concatenate([X_train_meta, journal_encoded_train], axis=1)
+                    X_test_meta = np.concatenate([X_test_meta, journal_encoded_test], axis=1)
+                
+                # Train indirect model with meta features
+                model_indirect = get_optimized_model(model_type, target_type, random_state)
+                model_indirect.fit(X_train_meta, y_train)
+                
+                y_pred_indirect = model_indirect.predict(X_test_meta)
+                
+                if target_type == 'regression':
+                    fold_result['indirect_metrics'] = calculate_regression_metrics(y_test, y_pred_indirect)
+                else:
+                    fold_result['indirect_metrics'] = calculate_classification_metrics(y_test, y_pred_indirect)
+                
+                fold_result['y_pred_indirect'] = y_pred_indirect
+        
+        results_by_fold.append(fold_result)
+    
+    # Aggregate results across folds
+    aggregated_results = {}
+    
+    # Get all metrics from first fold
+    if results_by_fold:
+        metric_names = list(results_by_fold[0]['direct_metrics'].keys())
+        
+        # Direct model results
+        for metric in metric_names:
+            direct_values = [fold['direct_metrics'][metric] for fold in results_by_fold]
+            dummy_values = [fold['dummy_metrics'][metric] for fold in results_by_fold]
+            
+            aggregated_results[f'direct_{metric}'] = {
+                'mean': np.mean(direct_values),
+                'std': np.std(direct_values),
+                'values': direct_values
+            }
+            aggregated_results[f'dummy_{metric}'] = {
+                'mean': np.mean(dummy_values),
+                'std': np.std(dummy_values),
+                'values': dummy_values
+            }
+        
+        # Indirect model results (if available)
+        if include_indirect and 'indirect_metrics' in results_by_fold[0]:
+            for metric in metric_names:
+                indirect_values = [fold['indirect_metrics'][metric] for fold in results_by_fold if 'indirect_metrics' in fold]
+                
+                if indirect_values:
+                    aggregated_results[f'indirect_{metric}'] = {
+                        'mean': np.mean(indirect_values),
+                        'std': np.std(indirect_values),
+                        'values': indirect_values
+                    }
+    
+    return {
+        'cv_type': 'leave_one_author_group_out',
+        'n_folds': len(viable_groups),
+        'n_top_authors': n_top_authors,
+        'viable_groups': viable_groups,
+        'author_group_counts': author_group_counts.to_dict(),
+        'results_by_fold': results_by_fold,
+        'aggregated_results': aggregated_results,
+        'dataset_info': {
+            'total_samples': len(df_clean),
+            'n_features': len(features),
+            'target_column': target_column,
+            'target_type': target_type
+        }
+    }
+
+
 def export_showyourwork_metric(value: Union[float, int, str], 
                               filename: str, 
                               output_dir: Path,
@@ -159,6 +401,86 @@ def export_showyourwork_metric(value: Union[float, int, str],
     
     with open(output_dir / f"{filename}.txt", 'w') as f:
         f.write(f"{formatted_value}\\endinput")
+
+
+def calculate_effect_sizes_cv_comparison(conventional_results: Dict[str, Any], 
+                                       logo_cv_results: Dict[str, Any],
+                                       metric_name: str = 'mae') -> Dict[str, Any]:
+    """
+    Calculate effect sizes comparing conventional CV vs Leave-One-Author-Group-Out CV.
+    
+    Args:
+        conventional_results: Results from conventional cross-validation
+        logo_cv_results: Results from Leave-One-Author-Group-Out cross-validation
+        metric_name: Name of metric to compare (e.g., 'mae', 'accuracy', 'f1')
+        
+    Returns:
+        Dict containing effect sizes and statistical comparisons
+    """
+    
+    # Extract values for conventional CV
+    conv_direct = conventional_results['direct'][metric_name]['values']
+    conv_indirect = conventional_results['indirect'][metric_name]['values']
+    conv_dummy = conventional_results['dummy'][metric_name]['values']
+    
+    # Extract values for LOGO CV
+    logo_direct = logo_cv_results['aggregated_results'][f'direct_{metric_name}']['values']
+    logo_dummy = logo_cv_results['aggregated_results'][f'dummy_{metric_name}']['values']
+    
+    # Calculate effect sizes (Cohen's d)
+    def cohens_d(x1, x2):
+        """Calculate Cohen's d effect size."""
+        n1, n2 = len(x1), len(x2)
+        pooled_std = np.sqrt(((n1 - 1) * np.var(x1, ddof=1) + (n2 - 1) * np.var(x2, ddof=1)) / (n1 + n2 - 2))
+        return (np.mean(x1) - np.mean(x2)) / pooled_std if pooled_std > 0 else 0.0
+    
+    effect_sizes = {
+        'direct_conv_vs_logo': cohens_d(conv_direct, logo_direct),
+        'indirect_vs_logo_direct': cohens_d(conv_indirect, logo_direct) if conv_indirect else np.nan,
+        'dummy_conv_vs_logo': cohens_d(conv_dummy, logo_dummy),
+    }
+    
+    # Add indirect comparison if available in LOGO results
+    if f'indirect_{metric_name}' in logo_cv_results['aggregated_results']:
+        logo_indirect = logo_cv_results['aggregated_results'][f'indirect_{metric_name}']['values']
+        effect_sizes['indirect_conv_vs_logo'] = cohens_d(conv_indirect, logo_indirect) if conv_indirect else np.nan
+        effect_sizes['direct_vs_indirect_logo'] = cohens_d(logo_direct, logo_indirect)
+    
+    # Calculate performance gaps
+    conv_gap_direct = np.mean(conv_direct) - np.mean(conv_dummy)
+    logo_gap_direct = np.mean(logo_direct) - np.mean(logo_dummy)
+    
+    performance_gaps = {
+        'conventional_direct_vs_dummy': conv_gap_direct,
+        'logo_direct_vs_dummy': logo_gap_direct,
+        'gap_reduction': conv_gap_direct - logo_gap_direct,
+        'gap_reduction_pct': ((conv_gap_direct - logo_gap_direct) / conv_gap_direct * 100) if conv_gap_direct != 0 else 0.0
+    }
+    
+    if conv_indirect:
+        conv_gap_indirect = np.mean(conv_indirect) - np.mean(conv_dummy)
+        performance_gaps['conventional_indirect_vs_dummy'] = conv_gap_indirect
+        
+        if f'indirect_{metric_name}' in logo_cv_results['aggregated_results']:
+            logo_indirect = logo_cv_results['aggregated_results'][f'indirect_{metric_name}']['values']
+            logo_gap_indirect = np.mean(logo_indirect) - np.mean(logo_dummy)
+            performance_gaps['logo_indirect_vs_dummy'] = logo_gap_indirect
+            performance_gaps['indirect_gap_reduction'] = conv_gap_indirect - logo_gap_indirect
+            performance_gaps['indirect_gap_reduction_pct'] = ((conv_gap_indirect - logo_gap_indirect) / conv_gap_indirect * 100) if conv_gap_indirect != 0 else 0.0
+    
+    return {
+        'metric': metric_name,
+        'effect_sizes': effect_sizes,
+        'performance_gaps': performance_gaps,
+        'summary_stats': {
+            'conventional_direct': {'mean': np.mean(conv_direct), 'std': np.std(conv_direct)},
+            'logo_direct': {'mean': np.mean(logo_direct), 'std': np.std(logo_direct)},
+            'conventional_indirect': {'mean': np.mean(conv_indirect), 'std': np.std(conv_indirect)} if conv_indirect else None,
+            'logo_indirect': {'mean': np.mean(logo_cv_results['aggregated_results'][f'indirect_{metric_name}']['values']), 
+                            'std': np.std(logo_cv_results['aggregated_results'][f'indirect_{metric_name}']['values'])} if f'indirect_{metric_name}' in logo_cv_results['aggregated_results'] else None,
+            'dummy': {'mean': np.mean(conv_dummy), 'std': np.std(conv_dummy)}
+        }
+    }
 
 
 def _run_single_parameter_combination(params_data: Tuple) -> Dict[str, Any]:

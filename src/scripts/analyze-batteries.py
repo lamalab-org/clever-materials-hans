@@ -171,11 +171,48 @@ def _(export_key_metrics, paths, results_default):
 
 @app.cell
 def _():
-    return
+    from utils import run_meta_comparison_analysis
+    return (run_meta_comparison_analysis,)
+
+
+@app.cell
+def _(df_final, run_meta_comparison_analysis, target_column):
+    # Run meta comparison analysis for four-column main panel
+    meta_comparison = run_meta_comparison_analysis(
+        df_final,
+        target_column,
+        target_type="regression",
+        n_authors=2000,
+        use_year=True,
+        use_journal=True,
+        n_folds=10,
+    )
+    return (meta_comparison,)
 
 
 @app.cell
 def _():
+    from plotting_utils import create_main_figure_panel_with_meta_comparison
+    return (create_main_figure_panel_with_meta_comparison,)
+
+
+@app.cell
+def _(
+    battery_labels,
+    create_main_figure_panel_with_meta_comparison,
+    meta_comparison,
+    paths,
+):
+    # Create four-column main panel with actual meta results
+    fig_main_four_col = create_main_figure_panel_with_meta_comparison(
+        meta_comparison,
+        target_type="regression",
+        dataset_name="Battery",
+        metric_labels=battery_labels,
+        save_path=paths.figures / "battery_main_panel_four_columns.pdf",
+        selection_metric="mae"
+    )
+    fig_main_four_col
     return
 
 

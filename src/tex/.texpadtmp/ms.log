@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.2)  8 FEB 2026 11:35
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.2)  9 FEB 2026 10:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1087,26 +1087,25 @@ Package microtype Info: Loading configuration file microtype.cfg.
 File: microtype.cfg 2025/02/11 v3.2a microtype main configuration file (RS)
 )
 LaTeX Info: Redefining \microtypesetup on input line 3065.
-)) (./credits.sty
-Package: credits 2023/02/21 LaTeX package for contributor statements following CRediT, the contributor roles taxonomy
- (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks33
-\pgfkeys@temptoks=\toks34
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks35
-))) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks36
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks33
 \pgfutil@tempdima=\dimen267
 \pgfutil@tempdimb=\dimen268
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
 \pgfutil@abb=\box72
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex)
 Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
 ))
 Package: pgf 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks34
+\pgfkeys@temptoks=\toks35
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks36
+))
 \pgf@x=\dimen269
 \pgf@y=\dimen270
 \pgf@xa=\dimen271
@@ -1234,7 +1233,7 @@ Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 ))
-(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
 \pgffor@iter=\dimen306
 \pgffor@skip=\dimen307
@@ -1272,9 +1271,25 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@expandcount=\count513
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+))) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@layerbox@background=\box83
+\pgf@layerboxsaved@background=\box84
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen317
+\pgfarrowlength=\dimen318
+\pgfarrowwidth=\dimen319
+\pgfarrowlinewidth=\dimen320
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryintersections.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
+)) (./credits.sty
+Package: credits 2023/02/21 LaTeX package for contributor statements following CRediT, the contributor roles taxonomy
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryintersections.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
 \pgf@intersect@solutions=\count514
 ))
 \c@CREDITS@concepts=\count515
@@ -1289,10 +1304,10 @@ File: pgflibrarysvg.path.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgfmoduleparser.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfparserdef@arg@count=\count517
 )
-\pgf@lib@svg@last@x=\dimen317
-\pgf@lib@svg@last@y=\dimen318
-\pgf@lib@svg@last@c@x=\dimen319
-\pgf@lib@svg@last@c@y=\dimen320
+\pgf@lib@svg@last@x=\dimen321
+\pgf@lib@svg@last@y=\dimen322
+\pgf@lib@svg@last@c@x=\dimen323
+\pgf@lib@svg@last@c@y=\dimen324
 \pgf@lib@svg@count=\count518
 \pgf@lib@svg@max@num=\count519
 ))
@@ -1306,7 +1321,8 @@ Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/n' will be
 (Font)              scaled to size 10.95pt on input line 29.
- (/Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/.texpadtmp/ms.aux)
+
+(/Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/.texpadtmp/ms.aux)
 \openout1 = `ms.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
@@ -1382,15 +1398,7 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'ms.bbl' found.
- (/Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/.texpadtmp/ms.bbl
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                McCoy2019
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-)
+ (/Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/.texpadtmp/ms.bbl)
 Package biblatex Info: Reference section=0 on input line 29.
 Package biblatex Info: Reference segment=0 on input line 29.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
@@ -1514,157 +1522,154 @@ LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/n' will be
 (Font)              scaled to size 10.0pt on input line 39.
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
 (Font)              scaled to size 10.0pt on input line 39.
-
-Overfull \hbox (13.31465pt too wide) in paragraph at lines 40--43
-[]\TU/LinBiolinum(0)/m/n/10 Machine learning promises to accelerate materials discovery by uncovering complex structure-
- []
-
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/it' will be
+(Font)              scaled to size 10.0pt on input line 41.
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 53.
+(Font)              scaled to size 14.4pt on input line 49.
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 53.
+(Font)              scaled to size 14.4pt on input line 49.
 
 
 [1
 
-]
-File: ../static/clever_materials_hans_overview.pdf Graphic file (type pdf)
-<use ../static/clever_materials_hans_overview.pdf>
+] (../static/overview.tex
+File: ../static/crystal.png Graphic file (type bmp)
+<../static/crystal.png>
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
-(Font)              scaled to size 10.95pt on input line 73.
+(Font)              scaled to size 8.0pt on input line 49.
+File: ../static/target.png Graphic file (type bmp)
+<../static/target.png>
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/it' will be
+(Font)              scaled to size 8.0pt on input line 68.
+File: ../static/crystal.png Graphic file (type bmp)
+<../static/crystal.png>
+File: ../static/chemists.png Graphic file (type bmp)
+<../static/chemists.png>
+File: ../static/journal.png Graphic file (type bmp)
+<../static/journal.png>
+File: ../static/calendar.png Graphic file (type bmp)
+<../static/calendar.png>
+File: ../static/target.png Graphic file (type bmp)
+<../static/target.png>
+)
+Overfull \hbox (12.32747pt too wide) in paragraph at lines 165--70
+ [][] 
+ []
 
-Overfull \hbox (1.37534pt too wide) in paragraph at lines 78--82
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
+(Font)              scaled to size 10.95pt on input line 70.
+
+Overfull \hbox (1.37534pt too wide) in paragraph at lines 75--79
 []\TU/LinBiolinum(0)/m/n/10.95 This work systematically investigates whether commonly used materials datasets
  []
 
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/it' will be
-(Font)              scaled to size 10.95pt on input line 84.
+(Font)              scaled to size 10.95pt on input line 81.
 
 
 [2]
 
 [3]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 106.
-
-(./output/mof_thermal_top10_indirect_accuracy.txt) (./output/mof_thermal_top10_direct_accuracy.txt)
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
+(Font)              scaled to size 12.0pt on input line 94.
+ (./output/mof_thermal_top10_indirect_accuracy.txt) (./output/mof_thermal_top10_direct_accuracy.txt)
 File: figures/mof_thermal_top10_main_panel_four_columns.pdf Graphic file (type pdf)
 <use figures/mof_thermal_top10_main_panel_four_columns.pdf>
-LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 125.
+
+
+[4]
 File: figures/mof_solvent_main_panel_four_columns.pdf Graphic file (type pdf)
 <use figures/mof_solvent_main_panel_four_columns.pdf>
  (./output/mof_solvent_indirect_accuracy.txt)
-File: figures/perovskite_top10_main_panel.pdf Graphic file (type pdf)
-<use figures/perovskite_top10_main_panel.pdf>
+File: figures/perovskite_top10_main_panel_four_columns.pdf Graphic file (type pdf)
+<use figures/perovskite_top10_main_panel_four_columns.pdf>
  (./output/perovskite_top10_author_f1_micro.txt) (./output/perovskite_top10_author_f1_micro.txt) (./output/perovskite_top10_author_f1_micro.txt)
-Overfull \hbox (1.59483pt too wide) in paragraph at lines 158--161
+Overfull \hbox (1.59483pt too wide) in paragraph at lines 146--149
 \TU/LinBiolinum(0)/m/n/10.95 graphic information with meaningful accuracy. The model achieves a micro-averaged
  []
 
 
 
-[4] (./output/perovskite_top10_indirect_accuracy.txt) (./output/perovskite_top10_direct_accuracy.txt)
+[5] (./output/perovskite_top10_indirect_accuracy.txt) (./output/perovskite_top10_direct_accuracy.txt)
 File: figures/tadf_main_panel_meta_comparison.pdf Graphic file (type pdf)
 <use figures/tadf_main_panel_meta_comparison.pdf>
  (./output/tadf_best_meta_accuracy.txt) (./output/tadf_best_meta_accuracy.txt)
 
-[5]
-File: figures/battery_main_panel.pdf Graphic file (type pdf)
-<use figures/battery_main_panel.pdf>
- (./output/battery_top10_author_f1_micro.txt) (./output/battery_top10_author_f1_micro.txt) (./output/battery_top10_author_f1_micro.txt)
-
 [6]
 
 [7]
+File: figures/battery_main_panel_four_columns.pdf Graphic file (type pdf)
+<use figures/battery_main_panel_four_columns.pdf>
+ (./output/battery_top10_author_f1_micro.txt) (./output/battery_top10_author_f1_micro.txt) (./output/battery_top10_author_f1_micro.txt)
 
 [8]
-Overfull \hbox (6.66956pt too wide) in paragraph at lines 219--221
+Overfull \hbox (6.66956pt too wide) in paragraph at lines 207--209
 \TU/LinBiolinum(0)/m/n/10.95 shortcuts via meta-information investigated in this work, models might exploit dataset
  []
 
 
 
 [9]
-Overfull \hbox (3.59628pt too wide) in paragraph at lines 244--248
+Overfull \hbox (3.59628pt too wide) in paragraph at lines 232--236
 \TU/LinBiolinum(0)/m/n/10.95 property-based splits.$[]$ In some domains, even challenges have been organized.$[]$
- []
-
-
-Overfull \hbox (2.71487pt too wide) in paragraph at lines 255--256
-[]\TU/LinBiolinum(0)/m/n/10.95 Nevertheless, the ability to predict bibliometric information—author identity, pub-
  []
 
 
 
 [10]
 
-LaTeX Warning: Citation 'McCoy2019' on page 11 undefined on input line 257.
-
-LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
-(Font)              scaled to size 8.0pt on input line 257.
-
-Overfull \hbox (5.6811pt too wide) in paragraph at lines 276--278
-[]\TU/LinBiolinum(0)/m/n/10.95 Both approaches have merit. Confusion about which path we are taking—claiming
- []
-
-
-
-[11] (./output/battery_dataset_size.txt) (./output/battery_n_features.txt)
-
-[12] (./output/perovskite_dataset_size.txt) (./output/perovskite_n_features.txt) (./output/mof_thermal_dataset_size.txt) (./output/mof_thermal_n_features.txt) (./output/mof_solvent_dataset_size.txt) (./output/mof_solvent_n_features.txt) (./output/tadf_best_dataset_size.txt) (./output/tadf_n_features.txt)
-Overfull \hbox (3.93567pt too wide) in paragraph at lines 331--332
+[11] (./output/battery_dataset_size.txt) (./output/battery_n_features.txt) (./output/perovskite_dataset_size.txt) (./output/perovskite_n_features.txt) (./output/mof_thermal_dataset_size.txt) (./output/mof_thermal_n_features.txt) (./output/mof_solvent_dataset_size.txt) (./output/mof_solvent_n_features.txt) (./output/tadf_best_dataset_size.txt) (./output/tadf_n_features.txt)
+Overfull \hbox (3.93567pt too wide) in paragraph at lines 293--294
 []\TU/LinBiolinum(0)/b/n/10.95 Fingerprints\TU/LinBiolinum(0)/m/n/10.95 : 2048-bit circular fingerprints with radius 2, capturing local chem-
  []
 
 
 
+[12]
+
 [13]
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/sc' will be
+(Font)              scaled to size 10.95pt on input line 334.
+
 
 [14]
-LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/sc' will be
-(Font)              scaled to size 10.95pt on input line 372.
-
 
 [15]
-
-[16]
-Overfull \hbox (36.67694pt too wide) in paragraph at lines 373--373
+Overfull \hbox (36.67694pt too wide) in paragraph at lines 335--335
 \TU/LinBiolinum(0)/m/it/10.95 view Materials \TU/LinBiolinum(0)/b/n/10.95 2. \TU/LinBiolinum(0)/m/sc/10.95 issn\TU/LinBiolinum(0)/m/n/10.95 : 2475-9953. []$[][][][] [] [] [] [][] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][][][][][][][] []
  []
 
 
 
-[17]
+[16]
 
-[18]
-Overfull \hbox (1.33595pt too wide) in paragraph at lines 373--373
+[17]
+Overfull \hbox (1.33595pt too wide) in paragraph at lines 335--335
 \TU/LinBiolinum(0)/m/n/10.95 Why You Will Never Have Enough Images. \TU/LinBiolinum(0)/m/it/10.95 arXiv preprint arXiv: 2408.11160 \TU/LinBiolinum(0)/m/n/10.95 (2024). 
  []
 
 
-Overfull \hbox (5.6384pt too wide) in paragraph at lines 373--373
+Overfull \hbox (5.6384pt too wide) in paragraph at lines 335--335
 []\TU/LinBiolinum(0)/m/n/10.95 Alampara, N., Schilling-Wilhelmi, M. & Jablonka, K. M. Lessons from the trenches
  []
 
 
-Overfull \hbox (0.54478pt too wide) in paragraph at lines 373--373
+Overfull \hbox (0.54478pt too wide) in paragraph at lines 335--335
 \TU/LinBiolinum(0)/m/n/10.95 for validating machine learning approaches. \TU/LinBiolinum(0)/m/it/10.95 Journal of Cheminformatics \TU/LinBiolinum(0)/b/n/10.95 15. \TU/LinBiolinum(0)/m/sc/10.95 issn\TU/LinBiolinum(0)/m/n/10.95 :
  []
 
 
 
-[19]
-Overfull \hbox (4.98674pt too wide) in paragraph at lines 373--373
+[18]
+Overfull \hbox (4.98674pt too wide) in paragraph at lines 335--335
 []\TU/LinBiolinum(0)/m/n/10.95 Landrum, G. RDKit: Open-Source Cheminformatics Software. []$[][][][][] [] [] [] [][][][][][] []
  []
 
 
 
-[20]
+[19]
 
-LaTeX Warning: Reference `fig:mof_solvent_meta_performance' on page 1 undefined on input line 386.
+LaTeX Warning: Reference `fig:mof_solvent_meta_performance' on page 1 undefined on input line 348.
 
 File: figures/mof_solvent_performance_comparison.pdf Graphic file (type pdf)
 <use figures/mof_solvent_performance_comparison.pdf>
@@ -1672,11 +1677,11 @@ File: figures/mof_solvent_parameter_sweep.pdf Graphic file (type pdf)
 <use figures/mof_solvent_parameter_sweep.pdf>
 
 
+[20]
+
 [21]
 
-[22]
-
-LaTeX Warning: Reference `fig:mof_thermal_meta_performance' on page 1 undefined on input line 410.
+LaTeX Warning: Reference `fig:mof_thermal_meta_performance' on page 1 undefined on input line 372.
 
 File: figures/mof_thermal_top10_performance_comparison.pdf Graphic file (type pdf)
 <use figures/mof_thermal_top10_performance_comparison.pdf>
@@ -1684,11 +1689,11 @@ File: figures/mof_thermal_top10_parameter_sweep.pdf Graphic file (type pdf)
 <use figures/mof_thermal_top10_parameter_sweep.pdf>
 
 
-[23
+[22
 
 ]
 
-[24]
+[23]
 File: figures/perovskite_main_panel.pdf Graphic file (type pdf)
 <use figures/perovskite_main_panel.pdf>
 File: figures/perovskite_parameter_sweep.pdf Graphic file (type pdf)
@@ -1697,18 +1702,18 @@ File: figures/perovskite_performance_comparison.pdf Graphic file (type pdf)
 <use figures/perovskite_performance_comparison.pdf>
 
 
-[25
+[24
 
 ]
 
-[26]
+[25]
 File: figures/perovskite_top10_performance_comparison.pdf Graphic file (type pdf)
 <use figures/perovskite_top10_performance_comparison.pdf>
 File: figures/perovskite_top10_parameter_sweep.pdf Graphic file (type pdf)
 <use figures/perovskite_top10_parameter_sweep.pdf>
 
 
-[27
+[26
 
 ]
 File: figures/battery_performance_comparison.pdf Graphic file (type pdf)
@@ -1717,7 +1722,7 @@ File: figures/battery_parameter_sweep.pdf Graphic file (type pdf)
 <use figures/battery_parameter_sweep.pdf>
 
 
-[28
+[27
 
 ]
 File: figures/tadf_performance_comparison.pdf Graphic file (type pdf)
@@ -1726,7 +1731,7 @@ File: figures/tadf_parameter_sweep.pdf Graphic file (type pdf)
 <use figures/tadf_parameter_sweep.pdf>
 
 
-[29
+[28
 
 ] (/Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/.texpadtmp/ms.aux)
  ***********
@@ -1738,18 +1743,18 @@ L3 programming layer <2025-01-18>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `ms.out' has not changed.
-(rerunfilecheck)             Checksum: 79D59854126B99E541D33784D0611D0E;5700.
+(rerunfilecheck)             Checksum: 0138CA4D57C913F4A05F9BA8D63C5B1E;5685.
 Package logreq Info: Writing requests to 'ms.run.xml'.
 \openout1 = `ms.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49608 strings out of 473832
- 1074564 string characters out of 5729481
- 1965265 words of memory out of 5000000
- 71940 multiletter control sequences out of 15000+600000
- 565572 words of font info for 90 fonts, out of 8000000 for 9000
+ 50366 strings out of 473832
+ 1093527 string characters out of 5729481
+ 1978846 words of memory out of 5000000
+ 72669 multiletter control sequences out of 15000+600000
+ 568211 words of font info for 106 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 96i,6n,111p,1494b,5615s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,8n,111p,1494b,5613s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/.texpadtmp/ms.pdf (29 pages).
+Output written on /Users/kevinmaikjablonka/git/lamalab/clever-materials-hans/src/tex/.texpadtmp/ms.pdf (28 pages).
