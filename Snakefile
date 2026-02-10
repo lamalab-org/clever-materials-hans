@@ -1,6 +1,6 @@
 rule preprocess_tadf:
     input:
-        "src/data/raw/tadf.csv",
+        "src/data/tadf.csv",
         "src/scripts/utils.py",
         "src/scripts/descriptor_generation.py",
         "src/scripts/meta_enchrichment.py",
@@ -12,7 +12,7 @@ rule preprocess_tadf:
 
 rule preprocess_perovskites:
     input:
-        "src/data/raw/perovskite_solar_cell_database.parquet",
+        "src/data/perovskite_solar_cell_database.parquet",
         "src/scripts/utils.py",
         "src/scripts/descriptor_generation.py",
         "src/scripts/meta_enchrichment.py",
@@ -24,7 +24,7 @@ rule preprocess_perovskites:
 
 rule preprocess_batteries:
     input:
-        "src/data/raw/battery_merged.csv",
+        "src/data/battery_merged.csv",
         "src/scripts/utils.py",
         "src/scripts/descriptor_generation.py",
         "src/scripts/meta_enchrichment.py",
@@ -36,8 +36,8 @@ rule preprocess_batteries:
 
 rule preprocess_mof:
     input:
-        "src/data/raw/thermal_stability.json",
-        "src/data/raw/solvent_removal_stability.json",
+        "src/data/thermal_stability.json",
+        "src/data/solvent_removal_stability.json",
         "src/scripts/utils.py",
         "src/scripts/descriptor_generation.py",
         "src/scripts/meta_enchrichment.py",
