@@ -56,7 +56,7 @@ rules:
       - src/scripts/meta_enchrichment.py
       - src/scripts/paths.py
     output:
-      - src/tex/output/tadf_preprocess.parquet
+      - src/tex/output/tadf_processed.parquet
     script: src/scripts/preprocess-tadf.py
     
   preprocess_mof:
@@ -75,7 +75,7 @@ rules:
   # Analysis rules - generate figures and metrics from preprocessed data
   analyze_tadf:
     input:
-      - src/tex/output/tadf_preprocess.parquet
+      - src/tex/output/tadf_processed.parquet
       - src/scripts/utils.py
       - src/scripts/plotting_utils.py
       - src/scripts/paths.py
@@ -88,6 +88,9 @@ rules:
       - src/tex/output/tadf_accuracy.txt
       - src/tex/output/tadf_mae.txt
       - src/tex/output/tadf_r2.txt
+      - src/tex/output/tadf_best_meta_accuracy.txt
+      - src/tex/output/tadf_best_dataset_size.txt
+      - src/tex/output/tadf_n_features.txt
     script: src/scripts/analyze-tadf.py
     
   analyze_batteries:
@@ -121,6 +124,9 @@ rules:
       - src/tex/figures/battery_top10_main_panel_four_columns.pdf
       - src/tex/output/battery_top10_accuracy.txt
       - src/tex/output/battery_top10_f1.txt
+      - src/tex/output/battery_top10_author_f1_micro.txt
+      - src/tex/output/battery_dataset_size.txt
+      - src/tex/output/battery_n_features.txt
     script: src/scripts/analyze-batteries-top10.py
     
   analyze_perovskites:
@@ -138,6 +144,8 @@ rules:
       - src/tex/output/perovskite_accuracy.txt
       - src/tex/output/perovskite_mae.txt
       - src/tex/output/perovskite_r2.txt
+      - src/tex/output/perovskite_dataset_size.txt
+      - src/tex/output/perovskite_n_features.txt
     script: src/scripts/analyze-perovskites.py
     
   analyze_perovskites_top10:
@@ -154,6 +162,9 @@ rules:
       - src/tex/figures/perovskite_top10_main_panel_four_columns.pdf
       - src/tex/output/perovskite_top10_accuracy.txt
       - src/tex/output/perovskite_top10_f1.txt
+      - src/tex/output/perovskite_top10_author_f1_micro.txt
+      - src/tex/output/perovskite_top10_indirect_accuracy.txt
+      - src/tex/output/perovskite_top10_direct_accuracy.txt
     script: src/scripts/analyze-perovskites-top10.py
     
   analyze_perovskites_jsc:
@@ -205,6 +216,8 @@ rules:
       - src/tex/output/mof_thermal_accuracy.txt
       - src/tex/output/mof_thermal_mae.txt
       - src/tex/output/mof_thermal_r2.txt
+      - src/tex/output/mof_thermal_dataset_size.txt
+      - src/tex/output/mof_thermal_n_features.txt
     script: src/scripts/analyze-mof-thermal-stability.py
     
   analyze_mof_thermal_top10:
@@ -221,6 +234,8 @@ rules:
       - src/tex/figures/mof_thermal_top10_main_panel_four_columns.pdf
       - src/tex/output/mof_thermal_top10_accuracy.txt
       - src/tex/output/mof_thermal_top10_f1.txt
+      - src/tex/output/mof_thermal_top10_indirect_accuracy.txt
+      - src/tex/output/mof_thermal_top10_direct_accuracy.txt
     script: src/scripts/analyze-mof-thermal-top10.py
     
   analyze_mof_solvent:
@@ -237,11 +252,14 @@ rules:
       - src/tex/figures/mof_solvent_main_panel_four_columns.pdf
       - src/tex/output/mof_solvent_accuracy.txt
       - src/tex/output/mof_solvent_f1.txt
+      - src/tex/output/mof_solvent_indirect_accuracy.txt
+      - src/tex/output/mof_solvent_dataset_size.txt
+      - src/tex/output/mof_solvent_n_features.txt
     script: src/scripts/analyze-mof-solvent-stability.py
     
   analyze_tadf_meta_comparison:
     input:
-      - src/tex/output/tadf_preprocess.parquet
+      - src/tex/output/tadf_processed.parquet
       - src/scripts/utils.py
       - src/scripts/plotting_utils.py
       - src/scripts/paths.py
@@ -279,6 +297,13 @@ dependencies:
     
   src/scripts/meta_enchrichment.py:
     - environment.yml  # Ensure API packages (habanero, crossref-commons) are available
+    
+  # TeX file dependencies
+  src/tex/ms.tex:
+    - src/tex/preamble.tex
+    - src/tex/authors.tex
+    - src/tex/figures/overview.tex
+    - src/tex/figures/toc.png
 
 # Name of the `.tex` manuscript and corresponding `.pdf` article
 ms_name: ms
