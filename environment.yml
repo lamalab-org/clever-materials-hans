@@ -28,9 +28,6 @@ dependencies:
   # Notebook environment
   - marimo>=0.19.0
   
-  # Statistical plotting
-  - dabest
-  
   # API access for metadata enrichment  
   - habanero
   
@@ -38,3 +35,4 @@ dependencies:
   - pip:
     - lama-aesthetics
     - crossref-commons
+    - dabest
