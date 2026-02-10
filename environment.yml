@@ -33,6 +33,6 @@ dependencies:
   
   # Lama aesthetics (install via pip since not in conda-forge)
   - pip:
-    - lama-aesthetics
+    - git+https://github.com/lamalab-org/lama-aesthetics.git
     - crossref-commons
     - dabest
