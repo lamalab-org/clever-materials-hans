@@ -23,23 +23,23 @@ dag:
   #  - src/tex/orcid-ID.png
 
 
-# Externally-hosted datasets, e.g. on Zenodo
-datasets:
-  # Local preprocessed datasets that analysis scripts depend on
-  src/tex/output/battery_preprocessed.parquet:
-    script: src/scripts/preprocess-batteries.py
+# # Externally-hosted datasets, e.g. on Zenodo
+# datasets:
+#   # Local preprocessed datasets that analysis scripts depend on
+#   src/tex/output/battery_preprocessed.parquet:
+#     script: src/scripts/preprocess-batteries.py
     
-  src/tex/output/perovskite_processed.parquet:
-    script: src/scripts/preprocess-perovskites.py
+#   src/tex/output/perovskite_processed.parquet:
+#     script: src/scripts/preprocess-perovskites.py
     
-  src/tex/output/tadf_processed.parquet:
-    script: src/scripts/preprocess-tadf.py
+#   src/tex/output/tadf_processed.parquet:
+#     script: src/scripts/preprocess-tadf.py
     
-  src/tex/output/mof_thermal_stability.parquet:
-    script: src/scripts/preprocess-mof.py
+#   src/tex/output/mof_thermal_stability.parquet:
+#     script: src/scripts/preprocess-mof.py
     
-  src/tex/output/mof_solvent_stability.parquet:
-    script: src/scripts/preprocess-mof.py
+#   src/tex/output/mof_solvent_stability.parquet:
+#     script: src/scripts/preprocess-mof.py
 
 # Custom file dependencies
 dependencies:
