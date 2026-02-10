@@ -93,9 +93,6 @@ rule analyze_perovskites_top10:
 rule analyze_tadf:
     input:
         "src/tex/output/tadf_processed.parquet",
-        "src/scripts/utils.py",
-        "src/scripts/plotting_utils.py",
-        "src/scripts/paths.py",
     output:
         "src/tex/figures/tadf_main_panel_meta_comparison.pdf",
         "src/tex/output/tadf_best_meta_accuracy.txt",
@@ -107,9 +104,6 @@ rule analyze_tadf:
 rule analyze_batteries_top10:
     input:
         "src/tex/output/battery_preprocessed.parquet",
-        "src/scripts/utils.py",
-        "src/scripts/plotting_utils.py",
-        "src/scripts/paths.py",
     output:
         "src/tex/figures/battery_main_panel_four_columns.pdf",
         "src/tex/output/battery_top10_author_f1_micro.txt",
@@ -121,9 +115,6 @@ rule analyze_batteries_top10:
 rule analyze_perovskites:
     input:
         "src/tex/output/perovskite_processed.parquet",
-        "src/scripts/utils.py",
-        "src/scripts/plotting_utils.py",
-        "src/scripts/paths.py",
     output:
         "src/tex/output/perovskite_dataset_size.txt",
         "src/tex/output/perovskite_n_features.txt",
@@ -133,9 +124,6 @@ rule analyze_perovskites:
 rule analyze_mof_thermal:
     input:
         "src/tex/output/mof_thermal_stability.parquet",
-        "src/scripts/utils.py",
-        "src/scripts/plotting_utils.py",
-        "src/scripts/paths.py",
     output:
         "src/tex/output/mof_thermal_dataset_size.txt",
         "src/tex/output/mof_thermal_n_features.txt",
@@ -145,9 +133,6 @@ rule analyze_mof_thermal:
 rule analyze_mof_solvent_dataset:
     input:
         "src/tex/output/mof_solvent_stability.parquet",
-        "src/scripts/utils.py",
-        "src/scripts/plotting_utils.py",
-        "src/scripts/paths.py",
     output:
         "src/tex/output/mof_solvent_dataset_size.txt",
         "src/tex/output/mof_solvent_n_features.txt",
