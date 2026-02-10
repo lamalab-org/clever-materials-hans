@@ -279,59 +279,59 @@ def run_leave_one_author_group_out_cv(df: pd.DataFrame,
         
         # Indirect model (if requested)
         if include_indirect:
-            # Get meta targets for author/journal encoding
-            meta_targets = []
-            if 'authors_full_list' in train_df.columns:
-                # Create author encoding
-                author_encoded = _encode_authors_to_top_k(train_df['authors_full_list'], n_authors, random_state)
-                meta_targets.extend([f'author_{i}' for i in range(author_encoded.shape[1])])
-                
-            if use_year and 'year' in train_df.columns:
-                # Year is already numeric, just copy
-                train_df['year_numeric'] = pd.to_numeric(train_df['year'], errors='coerce').fillna(train_df['year'].median())
-                test_df['year_numeric'] = pd.to_numeric(test_df['year'], errors='coerce').fillna(train_df['year_numeric'].mean())
-                meta_targets.append('year_numeric')
-                
-            if use_journal and 'journal' in train_df.columns:
-                # Create journal encoding
-                journal_encoded = _encode_journal_to_top_k(train_df['journal'], n_authors, random_state)
-                meta_targets.extend([f'journal_{i}' for i in range(journal_encoded.shape[1])])
+            # Create meta features using existing functions
+            meta_features_needed = False
             
-            if meta_targets:
-                # Build meta features for training and test
-                X_train_meta = X_train.copy()
-                X_test_meta = X_test.copy()
+            # Add author features if available
+            if 'authors_full_list' in train_df.columns:
+                # Get author counts from training data only
+                train_authors = ""
+                for author_string in train_df["authors_full_list"]:
+                    train_authors += str(author_string) + "; "
+                train_authors_list = [f.strip() for f in train_authors.split(";") if len(f.strip()) > 3]
+                train_author_counter = Counter(train_authors_list)
                 
-                if 'authors_full_list' in train_df.columns:
-                    author_encoded_train = _encode_authors_to_top_k(train_df['authors_full_list'], n_authors, random_state)
-                    author_encoded_test = _encode_authors_to_top_k(test_df['authors_full_list'], n_authors, random_state)
-                    X_train_meta = np.concatenate([X_train_meta, author_encoded_train], axis=1)
-                    X_test_meta = np.concatenate([X_test_meta, author_encoded_test], axis=1)
+                # Add author features to both train and test
+                train_df_with_authors = add_most_common_n_feats(train_df, train_author_counter, n=n_authors)
+                test_df_with_authors = add_most_common_n_feats(test_df, train_author_counter, n=n_authors)
+                meta_features_needed = True
+            else:
+                train_df_with_authors = train_df.copy()
+                test_df_with_authors = test_df.copy()
+            
+            # Add journal features if available and requested
+            if use_journal and 'journal' in train_df.columns:
+                train_df_with_authors = add_journal_features(train_df_with_authors, n_journals=n_authors)
+                test_df_with_authors = add_journal_features(test_df_with_authors, n_journals=n_authors)
+                meta_features_needed = True
+            
+            # Add year features if requested
+            if use_year and 'year' in train_df.columns:
+                train_df_with_authors['meta_feat_year'] = pd.to_numeric(train_df_with_authors['year'], errors='coerce').fillna(train_df_with_authors['year'].median())
+                test_df_with_authors['meta_feat_year'] = pd.to_numeric(test_df_with_authors['year'], errors='coerce').fillna(train_df_with_authors['meta_feat_year'].mean())
+                meta_features_needed = True
+            
+            if meta_features_needed:
+                # Get meta feature columns
+                meta_cols = [col for col in train_df_with_authors.columns if col.startswith('meta_feat_')]
                 
-                if use_year and 'year' in train_df.columns:
-                    year_train = train_df['year_numeric'].values.reshape(-1, 1)
-                    year_test = test_df['year_numeric'].values.reshape(-1, 1)
-                    X_train_meta = np.concatenate([X_train_meta, year_train], axis=1)
-                    X_test_meta = np.concatenate([X_test_meta, year_test], axis=1)
-                
-                if use_journal and 'journal' in train_df.columns:
-                    journal_encoded_train = _encode_journal_to_top_k(train_df['journal'], n_authors, random_state)
-                    journal_encoded_test = _encode_journal_to_top_k(test_df['journal'], n_authors, random_state)
-                    X_train_meta = np.concatenate([X_train_meta, journal_encoded_train], axis=1)
-                    X_test_meta = np.concatenate([X_test_meta, journal_encoded_test], axis=1)
-                
-                # Train indirect model with meta features
-                model_indirect = get_optimized_model(model_type, target_type, random_state)
-                model_indirect.fit(X_train_meta, y_train)
-                
-                y_pred_indirect = model_indirect.predict(X_test_meta)
-                
-                if target_type == 'regression':
-                    fold_result['indirect_metrics'] = calculate_regression_metrics(y_test, y_pred_indirect)
-                else:
-                    fold_result['indirect_metrics'] = calculate_classification_metrics(y_test, y_pred_indirect)
-                
-                fold_result['y_pred_indirect'] = y_pred_indirect
+                if meta_cols:
+                    # Prepare features + meta features
+                    X_train_meta = np.concatenate([X_train, train_df_with_authors[meta_cols].values], axis=1)
+                    X_test_meta = np.concatenate([X_test, test_df_with_authors[meta_cols].values], axis=1)
+                    
+                    # Train indirect model with meta features
+                    model_indirect = get_optimized_model(model_type, target_type, random_state)
+                    model_indirect.fit(X_train_meta, y_train)
+                    
+                    y_pred_indirect = model_indirect.predict(X_test_meta)
+                    
+                    if target_type == 'regression':
+                        fold_result['indirect_metrics'] = calculate_regression_metrics(y_test, y_pred_indirect)
+                    else:
+                        fold_result['indirect_metrics'] = calculate_classification_metrics(y_test, y_pred_indirect)
+                    
+                    fold_result['y_pred_indirect'] = y_pred_indirect
         
         results_by_fold.append(fold_result)
     
