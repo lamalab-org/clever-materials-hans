@@ -362,7 +362,13 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "Running analysis with actual meta-information...\n  Requested n_authors: 1000, Available unique authors: 2228\n  Using n_authors: 1000\n",
+          "text": "Running analysis with actual meta-information...\n  Requested n_authors: 1000, Available unique authors: 2228\n  Using n_authors: 1000\n  Dataset size: 2089, Features: 2265, Meta targets: 1010\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "\rCV folds:   0%|                                                                                                                                                                                                                                                                        | 0/10 [00:00<?, ?it/s]",
           "mimetype": "text/plain"
         }
       ]
