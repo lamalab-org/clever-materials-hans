@@ -1,5 +1,5 @@
 # Enable rule caching on Zenodo?
-cache_on_zenodo: false
+cache_on_zenodo: true
 
 # Workflow graph (DAG) generation
 dag:
@@ -46,85 +46,41 @@ dependencies:
   # Preprocessing scripts depend on raw data
   src/scripts/preprocess-batteries.py:
     - src/data/battery_merged.csv
-    - src/scripts/utils.py
-    - src/scripts/paths.py
     
   src/scripts/preprocess-perovskites.py:
     - src/data/perovskite_solar_cell_database.parquet
-    - src/scripts/utils.py
-    - src/scripts/paths.py
     
   src/scripts/preprocess-tadf.py:
     - src/data/tadf.csv
-    - src/scripts/utils.py
-    - src/scripts/paths.py
     
   src/scripts/preprocess-mof.py:
     - src/data/thermal_stability.json
     - src/data/solvent_removal_stability.json
-    - src/scripts/utils.py
-    - src/scripts/paths.py
-  
+
   # Analysis scripts depend on preprocessed data and utility modules
   src/scripts/analyze-tadf.py:
     - src/tex/output/tadf_processed.parquet
-    - src/scripts/utils.py
-    - src/scripts/plotting_utils.py
-    - src/scripts/paths.py
     
   src/scripts/analyze-perovskites.py:
     - src/tex/output/perovskite_processed.parquet
-    - src/scripts/utils.py
-    - src/scripts/plotting_utils.py
-    - src/scripts/paths.py
     
   src/scripts/analyze-perovskites-top10.py:
     - src/tex/output/perovskite_processed.parquet
-    - src/scripts/utils.py
-    - src/scripts/plotting_utils.py
-    - src/scripts/paths.py
-    
-  src/scripts/analyze-perovskites-jsc.py:
-    - src/tex/output/perovskite_processed.parquet
-    - src/scripts/utils.py
-    - src/scripts/plotting_utils.py
-    - src/scripts/paths.py
-    
-  src/scripts/analyze-perovskites-voc.py:
-    - src/tex/output/perovskite_processed.parquet
-    - src/scripts/utils.py
-    - src/scripts/plotting_utils.py
-    - src/scripts/paths.py
     
   src/scripts/analyze-batteries.py:
     - src/tex/output/battery_preprocessed.parquet
-    - src/scripts/utils.py
-    - src/scripts/plotting_utils.py
-    - src/scripts/paths.py
     
   src/scripts/analyze-batteries-top10.py:
     - src/tex/output/battery_preprocessed.parquet
-    - src/scripts/utils.py
-    - src/scripts/plotting_utils.py
-    - src/scripts/paths.py
     
   src/scripts/analyze-mof-thermal-stability.py:
     - src/tex/output/mof_thermal_stability.parquet
-    - src/scripts/utils.py
-    - src/scripts/plotting_utils.py
-    - src/scripts/paths.py
     
   src/scripts/analyze-mof-thermal-top10.py:
     - src/tex/output/mof_thermal_stability.parquet
-    - src/scripts/utils.py
-    - src/scripts/plotting_utils.py
-    - src/scripts/paths.py
     
   src/scripts/analyze-mof-solvent-stability.py:
     - src/tex/output/mof_solvent_stability.parquet
-    - src/scripts/utils.py
-    - src/scripts/plotting_utils.py
-    - src/scripts/paths.py
 
 # Name of the `.tex` manuscript and corresponding `.pdf` article
 ms_name: ms
@@ -189,7 +145,7 @@ tectonic_args: []
 # preprocess_arxiv_script: my_preprocess_script.sh
 
 # Enable verbose output?
-verbose: false
+verbose: true
 
 # Version of `showyourwork` used to create this workflow
 version: 0.4.4.dev274+gf6ad741ab
