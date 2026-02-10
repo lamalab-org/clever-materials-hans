@@ -23,86 +23,9 @@ dag:
   #  - src/tex/orcid-ID.png
 
 
-# Snakemake rules for data processing and analysis pipeline
-rules:
-  # Preprocessing rules - generate parquet files from raw data
-  preprocess_batteries:
-    input:
-      - src/data/raw/battery_merged.csv
-      - src/scripts/utils.py
-      - src/scripts/descriptor_generation.py
-      - src/scripts/meta_enchrichment.py
-      - src/scripts/paths.py
-    output:
-      - src/tex/output/battery_preprocessed.parquet
-    script: src/scripts/preprocess-batteries.py
-    
-  preprocess_perovskites:
-    input:
-      - src/data/raw/perovskite_solar_cell_database.parquet
-      - src/scripts/utils.py
-      - src/scripts/descriptor_generation.py
-      - src/scripts/meta_enchrichment.py
-      - src/scripts/paths.py
-    output:
-      - src/tex/output/perovskite_processed.parquet
-    script: src/scripts/preprocess-perovskites.py
-    
-  preprocess_tadf:
-    input:
-      - src/data/raw/tadf.csv
-      - src/scripts/utils.py
-      - src/scripts/descriptor_generation.py
-      - src/scripts/meta_enchrichment.py
-      - src/scripts/paths.py
-    output:
-      - src/tex/output/tadf_processed.parquet
-    script: src/scripts/preprocess-tadf.py
-    
-  preprocess_mof:
-    input:
-      - src/data/raw/thermal_stability.json
-      - src/data/raw/solvent_removal_stability.json
-      - src/scripts/utils.py
-      - src/scripts/descriptor_generation.py
-      - src/scripts/meta_enchrichment.py
-      - src/scripts/paths.py
-    output:
-      - src/tex/output/mof_thermal_stability.parquet
-      - src/tex/output/mof_solvent_stability.parquet
-    script: src/scripts/preprocess-mof.py
-    
 
 # Custom file dependencies
 dependencies:
-  # Preprocessing scripts depend on raw data
-  src/scripts/preprocess-batteries.py:
-    - src/data/raw/battery_merged.csv
-    
-  src/scripts/preprocess-perovskites.py:
-    - src/data/raw/perovskite_solar_cell_database.parquet
-    
-  src/scripts/preprocess-tadf.py:
-    - src/data/raw/tadf.csv
-    
-  src/scripts/preprocess-mof.py:
-    - src/data/raw/thermal_stability.json
-    - src/data/raw/solvent_removal_stability.json
-
-  # Additional dependencies for utility modules
-  src/scripts/utils.py:
-    - environment.yml  # Ensure ML packages are available
-    
-  src/scripts/plotting_utils.py:
-    - environment.yml  # Ensure plotting packages are available
-    - src/scripts/utils.py
-    
-  src/scripts/descriptor_generation.py:
-    - environment.yml  # Ensure chemistry packages (rdkit, pymatgen, matminer) are available
-    
-  src/scripts/meta_enchrichment.py:
-    - environment.yml  # Ensure API packages (habanero, crossref-commons) are available
-    
   # TeX file dependencies
   src/tex/ms.tex:
     - src/tex/preamble.tex
