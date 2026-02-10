@@ -23,23 +23,232 @@ dag:
   #  - src/tex/orcid-ID.png
 
 
-# # Externally-hosted datasets, e.g. on Zenodo
-# datasets:
-#   # Local preprocessed datasets that analysis scripts depend on
-#   src/tex/output/battery_preprocessed.parquet:
-#     script: src/scripts/preprocess-batteries.py
+# Snakemake rules for data processing and analysis pipeline
+rules:
+  # Preprocessing rules - generate parquet files from raw data
+  preprocess_batteries:
+    input:
+      - src/data/battery_merged.csv
+      - src/scripts/utils.py
+      - src/scripts/descriptor_generation.py
+      - src/scripts/meta_enchrichment.py
+      - src/scripts/paths.py
+    output:
+      - src/tex/output/battery_preprocessed.parquet
+    script: src/scripts/preprocess-batteries.py
     
-#   src/tex/output/perovskite_processed.parquet:
-#     script: src/scripts/preprocess-perovskites.py
+  preprocess_perovskites:
+    input:
+      - src/data/perovskite_solar_cell_database.parquet
+      - src/scripts/utils.py
+      - src/scripts/descriptor_generation.py
+      - src/scripts/meta_enchrichment.py
+      - src/scripts/paths.py
+    output:
+      - src/tex/output/perovskite_processed.parquet
+    script: src/scripts/preprocess-perovskites.py
     
-#   src/tex/output/tadf_processed.parquet:
-#     script: src/scripts/preprocess-tadf.py
+  preprocess_tadf:
+    input:
+      - src/data/tadf.csv
+      - src/scripts/utils.py
+      - src/scripts/descriptor_generation.py
+      - src/scripts/meta_enchrichment.py
+      - src/scripts/paths.py
+    output:
+      - src/tex/output/tadf_preprocess.parquet
+    script: src/scripts/preprocess-tadf.py
     
-#   src/tex/output/mof_thermal_stability.parquet:
-#     script: src/scripts/preprocess-mof.py
+  preprocess_mof:
+    input:
+      - src/data/thermal_stability.json
+      - src/data/solvent_removal_stability.json
+      - src/scripts/utils.py
+      - src/scripts/descriptor_generation.py
+      - src/scripts/meta_enchrichment.py
+      - src/scripts/paths.py
+    output:
+      - src/tex/output/mof_thermal_stability.parquet
+      - src/tex/output/mof_solvent_stability.parquet
+    script: src/scripts/preprocess-mof.py
     
-#   src/tex/output/mof_solvent_stability.parquet:
-#     script: src/scripts/preprocess-mof.py
+  # Analysis rules - generate figures and metrics from preprocessed data
+  analyze_tadf:
+    input:
+      - src/tex/output/tadf_preprocess.parquet
+      - src/scripts/utils.py
+      - src/scripts/plotting_utils.py
+      - src/scripts/paths.py
+    output:
+      - src/tex/figures/tadf_performance_comparison.pdf
+      - src/tex/figures/tadf_meta_performance.pdf
+      - src/tex/figures/tadf_parameter_sweep.pdf
+      - src/tex/figures/tadf_main_panel.pdf
+      - src/tex/figures/tadf_main_panel_four_columns.pdf
+      - src/tex/output/tadf_accuracy.txt
+      - src/tex/output/tadf_mae.txt
+      - src/tex/output/tadf_r2.txt
+    script: src/scripts/analyze-tadf.py
+    
+  analyze_batteries:
+    input:
+      - src/tex/output/battery_preprocessed.parquet
+      - src/scripts/utils.py
+      - src/scripts/plotting_utils.py
+      - src/scripts/paths.py
+    output:
+      - src/tex/figures/battery_performance_comparison.pdf
+      - src/tex/figures/battery_meta_performance.pdf
+      - src/tex/figures/battery_parameter_sweep.pdf
+      - src/tex/figures/battery_main_panel.pdf
+      - src/tex/figures/battery_main_panel_four_columns.pdf
+      - src/tex/output/battery_accuracy.txt
+      - src/tex/output/battery_mae.txt
+      - src/tex/output/battery_r2.txt
+    script: src/scripts/analyze-batteries.py
+    
+  analyze_batteries_top10:
+    input:
+      - src/tex/output/battery_preprocessed.parquet
+      - src/scripts/utils.py
+      - src/scripts/plotting_utils.py
+      - src/scripts/paths.py
+    output:
+      - src/tex/figures/battery_top10_performance_comparison.pdf
+      - src/tex/figures/battery_top10_meta_performance.pdf
+      - src/tex/figures/battery_top10_parameter_sweep.pdf
+      - src/tex/figures/battery_top10_main_panel.pdf
+      - src/tex/figures/battery_top10_main_panel_four_columns.pdf
+      - src/tex/output/battery_top10_accuracy.txt
+      - src/tex/output/battery_top10_f1.txt
+    script: src/scripts/analyze-batteries-top10.py
+    
+  analyze_perovskites:
+    input:
+      - src/tex/output/perovskite_processed.parquet
+      - src/scripts/utils.py
+      - src/scripts/plotting_utils.py
+      - src/scripts/paths.py
+    output:
+      - src/tex/figures/perovskite_performance_comparison.pdf
+      - src/tex/figures/perovskite_meta_performance.pdf
+      - src/tex/figures/perovskite_parameter_sweep.pdf
+      - src/tex/figures/perovskite_main_panel.pdf
+      - src/tex/figures/perovskite_main_panel_four_columns.pdf
+      - src/tex/output/perovskite_accuracy.txt
+      - src/tex/output/perovskite_mae.txt
+      - src/tex/output/perovskite_r2.txt
+    script: src/scripts/analyze-perovskites.py
+    
+  analyze_perovskites_top10:
+    input:
+      - src/tex/output/perovskite_processed.parquet
+      - src/scripts/utils.py
+      - src/scripts/plotting_utils.py
+      - src/scripts/paths.py
+    output:
+      - src/tex/figures/perovskite_top10_performance_comparison.pdf
+      - src/tex/figures/perovskite_top10_meta_performance.pdf
+      - src/tex/figures/perovskite_top10_parameter_sweep.pdf
+      - src/tex/figures/perovskite_top10_main_panel.pdf
+      - src/tex/figures/perovskite_top10_main_panel_four_columns.pdf
+      - src/tex/output/perovskite_top10_accuracy.txt
+      - src/tex/output/perovskite_top10_f1.txt
+    script: src/scripts/analyze-perovskites-top10.py
+    
+  analyze_perovskites_jsc:
+    input:
+      - src/tex/output/perovskite_processed.parquet
+      - src/scripts/utils.py
+      - src/scripts/plotting_utils.py
+      - src/scripts/paths.py
+    output:
+      - src/tex/figures/perovskite_jsc_performance_comparison.pdf
+      - src/tex/figures/perovskite_jsc_meta_performance.pdf
+      - src/tex/figures/perovskite_jsc_parameter_sweep.pdf
+      - src/tex/figures/perovskite_jsc_main_panel.pdf
+      - src/tex/figures/perovskite_jsc_main_panel_four_columns.pdf
+      - src/tex/output/perovskite_jsc_accuracy.txt
+      - src/tex/output/perovskite_jsc_mae.txt
+      - src/tex/output/perovskite_jsc_r2.txt
+    script: src/scripts/analyze-perovskites-jsc.py
+    
+  analyze_perovskites_voc:
+    input:
+      - src/tex/output/perovskite_processed.parquet
+      - src/scripts/utils.py
+      - src/scripts/plotting_utils.py
+      - src/scripts/paths.py
+    output:
+      - src/tex/figures/perovskite_voc_performance_comparison.pdf
+      - src/tex/figures/perovskite_voc_meta_performance.pdf
+      - src/tex/figures/perovskite_voc_parameter_sweep.pdf
+      - src/tex/figures/perovskite_voc_main_panel.pdf
+      - src/tex/figures/perovskite_voc_main_panel_four_columns.pdf
+      - src/tex/output/perovskite_voc_accuracy.txt
+      - src/tex/output/perovskite_voc_mae.txt
+      - src/tex/output/perovskite_voc_r2.txt
+    script: src/scripts/analyze-perovskites-voc.py
+    
+  analyze_mof_thermal:
+    input:
+      - src/tex/output/mof_thermal_stability.parquet
+      - src/scripts/utils.py
+      - src/scripts/plotting_utils.py
+      - src/scripts/paths.py
+    output:
+      - src/tex/figures/mof_thermal_performance_comparison.pdf
+      - src/tex/figures/mof_thermal_meta_performance.pdf
+      - src/tex/figures/mof_thermal_parameter_sweep.pdf
+      - src/tex/figures/mof_thermal_main_panel.pdf
+      - src/tex/figures/mof_thermal_main_panel_four_columns.pdf
+      - src/tex/output/mof_thermal_accuracy.txt
+      - src/tex/output/mof_thermal_mae.txt
+      - src/tex/output/mof_thermal_r2.txt
+    script: src/scripts/analyze-mof-thermal-stability.py
+    
+  analyze_mof_thermal_top10:
+    input:
+      - src/tex/output/mof_thermal_stability.parquet
+      - src/scripts/utils.py
+      - src/scripts/plotting_utils.py
+      - src/scripts/paths.py
+    output:
+      - src/tex/figures/mof_thermal_top10_performance_comparison.pdf
+      - src/tex/figures/mof_thermal_top10_meta_performance.pdf
+      - src/tex/figures/mof_thermal_top10_parameter_sweep.pdf
+      - src/tex/figures/mof_thermal_top10_main_panel.pdf
+      - src/tex/figures/mof_thermal_top10_main_panel_four_columns.pdf
+      - src/tex/output/mof_thermal_top10_accuracy.txt
+      - src/tex/output/mof_thermal_top10_f1.txt
+    script: src/scripts/analyze-mof-thermal-top10.py
+    
+  analyze_mof_solvent:
+    input:
+      - src/tex/output/mof_solvent_stability.parquet
+      - src/scripts/utils.py
+      - src/scripts/plotting_utils.py
+      - src/scripts/paths.py
+    output:
+      - src/tex/figures/mof_solvent_performance_comparison.pdf
+      - src/tex/figures/mof_solvent_meta_performance.pdf
+      - src/tex/figures/mof_solvent_parameter_sweep.pdf
+      - src/tex/figures/mof_solvent_main_panel.pdf
+      - src/tex/figures/mof_solvent_main_panel_four_columns.pdf
+      - src/tex/output/mof_solvent_accuracy.txt
+      - src/tex/output/mof_solvent_f1.txt
+    script: src/scripts/analyze-mof-solvent-stability.py
+    
+  analyze_tadf_meta_comparison:
+    input:
+      - src/tex/output/tadf_preprocess.parquet
+      - src/scripts/utils.py
+      - src/scripts/plotting_utils.py
+      - src/scripts/paths.py
+    output:
+      - src/tex/figures/tadf_meta_comparison.pdf
+      - src/tex/figures/tadf_meta_main_panel_four_columns.pdf
+    script: src/scripts/analyze-tadf-meta-comparison.py
 
 # Custom file dependencies
 dependencies:
@@ -57,30 +266,19 @@ dependencies:
     - src/data/thermal_stability.json
     - src/data/solvent_removal_stability.json
 
-  # Analysis scripts depend on preprocessed data and utility modules
-  src/scripts/analyze-tadf.py:
-    - src/tex/output/tadf_processed.parquet
+  # Additional dependencies for utility modules
+  src/scripts/utils.py:
+    - environment.yml  # Ensure ML packages are available
     
-  src/scripts/analyze-perovskites.py:
-    - src/tex/output/perovskite_processed.parquet
+  src/scripts/plotting_utils.py:
+    - environment.yml  # Ensure plotting packages are available
+    - src/scripts/utils.py
     
-  src/scripts/analyze-perovskites-top10.py:
-    - src/tex/output/perovskite_processed.parquet
+  src/scripts/descriptor_generation.py:
+    - environment.yml  # Ensure chemistry packages (rdkit, pymatgen, matminer) are available
     
-  src/scripts/analyze-batteries.py:
-    - src/tex/output/battery_preprocessed.parquet
-    
-  src/scripts/analyze-batteries-top10.py:
-    - src/tex/output/battery_preprocessed.parquet
-    
-  src/scripts/analyze-mof-thermal-stability.py:
-    - src/tex/output/mof_thermal_stability.parquet
-    
-  src/scripts/analyze-mof-thermal-top10.py:
-    - src/tex/output/mof_thermal_stability.parquet
-    
-  src/scripts/analyze-mof-solvent-stability.py:
-    - src/tex/output/mof_solvent_stability.parquet
+  src/scripts/meta_enchrichment.py:
+    - environment.yml  # Ensure API packages (habanero, crossref-commons) are available
 
 # Name of the `.tex` manuscript and corresponding `.pdf` article
 ms_name: ms
