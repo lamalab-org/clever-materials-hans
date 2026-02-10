@@ -36,3 +36,4 @@ dependencies:
     - git+https://github.com/lamalab-org/lama-aesthetics.git
     - crossref-commons
     - dabest
+    - fastparquet
