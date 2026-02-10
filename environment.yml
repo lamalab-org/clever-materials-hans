@@ -3,7 +3,6 @@ channels:
   - defaults
 dependencies:
   # Core Python and data science
-  - python=3.10
   - pip=25.1.1
   - numpy=2.2.6
   - pandas>=2.0.0
@@ -31,7 +30,6 @@ dependencies:
   # API access for metadata enrichment  
   - habanero
   
-  # Lama aesthetics (install via pip since not in conda-forge)
   - pip:
     - git+https://github.com/lamalab-org/lama-aesthetics.git
     - crossref-commons
