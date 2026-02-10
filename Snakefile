@@ -48,7 +48,6 @@ rule preprocess_mof:
     output:
         "src/tex/output/mof_thermal_stability.parquet",
         "src/tex/output/mof_solvent_stability.parquet",
-    cache: True
     script:
         "src/scripts/preprocess-mof.py"
 
