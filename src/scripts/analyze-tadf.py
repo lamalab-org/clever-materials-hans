@@ -34,6 +34,7 @@ def _():
     lama_aesthetics.get_style("main")
     return (
         METRIC_LABELS,
+        calculate_effect_sizes_cv_comparison,
         create_main_figure_panel,
         create_main_figure_panel_with_meta_comparison,
         export_key_metrics,
@@ -241,67 +242,80 @@ def _(df_final, run_leave_one_author_group_out_cv, target_column):
         include_indirect=True,  # Include indirect (proxy) model
         n_authors=500,
         use_year=True,
-        use_journal=True
+        use_journal=True,
     )
 
     # Print summary of Leave-One-Author-Group-Out CV
-    direct_mae = logo_cv_results["aggregated_results"]["direct_mae"]["mean"]
-    dummy_mae = logo_cv_results["aggregated_results"]["dummy_mae"]["mean"]
-    
+    direct_mae_ = logo_cv_results["aggregated_results"]["direct_mae"]["mean"]
+    dummy_mae_ = logo_cv_results["aggregated_results"]["dummy_mae"]["mean"]
+
     print(f"\n=== Leave-One-Author-Group-Out Cross-Validation Results ===")
-    print(f"Direct Model MAE: {direct_mae:.3f} ± {logo_cv_results['aggregated_results']['direct_mae']['std']:.3f}")
-    print(f"Dummy MAE: {dummy_mae:.3f} ± {logo_cv_results['aggregated_results']['dummy_mae']['std']:.3f}")
-    print(f"Direct vs Dummy Gap: {dummy_mae - direct_mae:.3f} MAE")
-    
-    if 'indirect_mae' in logo_cv_results['aggregated_results']:
-        indirect_mae = logo_cv_results["aggregated_results"]["indirect_mae"]["mean"]
-        print(f"Indirect Model MAE: {indirect_mae:.3f} ± {logo_cv_results['aggregated_results']['indirect_mae']['std']:.3f}")
-        print(f"Indirect vs Dummy Gap: {dummy_mae - indirect_mae:.3f} MAE")
-    
+    print(
+        f"Direct Model MAE: {direct_mae_:.3f} ± {logo_cv_results['aggregated_results']['direct_mae']['std']:.3f}"
+    )
+    print(
+        f"Dummy MAE: {dummy_mae_:.3f} ± {logo_cv_results['aggregated_results']['dummy_mae']['std']:.3f}"
+    )
+    print(f"Direct vs Dummy Gap: {dummy_mae_ - direct_mae_:.3f} MAE")
+
+    if "indirect_mae" in logo_cv_results["aggregated_results"]:
+        indirect_mae = logo_cv_results["aggregated_results"]["indirect_mae"][
+            "mean"
+        ]
+        print(
+            f"Indirect Model MAE: {indirect_mae:.3f} ± {logo_cv_results['aggregated_results']['indirect_mae']['std']:.3f}"
+        )
+        print(f"Indirect vs Dummy Gap: {dummy_mae_ - indirect_mae:.3f} MAE")
+
     print(f"Number of Author Groups: {logo_cv_results['n_folds']}")
-    return logo_cv_results,
+    return (logo_cv_results,)
 
 
 @app.cell
 def _(calculate_effect_sizes_cv_comparison, logo_cv_results, results_default):
     # Calculate effect sizes comparing conventional CV vs Leave-One-Author-Group-Out CV
     effect_comparison = calculate_effect_sizes_cv_comparison(
-        results_default,
-        logo_cv_results,
-        metric_name='mae'
+        results_default, logo_cv_results, metric_name="mae"
     )
-    
-    print(f"\n=== Effect Size Analysis: Conventional CV vs Leave-One-Author-Group-Out CV ===")
-    
+
+    print(
+        f"\n=== Effect Size Analysis: Conventional CV vs Leave-One-Author-Group-Out CV ==="
+    )
+
     # Print S ratios (key metric for author shortcuts)
-    if 's_ratios' in effect_comparison and effect_comparison['s_ratios']:
-        s_ratios = effect_comparison['s_ratios']
+    if "s_ratios" in effect_comparison and effect_comparison["s_ratios"]:
+        s_ratios = effect_comparison["s_ratios"]
         print(f"\nS Ratios (proxy - dummy) / (direct - dummy):")
-        if 'conventional_S' in s_ratios:
+        if "conventional_S" in s_ratios:
             print(f"  Conventional CV S: {s_ratios['conventional_S']:.3f}")
-        if 'logo_S' in s_ratios:
+        if "logo_S" in s_ratios:
             print(f"  Leave-One-Author-Out S: {s_ratios['logo_S']:.3f}")
-        if 'S_change' in s_ratios:
-            print(f"  S Change: {s_ratios['S_change']:.3f} ({s_ratios['S_change_pct']:.1f}%)")
-            
+        if "S_change" in s_ratios:
+            print(
+                f"  S Change: {s_ratios['S_change']:.3f} ({s_ratios['S_change_pct']:.1f}%)"
+            )
+
         # Interpretation
-        if 'conventional_S' in s_ratios and 'logo_S' in s_ratios:
-            if s_ratios['conventional_S'] > 0.7 and s_ratios['logo_S'] < 0.3:
+        if "conventional_S" in s_ratios and "logo_S" in s_ratios:
+            if s_ratios["conventional_S"] > 0.7 and s_ratios["logo_S"] < 0.3:
                 print(f"  → STRONG author shortcut detected!")
-            elif s_ratios['conventional_S'] > 0.5 and s_ratios['logo_S'] < 0.5:
+            elif s_ratios["conventional_S"] > 0.5 and s_ratios["logo_S"] < 0.5:
                 print(f"  → Moderate author shortcut detected")
             else:
                 print(f"  → Weak or no author shortcut")
-    
+
     # Print performance gaps
-    if 'performance_gaps' in effect_comparison:
-        gaps = effect_comparison['performance_gaps']
+    if "performance_gaps" in effect_comparison:
+        gaps = effect_comparison["performance_gaps"]
         print(f"\nPerformance Gaps:")
-        print(f"  Conventional Direct vs Dummy: {gaps['conventional_direct_vs_dummy']:.3f}")
+        print(
+            f"  Conventional Direct vs Dummy: {gaps['conventional_direct_vs_dummy']:.3f}"
+        )
         print(f"  LOAO Direct vs Dummy: {gaps['logo_direct_vs_dummy']:.3f}")
-        print(f"  Gap Reduction: {gaps['gap_reduction']:.3f} ({gaps['gap_reduction_pct']:.1f}%)")
-        
-    return effect_comparison,
+        print(
+            f"  Gap Reduction: {gaps['gap_reduction']:.3f} ({gaps['gap_reduction_pct']:.1f}%)"
+        )
+    return
 
 
 @app.cell
