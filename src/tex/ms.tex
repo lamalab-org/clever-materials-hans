@@ -96,7 +96,7 @@ If the proxy model approaches the direct model while outperforming a naive basel
 Thermal stability represents a critical constraint for MOF applications across gas storage, catalysis, and separation processes.\autocite{Kalmutzki2018} 
 \textcite{Nandy2022} systematically extracted decomposition temperatures from thermogravimetric analyses reported in the literature, creating opportunities to model thermal stability as either a continuous property (regression) or a discrete stability class (classification).\autocite{Nandy2021}
 
-\Cref{fig:mof_thermal_stability} demonstrates measurable proxy learning: structural descriptors predict bibliographic information significantly above baseline, enabling top-10\% thermal stability classification with an accuracy of \input{output/mof_thermal_top10_indirect_accuracy.txt}, approaching that of conventional structure-property models (\input{output/mof_thermal_top10_direct_accuracy.txt}).
+\Cref{fig:mof_thermal_stability} demonstrates measurable proxy learning: structural descriptors predict bibliographic information significantly above baseline, enabling top-10\% thermal stability classification with an accuracy of \variable{output/mof_thermal_top10_indirect_accuracy.txt}, approaching that of conventional structure-property models (\variable{output/mof_thermal_top10_direct_accuracy.txt}).
 However, \Cref{fig:mof_thermal_stability_metric_impact} shows that the measured effect size depends on the metric one uses to compare models.
 
 \begin{figure}[htb]
@@ -124,7 +124,7 @@ Using the same text-mined dataset and descriptors,\autocite{Nandy2022} I tested 
 	\script{analyze-mof-solvent-stability.py}
 \end{figure}
 
-\Cref{fig:mof_solvent_stability} shows that MOF structural descriptors predict bibliographic metadata with moderate accuracy. The proxy model achieves classification accuracy of \input{output/mof_solvent_indirect_accuracy.txt}, above baseline but below direct structure-property approaches, indicating partial Clever Hans susceptibility that varies across MOF stability properties.
+\Cref{fig:mof_solvent_stability} shows that MOF structural descriptors predict bibliographic metadata with moderate accuracy. The proxy model achieves classification accuracy of \variable{output/mof_solvent_indirect_accuracy.txt}, above baseline but below direct structure-property approaches, indicating partial Clever Hans susceptibility that varies across MOF stability properties.
 
 
 
@@ -138,16 +138,16 @@ It was mined by \textcite{Jacobsson2021} in a manual approach and by \textcite{s
 \begin{figure}[htb]
 	\centering 
 	\includegraphics[width=\textwidth]{figures/perovskite_top10_main_panel_four_columns.pdf}
-	\caption{\textbf{\textbf{Clever Hans} models can achieve a high accuracy in predicting if a perovskite material is within the top-10\% most efficient absorbers.} \textbf{a} Composition description can predict which of the ten most prolific authors has been reporting a composition with a micro $F_1$ score of \protect\input{output/perovskite_top10_author_f1_micro.txt}. \textbf{b} The journal in which a device has been published can be predicted with a similar performance. \textbf{c} The publication year can be predicted meaningfully better than with a mean baseline. \textbf{d} A model trained on this predicted bibliometric information can achieve an accuracy in classifying if an aborber belongs to the top-10\% most efficient ones with an accuracy indistinguishable from the model directly trained on composition features.}
+	\caption{\textbf{\textbf{Clever Hans} models can achieve a high accuracy in predicting if a perovskite material is within the top-10\% most efficient absorbers.} \textbf{a} Composition description can predict which of the ten most prolific authors has been reporting a composition with a micro $F_1$ score of \protect\variable{output/perovskite_top10_author_f1_micro.txt}. \textbf{b} The journal in which a device has been published can be predicted with a similar performance. \textbf{c} The publication year can be predicted meaningfully better than with a mean baseline. \textbf{d} A model trained on this predicted bibliometric information can achieve an accuracy in classifying if an aborber belongs to the top-10\% most efficient ones with an accuracy indistinguishable from the model directly trained on composition features.}
 	\label{fig:perovskite_pce_classification}
 	\script{analyze-perovskites-top10.py}
 \end{figure}
 
 \Cref{fig:perovskite_pce_classification} demonstrates that perovskite composition descriptors predict bibliographic information with meaningful accuracy. 
-The model achieves a micro-averaged $F_1$-score of \input{output/perovskite_top10_author_f1_micro.txt} for the 10 most prolific authors, indicating detectable authorship signatures in the chemical data. 
+The model achieves a micro-averaged $F_1$-score of \variable{output/perovskite_top10_author_f1_micro.txt} for the 10 most prolific authors, indicating detectable authorship signatures in the chemical data. 
 Similar performance occurs for journal and publication year prediction.
 
-The proxy model achieves classification accuracy of \input{output/perovskite_top10_indirect_accuracy.txt}, comparable to direct composition-property models (\input{output/perovskite_top10_direct_accuracy.txt}) for identifying top-10\% efficient devices. This suggests potential reliance on author expertise patterns or temporal trends rather than composition-efficiency relationships. 
+The proxy model achieves classification accuracy of \variable{output/perovskite_top10_indirect_accuracy.txt}, comparable to direct composition-property models (\variable{output/perovskite_top10_direct_accuracy.txt}) for identifying top-10\% efficient devices. This suggests potential reliance on author expertise patterns or temporal trends rather than composition-efficiency relationships. 
 
 
 
@@ -161,7 +161,7 @@ Molecular descriptors and fingerprints serve as features for both conventional a
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{figures/tadf_main_panel_meta_comparison.pdf}
-	\caption{\textbf{\enquote{Clever Hans} models perform worse than \enquote{conventional} models but better than simple baselines in predicting the maximum emission wavelengths of TADF molecules.} \textbf{a} Using composition descriptors, the model can predict the the authors of the paper describing a material with an accuracy of \protect\input{output/tadf_best_meta_accuracy.txt}  among the 1000 most profilic authors. \textbf{b} The model achieves an even higher performance in predicting in which of the ten most common journals a given entry has been published. \textbf{c} The publication year, too, can be predicted with a high performance just based on composition descriptors. \textbf{d} Using predicted bibliometric information, the authors achieve a mean absolute error between the \enquote{Conventional} and naïve baseline models. The performance using actual bibliometric information is not much different from using the correct one.}
+	\caption{\textbf{\enquote{Clever Hans} models perform worse than \enquote{conventional} models but better than simple baselines in predicting the maximum emission wavelengths of TADF molecules.} \textbf{a} Using composition descriptors, the model can predict the the authors of the paper describing a material with an accuracy of \protect\variable{output/tadf_best_meta_accuracy.txt}  among the 1000 most profilic authors. \textbf{b} The model achieves an even higher performance in predicting in which of the ten most common journals a given entry has been published. \textbf{c} The publication year, too, can be predicted with a high performance just based on composition descriptors. \textbf{d} Using predicted bibliometric information, the authors achieve a mean absolute error between the \enquote{Conventional} and naïve baseline models. The performance using actual bibliometric information is not much different from using the correct one.}
 	\label{fig:tadf_main}
 	\script{analyze-tadf.py}
 \end{figure}
@@ -178,12 +178,12 @@ For sustainability, energy does not only need to be converted. For this, batteri
 \begin{figure}[htb]
 	\centering 
 	\includegraphics[width=\textwidth]{figures/battery_main_panel_four_columns.pdf}
-	\caption{\textbf{\enquote{Clever Hans} models do not achieve a good performance in predicting battery capacity.} \textbf{a} Composition descriptors can be used to determine which of the 500 most prolific authors reported this material with a $F_1$ score of \protect\input{output/battery_top10_author_f1_micro.txt}. \textbf{b} The journal in which a material has been reported can be predicted with a similar performance. \textbf{c} The publication year can be predicted better than with the mean baseline. \textbf{d} \enquote{Clever Hans} models are not distinguishable from mean predictions (\enquote{Dummy}) for the prediction of the capacity of battery materials.}
+	\caption{\textbf{\enquote{Clever Hans} models do not achieve a good performance in predicting battery capacity.} \textbf{a} Composition descriptors can be used to determine which of the 500 most prolific authors reported this material with a $F_1$ score of \protect\variable{output/battery_top10_author_f1_micro.txt}. \textbf{b} The journal in which a material has been reported can be predicted with a similar performance. \textbf{c} The publication year can be predicted better than with the mean baseline. \textbf{d} \enquote{Clever Hans} models are not distinguishable from mean predictions (\enquote{Dummy}) for the prediction of the capacity of battery materials.}
 	\label{fig:battery_capacity}
 	\script{analyze-batteries-top10.py}
 \end{figure}
 
-\Cref{fig:battery_capacity} shows that battery composition descriptors exhibit limited proxy learning capability. Author prediction achieves an $F_1$-score of \input{output/battery_top10_author_f1_micro.txt}, while publication year prediction performs moderately above baseline. The resulting proxy model does not perform better than simply always predicting the mean. 
+\Cref{fig:battery_capacity} shows that battery composition descriptors exhibit limited proxy learning capability. Author prediction achieves an $F_1$-score of \variable{output/battery_top10_author_f1_micro.txt}, while publication year prediction performs moderately above baseline. The resulting proxy model does not perform better than simply always predicting the mean. 
 
 This null result is scientifically valuable as it demonstrates that Clever Hans effects are not inevitable artifacts of machine learning, but rather depend on dataset construction and domain characteristics. 
 
@@ -265,21 +265,21 @@ This protocol ensures that proxy models cannot access ground-truth bibliographic
 
 \subsubsection{Battery Dataset}
 I obtained the battery dataset from \textcite{Huang2020}
-The battery dataset contained \input{output/battery_dataset_size.txt} entries with \input{output/battery_n_features.txt} chemical descriptors.
+The battery dataset contained \variable{output/battery_dataset_size.txt} entries with \variable{output/battery_n_features.txt} chemical descriptors.
 
 \subsubsection{Perovskite Dataset} 
 I obtained the perovskite dataset from \textcite{shabih2026autonomous}, which is based on \textcite{Jacobsson2021}.
-The perovskite dataset contained \input{output/perovskite_dataset_size.txt} entries with \input{output/perovskite_n_features.txt} descriptors.
+The perovskite dataset contained \variable{output/perovskite_dataset_size.txt} entries with \variable{output/perovskite_n_features.txt} descriptors.
 
 \subsubsection{MOF Datasets}
 I obtained the MOF datasets from \textcite{Nandy2022}. The dataset already contains precomputed features such as revised autocorrelation functions.\autocite{Moosavi2020} 
-The MOF thermal stability dataset contained \input{output/mof_thermal_dataset_size.txt} entries with \input{output/mof_thermal_n_features.txt} structural and chemical descriptors. 
-The MOF solvent stability dataset contained \input{output/mof_solvent_dataset_size.txt} entries with \input{output/mof_solvent_n_features.txt} descriptors.
+The MOF thermal stability dataset contained \variable{output/mof_thermal_dataset_size.txt} entries with \variable{output/mof_thermal_n_features.txt} structural and chemical descriptors. 
+The MOF solvent stability dataset contained \variable{output/mof_solvent_dataset_size.txt} entries with \variable{output/mof_solvent_n_features.txt} descriptors.
 I used the MOF descriptors provided by \textcite{Nandy2022}. 
 
 \subsubsection{TADF Dataset}
 I obtained the TADF dataset from \textcite{Huang2024}. 
-The TADF dataset contained \input{output/tadf_best_dataset_size.txt} entries with \input{output/tadf_n_features.txt} molecular descriptors. As inputs for the models, I used compositional descriptors.
+The TADF dataset contained \variable{output/tadf_best_dataset_size.txt} entries with \variable{output/tadf_n_features.txt} molecular descriptors. As inputs for the models, I used compositional descriptors.
 
 \subsection{Chemical Descriptor Generation}
 
