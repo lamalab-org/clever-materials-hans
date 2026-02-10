@@ -414,7 +414,7 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "Using top 10 authors for group-out CV\nAuthor group distribution:\n  other: 1501 samples\n  Jun Yeob Lee: 110 samples\n  Dongge Ma: 93 samples\n  Wei Jiang: 81 samples\n  Kai Wang: 71 samples\n  Shaolong Gong: 63 samples\n  Ben Zhong Tang: 57 samples\n  Guohua Xie: 50 samples\n  Chuluo Yang: 25 samples\n  Xiao-Hong Zhang: 23 samples\nUsing 10 author groups with \u22655 samples each\n\nFold 1/10: Holding out group 'Jun Yeob Lee'\n  Train: 1979 samples, Test: 110 samples\n\nFold 2/10: Holding out group 'Dongge Ma'\n  Train: 1996 samples, Test: 93 samples\n\nFold 3/10: Holding out group 'Wei Jiang'\n  Train: 2008 samples, Test: 81 samples\n\nFold 4/10: Holding out group 'Kai Wang'\n  Train: 2018 samples, Test: 71 samples\n\nFold 5/10: Holding out group 'Shaolong Gong'\n  Train: 2026 samples, Test: 63 samples\n\nFold 6/10: Holding out group 'Ben Zhong Tang'\n  Train: 2032 samples, Test: 57 samples\n\nFold 7/10: Holding out group 'Guohua Xie'\n  Train: 2039 samples, Test: 50 samples\n\nFold 8/10: Holding out group 'Chuluo Yang'\n  Train: 2064 samples, Test: 25 samples\n",
+          "text": "Using top 10 authors for group-out CV\nAuthor group distribution:\n  other: 1501 samples\n  Jun Yeob Lee: 110 samples\n  Dongge Ma: 93 samples\n  Wei Jiang: 81 samples\n  Kai Wang: 71 samples\n  Shaolong Gong: 63 samples\n  Ben Zhong Tang: 57 samples\n  Guohua Xie: 50 samples\n  Chuluo Yang: 25 samples\n  Xiao-Hong Zhang: 23 samples\nUsing 10 author groups with \u22655 samples each\n\nFold 1/10: Holding out group 'Jun Yeob Lee'\n  Train: 1979 samples, Test: 110 samples\n\nFold 2/10: Holding out group 'Dongge Ma'\n  Train: 1996 samples, Test: 93 samples\n\nFold 3/10: Holding out group 'Wei Jiang'\n  Train: 2008 samples, Test: 81 samples\n\nFold 4/10: Holding out group 'Kai Wang'\n  Train: 2018 samples, Test: 71 samples\n\nFold 5/10: Holding out group 'Shaolong Gong'\n  Train: 2026 samples, Test: 63 samples\n\nFold 6/10: Holding out group 'Ben Zhong Tang'\n  Train: 2032 samples, Test: 57 samples\n\nFold 7/10: Holding out group 'Guohua Xie'\n  Train: 2039 samples, Test: 50 samples\n\nFold 8/10: Holding out group 'Chuluo Yang'\n  Train: 2064 samples, Test: 25 samples\n\nFold 9/10: Holding out group 'Xiao-Hong Zhang'\n  Train: 2066 samples, Test: 23 samples\n\nFold 10/10: Holding out group 'Yi-Zhong Shi'\n  Train: 2074 samples, Test: 15 samples\n\n=== Leave-One-Author-Group-Out Cross-Validation Results ===\nDirect Model MAE: 47.733 \u00b1 13.809\nDummy MAE: 70.810 \u00b1 14.870\nDirect vs Dummy Gap: 23.077 MAE\nIndirect Model MAE: 48.365 \u00b1 16.275\nIndirect vs Dummy Gap: 22.445 MAE\nNumber of Author Groups: 10\n",
           "mimetype": "text/plain"
         }
       ]
@@ -424,18 +424,18 @@
       "code_hash": "95840dc2e95f3cffe0803d5fff7f6194",
       "outputs": [
         {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "Name `logo_cv_results` is not defined. It was expected to be defined in ",
-          "traceback": []
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
         }
       ],
       "console": [
         {
           "type": "stream",
-          "name": "stderr",
-          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;/var/folders/gk/s1v9_48163q2rxpc1x2gq21m0000gn/T/marimo_25168/__marimo__cell_nWHF_.py&quot;</span>, line <span class=\"m\">4</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">logo_cv_results</span><span class=\"p\">,</span>\n<span class=\"w\">    </span><span class=\"pm\">^^^^^^^^^^^^^^^</span>\n<span class=\"gr\">NameError</span>: <span class=\"n\">name &#39;logo_cv_results&#39; is not defined</span>\n</pre></div>\n</span>",
-          "mimetype": "application/vnd.marimo+traceback"
+          "name": "stdout",
+          "text": "\n=== Effect Size Analysis: Conventional CV vs Leave-One-Author-Group-Out CV ===\n\nS Ratios (proxy - dummy) / (direct - dummy):\n  Conventional CV S: 0.470\n  Leave-One-Author-Out S: 0.973\n  S Change: -0.503 (-107.0%)\n  \u2192 Weak or no author shortcut\n\nPerformance Gaps:\n  Conventional Direct vs Dummy: -33.509\n  LOAO Direct vs Dummy: -23.077\n  Gap Reduction: -10.432 (31.1%)\n",
+          "mimetype": "text/plain"
         }
       ]
     },
