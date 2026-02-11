@@ -229,13 +229,13 @@ def _(df_final, run_leave_one_author_group_out_cv, target_column):
     )
 
     # Print summary of Leave-One-Author-Group-Out CV
-    direct_acc = logo_cv_results["aggregated_results"]["direct_accuracy"]["mean"]
+    logo_direct_acc = logo_cv_results["aggregated_results"]["direct_accuracy"]["mean"]
     dummy_acc = logo_cv_results["aggregated_results"]["dummy_accuracy"]["mean"]
     
     print(f"\n=== Leave-One-Author-Group-Out Cross-Validation Results ===")
-    print(f"Direct Model Accuracy: {direct_acc:.3f} ± {logo_cv_results['aggregated_results']['direct_accuracy']['std']:.3f}")
+    print(f"Direct Model Accuracy: {logo_direct_acc:.3f} ± {logo_cv_results['aggregated_results']['direct_accuracy']['std']:.3f}")
     print(f"Dummy Accuracy: {dummy_acc:.3f} ± {logo_cv_results['aggregated_results']['dummy_accuracy']['std']:.3f}")
-    print(f"Direct vs Dummy Gap: {direct_acc - dummy_acc:.3f} Accuracy")
+    print(f"Direct vs Dummy Gap: {logo_direct_acc - dummy_acc:.3f} Accuracy")
     
     if 'indirect_accuracy' in logo_cv_results['aggregated_results']:
         indirect_acc = logo_cv_results["aggregated_results"]["indirect_accuracy"]["mean"]

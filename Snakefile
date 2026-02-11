@@ -7,6 +7,9 @@ rule preprocess_tadf:
         "src/scripts/paths.py",
     output:
         "src/tex/output/tadf_processed.parquet",
+    resources:
+        runtime=600,   # 10 minutes timeout
+        mem_mb=4000    # 4GB memory limit
     script:
         "src/scripts/preprocess-tadf.py"
 
@@ -19,6 +22,11 @@ rule preprocess_perovskites:
         "src/scripts/paths.py",
     output:
         "src/tex/output/perovskite_processed.parquet",       
+    resources:
+        runtime=2400,  # 40 minutes timeout
+        mem_mb=8000,   # 8GB memory limit
+        tmpdir="/tmp"  # Use temp directory
+    threads: 1  # Single threaded (descriptor calculation is sequential)
     script:
         "src/scripts/preprocess-perovskites.py"
 
@@ -31,6 +39,9 @@ rule preprocess_batteries:
         "src/scripts/paths.py",
     output:
         "src/tex/output/battery_preprocessed.parquet",
+    resources:
+        runtime=600,   # 10 minutes timeout
+        mem_mb=4000    # 4GB memory limit
     script:
         "src/scripts/preprocess-batteries.py"
 
@@ -45,6 +56,9 @@ rule preprocess_mof:
     output:
         "src/tex/output/mof_thermal_stability.parquet",
         "src/tex/output/mof_solvent_stability.parquet",
+    resources:
+        runtime=600,   # 10 minutes timeout
+        mem_mb=4000    # 4GB memory limit
     script:
         "src/scripts/preprocess-mof.py"
 
@@ -84,6 +98,10 @@ rule analyze_perovskites_top10:
         "src/tex/output/perovskite_top10_author_f1_micro.txt",
         "src/tex/output/perovskite_top10_indirect_accuracy.txt",
         "src/tex/output/perovskite_top10_direct_accuracy.txt",
+    resources:
+        runtime=900,   # 15 minutes timeout
+        mem_mb=6000    # 6GB memory limit  
+    threads: 8  # Use multiple cores for ML analysis
     script:
         "src/scripts/analyze-perovskites-top10.py"
 
