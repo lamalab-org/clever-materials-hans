@@ -32,6 +32,24 @@ dependencies:
     - src/tex/authors.tex
     - src/tex/figures/overview.tex
     - src/tex/figures/toc.png
+  
+  # Script dependencies on preprocessed data
+  src/scripts/analyze-perovskites.py:
+    - src/tex/output/perovskite_processed.parquet
+  src/scripts/analyze-perovskites-top10.py:
+    - src/tex/output/perovskite_processed.parquet
+  src/scripts/analyze-batteries-top10.py:
+    - src/tex/output/battery_preprocessed.parquet
+  src/scripts/analyze-batteries.py:
+    - src/tex/output/battery_preprocessed.parquet
+  src/scripts/analyze-tadf.py:
+    - src/tex/output/tadf_processed.parquet
+  src/scripts/analyze-mof-thermal-top10.py:
+    - src/tex/output/mof_thermal_stability.parquet
+  src/scripts/analyze-mof-thermal-stability.py:
+    - src/tex/output/mof_thermal_stability.parquet
+  src/scripts/analyze-mof-solvent-stability.py:
+    - src/tex/output/mof_solvent_stability.parquet
 
 # Name of the `.tex` manuscript and corresponding `.pdf` article
 ms_name: ms
