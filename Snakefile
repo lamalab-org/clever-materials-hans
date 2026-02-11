@@ -7,7 +7,6 @@ rule preprocess_tadf:
         "src/scripts/paths.py",
     output:
         "src/tex/output/tadf_processed.parquet",
-    cache: True
     script:
         "src/scripts/preprocess-tadf.py"
 
@@ -19,8 +18,7 @@ rule preprocess_perovskites:
         "src/scripts/meta_enchrichment.py",
         "src/scripts/paths.py",
     output:
-        "src/tex/output/perovskite_processed.parquet",
-    cache: True             
+        "src/tex/output/perovskite_processed.parquet",       
     script:
         "src/scripts/preprocess-perovskites.py"
 
@@ -33,7 +31,6 @@ rule preprocess_batteries:
         "src/scripts/paths.py",
     output:
         "src/tex/output/battery_preprocessed.parquet",
-    cache: True
     script:
         "src/scripts/preprocess-batteries.py"
 
