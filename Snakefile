@@ -6,7 +6,7 @@ rule preprocess_tadf:
         "src/scripts/meta_enchrichment.py",
         "src/scripts/paths.py",
     output:
-        "src/tex/output/tadf_processed.parquet",
+        "src/tex/output/tadf_preprocess.parquet",
     resources:
         runtime=600,   # 10 minutes timeout
         mem_mb=4000    # 4GB memory limit
@@ -107,7 +107,7 @@ rule analyze_perovskites_top10:
 
 rule analyze_tadf:
     input:
-        "src/tex/output/tadf_processed.parquet",
+        "src/tex/output/tadf_preprocess.parquet",
     output:
         "src/tex/figures/tadf_main_panel_meta_comparison.pdf",
         "src/tex/output/tadf_best_meta_accuracy.txt",

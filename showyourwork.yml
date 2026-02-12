@@ -43,7 +43,7 @@ dependencies:
   src/scripts/analyze-batteries.py:
     - src/tex/output/battery_preprocessed.parquet
   src/scripts/analyze-tadf.py:
-    - src/tex/output/tadf_processed.parquet
+    - src/tex/output/tadf_preprocess.parquet
   src/scripts/analyze-mof-thermal-top10.py:
     - src/tex/output/mof_thermal_stability.parquet
   src/scripts/analyze-mof-thermal-stability.py:
