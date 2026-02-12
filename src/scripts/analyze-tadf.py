@@ -71,19 +71,29 @@ def _(df, np):
             number = np.nan
         raw_value_float.append(number)
 
+    df_with_authors = df_with_authors.copy()  # Avoid SettingWithCopyWarning
     df_with_authors["raw_value_float"] = raw_value_float
 
-    df_final = df_with_authors.dropna(subset=["raw_value_float"])
-
+    # Filter out rows with invalid target values
+    df_with_target = df_with_authors.dropna(subset=["raw_value_float"])
+    
+    # Filter features to remove those with too many NaN values (>50% missing)
+    feature_nan_pct = df_with_target[features].isnull().mean()
+    valid_features = feature_nan_pct[feature_nan_pct < 0.5].index.tolist()
+    print(f"Keeping {len(valid_features)}/{len(features)} features with <50% missing values")
+    
+    # Final dataset with only valid features and no NaN in those features
+    df_final = df_with_target.dropna(subset=valid_features + ["raw_value_float"])
+    
     print(f"Dataset shape: {df_final.shape}")
-    print(f"Number of features: {len(features)}")
+    print(f"Number of features: {len(valid_features)}")
 
     target_column = "raw_value_float"
-    return df_final, target_column
+    return df_final, target_column, valid_features
 
 
 @app.cell
-def _(df_final, run_single_analysis, target_column):
+def _(df_final, run_single_analysis, target_column, valid_features):
     # Run single analysis with default parameters
     results_default = run_single_analysis(
         df_final,
