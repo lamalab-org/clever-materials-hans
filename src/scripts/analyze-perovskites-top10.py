@@ -48,7 +48,8 @@ def _():
 
 @app.cell
 def _(paths, pd):
-    df = pd.read_parquet(paths.output / "perovskite_processed.parquet")
+    import pyarrow.parquet as pq
+    df = pq.read_table(paths.output / "perovskite_processed.parquet").to_pandas()
     return (df,)
 
 

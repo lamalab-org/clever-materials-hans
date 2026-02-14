@@ -14,6 +14,9 @@ dependencies:
   - xgboost>=2.0.0
   - lightgbm>=4.0.0
   
+  # Data formats
+  - pyarrow>=10.0.0  # For robust parquet reading
+  
   # Chemistry and materials science
   - rdkit>=2023.3.0
   - pymatgen>=2023.0.0
