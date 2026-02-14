@@ -100,7 +100,8 @@ rule analyze_perovskites_top10:
         "src/tex/output/perovskite_top10_direct_accuracy.txt",
     resources:
         runtime=900,   # 15 minutes timeout
-        mem_mb=6000    # 6GB memory limit  
+        mem_mb=6000,   # 6GB memory limit  
+        perovskite_file=1  # Prevent concurrent access to perovskite parquet
     threads: 8  # Use multiple cores for ML analysis
     script:
         "src/scripts/analyze-perovskites-top10.py"
@@ -133,6 +134,8 @@ rule analyze_perovskites:
     output:
         "src/tex/output/perovskite_dataset_size.txt",
         "src/tex/output/perovskite_n_features.txt",
+    resources:
+        perovskite_file=1  # Prevent concurrent access to perovskite parquet
     script:
         "src/scripts/analyze-perovskites.py"
 
