@@ -33,7 +33,8 @@ def _():
 
 @app.cell
 def _(paths, pd):
-    df = pd.read_parquet(paths.output / "tadf_preprocess.parquet")
+    import pyarrow.parquet as pq
+    df = pq.read_table(paths.output / "tadf_preprocess.parquet").to_pandas()
     return (df,)
 
 
@@ -146,7 +147,20 @@ def _():
 
 
 @app.cell
-def _():
+def _(comparison_results, paths):
+    # Export the meta accuracy for LaTeX
+    from utils import export_showyourwork_metric
+    
+    # Extract the best meta accuracy from the comparison results
+    # Using the indirect predicted meta accuracy as the "best" meta performance
+    best_meta_accuracy = comparison_results["predicted_meta"]["indirect"]["mae"]["mean"]
+    
+    export_showyourwork_metric(
+        best_meta_accuracy, 
+        "tadf_best_meta_accuracy", 
+        paths.output,
+        decimal_places=3
+    )
     return
 
 

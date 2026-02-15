@@ -109,12 +109,21 @@ rule analyze_tadf:
     input:
         "src/tex/output/tadf_preprocess.parquet",
     output:
-        "src/tex/figures/tadf_main_panel_meta_comparison.pdf",
-        "src/tex/output/tadf_best_meta_accuracy.txt",
+        "src/tex/figures/tadf_main_panel_four_columns.pdf",
+        "src/tex/output/tadf_best_meta_combined_accuracy.txt",
         "src/tex/output/tadf_best_dataset_size.txt",
         "src/tex/output/tadf_n_features.txt",
     script:
         "src/scripts/analyze-tadf.py"
+
+rule analyze_tadf_meta_comparison:
+    input:
+        "src/tex/output/tadf_preprocess.parquet",
+    output:
+        "src/tex/figures/tadf_main_panel_meta_comparison.pdf",
+        "src/tex/output/tadf_best_meta_accuracy.txt",
+    script:
+        "src/scripts/analyze-tadf-meta-comparison.py"
 
 rule analyze_batteries_top10:
     input:
