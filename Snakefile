@@ -129,7 +129,6 @@ rule analyze_batteries_top10:
         "src/tex/output/battery_preprocessed.parquet",
     output:
         "src/tex/figures/battery_top10_main_panel_four_columns.pdf",
-        "src/tex/output/battery_top10_author_f1_micro.txt",
         "src/tex/output/battery_top10_dataset_size.txt",
         "src/tex/output/battery_top10_n_features.txt",
     script:

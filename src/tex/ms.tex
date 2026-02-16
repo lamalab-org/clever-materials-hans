@@ -178,12 +178,12 @@ For sustainability, energy does not only need to be converted. For this, batteri
 \begin{figure}[htb]
 	\centering 
 	\includegraphics[width=\textwidth]{figures/battery_top10_main_panel_four_columns.pdf}
-	\caption{\textbf{\enquote{Clever Hans} models do not achieve a good performance in predicting battery capacity.} \textbf{a} Composition descriptors can be used to determine which of the 500 most prolific authors reported this material with a $F_1$ score of \protect\variable{output/battery_top10_author_f1_micro.txt}. \textbf{b} The journal in which a material has been reported can be predicted with a similar performance. \textbf{c} The publication year can be predicted better than with the mean baseline. \textbf{d} \enquote{Clever Hans} models are not distinguishable from mean predictions (\enquote{Dummy}) for the prediction of the capacity of battery materials.}
+	\caption{\textbf{\enquote{Clever Hans} models do not achieve a good performance in predicting battery capacity.} \textbf{a} Composition descriptors can be used to determine which of the 500 most prolific authors reported this material with a mediocre $F_1$ score. \textbf{b} The journal in which a material has been reported can be predicted with a similar performance. \textbf{c} The publication year can be predicted better than with the mean baseline. \textbf{d} \enquote{Clever Hans} models are not distinguishable from mean predictions (\enquote{Dummy}) for the prediction of the capacity of battery materials.}
 	\label{fig:battery_capacity}
 	\script{analyze-batteries-top10.py}
 \end{figure}
 
-\Cref{fig:battery_capacity} shows that battery composition descriptors exhibit limited proxy learning capability. Author prediction achieves an $F_1$-score of \variable{output/battery_top10_author_f1_micro.txt}, while publication year prediction performs moderately above baseline. The resulting proxy model does not perform better than simply always predicting the mean. 
+\Cref{fig:battery_capacity} shows that battery composition descriptors exhibit limited proxy learning capability. Author prediction achieves a mediocre $F_1$-score, while publication year prediction performs moderately above baseline. The resulting proxy model does not perform better than simply always predicting the mean. 
 
 This null result is scientifically valuable as it demonstrates that Clever Hans effects are not inevitable artifacts of machine learning, but rather depend on dataset construction and domain characteristics. 
 
