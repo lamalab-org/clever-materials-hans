@@ -177,7 +177,7 @@ For sustainability, energy does not only need to be converted. For this, batteri
 
 \begin{figure}[htb]
 	\centering 
-	\includegraphics[width=\textwidth]{figures/battery_main_panel_four_columns.pdf}
+	\includegraphics[width=\textwidth]{figures/battery_top10_main_panel_four_columns.pdf}
 	\caption{\textbf{\enquote{Clever Hans} models do not achieve a good performance in predicting battery capacity.} \textbf{a} Composition descriptors can be used to determine which of the 500 most prolific authors reported this material with a $F_1$ score of \protect\variable{output/battery_top10_author_f1_micro.txt}. \textbf{b} The journal in which a material has been reported can be predicted with a similar performance. \textbf{c} The publication year can be predicted better than with the mean baseline. \textbf{d} \enquote{Clever Hans} models are not distinguishable from mean predictions (\enquote{Dummy}) for the prediction of the capacity of battery materials.}
 	\label{fig:battery_capacity}
 	\script{analyze-batteries-top10.py}
@@ -265,7 +265,7 @@ This protocol ensures that proxy models cannot access ground-truth bibliographic
 
 \subsubsection{Battery Dataset}
 I obtained the battery dataset from \textcite{Huang2020}
-The battery dataset contained \variable{output/battery_dataset_size.txt} entries with \variable{output/battery_n_features.txt} chemical descriptors.
+The battery dataset contained \variable{output/battery_top10_dataset_size.txt} entries with \variable{output/battery_top10_n_features.txt} chemical descriptors.
 
 \subsubsection{Perovskite Dataset} 
 I obtained the perovskite dataset from \textcite{shabih2026autonomous}, which is based on \textcite{Jacobsson2021}.
