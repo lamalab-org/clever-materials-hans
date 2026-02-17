@@ -139,7 +139,9 @@
 \draw[draw=metacolor, line width=0.8pt] (kBot) -- (busBotR);
 
 % descriptor -> top junction
-\draw[->, draw=metacolor, line width=0.8pt] (chemB.south) -- (kTop);
+\draw[->, draw=metacolor, line width=0.8pt]
+  (chemB.south) -- (kTop)
+  node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize, text=metacolor] {metadata model};
 
 % top bus -> metadata (vertical drops)
 \draw[->, draw=metacolor, line width=0.8pt] (busTopL) -- (author.north);
@@ -152,7 +154,9 @@
 \draw[->, draw=metacolor, line width=0.8pt] (year.south) -- (busBotR);
 
 % bottom junction -> prediction
-\draw[->, draw=metacolor, line width=0.8pt] (kBot) -- (propB.north);
+\draw[->, draw=metacolor, line width=0.8pt]
+  (kBot) -- (propB.north)
+  node[midway, right=2pt, fill=white, inner sep=1pt, font=\scriptsize, text=metacolor] {proxy model};
 
 \node[font=\scriptsize\itshape, text=black!70] at (\Bx,\yFoot-0.1) {Learns dataset artefacts};
 
