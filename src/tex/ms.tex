@@ -194,7 +194,7 @@ This null result is scientifically valuable as it demonstrates that Clever Hans 
 
 \subsection{Overall Effects}
 
-Clever Hans effects vary significantly across material domains and prediction tasks. Proxy models achieved competitive performance in perovskite efficiency classification and MOF thermal stability, moderate effects in TADF wavelength prediction and MOF solvent stability, and negligible effects in battery capacity prediction. Effect detectability depends critically on evaluation metrics and baseline selection. 
+Clever Hans effects vary significantly across material domains and prediction tasks. Proxy models achieved competitive performance in perovskite efficiency classification and MOF thermal stability, moderate effects in TADF wavelength prediction and MOF solvent stability, and negligible effects in battery capacity prediction. Effect detectability depends critically on evaluation metrics and baseline selection. In most cases, the proxy model based on the predicted literature data was a stronger baseline than the a simple baseline on prior probabilities or mean predictions.
 
 
 \section{Discussion}
@@ -223,11 +223,7 @@ Most automated screening approaches optimize specific objectives using limited b
 Organizations that can generate diverse data at scale---potentially focused on the lowest cost per reproducible data point rather than pushing particular research agendas---might help to address this problem. 
 Other options could be explicit quantification of author/group/temporal distributions, correlation analyses between metadata and properties as \enquote{dataset nutrition labels}, or adversarial dataset construction by deliberately designing datasets to resist spurious correlations.
 
-
-But it is important to keep in mind that in some circumstances, we will never be able to acquire \enquote{enough} data. Thus, we also need renewed focus on how we evaluate models.\autocite{goldman2024statistical} 
-Instead of asking whether models work, we should ask why they work and systematically explore alternative explanations. 
-This means actively trying to disprove our own --- but also others' --- claims about model performance.
-To enable others to do so, access to data and code is obviously a prerequisite. But one could also envision that some of these tests might require new experiments --- which could be facilitated using infrastructure as a service or incentivized using \enquote{bug bounties} for research papers, models, or datasets. We need to accept that receiving feedback --- even if it is pointing out a mistake in our own work --- is a gift.
+To enable others to do participate in testing alternative hypothesis for model performance, access to data and code is obviously a prerequisite. But one could also envision that some of these tests might require new experiments --- which could be facilitated using infrastructure as a service or incentivized using \enquote{bug bounties} for research papers, models, or datasets. We need to accept that receiving feedback --- even if it is pointing out a mistake in our own work --- is a gift.
 
 \section{Conclusions}
 
@@ -285,10 +281,10 @@ The TADF dataset contained \variable{output/tadf_best_dataset_size.txt} entries 
 
 \subsection{Chemical Descriptor Generation}
 
-For datasets containing molecular or compositional information, I generated comprehensive chemical descriptors to serve as baseline features for property prediction. 
+For datasets containing molecular or compositional information, I generated chemical descriptors to serve as baseline features for property prediction. 
 
 \subsubsection{Molecular Descriptors from SMILES}
-For datasets with SMILES (Simplified Molecular-Input Line-Entry System) strings,\autocite{Weininger1988} I computed molecular descriptors using RDKit \autocite{rdkit}. The molecular feature set included:
+For datasets (TADF) with SMILES (Simplified Molecular-Input Line-Entry System) strings,\autocite{Weininger1988} I computed molecular descriptors using RDKit \autocite{rdkit}. The molecular feature set included:
 
 \begin{itemize}
     \item \textbf{2D descriptors}: All available RDKit molecular descriptors ($\sim$200 features), including molecular weight, LogP, topological polar surface area, number of aromatic rings, hydrogen bond donors/acceptors, and rotatable bonds.
@@ -308,15 +304,11 @@ For datasets with chemical formulas (battery materials, perovskites), I computed
 Chemical formulas were parsed using pymatgen \autocite{pymatgen}, and compositions that could not be parsed were excluded from analysis. 
 
 \subsubsection{Feature Processing}
-Generated descriptors were processed to handle missing values and ensure numerical stability for gradient boosting models. Features with excessive missing values ($>$50\%) were excluded, and remaining missing values were imputed with feature medians. For XGBoost and LightGBM models, additional preprocessing included clipping extreme values to prevent numerical overflow and replacing infinite values with conservative bounds.
+Generated descriptors were processed to handle missing values and ensure numerical stability for gradient boosting models. Features with excessive missing values ($>$50\%) were excluded, and remaining missing values were imputed with feature medians. Additional preprocessing included clipping extreme values to prevent numerical overflow and replacing infinite values with conservative bounds.
 
 \subsection{Meta-Information Extraction}
 
 I enriched the datasets with publication meta-information using the Crossref API to retrieve bibliographic data, including author names, journal titles, and publication years. I created binary features indicating the presence of the top-$N$ most frequent authors and journals in each dataset, where $N$ was varied across 10, 50, 100, and 500 (or maximum available).
-
-\subsection{Data Processing}
-
-All datasets were preprocessed to remove entries with missing target values or author information.
 
 
 
@@ -325,7 +317,6 @@ All datasets were preprocessed to remove entries with missing target values or a
 
 To ensure reproducibility, this manuscript was generated using the \href{https://show-your.work/en/latest/}{\showyourwork} framework.\autocite{Luger2021}
 The code to rebuild the paper (including code for all figures and numbers next to which there is a GitHub icon) can be found at \url{\GitHubURL}.
-To facilitate reproduction, some intermediate analysis results are cached at \url{http://dx.doi.org/10.5072/zenodo.34706}.
 
 \section*{Acknowledgement}
 This work was supported by the Carl Zeiss Stiftung. The author is a member of the NFDI consortium FAIRmat - Deutsche Forschungsgemeinschaft (DFG) - Project 460197019.
@@ -352,14 +343,14 @@ In this section, I show performance for metadata and property prediction in more
 \begin{figure}[htb]
 	\includegraphics[width=\textwidth]{figures/mof_solvent_performance_comparison.pdf}
 	\label{fig:mof_solvent_removal_stability_metric_impact}
-	\caption{\textbf{Performance of MOF solvent removal stability classification measured with different metrics.}  In all metrics, \enquote{Clever Hans} models outperform simple baselines. In some metrics, such as precision, \enquote{Clever Hans} models come close in performance to models directly trained on MOF descriptors (\enquote{Conventional}).}
+	\caption{\textbf{Performance of MOF solvent removal stability classification measured with different metrics.}  In all metrics, \enquote{Clever Hans models} outperform simple baselines. In some metrics, such as precision, \enquote{Clever Hans models} come close in performance to models directly trained on MOF descriptors (\enquote{Conventional}).}
 	\script{analyze-mof-solvent-stability.py}
 \end{figure}
 
 \begin{figure}[htb]
 	\includegraphics[width=\textwidth]{figures/mof_solvent_parameter_sweep.pdf}
-	\label{fig:mof_solvent_parameter_sweep}
 	\caption{\textbf{Parameter sweep for MOF solvent stability.} Performance of proxy models as a function of the type and number of predicted bibliometric features.}
+	\label{fig:mof_solvent_parameter_sweep}
 	\script{analyze-mof-solvent-stability.py}	
 \end{figure}
 
@@ -371,7 +362,6 @@ In this section, I show performance for metadata and property prediction in more
 
 \Cref{fig:mof_thermal_stability_metric_impact} shows that the measured difference in performance between models depends on the chosen metric.
 \Cref{fig:mof_thermal_parameter_sweep} demonstrates how Clever Hans performance varies with the type and number of bibliometric features included.
-\Cref{fig:mof_thermal_meta_performance} shows the meta-prediction capabilities for author and journal information.
 
 \begin{figure}[htb]
 	\includegraphics[width=\textwidth]{figures/mof_thermal_top10_performance_comparison.pdf}
