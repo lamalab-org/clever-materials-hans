@@ -175,12 +175,12 @@ The proxy model achieves a mean average error for maximum emission wavelength pr
 
 \subsection{Battery Capacity}
 
-For sustainability, energy does not only need to be converted. For this, batteries are important. \textcite{Huang2020} text-mined battery materials alongside performance metrics. 
+For sustainability, energy does not only need to be converted, but also stored. For this, batteries are important. \textcite{Huang2020} text-mined battery materials alongside performance metrics. 
 
 \begin{figure}[htb]
 	\centering 
 	\includegraphics[width=\textwidth]{figures/battery_top10_main_panel_four_columns.pdf}
-	\caption{\textbf{\enquote{Clever Hans} models do not achieve a good performance in predicting battery capacity.} \textbf{a} Composition descriptors can be used to determine which of the 500 most prolific authors reported this material with a mediocre $F_1$ score. \textbf{b} The journal in which a material has been reported can be predicted with a similar performance. \textbf{c} The publication year can be predicted better than with the mean baseline. \textbf{d} \enquote{Clever Hans} models are not distinguishable from mean predictions (\enquote{Dummy}) for the prediction of the capacity of battery materials.}
+	\caption{\textbf{\enquote{Clever Hans models} do not achieve a good performance in predicting battery capacity.} \textbf{a} Composition descriptors can be used to determine which of the 500 most prolific authors reported this material with a mediocre $F_1$ score. \textbf{b} The journal in which a material has been reported can be predicted with a similar performance. \textbf{c} The publication year can be predicted better than with the mean baseline. \textbf{d} \enquote{Clever Hans} models are not distinguishable from mean predictions (\enquote{Dummy}) for the prediction of the capacity of battery materials.}
 	\label{fig:battery_capacity}
 	\script{analyze-batteries-top10.py}
 \end{figure}
@@ -199,7 +199,7 @@ Clever Hans effects vary significantly across material domains and prediction ta
 
 \section{Discussion}
 
-Machine learning has transformed materials discovery,\autocite{Moosavi2020, Saal2020, Gubernatis2018} but the findings here highlight a critical gap: we often fail to rigorously test alternative hypotheses for why our models perform well. 
+Machine learning has transformed materials discovery,\autocite{Moosavi2020, Saal2020, Gubernatis2018} but the findings here highlight an important caveat: we often fail to rigorously test alternative hypotheses for why our models perform well. 
 The scientific method demands that we actively seek to falsify our hypotheses,\autocite{Platt1964, popper2005logic, Chamberlin1965} yet in machine learning, we tend to focus on optimizing performance rather than exploring competing explanations.
 
 The Clever Hans effect represents just one class of alternative hypotheses we should systematically explore. 
@@ -216,10 +216,10 @@ Such agents could serve as \enquote{devil's advocates,} systematically challengi
 \subsection{Toward Robust Materials Data Infrastructure}
 
 Another angle is to reconsider how we generate, curate, and share materials data. 
-The field needs coordinated infrastructure that prioritizes diversity and robustness over convenience. \autocite{Krishnan2025}
+The field needs coordinated infrastructure and institutions that prioritize diversity and robustness over convenience. \autocite{Krishnan2025}
 Convenience and short-term reward are often too easy and compelling to optimize for due to collective action problems trapping an ecosystem in a suboptimal state, where every actor knows that changes would be needed, but no one wants to make the first move.\autocite{Nielsen2020-rr} 
 
-Most automated screening approaches optimize specific objectives using limited building blocks, which creates exactly the kind of proxy signals that models learn to exploit. And also human researchers are biased in how they explore chemical space.\autocite{Jia2019} In addition,  publication bias favors positive results, creating temporal performance trends.\autocite{Jablonka2022}
+Most automated screening approaches optimize specific objectives using limited building blocks, which creates exactly the kind of proxy signals that models learn to exploit.  Human researchers, too,  are biased in how they explore chemical space.\autocite{Jia2019} In addition,  publication bias favors positive results, creating temporal performance trends.\autocite{Jablonka2022}
 Organizations that can generate diverse data at scale---potentially focused on the lowest cost per reproducible data point rather than pushing particular research agendas---might help to address this problem. 
 Other options could be explicit quantification of author/group/temporal distributions, correlation analyses between metadata and properties as \enquote{dataset nutrition labels}, or adversarial dataset construction by deliberately designing datasets to resist spurious correlations.
 
@@ -237,8 +237,8 @@ In some domains, even challenges have been organized.\autocite{Moult2005, Tetko2
 Each technique revealed new ways that models could fail to generalize, forcing us to be more rigorous in our evaluation practices.
 
 This work highlights yet another layer of complexity. 
-Across five materials prediction tasks, I find that bibliographic signals can be predicted from chemical descriptors and can sometimes support property prediction at near-conventional performance. The effect is heterogeneous: it is strong in some top-10\% classification settings, moderate in others, and absent for battery capacity in this study. This heterogeneity matters because it implies that shortcut learning is not inevitable, but also not reliably detected by standard validation alone.
-The practical implication is simple: benchmark accuracy should be treated as ambiguous evidence unless competing shortcut hypotheses are actively tested. Routine audits—metadata ablations, group/time splits, and explicit effect-size reporting—would make it harder for spurious correlations to masquerade as chemical insight, while preserving the legitimate value of models that are \emph{only} intended as in-distribution predictors.
+Across five materials prediction tasks, I find that bibliographic signals can be predicted from chemical descriptors and can sometimes support property prediction at near-conventional performance. The effect is heterogeneous. It is strong in some top-10\% classification settings, moderate in others, and absent for battery capacity in this study. This heterogeneity implies that shortcut learning is not inevitable, but also not reliably detected by standard validation alone.
+The practical implication is that benchmark accuracy should be treated as ambiguous evidence unless competing shortcut hypotheses are actively tested. Routine audits—metadata ablations, group/time splits, and explicit effect-size reporting—would make it harder for spurious correlations to masquerade as chemical insight, while preserving the legitimate value of models that are \emph{only} intended as in-distribution predictors.
 
 %The simplest explanation for model success is often not chemical insight, but shortcut learning.
 %This is an uncomfortable truth.
