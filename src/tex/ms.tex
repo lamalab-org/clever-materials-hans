@@ -37,7 +37,8 @@
 \end{figure}
 
 \begin{abstract}
-Machine learning can accelerate materials discovery, but strong benchmark performance does not imply that a model learned chemistry. I test a concrete alternative hypothesis: that property prediction can be driven by bibliographic confounding.
+Machine learning can accelerate materials discovery. Models perform impressively on many benchmarks. 
+However, strong benchmark performance does not imply that a model learned chemistry. I test a concrete alternative hypothesis: that property prediction can be driven by bibliographic confounding.
 Across five tasks spanning MOFs (thermal and solvent stability), perovskite solar cells (efficiency), batteries (capacity), and TADF emitters (emission wavelength), models trained on standard chemical descriptors predict author, journal, and publication year well above chance. When these \emph{predicted} metadata (\enquote{bibliographic fingerprints}) are used as the sole input to a second model, performance is sometimes competitive with conventional descriptor-based predictors.
 These results show that many datasets do not rule out non-chemical explanations of success. Progress requires routine falsification tests (e.g., group/time splits and metadata ablations), datasets designed to resist spurious correlations, and explicit separation of two goals: predictive utility versus evidence of chemical understanding.
 \end{abstract}
@@ -57,11 +58,11 @@ Clever Hans appeared to perform arithmetic calculations, fooling audiences until
 
 Modern machine learning exhibits analogous vulnerabilities. 
 Computer vision models exploit spurious correlations---skin color in medical diagnosis,\autocite{pooch2019trust} background textures in animal classification\autocites{xiao2020noise}---achieving high accuracy through irrelevant shortcuts.\autocite{Brown2023, Howard2021} 
-Recent reports from Leash Biosciences suggest similar risks in chemical property prediction: models achieve surprising accuracy at predicting compound provenance, potentially using authorship as a proxy for bioactivity rather than learning meaningful chemistry.\autocite{leash} 
+A recent report from Leash Biosciences suggest similar risks in chemical property prediction: models achieve surprising accuracy at predicting compound performance, potentially using authorship as a proxy for bioactivity rather than learning meaningful chemistry.\autocite{leash} 
 
 Materials science offers abundant opportunities for such proxy learning (\Cref{fig:clever_hans}). 
 Research groups develop specialized expertise---some focus on solar cell stability optimization, others on MOF synthesis strategies. Laboratory names often appear in framework designations (UiO-66, MIL-101), creating direct author-material associations. 
-Fields evolve through paradigm shifts\autocite{kuhn1997structure} and with publication bias---embedding temporal signatures that models might exploit rather than learning fundamental chemistry.
+Fields evolve through paradigm shifts\autocite{kuhn1997structure} and with publication bias this might embed temporal signatures that models might exploit rather than learning fundamental chemistry.
 
 \begin{figure}[!htb]
 	\centering 
@@ -73,9 +74,9 @@ Fields evolve through paradigm shifts\autocite{kuhn1997structure} and with publi
 
 
 This work systematically investigates whether commonly used materials datasets are vulnerable to such proxy learning. 
-I test a simple hypothesis: can models predict material properties using only bibliographic metadata---author names, publication years, journal venues---rather than chemical descriptors? 
-The answer is often yes. 
-Models predict bibliographic metadata from chemical descriptors with surprising accuracy, and models using only these predicted \enquote{bibliographic fingerprints} frequently match the performance of conventional structure-property approaches. 
+I test a simple hypothesis: can models predict material properties using only (predicted) bibliographic metadata---author names, publication years, journal venues---rather than chemical descriptors? 
+The answer is, in some cases, yes. 
+Models predict bibliographic metadata from chemical descriptors with surprising accuracy, and models using only these predicted \enquote{bibliographic fingerprints} can match the performance of conventional structure-property approaches. 
 
 These findings reveal how easily we can be misled about what our models actually learn. 
 More critically, they expose a systematic gap in how we validate machine learning in materials science: we optimize performance without testing competing hypotheses about \emph{why} models work. 
@@ -86,7 +87,7 @@ More critically, they expose a systematic gap in how we validate machine learnin
 
 I audit bibliographic shortcut learning in five materials prediction tasks: MOF thermal stability, MOF solvent stability, perovskite solar-cell efficiency, battery capacity, and TADF emission wavelength. 
 For each task I compare three model classes under identical cross-validation splits: (i) a \emph{direct} model mapping chemical descriptors to properties, (ii) a \emph{metadata} model mapping descriptors to bibliographic variables (authors, journals, years), and (iii) a \emph{proxy} model mapping \emph{predicted} bibliographic variables to properties.
-If the proxy model approaches the direct model while outperforming a naive baseline, the dataset admits a shortcut explanation for performance. Because the proxy model uses predicted (imperfect) metadata, it provides a conservative estimate of shortcut capacity.
+If the proxy model approaches the direct model performance, good performance due leveraging meaningful chemical patterns is indistinguishable from good performance due to leveraging shortcuts.
 
 
 
@@ -102,7 +103,7 @@ However, \Cref{fig:mof_thermal_stability_metric_impact} shows that the measured 
 \begin{figure}[htb]
 	\centering 
 	\includegraphics[width=\textwidth]{figures/mof_thermal_top10_main_panel_four_columns.pdf}
-	\caption{\textbf{For the classification task of membership in the top-10\% of thermally stable MOFs, one can be fooled (by Clever Hans effects).} The model can predict the bibliographic information with high accuracy. \textbf{a} The model predicts the authors of the associated paper with high accuracy, much better than a random baseline. \textbf{b} This also holds for predicting in which journal the entry was published or the year in which the paper was published (\textbf{c}). Using the predicted bibliographic information, a model can predict with high accuracy if the MOF belongs to the top-10\% thermally stable ones. However, the effect is smaller --- or not even there --- if analyzed under a different metric or for a regression setting (see \Cref{sec:appx-mof-thermal-stability}). The dummy baseline for classification is a stratified random sampling (using the empirical probabilities from the training dataset) and the mean prediction for the regression case.}
+	\caption{\textbf{For the classification task of membership in the top-10\% of thermally stable MOFs, one can be fooled (by Clever Hans effects).}  \textbf{a} The model predicts the authors of the associated paper with high accuracy, much better than a random baseline. \textbf{b} This also holds for predicting in which journal the entry was published or the year in which the paper was published \textbf{c}. Using the predicted bibliographic information, a model can predict with high accuracy if the MOF belongs to the top-10\% thermally stable ones. However, the effect is smaller --- or not even there --- if analyzed under a different metric or for a regression setting (see \Cref{sec:appx-mof-thermal-stability}). The dummy baseline for classification is a stratified random sampling (using the empirical probabilities from the training dataset) and the mean prediction for the regression case.}
 	\label{fig:mof_thermal_stability}	
 	\script{analyze-mof-thermal-top10.py}	
 \end{figure}
@@ -114,17 +115,17 @@ However, \Cref{fig:mof_thermal_stability_metric_impact} shows that the measured 
 
 Solvent removal stability poses an equally critical challenge for MOF deployment. 
 Many frameworks collapse when synthesis solvents are removed during activation, limiting their practical utility. 
-Using the same text-mined dataset and descriptors,\autocite{Nandy2022} I tested whether proxy signals could predict solvent stability outcomes.
+Using a text-mined dataset and descriptors \textcite{Nandy2022}, I tested whether proxy signals could predict solvent stability outcomes.
 
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=\textwidth]{figures/mof_solvent_main_panel_four_columns.pdf} 
-	\caption{\textbf{Measuring performance using accuracy, \enquote{Clever Hans} models can achieve a surprisingly good performance in predicting solvent removal stability of MOFs.} \textbf{a} MOF descriptors can be used to predict author information better than a random baseline, but not with very high information. \textbf{b} The journal in which a given MOF stability result has been published can also be predicted with non-trivial accuracy. \textbf{c} The publication year can be predicted with a mean average error of two years. \textbf{d} A model trained on predicted bibliographic information (actual bibliometric and predicted one) can achieve non-trivial accuracy in correctly predicting the solvent stability of MOFs. \Cref{fig:mof_solvent_removal_stability_metric_impact} shows the performance measured with other metrics.}
+	\caption{\textbf{Measuring performance using accuracy, \enquote{Clever Hans models} can achieve a surprisingly good performance in predicting solvent removal stability of MOFs.} \textbf{a} MOF descriptors can be used to predict author information meaningfully better than a random baseline. \textbf{b} The journal in which a given MOF stability result has been published can also be predicted with non-trivial accuracy. \textbf{c} The publication year can be predicted with a mean average error of around two years. \textbf{d} A model trained on predicted bibliographic information (actual bibliometric and predicted one) can achieve non-trivial accuracy in correctly predicting the solvent stability of MOFs. \Cref{fig:mof_solvent_removal_stability_metric_impact} shows the performance measured with other metrics.}
 	\label{fig:mof_solvent_stability}
 	\script{analyze-mof-solvent-stability.py}
 \end{figure}
 
-\Cref{fig:mof_solvent_stability} shows that MOF structural descriptors predict bibliographic metadata with moderate accuracy. The proxy model achieves classification accuracy of \variable{output/mof_solvent_indirect_accuracy.txt}, above baseline but below direct structure-property approaches, indicating partial Clever Hans susceptibility that varies across MOF stability properties.
+\Cref{fig:mof_solvent_stability} shows that MOF structural descriptors predict bibliographic metadata with moderate accuracy. The proxy model achieves classification accuracy of \variable{output/mof_solvent_indirect_accuracy.txt}, above baseline but below direct structure-property approaches, indicating partial Clever Hans susceptibility.
 
 
 
@@ -148,20 +149,21 @@ The model achieves a micro-averaged $F_1$-score of \variable{output/perovskite_t
 Similar performance occurs for journal and publication year prediction.
 
 The proxy model achieves classification accuracy of \variable{output/perovskite_top10_indirect_accuracy.txt}, comparable to direct composition-property models (\variable{output/perovskite_top10_direct_accuracy.txt}) for identifying top-10\% efficient devices. This suggests potential reliance on author expertise patterns or temporal trends rather than composition-efficiency relationships. 
+While also this effects depends on the metric one uses, the results highlight that the use of a simple naïve dummy baseline (e.g., predicting prior probabilities) is not enough to demonstrate chemically meaningful learning.
 
 
 
 \subsection{TADF Emitter Properties}
 
 Thermally activated delayed fluorescence (TADF) is one mechanism to improve the efficiency of organic light-emitting diodes (OLED)s.\autocite{Liu2018} 
-The maximum emission wavelength is one important performance metric that is optimized for these materials. \textcite{Huang2024} text-mined using ChemDataExtractor.\autocite{Swain2016, Mavrai2021}
+The maximum emission wavelength is one important performance metric that is optimized for these materials. \textcite{Huang2024} text-mine this property using ChemDataExtractor.\autocite{Swain2016, Mavrai2021}
 
 Molecular descriptors and fingerprints serve as features for both conventional and proxy models predicting maximum emission wavelength. 
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{figures/tadf_main_panel_meta_comparison.pdf}
-	\caption{\textbf{\enquote{Clever Hans} models perform worse than \enquote{conventional} models but better than simple baselines in predicting the maximum emission wavelengths of TADF molecules.} \textbf{a} Using composition descriptors, the model can predict the the authors of the paper describing a material with an accuracy of \protect\variable{output/tadf_best_meta_accuracy.txt}  among the 1000 most profilic authors. \textbf{b} The model achieves an even higher performance in predicting in which of the ten most common journals a given entry has been published. \textbf{c} The publication year, too, can be predicted with a high performance just based on composition descriptors. \textbf{d} Using predicted bibliometric information, the authors achieve a mean absolute error between the \enquote{Conventional} and naïve baseline models. The performance using actual bibliometric information is not much different from using the correct one.}
+	\caption{\textbf{\enquote{Clever Hans models} perform worse than \enquote{conventional} models but better than simple baselines in predicting the maximum emission wavelengths of TADF molecules.} \textbf{a} Using molecular descriptors, the model can predict the the authors of the paper describing a material with an accuracy of \protect\variable{output/tadf_best_meta_accuracy.txt}\%  among the 1000 most profilic authors. \textbf{b} The model achieves an even higher performance in predicting in which of the ten most common journals a given entry has been published. \textbf{c} The publication year, too, can be predicted with a high performance just based on composition descriptors. \textbf{d} Using predicted bibliometric information, one can achieve a mean absolute error between the \enquote{conventional} and naïve baseline models. The performance using actual bibliometric information is not much different from using the correct one.}
 	\label{fig:tadf_main}
 	\script{analyze-tadf.py}
 \end{figure}
