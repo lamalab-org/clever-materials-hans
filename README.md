@@ -1,21 +1,13 @@
-<p align="center">
-<a href="https://github.com/showyourwork/showyourwork">
-<img width = "450" src="https://raw.githubusercontent.com/showyourwork/.github/main/images/showyourwork.png" alt="showyourwork"/>
-</a>
-<br>
-<br>
-<a href="https://github.com/lamalab-org/clever-materials-hans/actions/workflows/build.yml">
-<img src="https://github.com/lamalab-org/clever-materials-hans/actions/workflows/build.yml/badge.svg?branch=main" alt="Article status"/>
-</a>
-<a href="https://github.com/lamalab-org/clever-materials-hans/raw/main-pdf/arxiv.tar.gz">
-<img src="https://img.shields.io/badge/article-tarball-blue.svg?style=flat" alt="Article tarball"/>
-</a>
-<a href="https://github.com/lamalab-org/clever-materials-hans/raw/main-pdf/ms.pdf">
-<img src="https://img.shields.io/badge/download-pdf-blue.svg?style=flat" alt="Download the PDF"/>
-</a>
-<a href="https://mozilla.github.io/pdf.js/web/viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%lamalab-org%2Fclever-materials-hans%2Fmain-pdf%2Fms.pdf">
-<img src="https://img.shields.io/badge/view-pdf-blue.svg?style=flat" alt="Read with PDF.js"/>
-</a>
-</p>
+# Clever Materials
 
-An open source scientific article created using the [showyourwork](https://github.com/showyourwork/showyourwork) workflow.
+Open-source scientific article built with the [showyourwork](https://github.com/showyourwork/showyourwork) workflow.
+
+## Gist
+
+Machine learning can accelerate materials discovery, but strong benchmark scores do not guarantee that models learn chemistry. This article tests an alternative hypothesis: property prediction may be driven by bibliographic confounding. Across five tasks (MOF thermal and solvent stability, perovskite efficiency, battery capacity, and TADF emission), models can predict author, journal, and year from standard descriptors above chance. When those predicted metadata (bibliographic fingerprints) are used as the only inputs, performance sometimes approaches conventional descriptor-based models. The results show that many datasets do not rule out non-chemical explanations of success and motivate routine falsification tests (group/time splits, metadata ablations), better dataset design, and clearer separation between predictive utility and evidence of chemical understanding.
+
+## Build
+
+```bash
+showyourwork build
+```
