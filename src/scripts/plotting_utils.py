@@ -57,6 +57,31 @@ METRIC_LABELS = {
     'recall_macro': 'Recall (Macro)'
 }
 
+# Metrics where lower values are better
+_LOWER_IS_BETTER_METRICS = {'mae', 'mape', 'rmse', 'mse'}
+
+
+def _is_lower_better(metric: str) -> bool:
+    """Return True if lower values are better for this metric."""
+    return metric.lower() in _LOWER_IS_BETTER_METRICS
+
+
+def _add_good_direction_annotation(ax: plt.Axes, metric: str, compact: bool = False) -> None:
+    """Add a small annotation near the y-axis indicating the direction of improvement.
+
+    Plots '↓ better' for error metrics (MAE, MAPE) where lower is better,
+    and '↑ better' for score metrics (F1, Accuracy, R²) where higher is better.
+    """
+    arrow = '↓' if _is_lower_better(metric) else '↑'
+    fontsize = 6 if compact else 7
+    ax.text(
+        0, 1.02, f'{arrow} better',
+        transform=ax.transAxes,
+        fontsize=fontsize,
+        ha='left', va='bottom',
+        color='gray', fontstyle='italic',
+    )
+
 
 def plot_performance_comparison(results: Dict[str, Any], 
                               target_type: str = 'regression',
@@ -132,6 +157,9 @@ def plot_performance_comparison(results: Dict[str, Any],
             metric_label = labels.get(metric, metric)
             ax.set_ylabel(metric_label, fontsize=10, labelpad=15)
             ax.yaxis.set_label_coords(-0.45, 0.5)  # Fixed position with better padding
+            
+            # Indicate which direction is better
+            _add_good_direction_annotation(ax, metric)
             
             # Apply range frame
             if len(valid_means) > 0:
@@ -445,6 +473,9 @@ def plot_parameter_sweep_results(sweep_results: List[Dict[str, Any]],
         ax.legend(fontsize=8)
         ax.set_xscale('log')
         
+        # Indicate which direction is better
+        _add_good_direction_annotation(ax, metric)
+        
         # Apply range frame
         if all_x and all_y:
             range_frame(ax, np.array(all_x), np.array(all_y))
@@ -593,6 +624,9 @@ def _plot_meta_prediction_panel(ax, results: Dict[str, Any], meta_type: str,
             ax.set_ylabel(ylabel_text, fontsize=fontsize_tick, labelpad=8)
         else:
             ax.set_ylabel(ylabel_text, fontsize=fontsize_tick+1, labelpad=10)
+        
+        # Indicate which direction is better
+        _add_good_direction_annotation(ax, metric, compact=compact)
         
         ax.set_xticks(x_pos)
         ax.set_xticklabels(labels_list, rotation=30, ha='right', fontsize=fontsize_tick)
@@ -745,6 +779,9 @@ def create_main_figure_panel(results: Dict[str, Any],
         
         # Use manual ylabel for better control
         ax_perf.set_ylabel(metric_label, fontsize=10, labelpad=12)
+        
+        # Indicate which direction is better
+        _add_good_direction_annotation(ax_perf, main_metric)
         
         # Add panel label D
         ax_perf.text(-0.03, 1.05, 'D', transform=ax_perf.transAxes, 
@@ -973,6 +1010,9 @@ def plot_meta_comparison(comparison_results: Dict[str, Any],
     
     metric_label = metric_labels.get(primary_metric, primary_metric.upper()) if metric_labels else primary_metric.upper()
     ax_property.set_ylabel(metric_label)
+    
+    # Indicate which direction is better
+    _add_good_direction_annotation(ax_property, primary_metric)
     
     # Add baseline reference if applicable
     if not np.isnan(means[1]):  # dummy baseline
