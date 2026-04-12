@@ -250,7 +250,11 @@ The indirect prediction approach tests whether meta-information contains suffici
 
 \subsection{Model Architecture and Training}
 
-All models used gradient boosting, implemented with \texttt{LightGBM}\autocite{lightgbm} with default hyperparameters. 
+All models used gradient boosting, implemented with \texttt{LightGBM}\autocite{lightgbm}. All LightGBM hyperparameters were kept at their defaults. No hyperparameter search was performed; the goal was to compare model types under equivalent, untuned conditions rather than to maximise individual task performance.
+
+The indirect (proxy) prediction pipeline comprises three sequential sub-models. First, a \texttt{MultiOutputClassifier} wrapping \texttt{LGBMClassifier} predicts binary author-presence features; second, an analogous \texttt{MultiOutputClassifier} predicts binary journal-presence features; and third, an \texttt{LGBMRegressor} predicts publication year. The outputs of all three sub-models are concatenated to form the meta-feature vector that the final indirect model uses to estimate the target property.
+
+Model performance on regression tasks was evaluated using mean absolute error (MAE), mean absolute percentage error (MAPE), and the coefficient of determination ($R^2$). As a baseline, a \texttt{DummyRegressor} predicting the training-set mean was used.
 
 \subsection{Cross-Validation Protocol}
 I used 10-fold cross-validation with random shuffling unless otherwise mentioned. Individual dots in swarm plots indicate the performance on the individual folds. 
