@@ -250,7 +250,7 @@ The indirect prediction approach tests whether meta-information contains suffici
 
 \subsection{Model Architecture and Training}
 
-All models used gradient boosting, implemented with \texttt{LightGBM}\autocite{lightgbm}. Since all four prediction tasks---battery capacity, perovskite power conversion efficiency, MOF thermal and solvent stability, and TADF emission wavelength---are regression problems, I used \texttt{LGBMRegressor} throughout. All LightGBM hyperparameters were kept at their defaults: 100 boosting rounds, a learning rate of 0.1, 31 leaves per tree, and a minimum of 20 samples per leaf. Only the random seed was fixed (42) for reproducibility. No hyperparameter search was performed; the goal was to compare model types under equivalent, untuned conditions rather than to maximise individual task performance.
+All models used gradient boosting, implemented with \texttt{LightGBM}\autocite{lightgbm}. All LightGBM hyperparameters were kept at their defaults. No hyperparameter search was performed; the goal was to compare model types under equivalent, untuned conditions rather than to maximise individual task performance.
 
 The indirect (proxy) prediction pipeline comprises three sequential sub-models. First, a \texttt{MultiOutputClassifier} wrapping \texttt{LGBMClassifier} predicts binary author-presence features; second, an analogous \texttt{MultiOutputClassifier} predicts binary journal-presence features; and third, an \texttt{LGBMRegressor} predicts publication year. The outputs of all three sub-models are concatenated to form the meta-feature vector that the final indirect model uses to estimate the target property.
 
